@@ -16,6 +16,6 @@
  * @see https://github.com/zeit/async-throttle
  */
 export default external public function <T> createThrottle(max: int):
-    {function(Promise<T, ?>): Promise<T, ?>};
+    {function({function(): Promise<T, ?>}): Promise<T, ?>};
 
 /* -*- mode: typescript;-*- */
