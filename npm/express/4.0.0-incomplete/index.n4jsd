@@ -1,5 +1,9 @@
 import {Server , IncomingMessage , ServerResponse } from "http";
 
+/**
+ * @see http://expressjs.com/en/4x/api.html
+ */
+ 
 interface ~CookieOptions {
     maxAge: number?;
     signed: boolean?;
@@ -150,3 +154,5 @@ export default external public class __default {
     public const request: Request;
     public const response: Response;
 }
+
+/* -*- mode: typescript;-*- */

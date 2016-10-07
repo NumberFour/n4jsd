@@ -1,0 +1,102 @@
+/**
+ * Accessible fields of a moment object, used for the getter.
+ */
+export @StringBased public enum MomentFieldName {
+    year, month, date,
+    hour, minute, second, millisecond
+}
+
+/**
+ * Accessible fields of a moment object, used for the getter.
+ */
+export @StringBased public enum MomentDurationUnit {
+    years, months, days, weeks,
+    hours, minutes, seconds, milliseconds
+}
+
+/**
+ * Class definition for Moment.js, including moment-timezone.js (https://github.com/moment).
+ */
+export default external public class ~Moment {
+    /**
+     * Constructor function.
+     * Creates a new moment in the system timezone, either form a JS Date or from the object.
+     */
+    public constructor(value: union{
+        Date,
+        ~Object with {
+            year: number?;
+            month: number?;
+            day: number?;
+            hour: number?;
+            minute: number?;
+            second: number?;
+            millisecond: number?;
+        }
+    }?);
+
+    /**
+     * Creates a new moment in the given timezone.
+     * @param moment the local time in the given timezone.
+     * @param olsonId the id of the timezone
+     */
+    public static tz(moment: union{
+        ~Object with {
+            year: number?;
+            month: number?;
+            day: number?;
+            hour: number?;
+            minute: number?;
+            second: number?;
+            millisecond: number?;
+        },
+        string
+    }, olsonId: string?): Moment;
+
+    /**
+     * Converts this moment to the given timezone.
+     * This is a destructive operation.
+     */
+    public tz(olsonId: string): Moment;
+
+    /**
+     * Adds the given duration of the given units to this moment.
+     * This is a destructive operation.
+     */
+    public add(duration: number, unit: MomentDurationUnit): Moment;
+
+    /**
+     * Gets the difference as a duration of the given units to this moment.
+     */
+    public diff(Moment, unit: MomentDurationUnit, withFraction: boolean?): number;
+
+    /**
+     * Checks if this moment represents a valid point in time for this timezone w.r.t. leap years.
+     * It does not check if the values are in the correct range (e.g., 0 to 11 for month).
+     * This check has to be implemented by the developer.
+     */
+    public isValid(): boolean;
+
+    /**
+     * Getter for this moment's fields.
+     */
+    public get(fieldName: MomentFieldName): number;
+
+    /**
+     * Returns the UTC offset for this moment in this timezone.
+     * Negative values are behind the UTC, positive values are ahead.
+     */
+    public utcOffset(): number;
+
+    /**
+     * Returns the abbreviation for this moment's timezone.
+     */
+    public zoneAbbr(): string;
+
+    /**
+     * Returns the name for this moment's timezone.
+     */
+    public zoneName(): string;
+}
+
+/* -*- mode: typescript;-*- */
