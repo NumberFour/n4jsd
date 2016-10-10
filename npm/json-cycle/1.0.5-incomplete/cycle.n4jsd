@@ -2,7 +2,7 @@
  * @see https://github.com/valery-barysok/json-cycle#methods
  */
 
-export external public function decycle(object: Object): Object;
-export external public function retrocycle(object: Object): Object;
+export external public function decycle(object);
+export external public function retrocycle(object);
 
 /* -*- mode: typescript;-*- */
