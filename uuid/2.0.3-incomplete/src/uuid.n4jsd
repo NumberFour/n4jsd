@@ -1,0 +1,18 @@
+/**
+ * Generate and return a RFC4122 v4 UUID.
+ *
+ * @param options options
+ * @param buffer Optional Array or buffer where UUID bytes are to be written.
+ * @param Starting index in buffer at which to begin writing.
+ * @return Returns buffer, if specified, otherwise the string form of the UUID
+ *
+ * @see https://github.com/defunctzombie/node-uuid
+ */
+export external public function v4(
+    options: ~Object with {
+        random: Array<number>; // (Number[16]) Array of 16 numbers (0-255) to use in place of randomly generated values
+    }?,
+    buffer: union{Array<int>/*, Buffer*/}?,
+    offset: int?): union{Array<int>/*, Buffer*/, string};
+
+/* -*- mode: typescript;-*- */
