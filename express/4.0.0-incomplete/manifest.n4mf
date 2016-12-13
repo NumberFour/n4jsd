@@ -1,0 +1,15 @@
+ProjectId: express
+ProjectType: library
+ProjectVersion: 0.0.1-SNAPSHOT
+VendorId: eu.numberfour
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+ProjectDependencies {
+	http
+}
