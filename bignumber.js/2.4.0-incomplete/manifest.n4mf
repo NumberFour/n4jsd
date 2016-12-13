@@ -1,0 +1,12 @@
+ProjectId: bignumber.js
+ProjectType: library
+ProjectVersion: 0.0.1-SNAPSHOT
+VendorId: eu.numberfour
+Output: "."
+MainModule: "bignumber"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
