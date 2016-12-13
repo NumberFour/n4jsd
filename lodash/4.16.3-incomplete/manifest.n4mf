@@ -1,0 +1,12 @@
+ProjectId: lodash
+ProjectType: library
+ProjectVersion: 0.0.1-SNAPSHOT
+VendorId: eu.numberfour
+Output: "."
+MainModule: "lodash"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
