@@ -1,6 +1,0 @@
-/**
- * @see https://github.com/substack/node-deep-equal
- */
-export default external public function deepEqual(actual: any, expected: any, opts: ~Object with {strict: boolean}?): boolean;
-
-/* -*- mode: typescript;-*- */
