@@ -1,0 +1,12 @@
+ProjectId: node-uuid
+ProjectType: library
+ProjectVersion: 0.0.1-SNAPSHOT
+VendorId: eu.numberfour
+Output: "."
+MainModule: "uuid"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
