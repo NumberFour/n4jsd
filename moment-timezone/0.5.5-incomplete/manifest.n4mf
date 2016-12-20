@@ -1,7 +1,7 @@
 ProjectId: moment-timezone
 ProjectType: library
-ProjectVersion: 0.0.1-SNAPSHOT
-VendorId: eu.numberfour
+ProjectVersion: 0.5.5-incomplete
+VendorId: npm
 Output: "."
 MainModule: "index"
 ModuleLoader: commonjs

@@ -1,7 +1,7 @@
 ProjectId: cli-color
 ProjectType: library
-ProjectVersion: 0.0.1-SNAPSHOT
-VendorId: eu.numberfour
+ProjectVersion: 1.1.0-incomplete
+VendorId: npm
 Output: "."
 MainModule: "index"
 ModuleLoader: commonjs

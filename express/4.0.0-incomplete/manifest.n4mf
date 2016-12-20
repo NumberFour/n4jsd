@@ -1,7 +1,7 @@
 ProjectId: express
 ProjectType: library
-ProjectVersion: 0.0.1-SNAPSHOT
-VendorId: eu.numberfour
+ProjectVersion: 4.0.0-incomplete
+VendorId: npm
 Output: "."
 MainModule: "index"
 ModuleLoader: commonjs

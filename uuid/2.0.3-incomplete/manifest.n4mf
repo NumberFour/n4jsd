@@ -1,7 +1,7 @@
 ProjectId: uuid
 ProjectType: library
-ProjectVersion: 0.0.1-SNAPSHOT
-VendorId: eu.numberfour
+ProjectVersion: 2.0.3-incomplete
+VendorId: npm
 Output: "."
 MainModule: "uuid"
 ModuleLoader: commonjs
