@@ -119,7 +119,7 @@ export default @Final external public class ~BigNumber {
      *      new BigNumber('ff.8', 16)                  // '255.5'
      *      new BigNumber('0xff.8')                    // '255.5'
      */
-    public constructor(value: union{number, string, BigNumber}, base: number?);
+    public constructor(value: union{number, string, BigNumber}, base: number =);
 
     /**
      * Configures the 'global' settings for this particular BigNumber constructor.
@@ -161,7 +161,7 @@ export default @Final external public class ~BigNumber {
      *  0   If this BigNumber and number have the same value
      *  null    If the value of either this BigNumber or number is NaN
      */
-    public comparedTo(number: union{number, string, BigNumber}, base: number?): number;
+    public comparedTo(number: union{number, string, BigNumber}, base: number =): number;
 
     /**
      * @return the number of decimal places of the value of this BigNumber,
@@ -173,13 +173,13 @@ export default @Final external public class ~BigNumber {
      * @return a BigNumber whose value is the value of this BigNumber times number.
      * The return value is always exact and unrounded.
      */
-    public times(number: union{number, string, BigNumber}, base: number?): BigNumber;
+    public times(number: union{number, string, BigNumber}, base: number =): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber divided by n,
      * rounded according to the current DECIMAL_PLACES and ROUNDING_MODE configuration.
      */
-    public dividedBy(number: union{number, string, BigNumber}, base: number?): BigNumber;
+    public dividedBy(number: union{number, string, BigNumber}, base: number =): BigNumber;
 
     /**
      * @return true if the value of this BigNumber equals the value of n, otherwise returns false.
@@ -187,7 +187,7 @@ export default @Final external public class ~BigNumber {
      *
      * Note: This method uses the comparedTo method internally.
      */
-    public equals(number: union{number, string, BigNumber}, base: number?): boolean;
+    public equals(number: union{number, string, BigNumber}, base: number =): boolean;
 
     /**
      * @return true if the value of this BigNumber is negative, otherwise returns false.
@@ -213,13 +213,13 @@ export default @Final external public class ~BigNumber {
      * @return a BigNumber whose value is the value of this BigNumber minus n.
      * The return value is always exact and unrounded.
      */
-    public minus(number: union{number, string, BigNumber}, base: number?): BigNumber;
+    public minus(number: union{number, string, BigNumber}, base: number =): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber plus n.
      * The return value is always exact and unrounded.
      */
-    public plus(number: union{number, string, BigNumber}, base: number?): BigNumber;
+    public plus(number: union{number, string, BigNumber}, base: number =): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber
@@ -227,14 +227,14 @@ export default @Final external public class ~BigNumber {
      * If decimalPlaces is omitted, or is null or undefined, the return value is the BigNumber rounded to a whole number.
      * If roundingMode is omitted, or is null or undefined, ROUNDING_MODE (set using the config method) is used.
      */
-    public round(decimalPlaces: number, roundingMode: number?): BigNumber;
+    public round(decimalPlaces: number, roundingMode: number =): BigNumber;
 
     /**
      * @return a string representing the value of this BigNumber in normal (fixed-point) notation
      * rounded to dp decimal places using rounding mode rm,
      * and formatted according to the properties of the FORMAT object.
      */
-    public toFormat(decimalPlaces: number, roundingMode: number?): string;
+    public toFormat(decimalPlaces: number, roundingMode: number =): string;
 
     /**
      * @return a string representing the value of this BigNumber in normal (fixed-point) notation,
@@ -255,7 +255,7 @@ export default @Final external public class ~BigNumber {
      * @param decimalPlaces: number: integer, 0 to 1e+9 inclusive
      * @param roundingMode: number: integer, 0 to 8 inclusive
      */
-    public toFixed(decimalPlaces: number, roundingMode: number?): string;
+    public toFixed(decimalPlaces: number, roundingMode: number =): string;
 
     /**
      * @return the value of this BigNumber as a JavaScript number primitive.
@@ -280,7 +280,7 @@ export default @Final external public class ~BigNumber {
      * If base is null or undefined it is ignored.
      */
     @Override
-    public toString(base: number?): string;
+    public toString(base: number =): string;
 }
 
 /* -*- mode: typescript;-*- */
