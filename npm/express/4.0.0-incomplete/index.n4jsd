@@ -50,7 +50,7 @@ export external public class ~Request extends IncomingMessage{
     public range(size: number): Array<any>;
     public acceptedLanguages: Array<string>;
     public acceptedCharsets: Array<string>;
-    public param(name: string, defaultValue: any =): string;
+    public param(name: string, defaultValue: any=): string;
     public is(type: string): boolean;
     public protocol: string;
     public secure: boolean;
@@ -76,31 +76,31 @@ export external public class ~Response extends ServerResponse {
     public status(code: number): this;
     public sendStatus(code: number): this;
     public links(links: any): this;
-    public send( body: union{Buffer, Object, Array<any>, string, number}, reason: string =): this
+    public send( body: union{Buffer, Object, Array<any>, string, number}, reason: string=): this
     public json(body: any): this;
     public jsonp(body: any): this;
 
     @Promisifiable
-    public sendFile(path: string, options: any =, errBack: {function(err: Error)} =): void;
+    public sendFile(path: string, options: any=, errBack: {function(err: Error)}=): void;
 
     @Promisifiable
-    public download(path: string, filename: union{string, {function(err: Error)}} =, errBack: {function(err: Error)} =): void;
+    public download(path: string, filename: union{string, {function(err: Error)}}=, errBack: {function(err: Error)}=): void;
 
     public contentType(type: string): this;
     public type(type: string): this;
     public format(obj: any): this;
-    public attachment(filename: string =): this;
-    public set(field: any, value: string =): this;
-    public header(field: any, value: string =): this;
+    public attachment(filename: string=): this;
+    public set(field: any, value: string=): this;
+    public header(field: any, value: string=): this;
     public headersSent: boolean;
     public get (field: string): string;
-    public clearCookie(name: string, options: any =): this;
-    public cookie(name: string, val: any, options: CookieOptions =): this;
+    public clearCookie(name: string, options: any=): this;
+    public cookie(name: string, val: any, options: CookieOptions=): this;
     public location(url: string): this;
     public redirect(status: number, url: string): void;
 
     @Promisifiable
-    public render(view: string, options: Object =, callback: {function(err: Error, html: string)} =): void;
+    public render(view: string, options: Object=, callback: {function(err: Error, html: string)}=): void;
 
     public app: Application;
 }
@@ -137,18 +137,18 @@ export external public const application: Application;
 export external public const request: Request;
 export external public const response: Response;
 
-export external public function Router(options: any =): IRouter;
+export external public function Router(options: any=): IRouter;
 
-export external public function query(options: any =): {function(req: Request, res: Response, next: Function)};
+export external public function query(options: any=): {function(req: Request, res: Response, next: Function)};
 
 export default external public class __default {
     (): Application;
 
-    public static Router(options: any =): IRouter;
+    public static Router(options: any=): IRouter;
     public static Route(path: string): Route;
 
     public static static(path: string): {function(req: Request, res: Response, next: {function()})};
-    public static query(options: any =): {function(req: Request, res: Response, next: Function)};
+    public static query(options: any=): {function(req: Request, res: Response, next: Function)};
 
     public const application: Application;
     public const request: Request;

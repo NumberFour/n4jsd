@@ -11,8 +11,8 @@
 export external public function v4(
     options: ~Object with {
         random: Array<number>; // (Number[16]) Array of 16 numbers (0-255) to use in place of randomly generated values
-    } =,
-    buffer: union{Array<int>/*, Buffer*/} =,
-    offset: int =): union{Array<int>/*, Buffer*/, string};
+    }=,
+    buffer: union{Array<int>/*, Buffer*/}=,
+    offset: int=): union{Array<int>/*, Buffer*/, string};
 
 /* -*- mode: typescript;-*- */

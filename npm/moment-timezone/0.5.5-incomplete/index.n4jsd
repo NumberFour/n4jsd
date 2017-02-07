@@ -33,7 +33,7 @@ export default external public class ~Moment {
             second: number?;
             millisecond: number?;
         }
-    } =);
+    }=);
 
     /**
      * Creates a new moment in the given timezone.
@@ -51,7 +51,7 @@ export default external public class ~Moment {
             millisecond: number?;
         },
         string
-    }, olsonId: string =): Moment;
+    }, olsonId: string=): Moment;
 
     /**
      * Converts this moment to the given timezone.
@@ -68,7 +68,7 @@ export default external public class ~Moment {
     /**
      * Gets the difference as a duration of the given units to this moment.
      */
-    public diff(Moment, unit: MomentDurationUnit, withFraction: boolean =): number;
+    public diff(Moment, unit: MomentDurationUnit, withFraction: boolean=): number;
 
     /**
      * Checks if this moment represents a valid point in time for this timezone w.r.t. leap years.
