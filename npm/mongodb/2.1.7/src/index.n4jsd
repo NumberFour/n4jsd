@@ -19,8 +19,8 @@ export external public class MongoClient {
         options: union {
             MongoClientOptions,
             {function(err: MongoError, db: Db):void}
-        }?,
-        callback: {function(err: MongoError, db: Db):void}?
+        } = undefined,
+        callback: {function(err: MongoError, db: Db):void} = undefined
     ): Promise<Db, MongoError>;
 
     public connect(
@@ -28,8 +28,8 @@ export external public class MongoClient {
         options: union {
             MongoClientOptions,
             {function(err: MongoError, db: Db):void}
-        }?,
-        callback: {function(err: MongoError, db: Db):void}?
+        } = undefined,
+        callback: {function(err: MongoError, db: Db):void} = undefined
     ): Promise<Db, MongoError>;
 }
 
@@ -131,22 +131,22 @@ export external public interface MongosOptions {
 }
 
 export external public class Server extends EventEmitter {
-    public constructor(host: string, port: union {number, ServerOptions}?, options: ServerOptions?);
+    public constructor(host: string, port: union {number, ServerOptions} = undefined, options: ServerOptions = undefined);
     public connections(): Array<any>;
 }
 
 export external public class ReplSet extends EventEmitter {
-    public constructor(servers: Array<Server>, options: ReplSetOptions?);
+    public constructor(servers: Array<Server>, options: ReplSetOptions = undefined);
     public connections(): Array<any>;
 }
 
 export external public class Mongos extends EventEmitter {
-    public constructor(servers: Array<Server>, options: MongosOptions?);
+    public constructor(servers: Array<Server>, options: MongosOptions = undefined);
     public connections(): Array<any>;
 }
 
 export external public class Db extends EventEmitter {
-    public constructor(databaseName: string, topology: union {Server, ReplSet, Mongos}, options: DbCreateOptions?);
+    public constructor(databaseName: string, topology: union {Server, ReplSet, Mongos}, options: DbCreateOptions = undefined);
     public serverConfig: union {Server, ReplSet, Mongos};
     public bufferMaxEntries: int;
     public databaseName: string;
@@ -167,8 +167,8 @@ export external public class Db extends EventEmitter {
                 roles: Array<Object>
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public admin(): Admin;
@@ -179,15 +179,15 @@ export external public class Db extends EventEmitter {
             string,
             ~Object with {authMechanism: string?},
             {function(error: MongoError, result: any)}
-        }?,
+        } = undefined,
         options: union {
             ~Object with {authMechanism: string?},
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public close(force: boolean, callback: {function(error: MongoError)}?): Promise<void, MongoError>?;
+    public close(force: boolean, callback: {function(error: MongoError)} = undefined): Promise<void, MongoError>?;
 
     public collection(
         name: string,
@@ -204,11 +204,11 @@ export external public class Db extends EventEmitter {
                 readConcern: ~Object with {level: Object?}?
             },
             {function(error: MongoError, collection: Collection)}
-        }?,
-        callback: {function(error: MongoError, collection: Collection)}?
+        } = undefined,
+        callback: {function(error: MongoError, collection: Collection)} = undefined
     ): Collection?;
 
-    public collections(callback: {function(error: MongoError, collections: Array<Collection>)}?): Promise<Array<Collection>, MongoError>?;
+    public collections(callback: {function(error: MongoError, collections: Array<Collection>)} = undefined): Promise<Array<Collection>, MongoError>?;
 
     public command(
         command: Object,
@@ -217,8 +217,8 @@ export external public class Db extends EventEmitter {
                 readPreference: union {ReadPreference, string}?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public createCollection(
@@ -239,15 +239,15 @@ export external public class Db extends EventEmitter {
                 autoIndexId: boolean
             },
             {function(error: MongoError, collection: Collection)}
-        }?,
-        callback: {function(error: MongoError, collection: Collection)}?
+        } = undefined,
+        callback: {function(error: MongoError, collection: Collection)} = undefined
     ): Promise<Collection, MongoError>?;
 
     public createIndex(
         name: string,
         fieldOrSpec: union {string, Object},
-        options: union {IndexOptions,{function(error: MongoError, result: any)}}?,
-        callback: {function(error: MongoError, result: any)}?
+        options: union {IndexOptions,{function(error: MongoError, result: any)}} = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public db(
@@ -258,9 +258,9 @@ export external public class Db extends EventEmitter {
         }
     ): Db;
 
-    public dropCollection(name: string, callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public dropCollection(name: string, callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
-    public dropDatabase(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public dropDatabase(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public executeDbAdminCommand(
         command: Object,
@@ -270,8 +270,8 @@ export external public class Db extends EventEmitter {
                 maxTimeMS: int?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public indexInformation(
@@ -282,8 +282,8 @@ export external public class Db extends EventEmitter {
                 full: boolean?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public listCollections(
@@ -291,7 +291,7 @@ export external public class Db extends EventEmitter {
         options: ~Object with {
             batchSize:int?,
             readPreference: union {ReadPreference, string}?
-        }?
+        } = undefined
     ): CommandCursor;
 
     public logout(
@@ -300,16 +300,16 @@ export external public class Db extends EventEmitter {
                 dbName: string?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public open(callback: {function(error: MongoError, db: Db)}?): Promise<Db, MongoError>?;
+    public open(callback: {function(error: MongoError, db: Db)} = undefined): Promise<Db, MongoError>?;
 
     public removeUser(
         username: string,
-        options: union {CollectionOptions, {function(error: MongoError, result: any)}}?,
-        callback: {function(error: MongoError, result: any)}?
+        options: union {CollectionOptions, {function(error: MongoError, result: any)}} = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public renameCollection(
@@ -320,8 +320,8 @@ export external public class Db extends EventEmitter {
                 dropTarget: boolean?
             },
             {function(error: MongoError, collection: Collection)}
-        }?,
-        callback: {function(error: MongoError, collection: Collection)}?
+        } = undefined,
+        callback: {function(error: MongoError, collection: Collection)} = undefined
     ): Promise<Collection, MongoError>?;
 
     public stats(
@@ -330,8 +330,8 @@ export external public class Db extends EventEmitter {
                 scale: number?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 }
 
@@ -349,8 +349,8 @@ export external public interface Admin {
                 roles: Array<Object>
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public authenticate(
@@ -358,11 +358,11 @@ export external public interface Admin {
         password: union {
             string,
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public buildInfo(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public buildInfo(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public command(
         command: Object,
@@ -372,19 +372,19 @@ export external public interface Admin {
                 maxTimeMS: number?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public listDatabases(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public logout(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public ping(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public profilingInfo(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public profilingLevel(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public replSetGetStatus(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public serverInfo(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public serverStatus(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public setProfilingLevel(level: string, callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public listDatabases(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public logout(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public ping(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public profilingInfo(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public profilingLevel(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public replSetGetStatus(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public serverInfo(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public serverStatus(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public setProfilingLevel(level: string, callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public removeUser(
         username: string,
@@ -396,14 +396,14 @@ export external public interface Admin {
                 fsync: boolean?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public validateCollection(
         collectionName: string,
-        options: union {Object, {function(error: MongoError, result: any)}}?,
-        callback: {function(error: MongoError, result: any)}?
+        options: union {Object, {function(error: MongoError, result: any)}} = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 }
 
@@ -428,8 +428,8 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?,
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): union{void, AggregationCursor};
 
     public bulkWrite(
@@ -444,8 +444,8 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: BulkWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: BulkWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: BulkWriteOpResultObject)} = undefined
     ): Promise<BulkWriteOpResultObject, MongoError>?;
 
     public count(
@@ -458,28 +458,28 @@ export external public interface Collection {
                 hint: boolean?,
             },
             {function(error: MongoError, result: int)}
-        }?,
-        callback: {function(error: MongoError, result: int)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: int)} = undefined
     ): Promise<int, MongoError>?;
 
     public createIndex(
         fieldOrSpec: union{Object, string},
-        options: union {IndexOptions, {function(error: MongoError, result: any)}}?,
-        callback: {function(error: MongoError, result: any)}?
+        options: union {IndexOptions, {function(error: MongoError, result: any)}} = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public createIndexes(indexSpecs: Array<Object>, callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public createIndexes(indexSpecs: Array<Object>, callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public deleteMany(
         filter: Object,
-        options: union {CollectionOptions, {function(error: MongoError, result: DeleteWriteOpResultObject)}}?,
-        callback: {function(error: MongoError, result: DeleteWriteOpResultObject)}?
+        options: union {CollectionOptions, {function(error: MongoError, result: DeleteWriteOpResultObject)}} = undefined,
+        callback: {function(error: MongoError, result: DeleteWriteOpResultObject)} = undefined
     ): Promise<DeleteWriteOpResultObject, MongoError>?;
 
     public deleteOne(
         filter: Object,
-        options: union {CollectionOptions, {function(error: MongoError, result: DeleteWriteOpResultObject)}}?,
-        callback: {function(error: MongoError, result: DeleteWriteOpResultObject)}?
+        options: union {CollectionOptions, {function(error: MongoError, result: DeleteWriteOpResultObject)}} = undefined,
+        callback: {function(error: MongoError, result: DeleteWriteOpResultObject)} = undefined
     ): Promise<DeleteWriteOpResultObject, MongoError>?;
 
     public distinct(
@@ -490,19 +490,19 @@ export external public interface Collection {
                 readPreference: union {ReadPreference, string}?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public drop(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public drop(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public dropIndex(
         indexName: string,
-        options: union {CollectionOptions, {function(error: MongoError, result: any)}}?,
-        callback: {function(error: MongoError, result: any)}?
+        options: union {CollectionOptions, {function(error: MongoError, result: any)}} = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public dropIndexes(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public dropIndexes(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
     public find(query: Object): Cursor;
 
     public findOneAndDelete(
@@ -514,8 +514,8 @@ export external public interface Collection {
                 maxTimeMS: number?
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)} = undefined
     ): Promise<FindAndModifyWriteOpResultObject, MongoError>?;
 
     public findOneAndReplace(
@@ -530,8 +530,8 @@ export external public interface Collection {
                 returnOriginal: boolean?
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)} = undefined
     ): Promise<FindAndModifyWriteOpResultObject, MongoError>?;
 
     public findOneAndUpdate(
@@ -546,8 +546,8 @@ export external public interface Collection {
                 returnOriginal: boolean?
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: FindAndModifyWriteOpResultObject)} = undefined
     ): Promise<FindAndModifyWriteOpResultObject, MongoError>?;
 
     public geoHaystackSearch(
@@ -561,8 +561,8 @@ export external public interface Collection {
                 limit: number?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public geoNear(
@@ -581,8 +581,8 @@ export external public interface Collection {
                 includeLocs: boolean?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public group(
@@ -597,12 +597,12 @@ export external public interface Collection {
                 readPreference: union {ReadPreference, string}?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public indexes(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
-    public indexExists(indexes: union {string, Array<string>}, callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public indexes(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
+    public indexExists(indexes: union {string, Array<string>}, callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public indexInformation(
         options: union {
@@ -610,16 +610,16 @@ export external public interface Collection {
                 full: boolean?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public initializeOrderedBulkOp(
-        options: union {CollectionOptions, {function(error: MongoError, result: OrderedBulkOperation)}}?,
-        callback: {function(error: MongoError, result: OrderedBulkOperation)}?
+        options: union {CollectionOptions, {function(error: MongoError, result: OrderedBulkOperation)}} = undefined,
+        callback: {function(error: MongoError, result: OrderedBulkOperation)} = undefined
     ): void;
 
-    public initializeUnorderedBulkOp(options: CollectionOptions?): UnorderedBulkOperation;
+    public initializeUnorderedBulkOp(options: CollectionOptions = undefined): UnorderedBulkOperation;
 
     public insertMany(
         docs: Array<Object>,
@@ -633,8 +633,8 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: InsertWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: InsertWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: InsertWriteOpResultObject)} = undefined
     ): Promise<InsertWriteOpResultObject, MongoError>?;
 
     public insertOne(
@@ -649,16 +649,16 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: InsertOneWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: InsertOneWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: InsertOneWriteOpResultObject)} = undefined
     ): Promise<InsertOneWriteOpResultObject, MongoError>?;
 
-    public isCapped(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public isCapped(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public listIndexes(options: ~Object with {
         batchSize: number?,
         readPreference: union {ReadPreference, string}?
-    }?): CommandCursor;
+    } = undefined): CommandCursor;
 
     public mapReduce(
         map: union{Function, string},
@@ -678,11 +678,11 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
-    public options(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public options(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public parallelCollectionScan(
         options: union {
@@ -693,11 +693,11 @@ export external public interface Collection {
                 raw: boolean?,
             },
             {function(error: MongoError, result: Array<Cursor>)}
-        }?,
-        callback: {function(error: MongoError, result: Array<Cursor>)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: Array<Cursor>)} = undefined
     ): Promise<Array<Cursor>, MongoError>?;
 
-    public reIndex(callback: {function(error: MongoError, result: any)}?): Promise<any, MongoError>?;
+    public reIndex(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public rename(
         newName: string,
@@ -706,8 +706,8 @@ export external public interface Collection {
                 dropTarget: boolean?,
             },
             {function(error: MongoError, result: Collection)}
-        }?,
-        callback: {function(error: MongoError, result: Collection)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: Collection)} = undefined
     ): Promise<Collection, MongoError>?;
 
     public replaceOne(
@@ -722,8 +722,8 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)} = undefined
     ): Promise<UpdateWriteOpResultObject, MongoError>?;
 
     public stats(
@@ -732,8 +732,8 @@ export external public interface Collection {
                 scale: number?
             },
             {function(error: MongoError, result: any)}
-        }?,
-        callback: {function(error: MongoError, result: any)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: any)} = undefined
     ): Promise<any, MongoError>?;
 
     public updateMany(
@@ -747,8 +747,8 @@ export external public interface Collection {
                 j: boolean?,
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)} = undefined
     ): Promise<UpdateWriteOpResultObject, MongoError>?;
 
     public updateOne(
@@ -763,8 +763,8 @@ export external public interface Collection {
                 bypassDocumentValidation: boolean?
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
-        }?,
-        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: UpdateWriteOpResultObject)} = undefined
     ): Promise<UpdateWriteOpResultObject, MongoError>?;
 }
 
@@ -781,8 +781,8 @@ export external public interface OrderedBulkOperation {
                 fsync: boolean?
             },
             {function(error: MongoError, result: BulkWriteResult)}
-        }?,
-        callback: {function(error: MongoError, result: BulkWriteResult)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: BulkWriteResult)} = undefined
     ): Promise<BulkWriteResult, MongoError>?;
 
     public find(selector: Object): FindOperatorsOrdered;
@@ -849,8 +849,8 @@ export external public interface UnorderedBulkOperation {
                 fsync: boolean?
             },
             {function(error: MongoError, result: BulkWriteResult)}
-        }?,
-        callback: {function(error: MongoError, result: BulkWriteResult)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: BulkWriteResult)} = undefined
     ): Promise<BulkWriteResult, MongoError>?;
 
     public find(selector: Object): FindOperatorsUnordered;
@@ -867,7 +867,7 @@ export external public class Cursor extends Readable {
     public addQueryModifier(name: string, value: boolean): Cursor;
     public batchSize(value: number): Cursor;
     public clone(): Cursor;
-    public close(callback: {function(error: MongoError, result: union{void, Object, boolean})}?): Promise<union{void, Object, boolean}, MongoError>?;
+    public close(callback: {function(error: MongoError, result: union{void, Object, boolean})} = undefined): Promise<union{void, Object, boolean}, MongoError>?;
     public comment(value: string): Cursor;
 
     public count(
@@ -881,14 +881,14 @@ export external public class Cursor extends Readable {
                 maxTimeMS: number?
             },
             {function(error: MongoError, result: number)}
-        }?,
-        callback: {function(error: MongoError, result: number)}?
+        } = undefined,
+        callback: {function(error: MongoError, result: number)} = undefined
     ): Promise<number, MongoError>?;
 
-    public explain(callback: {function(error: MongoError, result: union{void, Object, boolean})}?): Promise<union{void, Object, boolean}, MongoError>?;
+    public explain(callback: {function(error: MongoError, result: union{void, Object, boolean})} = undefined): Promise<union{void, Object, boolean}, MongoError>?;
     public filter(filter: Object): Cursor;
     public forEach(iterator: {function(doc:Object)}, callback: {function(error:MongoError)}): void;
-    public hasNext(callback: {function(error: MongoError, result: union{void, Object, boolean})}?): Promise<union{void, Object, boolean}, MongoError>?;
+    public hasNext(callback: {function(error: MongoError, result: union{void, Object, boolean})} = undefined): Promise<union{void, Object, boolean}, MongoError>?;
     public hint(hint: Object): Cursor;
     public isClosed(): boolean;
     public limit(value: number): Cursor;
@@ -898,15 +898,15 @@ export external public class Cursor extends Readable {
     public maxAwaitTimeMS(value: number): Cursor;
     public maxTimeMS(value: number): Cursor;
     public maxScan(maxScan: Object): Cursor;
-    public next(callback: {function(error: MongoError, result: union{void, Object, boolean})}?): Promise<union{void, Object, boolean}, MongoError>?;
+    public next(callback: {function(error: MongoError, result: union{void, Object, boolean})} = undefined): Promise<union{void, Object, boolean}, MongoError>?;
     public setCursorOption(field: string, value: Object): Cursor;
     public setReadPreference(readPreference: union {string, ReadPreference}): Cursor;
     public showRecordId(showRecordId: Object): Cursor;
     public skip(value: number): Cursor;
     public snapshot(snapshot: Object): Cursor;
-    public sort(keyOrList: union{string, Array<any>, Object}, direction: number?): Cursor;
-    public stream(options: ~Object with { transform: Function?}?): Cursor;
-    public toArray(callback: {function(error: MongoError, documents: Array<Object>)}?): Promise<Array<Object>, MongoError>?;
+    public sort(keyOrList: union{string, Array<any>, Object}, direction: number = undefined): Cursor;
+    public stream(options: ~Object with { transform: Function?} = undefined): Cursor;
+    public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
 export external public class AggregationCursor extends Readable {
@@ -914,23 +914,23 @@ export external public class AggregationCursor extends Readable {
 
     public batchSize(value: number): AggregationCursor;
     public clone(): AggregationCursor;
-    public close(callback: {function(error: MongoError, result: union{void, Object})}?): Promise<union{void, Object}, MongoError>?;
+    public close(callback: {function(error: MongoError, result: union{void, Object})} = undefined): Promise<union{void, Object}, MongoError>?;
     public each(callback: {function(error: MongoError, result: union{void, Object})}): void
-    public explain(callback: {function(error: MongoError, result: union{void, Object})}?): Promise<union{void, Object}, MongoError>?;
+    public explain(callback: {function(error: MongoError, result: union{void, Object})} = undefined): Promise<union{void, Object}, MongoError>?;
     public geoNear(document: Object): AggregationCursor;
     public group(document: Object): AggregationCursor;
     public isClosed(): boolean;
     public limit(value: number): AggregationCursor;
     public match(document: Object): AggregationCursor;
     public maxTimeMS(value: number): AggregationCursor;
-    public next(callback: {function(error: MongoError, result: union{void, Object})}?): Promise<union{void, Object}, MongoError>?;
+    public next(callback: {function(error: MongoError, result: union{void, Object})} = undefined): Promise<union{void, Object}, MongoError>?;
     public out(destination: number): AggregationCursor;
     public project(document: Object): AggregationCursor;
     public redact(document: Object): AggregationCursor;
     public rewind(): AggregationCursor;
     public skip(value: number): AggregationCursor;
     public sort(document: Object): AggregationCursor;
-    public toArray(callback: {function(error: MongoError, documents: Array<Object>)}?): Promise<Array<Object>, MongoError>?;
+    public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
     public unwind(field: string): AggregationCursor;
 }
 
@@ -939,18 +939,18 @@ export external public class CommandCursor extends Readable {
 
     public batchSize(value: number): CommandCursor;
     public clone(): CommandCursor;
-    public close(callback: {function(error: MongoError, result: union{void, Object})}?): Promise<union{void, Object}, MongoError>?;
+    public close(callback: {function(error: MongoError, result: union{void, Object})} = undefined): Promise<union{void, Object}, MongoError>?;
     public each(callback: {function(error: MongoError, result: union{void, Object})}): void
     public isClosed(): boolean;
     public maxTimeMS(value: number): CommandCursor;
-    public next(callback: {function(error: MongoError, result: union{void, Object})}?): Promise<union{void, Object}, MongoError>?;
+    public next(callback: {function(error: MongoError, result: union{void, Object})} = undefined): Promise<union{void, Object}, MongoError>?;
     public rewind(): CommandCursor;
     public setReadPreference(readPreference: union{string, ReadPreference}): CommandCursor;
-    public toArray(callback: {function(error: MongoError, documents: Array<Object>)}?): Promise<Array<Object>, MongoError>?;
+    public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
 export external public class Code {
-    public constructor(code: union {string, Function}, scope:Object?);
+    public constructor(code: union {string, Function}, scope:Object = undefined);
     public code: union {string, Function};
     public scope: any;
 }
@@ -1051,7 +1051,7 @@ export external public class ObjectID {
 }
 
 export external public class Binary {
-    public constructor(buffer: Buffer, subType: number?);
+    public constructor(buffer: Buffer, subType: number = undefined);
 
     static SUBTYPE_BYTE_ARRAY: number;
     static SUBTYPE_DEFAULT: number;
@@ -1118,7 +1118,7 @@ export external public class Long {
     public toJSON(): string;
     public toNumber(): number;
     @Override
-    public toString(opt_radix: number?): string;
+    public toString(opt_radix: number = undefined): string;
     public xor(other: Long): Long;
 }
 
@@ -1172,7 +1172,7 @@ export external public class Timestamp {
     public toJSON(): string;
     public toNumber(): number;
     @Override
-    public toString(opt_radix: number?): string;
+    public toString(opt_radix: number = undefined): string;
     public xor(other: Timestamp): Timestamp;
 }
 

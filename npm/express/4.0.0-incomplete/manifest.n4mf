@@ -10,6 +10,6 @@ Sources {
         "src"
     }
 }
-ProjectDependencies {
-	http
+RequiredRuntimeLibraries {
+    n4js-runtime-node
 }
