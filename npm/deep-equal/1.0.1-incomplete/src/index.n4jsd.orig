@@ -1,0 +1,10 @@
+/**
+ * @see https://github.com/substack/node-deep-equal
+ */
+<<<<<<< HEAD:npm/deep-equal/1.0.1-incomplete/index.n4jsd
+export default external public function deepEqual(actual: any, expected: any, opts: ~Object with {strict: boolean}=): boolean;
+=======
+export default external public function deepEqual(actual: any, expected: any, opts: ~Object with {strict: boolean} = undefined): boolean;
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/deep-equal/1.0.1-incomplete/src/index.n4jsd
+
+/* -*- mode: typescript;-*- */

@@ -11,8 +11,14 @@
 export external public function v4(
     options: ~Object with {
         random: Array<number>; // (Number[16]) Array of 16 numbers (0-255) to use in place of randomly generated values
+<<<<<<< HEAD:npm/uuid/3.0.1-incomplete/index.n4jsd
     }=,
     buffer: union{Array<int>/*, Buffer*/}=,
     offset: int=): union{Array<int>/*, Buffer*/, string};
+=======
+    } = undefined,
+    buffer: union{Array<int>/*, Buffer*/} = undefined,
+    offset: int = undefined): union{Array<int>/*, Buffer*/, string};
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/uuid/3.0.1-incomplete/src/index.n4jsd
 
 /* -*- mode: typescript;-*- */

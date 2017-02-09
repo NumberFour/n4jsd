@@ -1,0 +1,12 @@
+ProjectId: bignumber.js
+ProjectType: library
+ProjectVersion: 2.4.0-incomplete
+VendorId: npm
+Output: "."
+MainModule: "bignumber"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

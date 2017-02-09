@@ -1,0 +1,12 @@
+ProjectId: lodash
+ProjectType: library
+ProjectVersion: 4.16.3-incomplete
+VendorId: npm
+Output: "."
+MainModule: "lodash"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

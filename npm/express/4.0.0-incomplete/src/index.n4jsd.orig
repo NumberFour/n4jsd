@@ -50,7 +50,11 @@ export external public class ~Request extends IncomingMessage{
     public range(size: number): Array<any>;
     public acceptedLanguages: Array<string>;
     public acceptedCharsets: Array<string>;
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public param(name: string, defaultValue: any=): string;
+=======
+    public param(name: string, defaultValue: any = undefined): string;
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
     public is(type: string): boolean;
     public protocol: string;
     public secure: boolean;
@@ -76,19 +80,31 @@ export external public class ~Response extends ServerResponse {
     public status(code: number): this;
     public sendStatus(code: number): this;
     public links(links: any): this;
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public send( body: union{Buffer, Object, Array<any>, string, number}, reason: string=): this
+=======
+    public send( body: union{Buffer, Object, Array<any>, string, number}, reason: string = undefined): this
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
     public json(body: any): this;
     public jsonp(body: any): this;
 
     @Promisifiable
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public sendFile(path: string, options: any=, errBack: {function(err: Error)}=): void;
 
     @Promisifiable
     public download(path: string, filename: union{string, {function(err: Error)}}=, errBack: {function(err: Error)}=): void;
+=======
+    public sendFile(path: string, options: any = undefined, errBack: {function(err: Error)} = undefined): void;
+
+    @Promisifiable
+    public download(path: string, filename: union{string, {function(err: Error)}} = undefined, errBack: {function(err: Error)} = undefined): void;
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
 
     public contentType(type: string): this;
     public type(type: string): this;
     public format(obj: any): this;
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public attachment(filename: string=): this;
     public set(field: any, value: string=): this;
     public header(field: any, value: string=): this;
@@ -96,11 +112,24 @@ export external public class ~Response extends ServerResponse {
     public get (field: string): string;
     public clearCookie(name: string, options: any=): this;
     public cookie(name: string, val: any, options: CookieOptions=): this;
+=======
+    public attachment(filename: string = undefined): this;
+    public set(field: any, value: string = undefined): this;
+    public header(field: any, value: string = undefined): this;
+    public headersSent: boolean;
+    public get (field: string): string;
+    public clearCookie(name: string, options: any = undefined): this;
+    public cookie(name: string, val: any, options: CookieOptions = undefined): this;
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
     public location(url: string): this;
     public redirect(status: number, url: string): void;
 
     @Promisifiable
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public render(view: string, options: Object=, callback: {function(err: Error, html: string)}=): void;
+=======
+    public render(view: string, options: Object = undefined, callback: {function(err: Error, html: string)} = undefined): void;
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
 
     public app: Application;
 }
@@ -137,18 +166,32 @@ export external public const application: Application;
 export external public const request: Request;
 export external public const response: Response;
 
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
 export external public function Router(options: any=): IRouter;
 
 export external public function query(options: any=): {function(req: Request, res: Response, next: Function)};
+=======
+export external public function Router(options: any = undefined): IRouter;
+
+export external public function query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
 
 export default external public class __default {
     (): Application;
 
+<<<<<<< HEAD:npm/express/4.0.0-incomplete/index.n4jsd
     public static Router(options: any=): IRouter;
     public static Route(path: string): Route;
 
     public static static(path: string): {function(req: Request, res: Response, next: {function()})};
     public static query(options: any=): {function(req: Request, res: Response, next: Function)};
+=======
+    public static Router(options: any = undefined): IRouter;
+    public static Route(path: string): Route;
+
+    public static static(path: string): {function(req: Request, res: Response, next: {function()})};
+    public static query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
+>>>>>>> d656729f39c8221a53ecc6b7fb0979945b8ec048:npm/express/4.0.0-incomplete/src/index.n4jsd
 
     public const application: Application;
     public const request: Request;
