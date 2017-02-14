@@ -1,0 +1,12 @@
+ProjectId: cli-color
+ProjectType: library
+ProjectVersion: 1.1.0-incomplete
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

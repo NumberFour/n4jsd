@@ -1,0 +1,12 @@
+ProjectId: json-cycle
+ProjectType: library
+ProjectVersion: 1.0.5-incomplete
+VendorId: npm
+Output: "."
+MainModule: "cycle"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

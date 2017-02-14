@@ -1,0 +1,12 @@
+ProjectId: uuid
+ProjectType: library
+ProjectVersion: 2.0.3-incomplete
+VendorId: npm
+Output: "."
+MainModule: "uuid"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
