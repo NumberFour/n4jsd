@@ -63,11 +63,11 @@ export external public class ~Request extends IncomingMessage{
     public stale: boolean;
     public xhr: boolean;
     public body: any;
-    public cookies: any;
-    public params: any;
-    public query: any;
-    public route: any;
-    public signedCookies: any;
+    public cookies: Object+;
+    public params: Object+;
+    public query: Object+;
+    public route: string;
+    public signedCookies: Object+;
     public originalUrl: string;
     public baseUrl: string;
     public app: Application;
