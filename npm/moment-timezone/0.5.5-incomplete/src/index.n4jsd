@@ -50,7 +50,8 @@ export default external public class ~Moment {
             second: number?;
             millisecond: number?;
         },
-        string
+        string,
+        number
     }, olsonId: string = undefined): Moment;
 
     /**
