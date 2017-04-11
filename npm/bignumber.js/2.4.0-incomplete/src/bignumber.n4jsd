@@ -1,9 +1,9 @@
 export @Final external public class ~BigNumberConfig {
-    public DECIMAL_PLACES: number?;
-    public ROUNDING_MODE: number?;
-    public ERRORS: boolean?;
-    public CRYPTO: boolean?;
-    public FORMAT: Object?;
+    public DECIMAL_PLACES?: number;
+    public ROUNDING_MODE?: number;
+    public ERRORS?: boolean;
+    public CRYPTO?: boolean;
+    public FORMAT?: Object;
 }
 
 /**

@@ -76,7 +76,7 @@ export external public interface ~Lodash {
      *
      * Note: If leading and trailing options are true func will be called on the trailing edge of the timeout only if the the debounced function is invoked more than once during the wait timeout.
      */
-    public debounce(fn: Function, wait: number, options: ~Object with {leading: boolean?; maxWait: number?; trailing: boolean?;} = undefined): Function;
+    public debounce(fn: Function, wait: number, options: ~Object with {leading?: boolean; maxWait?: number; trailing?: boolean;} = undefined): Function;
 
     /**
      * Generates a unique ID. If prefix is provided the ID will be appended to it.

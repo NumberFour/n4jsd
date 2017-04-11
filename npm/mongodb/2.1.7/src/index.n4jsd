@@ -34,32 +34,32 @@ export external public class MongoClient {
 }
 
 export external public interface MongoClientOptions {
-    public uri_decode_auth: boolean?;
-    public db: DbCreateOptions?;
-    public server: ServerOptions?;
-    public replSet: ReplSetOptions?;
-    public mongos: MongosOptions?;
-    public promiseLibrary: Object?;
+    public uri_decode_auth?: boolean;
+    public db?: DbCreateOptions;
+    public server?: ServerOptions;
+    public replSet?: ReplSetOptions;
+    public mongos?: MongosOptions;
+    public promiseLibrary?: Object;
 }
 
 export external public interface DbCreateOptions {
-    public authSource: string?;
-    public w: union {number, string}?;
-    public wtimeout: number?;
-    public j: boolean?;
-    public native_parser: boolean?;
-    public forceServerObjectId: boolean?;
-    public serializeFunctions: boolean?;
-    public ignoreUndefined: boolean?;
-    public raw: boolean?;
-    public promoteLongs: boolean?;
-    public bufferMaxEntries: number?;
-    public readPreference: union {ReadPreference, string}?;
-    public pkFactory: Object?;
-    public promiseLibrary: Object?;
-    public readConcern: ~Object with {
-        level: Object?
-    }?;
+    public authSource?: string;
+    public w?: union {number, string};
+    public wtimeout?: number;
+    public j?: boolean;
+    public native_parser?: boolean;
+    public forceServerObjectId?: boolean;
+    public serializeFunctions?: boolean;
+    public ignoreUndefined?: boolean;
+    public raw?: boolean;
+    public promoteLongs?: boolean;
+    public bufferMaxEntries?: number;
+    public readPreference?: union {ReadPreference, string};
+    public pkFactory?: Object;
+    public promiseLibrary?: Object;
+    public readConcern?: ~Object with {
+        level?: Object
+    };
 }
 
 export external public class ReadPreference {
@@ -78,56 +78,56 @@ export external public class ReadPreference {
 }
 
 export external public interface SocketOptions {
-    public autoReconnect: boolean?;
-    public noDelay: boolean?;
-    public keepAlive: int?;
-    public connectTimeoutMS: int?;
-    public socketTimeoutMS: int?;
+    public autoReconnect?: boolean;
+    public noDelay?: boolean;
+    public keepAlive?: int;
+    public connectTimeoutMS?: int;
+    public socketTimeoutMS?: int;
 }
 
 export external public interface ServerOptions {
-    public poolSize: int?;
-    public ssl: boolean?;
-    public sslValidate: Object?;
-    public checkServerIdentity: union {boolean, Function}?;
-    public sslCA: Array<union {Buffer, string}>?;
-    public sslCert: union {Buffer, string}?;
-    public sslKey: union {Buffer, string}?;
-    public sslPass: union {Buffer, string}?;
-    public socketOptions: SocketOptions?;
-    public reconnectTries: int?;
-    public reconnectInterval: int?;
+    public poolSize?: int;
+    public ssl?: boolean;
+    public sslValidate?: Object;
+    public checkServerIdentity?: union {boolean, Function};
+    public sslCA?: Array<union {Buffer, string}>;
+    public sslCert?: union {Buffer, string};
+    public sslKey?: union {Buffer, string};
+    public sslPass?: union {Buffer, string};
+    public socketOptions?: SocketOptions;
+    public reconnectTries?: int;
+    public reconnectInterval?: int;
 }
 
 export external public interface ReplSetOptions {
-    public ha: boolean?;
-    public haInterval: int?;
+    public ha?: boolean;
+    public haInterval?: int;
     public replicaSet: string;
-    public secondaryAcceptableLatencyMS: int?;
-    public connectWithNoPrimary: boolean?;
-    public poolSize: int?;
-    public ssl: boolean?;
-    public checkServerIdentity: union {boolean, Function}?;
-    public sslValidate: Object?;
-    public sslCA: Array<union {Buffer, string}>?;
-    public sslCert: union {Buffer, string}?;
-    public sslKey: union {Buffer, string}?;
-    public sslPass: union {Buffer, string}?;
-    public socketOptions: SocketOptions?;
+    public secondaryAcceptableLatencyMS?: int;
+    public connectWithNoPrimary?: boolean;
+    public poolSize?: int;
+    public ssl?: boolean;
+    public checkServerIdentity?: union {boolean, Function};
+    public sslValidate?: Object;
+    public sslCA?: Array<union {Buffer, string}>;
+    public sslCert?: union {Buffer, string};
+    public sslKey?: union {Buffer, string};
+    public sslPass?: union {Buffer, string};
+    public socketOptions?: SocketOptions;
 }
 
 export external public interface MongosOptions {
-    public ha: boolean?;
-    public haInterval: int?;
-    public poolSize: int?;
-    public ssl: boolean?;
+    public ha?: boolean;
+    public haInterval?: int;
+    public poolSize?: int;
+    public ssl?: boolean;
     public checkServerIdentity: union {boolean, Function};
-    public sslValidate: Object?;
-    public sslCA: Array<union {Buffer, string}>?;
-    public sslCert: union {Buffer, string}?;
-    public sslKey: union {Buffer, string}?;
-    public sslPass: union {Buffer, string}?;
-    public socketOptions: SocketOptions?;
+    public sslValidate?: Object;
+    public sslCA?: Array<union {Buffer, string}>;
+    public sslCert?: union {Buffer, string};
+    public sslKey?: union {Buffer, string};
+    public sslPass?: union {Buffer, string};
+    public socketOptions?: SocketOptions;
 }
 
 export external public class Server extends EventEmitter {
@@ -161,9 +161,9 @@ export external public class Db extends EventEmitter {
         options: union {
             ~Object with {
                 w: union {number, string},
-                wtimeout: number?,
-                j: boolean?,
-                customData: Object?,
+                wtimeout?: number,
+                j?: boolean,
+                customData?: Object,
                 roles: Array<Object>
             },
             {function(error: MongoError, result: any)}
@@ -177,11 +177,11 @@ export external public class Db extends EventEmitter {
         username: string,
         password: union {
             string,
-            ~Object with {authMechanism: string?},
+            ~Object with {authMechanism?: string},
             {function(error: MongoError, result: any)}
         } = undefined,
         options: union {
-            ~Object with {authMechanism: string?},
+            ~Object with {authMechanism?: string},
             {function(error: MongoError, result: any)}
         } = undefined,
         callback: {function(error: MongoError, result: any)} = undefined
@@ -193,15 +193,15 @@ export external public class Db extends EventEmitter {
         name: string,
         options: union {
             ~Object with {
-                w: union {int, string}?,
-                wtimeout: int?,
-                j: boolean?,
-                raw: boolean?,
-                pkFactory: Object?,
-                readPreference: union {ReadPreference, string}?,
-                serializeFunctions: boolean?,
-                strict: boolean?,
-                readConcern: ~Object with {level: Object?}?
+                w?: union {int, string},
+                wtimeout?: int,
+                j?: boolean,
+                raw?: boolean,
+                pkFactory?: Object,
+                readPreference?: union {ReadPreference, string},
+                serializeFunctions?: boolean,
+                strict?: boolean,
+                readConcern?: ~Object with {level?: Object}
             },
             {function(error: MongoError, collection: Collection)}
         } = undefined,
@@ -214,7 +214,7 @@ export external public class Db extends EventEmitter {
         command: Object,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?
+                readPreference?: union {ReadPreference, string}
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -253,8 +253,8 @@ export external public class Db extends EventEmitter {
     public db(
         name: string,
         options: ~Object with {
-            noListener: boolean?,
-            returnNonCachedInstance: boolean?
+            noListener?: boolean,
+            returnNonCachedInstance?: boolean
         }
     ): Db;
 
@@ -266,8 +266,8 @@ export external public class Db extends EventEmitter {
         command: Object,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                maxTimeMS: int?
+                readPreference?: union {ReadPreference, string},
+                maxTimeMS?: int
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -278,8 +278,8 @@ export external public class Db extends EventEmitter {
         name: string,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                full: boolean?
+                readPreference?: union {ReadPreference, string},
+                full?: boolean
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -289,15 +289,15 @@ export external public class Db extends EventEmitter {
     public listCollections(
         filter: Object,
         options: ~Object with {
-            batchSize:int?,
-            readPreference: union {ReadPreference, string}?
+            batchSize?:int,
+            readPreference?: union {ReadPreference, string}
         } = undefined
     ): CommandCursor;
 
     public logout(
         options: union {
             ~Object with {
-                dbName: string?
+                dbName?: string
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -317,7 +317,7 @@ export external public class Db extends EventEmitter {
         toCollection: string,
         options: union {
             ~Object with {
-                dropTarget: boolean?
+                dropTarget?: boolean
             },
             {function(error: MongoError, collection: Collection)}
         } = undefined,
@@ -327,7 +327,7 @@ export external public class Db extends EventEmitter {
     public stats(
         options: union {
             ~Object with {
-                scale: number?
+                scale?: number
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -342,10 +342,10 @@ export external public interface Admin {
         options: union {
             ~Object with {
                 w: union {number, string},
-                wtimeout: number?,
-                j: boolean?,
-                fsync: boolean?,
-                customData: Object?,
+                wtimeout?: number,
+                j?: boolean,
+                fsync?: boolean,
+                customData?: Object,
                 roles: Array<Object>
             },
             {function(error: MongoError, result: any)}
@@ -368,8 +368,8 @@ export external public interface Admin {
         command: Object,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                maxTimeMS: number?
+                readPreference?: union {ReadPreference, string},
+                maxTimeMS?: number
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -390,10 +390,10 @@ export external public interface Admin {
         username: string,
         options: union {
             ~Object with {
-                w: union {number, string}?,
-                wtimeout: int?,
-                j: boolean?,
-                fsync: boolean?
+                w?: union {number, string},
+                wtimeout?: int,
+                j?: boolean,
+                fsync?: boolean
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -418,14 +418,14 @@ export external public interface Collection {
         pipeline: Array<Object>,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                cursor: ~Object with {
-                    batchSize: number?
-                }?,
-                explain: boolean?,
-                allowDiskUse: boolean?,
-                maxTimeMS: number?,
-                bypassDocumentValidation: boolean?,
+                readPreference?: union {ReadPreference, string},
+                cursor?: ~Object with {
+                    batchSize?: number
+                },
+                explain?: boolean,
+                allowDiskUse?: boolean,
+                maxTimeMS?: number,
+                bypassDocumentValidation?: boolean,
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -436,12 +436,12 @@ export external public interface Collection {
         operations: Array<Object>,
         options: union {
             ~Object with {
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                serializeFunctions: boolean?,
-                ordered: boolean?,
-                bypassDocumentValidation: boolean?
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                serializeFunctions?: boolean,
+                ordered?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: BulkWriteOpResultObject)}
         } = undefined,
@@ -452,10 +452,10 @@ export external public interface Collection {
         query: Object,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                limit: boolean?,
-                skip: boolean?,
-                hint: boolean?,
+                readPreference?: union {ReadPreference, string},
+                limit?: boolean,
+                skip?: boolean,
+                hint?: boolean,
             },
             {function(error: MongoError, result: int)}
         } = undefined,
@@ -487,7 +487,7 @@ export external public interface Collection {
         query: Object,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?
+                readPreference?: union {ReadPreference, string}
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -509,9 +509,9 @@ export external public interface Collection {
         filter: Object,
         options: union {
             ~Object with {
-                projection: Object?,
-                sort: Object?,
-                maxTimeMS: number?
+                projection?: Object,
+                sort?: Object,
+                maxTimeMS?: number
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
         } = undefined,
@@ -523,11 +523,11 @@ export external public interface Collection {
         replacement: Object,
         options: union {
             ~Object with {
-                projection: Object?,
-                sort: Object?,
-                maxTimeMS: number?,
-                upsert: boolean?,
-                returnOriginal: boolean?
+                projection?: Object,
+                sort?: Object,
+                maxTimeMS?: number,
+                upsert?: boolean,
+                returnOriginal?: boolean
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
         } = undefined,
@@ -539,11 +539,11 @@ export external public interface Collection {
         update: Object,
         options: union {
             ~Object with {
-                projection: Object?,
-                sort: Object?,
-                maxTimeMS: number?,
-                upsert: boolean?,
-                returnOriginal: boolean?
+                projection?: Object,
+                sort?: Object,
+                maxTimeMS?: number,
+                upsert?: boolean,
+                returnOriginal?: boolean
             },
             {function(error: MongoError, result: FindAndModifyWriteOpResultObject)}
         } = undefined,
@@ -555,10 +555,10 @@ export external public interface Collection {
         y: number,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                maxDistance: number?,
-                search: Object?,
-                limit: number?
+                readPreference?: union {ReadPreference, string},
+                maxDistance?: number,
+                search?: Object,
+                limit?: number
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -570,15 +570,15 @@ export external public interface Collection {
         y: number,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                num: number?,
-                minDistance: number?,
-                maxDistance: number?,
-                distanceMultiplier: number?,
-                query: Object?,
-                spherical: boolean?
-                uniqueDocs: boolean?
-                includeLocs: boolean?
+                readPreference?: union {ReadPreference, string},
+                num?: number,
+                minDistance?: number,
+                maxDistance?: number,
+                distanceMultiplier?: number,
+                query?: Object,
+                spherical?: boolean
+                uniqueDocs?: boolean
+                includeLocs?: boolean
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -594,7 +594,7 @@ export external public interface Collection {
         command: boolean,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?
+                readPreference?: union {ReadPreference, string}
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -607,7 +607,7 @@ export external public interface Collection {
     public indexInformation(
         options: union {
             ~Object with {
-                full: boolean?
+                full?: boolean
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -625,12 +625,12 @@ export external public interface Collection {
         docs: Array<Object>,
         options: union {
             ~Object with {
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                serializeFunctions: boolean?,
-                forceServerObjectId: boolean?,
-                bypassDocumentValidation: boolean?
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                serializeFunctions?: boolean,
+                forceServerObjectId?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: InsertWriteOpResultObject)}
         } = undefined,
@@ -641,12 +641,12 @@ export external public interface Collection {
         doc: Object,
         options: union {
             ~Object with {
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                serializeFunctions: boolean?,
-                forceServerObjectId: boolean?,
-                bypassDocumentValidation: boolean?
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                serializeFunctions?: boolean,
+                forceServerObjectId?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: InsertOneWriteOpResultObject)}
         } = undefined,
@@ -656,8 +656,8 @@ export external public interface Collection {
     public isCapped(callback: {function(error: MongoError, result: any)} = undefined): Promise<any, MongoError>?;
 
     public listIndexes(options: ~Object with {
-        batchSize: number?,
-        readPreference: union {ReadPreference, string}?
+        batchSize?: number,
+        readPreference?: union {ReadPreference, string}
     } = undefined): CommandCursor;
 
     public mapReduce(
@@ -665,17 +665,17 @@ export external public interface Collection {
         reduce: union{Function, string},
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                out: Object?,
-                query: Object?,
-                sort: Object?,
-                limit: number?,
-                keeptemp: boolean?,
-                finalize: union{Function, string}?,
-                scope: Object?,
-                jsMode: boolean?,
-                verbose: boolean?,
-                bypassDocumentValidation: boolean?
+                readPreference?: union {ReadPreference, string},
+                out?: Object,
+                query?: Object,
+                sort?: Object,
+                limit?: number,
+                keeptemp?: boolean,
+                finalize?: union{Function, string},
+                scope?: Object,
+                jsMode?: boolean,
+                verbose?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -687,10 +687,10 @@ export external public interface Collection {
     public parallelCollectionScan(
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                batchSize: number?,
-                numCursors: number?,
-                raw: boolean?,
+                readPreference?: union {ReadPreference, string},
+                batchSize?: number,
+                numCursors?: number,
+                raw?: boolean,
             },
             {function(error: MongoError, result: Array<Cursor>)}
         } = undefined,
@@ -703,7 +703,7 @@ export external public interface Collection {
         newName: string,
         options: union {
             ~Object with {
-                dropTarget: boolean?,
+                dropTarget?: boolean,
             },
             {function(error: MongoError, result: Collection)}
         } = undefined,
@@ -715,11 +715,11 @@ export external public interface Collection {
         doc: Object,
         options: union {
             ~Object with {
-                upsert: boolean?,
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                bypassDocumentValidation: boolean?
+                upsert?: boolean,
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
         } = undefined,
@@ -729,7 +729,7 @@ export external public interface Collection {
     public stats(
         options: union {
             ~Object with {
-                scale: number?
+                scale?: number
             },
             {function(error: MongoError, result: any)}
         } = undefined,
@@ -741,10 +741,10 @@ export external public interface Collection {
         update: Object,
         options: union {
             ~Object with {
-                upsert: boolean?,
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
+                upsert?: boolean,
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
         } = undefined,
@@ -756,11 +756,11 @@ export external public interface Collection {
         update: Object,
         options: union {
             ~Object with {
-                upsert: boolean?,
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                bypassDocumentValidation: boolean?
+                upsert?: boolean,
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                bypassDocumentValidation?: boolean
             },
             {function(error: MongoError, result: UpdateWriteOpResultObject)}
         } = undefined,
@@ -774,11 +774,11 @@ export external public interface OrderedBulkOperation {
     public execute(
         options: union {
             ~Object with {
-                upsert: boolean?,
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                fsync: boolean?
+                upsert?: boolean,
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                fsync?: boolean
             },
             {function(error: MongoError, result: BulkWriteResult)}
         } = undefined,
@@ -843,10 +843,10 @@ export external public interface UnorderedBulkOperation {
     public execute(
         options: union {
             ~Object with {
-                w: union{number, string}?,
-                wtimeout: number?,
-                j: boolean?,
-                fsync: boolean?
+                w?: union{number, string},
+                wtimeout?: number,
+                j?: boolean,
+                fsync?: boolean
             },
             {function(error: MongoError, result: BulkWriteResult)}
         } = undefined,
@@ -874,11 +874,11 @@ export external public class Cursor extends Readable {
         applySkipLimit: boolean,
         options: union {
             ~Object with {
-                readPreference: union {ReadPreference, string}?,
-                limit: boolean?,
-                skip: boolean?,
-                hint: boolean?,
-                maxTimeMS: number?
+                readPreference?: union {ReadPreference, string},
+                limit?: boolean,
+                skip?: boolean,
+                hint?: boolean,
+                maxTimeMS?: number
             },
             {function(error: MongoError, result: number)}
         } = undefined,
@@ -905,7 +905,7 @@ export external public class Cursor extends Readable {
     public skip(value: number): Cursor;
     public snapshot(snapshot: Object): Cursor;
     public sort(keyOrList: union{string, Array<any>, Object}, direction: number = undefined): Cursor;
-    public stream(options: ~Object with { transform: Function?} = undefined): Cursor;
+    public stream(options: ~Object with { transform?: Function} = undefined): Cursor;
     public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
@@ -956,24 +956,24 @@ export external public class Code {
 }
 
 export external public interface CollectionOptions {
-    public w: union{number, string}?;
-    public wtimeout: number?;
-    public j: boolean?;
+    public w?: union{number, string};
+    public wtimeout?: number;
+    public j?: boolean;
 }
 
 export external public interface IndexOptions {
-    public w: union{number, string}?;
-    public wtimeout: number?;
-    public j: boolean?;
-    public unique: boolean?;
-    public sparse: boolean?;
-    public background: boolean?;
-    public dropDups: boolean?;
-    public min: number?;
-    public max: number?;
-    public v: number?;
-    public expireAfterSeconds: number?;
-    public name: number?;
+    public w?: union{number, string};
+    public wtimeout?: number;
+    public j?: boolean;
+    public unique?: boolean;
+    public sparse?: boolean;
+    public background?: boolean;
+    public dropDups?: boolean;
+    public min?: number;
+    public max?: number;
+    public v?: number;
+    public expireAfterSeconds?: number;
+    public name?: number;
 }
 
 export external public interface UpdateWriteOpResultObject {
@@ -991,9 +991,9 @@ export external public interface UpdateWriteOpResultObject {
     };
 }
 export external public interface FindAndModifyWriteOpResultObject {
-    public value: Object?;
-    public lastErrorObject: Object?;
-    public ok: int?;
+    public value?: Object;
+    public lastErrorObject?: Object;
+    public ok?: int;
 }
 
 export external public interface InsertOneWriteOpResultObject {
@@ -1019,23 +1019,23 @@ export external public interface InsertWriteOpResultObject {
 }
 
 export external public interface DeleteWriteOpResultObject {
-    public result: ~Object with {
+    public result?: ~Object with {
         ok: number;
         n: number;
-    }?;
-    public connection: Object?;
-    public deletedCount: int?;
+    };
+    public connection?: Object;
+    public deletedCount?: int;
 }
 
 export external public interface BulkWriteOpResultObject {
-    public insertedCount: number?;
-    public matchedCount: number?;
-    public modifiedCount: number?;
-    public deletedCount: number?;
-    public upsertedCount: number?;
-    public insertedIds: any?;
-    public upsertedIds: any?;
-    public result: any?;
+    public insertedCount?: number;
+    public matchedCount?: number;
+    public modifiedCount?: number;
+    public deletedCount?: number;
+    public upsertedCount?: number;
+    public insertedIds?: any;
+    public upsertedIds?: any;
+    public result?: any;
 }
 
 export external public class ObjectID {
