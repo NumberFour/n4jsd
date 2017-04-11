@@ -25,13 +25,13 @@ export default external public class ~Moment {
     public constructor(value: union{
         Date,
         ~Object with {
-            year: number?;
-            month: number?;
-            day: number?;
-            hour: number?;
-            minute: number?;
-            second: number?;
-            millisecond: number?;
+            year?: number;
+            month?: number;
+            day?: number;
+            hour?: number;
+            minute?: number;
+            second?: number;
+            millisecond?: number;
         }
     } = undefined);
 
@@ -42,13 +42,13 @@ export default external public class ~Moment {
      */
     public static tz(moment: union{
         ~Object with {
-            year: number?;
-            month: number?;
-            day: number?;
-            hour: number?;
-            minute: number?;
-            second: number?;
-            millisecond: number?;
+            year?: number;
+            month?: number;
+            day?: number;
+            hour?: number;
+            minute?: number;
+            second?: number;
+            millisecond?: number;
         },
         string,
         number

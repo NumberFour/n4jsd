@@ -5,13 +5,13 @@ import {Server , IncomingMessage , ServerResponse } from "http";
  */
  
 interface ~CookieOptions {
-    maxAge: number?;
-    signed: boolean?;
-    expires: Date?;
-    httpOnly: boolean?;
-    path: string?;
-    domain: string?;
-    secure: boolean?;
+    maxAge?: number;
+    signed?: boolean;
+    expires?: Date;
+    httpOnly?: boolean;
+    path?: string;
+    domain?: string;
+    secure?: boolean;
 }
 
 export external public class ~Application extends Server implements IRouter{
