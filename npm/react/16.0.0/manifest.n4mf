@@ -1,6 +1,6 @@
 ProjectId: react
 ProjectType: library
-ProjectVersion: 1.0.0
+ProjectVersion: 16.0.0
 VendorId: npm
 Output: "."
 MainModule: "react"
@@ -9,7 +9,4 @@ Sources {
     source {
         "src"
     }
-}
-RequiredRuntimeLibraries {
-    n4js-runtime-node
 }
