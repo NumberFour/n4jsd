@@ -208,7 +208,7 @@ export external public abstract class PureComponent<PropsT extends ComponentProp
  */
 export external public function <PropsT extends ComponentProps> createElement(
     type: union{string, {function(PropsT=): Element<PropsT>}, constructor{? extends Component/*<PropsT>*/}},
-    props: PropsT=, ...children: string | Element<?> | Iterable<string | Element<?>> | Function): Element<PropsT>;
+    props: PropsT+ =, ...children: string | Element<?> | Iterable<string | Element<?>> | Function): Element<PropsT>;
 
 /**
  * Clone and return a new Element using Element as the starting point.
@@ -323,5 +323,3 @@ export external public class ~DOM {
      */
     public static noscript(): Element<?>;
 }
-
-/* -*- mode: typescript;-*- */
