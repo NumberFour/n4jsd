@@ -11,36 +11,9 @@ export external public abstract class Element<out PropsT extends ComponentProps>
     public get props(): PropsT;
     public get key(): string;
     public get ref(): string;
-
-    /** @TestAPI */
-    public get _owner(): __ReactCompositeComponentWrapper;
 };
 
-/**
- * Fragile, for testing purposes only, needs to be adapted when react changes.
- * @TestAPI
- */
-export external public interface ~__ReactCompositeComponentWrapper {
-    /** @TestAPI */
-    public get _instance(): Component<?, ?>;
-}
-
-/**
- * Fragile, for testing purposes only, needs to be adapted when react changes.
- * @TestAPI
- */
-export external public interface ~__ReactInternalInstance {
-    /** @TestAPI */
-    public get _currentElement(): Element<?>;
-    /** @TestAPI */
-    public get _hostNode(): Object /* HTMLElement */;
-    /** @TestAPI */
-    public get _hostParent(): Object /* HTMLElement */;
-}
-
 export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> {
-    /** @TestAPI */
-    public get _reactInternalInstance(): __ReactInternalInstance;
     public static name: string;
     public get props(): PropsT;
     public state: StateT;
@@ -48,7 +21,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
     public get refs(): Object+;
     public static get displayName(): string;
 
-    public abstract render(): Element<?>;
+    public abstract render(): Array<Element<?>> | Element<?> | string | number;
 
     /**
      * Base class helpers for the updating state of a component.
@@ -312,14 +285,4 @@ export external public class ~PropTypes {
 
     // An object taking on a particular shape
     public static shape(shape: Object): PropConstraint;
-}
-
-/**
- * Will be obsolete with react 0.16.
- */
-export external public class ~DOM {
-    /**
-     * `null` element.
-     */
-    public static noscript(): Element<?>;
 }
