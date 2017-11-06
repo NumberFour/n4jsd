@@ -1,0 +1,12 @@
+ProjectId: react
+ProjectType: library
+ProjectVersion: 16.0.0
+VendorId: npm
+Output: "."
+MainModule: "react"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
