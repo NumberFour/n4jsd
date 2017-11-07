@@ -27,7 +27,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * Base class helpers for the updating state of a component.
      */
     @CovariantConstructor
-    protected constructor(props: PropsT);
+    public constructor(props: PropsT);
 
     /**
      * Values in the mapping will be set on this.props if that prop is not specified by the parent component (i.e. using an in check).
@@ -54,7 +54,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      *
      * @param callback - Called after update is complete.
      */
-    @Final protected forceUpdate(callback: Function=): void;
+    @Final public forceUpdate(callback: Function=): void;
 
     /**
      * Sets a subset of the state. Always use this to mutate
