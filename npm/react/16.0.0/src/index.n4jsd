@@ -1,3 +1,5 @@
+@@Global
+
 export external public interface ~ComponentProps {
     public children?: string | Element<?> | Iterable<string | Element<?>> | Function;
     public ref?: {function(Object /* HTMLElement or React.Component */): void};
