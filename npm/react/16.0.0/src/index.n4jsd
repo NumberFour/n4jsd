@@ -18,10 +18,11 @@ export external public abstract class Component<PropsT extends ComponentProps, S
     public get props(): PropsT;
     public state: StateT;
 
+    public get context(): Object+;
     public get refs(): Object+;
     public static get displayName(): string;
 
-    public abstract render(): Array<Element<?>> | Element<?> | string | number;
+    public abstract render(): Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean;
 
     /**
      * Base class helpers for the updating state of a component.
