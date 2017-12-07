@@ -287,3 +287,12 @@ export external public class ~PropTypes {
     // An object taking on a particular shape
     public static shape(shape: Object): PropConstraint;
 }
+
+/**
+ * @see https://reactjs.org/blog/2017/11/28/react-v16.2.0-fragment-support.html
+ */
+@Final
+export external public class Fragment extends Component<ComponentProps, Object> {
+    @Override
+    public render(): Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean;
+}
