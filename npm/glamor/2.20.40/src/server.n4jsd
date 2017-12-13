@@ -1,0 +1,2 @@
+export external public function renderStatic(fn): Object;
+export external public function renderStaticOptimized(fn): Object;

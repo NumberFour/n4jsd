@@ -1,0 +1,12 @@
+ProjectId: redux
+ProjectType: library
+ProjectVersion: 3.7.2
+VendorId: npm
+Output: "."
+MainModule: "redux"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

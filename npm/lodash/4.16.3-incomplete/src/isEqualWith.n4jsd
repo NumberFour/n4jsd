@@ -1,0 +1,5 @@
+export default external public function isEqualWith(expected:any, actual:any, 
+    customizer: {function(any, any, int|string =, any=, any=, [string]=)}
+):boolean
+
+/* -*- mode: typescript;-*- */

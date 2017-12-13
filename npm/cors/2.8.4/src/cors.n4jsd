@@ -1,0 +1,8 @@
+import * as express from "express";
+
+/**
+ * https://www.npmjs.com/package/cors
+ */
+export default external public function cors(options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+
+/* -*- mode: typescript;-*- */

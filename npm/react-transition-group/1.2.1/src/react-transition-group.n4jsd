@@ -1,0 +1,29 @@
+import * as React from "react";
+
+export external public interface ~CSSTransitionGroupProps extends React.ComponentProps {
+    public transitionName: union{string, ~Object with {
+        // custom class names, otherwise convention: foo-appear, foo-appear-active 
+        enter?: string;
+        enterActive?: string;
+        leave?: string;
+        leaveActive?: string;
+        appear?: string;
+        appearActive?: string;
+    }};
+
+    public transitionEnter?: boolean; // defaults to true, so give timeout
+    public transitionEnterTimeout?: int;
+
+    public transitionLeave?: boolean; // defaults to true, so give timeout
+    public transitionLeaveTimeout?: int;
+
+    public transitionAppear?: boolean; // defaults to false
+    public transitionAppearTimeout?: int;
+}
+
+/**
+ * https://facebook.github.io/react/docs/animation.html#high-level-api-reactcsstransitiongroup
+ */
+export default external public function CSSTransitionGroup(props: CSSTransitionGroupProps=): React.Element<?>;
+
+/* -*- mode: typescript;-*- */

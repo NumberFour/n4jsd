@@ -1,0 +1,12 @@
+ProjectId: selenium-webdriver
+ProjectType: library
+ProjectVersion: 3.6.0
+VendorId: npm
+Output: "."
+MainModule: "selenium-webdriver"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

@@ -1,15 +1,20 @@
-ProjectId: express
+ProjectId: morgan
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 1.9.0
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "morgan"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
 }

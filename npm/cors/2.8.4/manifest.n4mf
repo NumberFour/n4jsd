@@ -1,15 +1,20 @@
-ProjectId: express
+ProjectId: cors
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 2.8.4
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "cors"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
 }

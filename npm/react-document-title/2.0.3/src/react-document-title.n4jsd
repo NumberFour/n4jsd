@@ -1,0 +1,15 @@
+import * as React from "react";
+
+export public interface ~DocumentTitleProps extends React.ComponentProps {
+    public title: string;
+}
+
+/**
+ * https://github.com/gaearon/react-document-title
+ */
+export default external class DocumentTitle extends React.Component<DocumentTitleProps, undefined> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+/* -*- mode: typescript;-*- */

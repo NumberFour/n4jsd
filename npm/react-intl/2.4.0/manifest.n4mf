@@ -1,15 +1,20 @@
-ProjectId: express
+ProjectId: react-intl
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 2.4.0
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "react-intl"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
-    n4js-runtime-node
+    n4js-runtime-ecma402
+}
+
+ProjectDependencies {
+    react
 }

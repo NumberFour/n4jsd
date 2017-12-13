@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: rc
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 1.2.2
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "rc"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

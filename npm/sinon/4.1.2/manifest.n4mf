@@ -1,0 +1,12 @@
+ProjectId: sinon
+ProjectType: library
+ProjectVersion: 4.1.2
+VendorId: npm
+Output: "."
+MainModule: "sinon"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

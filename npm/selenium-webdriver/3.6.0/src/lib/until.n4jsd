@@ -1,0 +1,19 @@
+import {By} from "selenium-webdriver/lib/by";
+import {WebElement} from "selenium-webdriver/lib/webdriver";
+import {WebElementCondition} from "selenium-webdriver/lib/webdriver";
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/until.html
+ */
+export external public function elementIsVisible(element: WebElement): WebElementCondition;
+export external public function elementIsDisabled(element: WebElement): WebElementCondition;
+export external public function elementIsNotVisible(element: WebElement): WebElementCondition; 
+export external public function elementLocated(locator: union{By, Function}): WebElementCondition;
+export external public function elementsLocated(locator: union{By, Function}): WebElementCondition;
+export external public function stalenessOf(element: WebElement): WebElementCondition;
+export external public function elementTextContains(element: WebElement, substr: string): WebElementCondition;
+export external public function elementTextIs(element: WebElement, substr: string): WebElementCondition;
+export external public function elementTextMatches(element: WebElement, regex: RegExp): WebElementCondition;
+export external public function urlContains(substrUrl: string): WebElementCondition;
+
+/* -*- mode: typescript;-*- */

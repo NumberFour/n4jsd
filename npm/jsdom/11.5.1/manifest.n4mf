@@ -1,15 +1,17 @@
-ProjectId: express
+ProjectId: jsdom
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 11.5.1
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "jsdom"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
-    n4js-runtime-node
+    n4js-runtime-node,
+    n4js-runtime-html5
 }

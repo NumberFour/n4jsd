@@ -1,0 +1,16 @@
+ProjectId: enzyme
+ProjectType: library
+ProjectVersion: 3.2.0
+VendorId: npm
+Output: "."
+MainModule: "enzyme"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}

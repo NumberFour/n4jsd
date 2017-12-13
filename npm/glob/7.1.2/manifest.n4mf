@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: glob
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 7.1.2
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "glob"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

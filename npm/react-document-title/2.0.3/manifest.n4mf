@@ -1,0 +1,16 @@
+ProjectId: react-document-title
+ProjectType: library
+ProjectVersion: 2.0.3
+VendorId: npm
+Output: "."
+MainModule: "react-document-title"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}

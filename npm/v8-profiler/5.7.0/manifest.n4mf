@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: v8-profiler
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 5.7.0
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "v8-profiler"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

@@ -1,0 +1,25 @@
+import {ReduxSagaTask} from "redux-saga";
+import {ReduxSagaEffect} from "redux-saga";
+
+/**
+ * Creates a mock ReduxSagaTask, primarily intended for testing.
+ * 
+ * https://github.com/redux-saga/redux-saga/blob/master/src/internal/utils.js#L82
+ */
+export external public function createMockTask(): ReduxSagaTask<?>;
+
+/**
+ * Takes a generator function (function*) and returns a generator function.
+ * All generators instanciated from this function will be cloneable.
+ * For testing purpose only.
+ *  
+ * https://github.com/redux-saga/redux-saga/blob/master/src/internal/utils.js#L182
+ */
+export external public function cloneableGenerator(genFunc: (...any) => Generator<ReduxSagaEffect<?>, undefined, any>): (...any) => ~Object with {
+     next: (any=) => ~IteratorEntry<ReduxSagaEffect<?>>,
+     clone: (...any) => Generator<ReduxSagaEffect<?>, undefined, any>,
+     return: (any=) => ~IteratorEntry<ReduxSagaEffect<?>>,
+     throw: (any) => ~IteratorEntry<ReduxSagaEffect<?>>
+} 
+
+/* -*- mode: typescript;-*- */

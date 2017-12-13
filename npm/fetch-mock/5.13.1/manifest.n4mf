@@ -1,15 +1,17 @@
-ProjectId: express
+ProjectId: fetch-mock
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 5.13.1
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "fetch-mock"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
-    n4js-runtime-node
+    n4js-runtime-node,
+    n4js-runtime-fetch
 }

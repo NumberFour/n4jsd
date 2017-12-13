@@ -1,0 +1,23 @@
+import {Options as ChromeOptions} from "selenium-webdriver/chrome";
+import {Capabilities} from "selenium-webdriver/lib/capabilities";
+import {Preferences} from "selenium-webdriver/lib/logging";
+import {WebDriver} from "selenium-webdriver/lib/webdriver";
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Builder.html
+ */
+export external public class Builder {
+    public constructor();
+
+    public forBrowser(name: string, opt_version: string=, opt_platform: string=): this;
+    public withCapabilities(capabilities: Capabilities): this;
+    public setLoggingPrefs(prefs: Preferences): this;
+    
+    public setChromeOptions(options: ChromeOptions): this;
+//    public setFirefoxOptions(options: FirefoxOptions): this;
+//    public setSafariOptions(options: SafariOptions): this;
+
+    public build(): WebDriver;
+}
+
+/* -*- mode: typescript;-*- */

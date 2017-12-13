@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: sharp
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 0.18.4
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "sharp"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

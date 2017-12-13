@@ -1,0 +1,28 @@
+import { EventEmitter } from "events";
+
+/**
+ * https://www.npmjs.com/package/glob
+ */
+@Promisifiable
+export default external public function glob(
+    pattern: string,
+    options: ~Object with {
+        cwd?: string;
+        absolute?: boolean;
+    },
+    matches: {function(Error, Array<string>)}): void;
+
+@Final
+export external public class Glob extends EventEmitter {
+    public constructor(
+        pattern: string,
+        options: ~Object with {
+            cwd?: string;
+            absolute?: boolean;
+            sync?: boolean;
+        });
+
+    public found?: Array<string>;
+}
+
+/* -*- mode: typescript;-*- */

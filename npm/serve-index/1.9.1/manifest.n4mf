@@ -1,15 +1,20 @@
-ProjectId: express
+ProjectId: serve-index
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 1.9.1
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "serve-index"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
 }

@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: nomnom-patched
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 1.8.1
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "nomnom"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

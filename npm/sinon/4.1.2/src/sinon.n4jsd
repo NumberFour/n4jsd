@@ -1,0 +1,14 @@
+/**
+ * Test spies, stubs and mocks for JavaScript. http://sinonjs.org/
+ * 
+ * https://github.com/sinonjs/sinon
+ * 
+ * cb TODO more
+ */
+export external public function spy(object: union{Object, Function}=, property: string=, types: Array<Object> =): ~Function with {
+    callCount: number;
+    called: boolean;
+    notCalled: boolean;
+};
+
+/* -*- mode: typescript;-*- */

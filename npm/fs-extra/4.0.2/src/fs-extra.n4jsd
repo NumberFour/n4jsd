@@ -1,0 +1,8 @@
+/**
+ * https://github.com/jprichardson/node-fs-extra/blob/master/docs/outputFile.md
+ */
+@Promisifiable
+export external public function outputFile(filename: string, data: any, options: ~Object with {encoding?: string; mode?: union{number, string}; flag?: string; }, callback: {function(Error): void}=): void;
+export external public function outputFileSync(filename: string, data: any, options: ~Object with {encoding?: string; mode?: union{number, string}; flag?: string; }): void;
+
+/* -*- mode: typescript;-*- */

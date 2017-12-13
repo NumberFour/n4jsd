@@ -1,0 +1,19 @@
+/**
+ * @see https://github.com/js-cookie/js-cookie
+ */
+export default external public class Cookies {
+    public static get(name: string): string?;
+    public static getJSON(name: string=): Object?;
+
+    public static set(name: string, value: string, options: CookieOptions=): void;
+    public static remove(name: string, options: CookieOptions=): void;
+}
+
+export external public interface ~CookieOptions {
+    public path?: string;
+    public domain?: string;
+    public secure?: boolean;
+    public expires?: union{number, Date};
+}
+
+/* -*- mode: typescript;-*- */

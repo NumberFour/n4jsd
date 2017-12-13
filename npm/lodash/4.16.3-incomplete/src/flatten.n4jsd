@@ -1,0 +1,2 @@
+export default external public function <T> flatten(arr: Iterable<union{T, Array<T>}>): Array<T>;
+/* -*- mode: typescript;-*- */

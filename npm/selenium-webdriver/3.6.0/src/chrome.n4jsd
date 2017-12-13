@@ -1,0 +1,30 @@
+import {Capabilities} from "selenium-webdriver/lib/capabilities";
+import {Preferences} from "selenium-webdriver/lib/logging";
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/chrome_exports_Options.html
+ */
+export external public class Options {
+    public constructor();
+    public static fromCapabilities(caps: Capabilities): Options;
+    
+    public addArguments(...var_args: string): this;
+    public setChromeLogFile(path: string): this; 
+    public androidChrome(): this;
+    
+    public setLoggingPrefs(prefs: Preferences): this;
+    public setUserPreferences(prefs: Object): this;
+
+    /**
+     * 
+     * https://developers.google.com/web/tools/chrome-devtools/device-mode/?utm_source=dcc&utm_medium=redirect&utm_campaign=2016q3
+     */
+    public setMobileEmulation(config: ~Object with {
+                                                deviceName: string;
+                                                width?: int;
+                                                height?: int;
+                                                pixelRatio?: number
+                                            }): this;
+}
+
+/* -*- mode: typescript;-*- */

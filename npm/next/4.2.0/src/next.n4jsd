@@ -1,0 +1,97 @@
+import { IncomingMessage } from "http";
+import { ServerResponse } from "http";
+import {Socket} from "net";
+import * as React from "react";
+
+/**
+ * Passed into `getInitialProps`.
+ */
+export external public class ~NextPageContext {
+    /**
+     * path section of URL
+     */
+    public pathname: string;
+    /**
+     * query string section of URL parsed as an object
+     */
+    public query: Object;
+    /**
+     * String of the actual path (including the query) shows in the browser
+     */
+    public asPath: string;
+    /**
+     * HTTP request object (server only)
+     */
+    public req: ~IncomingMessage with {
+            connection: Socket+;
+        };
+    /**
+     * HTTP response object (server only)
+     */
+    public res: ~ServerResponse with {statusCode:int};
+    /**
+     * XMLHttpRequest object (client only)
+     */
+    public xhr: Object;
+    /**
+     * Error object if any error is encountered during the rendering
+     */
+    public err: Error;
+    /**
+     * Fetch Response object (client only)
+     */
+    public jsonPageRes: Response;
+}
+
+/**
+ * Passed into page props.
+ */
+export external public class ~NextPageURL {
+    /**
+     * String of the current path excluding the query string.
+     */
+    public pathname: string;
+    /**
+     * Object with the parsed query string. Defaults to {}
+     */
+    public query: Object+;
+    /**
+     * performs a pushState call associated with the current component
+     */
+    public push(url, as: string=): void;
+    /**
+     * performs a replaceState call associated with the current component
+     */
+    public replace(url: string, as: string=): void;
+}
+
+export public interface ~NextPageProps extends React.ComponentProps {
+    public url?: NextPageURL;
+}
+
+
+/**
+ * https://github.com/zeit/next.js#custom-server-and-routing
+ */
+export external public interface ~NextAppOptions {
+    public dev?: boolean;
+    public dir?: string;
+    public quiet?: boolean;
+}
+
+/**
+ * https://github.com/zeit/next.js/blob/master/server/index.js
+ */
+export external public interface ~NextApp {
+    public async prepare(): void;
+    public async close(): void;
+    public async start(port: int): void;
+    public async run(req: IncomingMessage, res: ServerResponse): void;
+    public getRequestHandler(): {function(req: IncomingMessage, res: ServerResponse): void};
+    public async render(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): void;
+    public async renderToHTML(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): string;
+}
+
+export default external public function next(path: string, opts: ~NextAppOptions): NextApp;
+ 
+/* -*- mode: typescript;-*- */

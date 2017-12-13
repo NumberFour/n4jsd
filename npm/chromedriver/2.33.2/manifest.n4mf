@@ -1,15 +1,16 @@
-ProjectId: express
+ProjectId: chromedriver
 ProjectType: library
-ProjectVersion: 4.0.0-incomplete
+ProjectVersion: 2.33.2
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "chromedriver"
 ModuleLoader: commonjs
 Sources {
     source {
         "src"
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }

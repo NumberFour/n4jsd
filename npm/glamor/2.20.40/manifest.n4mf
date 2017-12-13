@@ -1,0 +1,12 @@
+ProjectId: glamor
+ProjectType: library
+ProjectVersion: 2.20.40
+VendorId: npm
+Output: "."
+MainModule: "glamor"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

@@ -1,0 +1,43 @@
+import { IReadableStream } from "stream";
+
+/**
+ * https://github.com/node-inspector/v8-profiler#api
+ */
+export external public function takeSnapshot(name: string=): Snapshot;
+
+export external public function startProfiling(name: string=, recsamples: boolean=): void;
+export external public function stopProfiling(name: string=): Profile;
+
+export external public function setSamplingInterval(num: int=): void;
+export external public function deleteAllProfiles(): void;
+
+/**
+ * https://github.com/node-inspector/v8-profiler#heap-snapshot-api
+ */
+export external public interface Snapshot {
+    public getHeader(): string;
+    
+    /**
+     * Heap diff.
+     */
+    public compare(snapshot: Snapshot): string;
+    
+    public delete(): void;
+
+    @Promisifiable
+    public export(callback: {function(Error, string)}): IReadableStream;
+    public serialize(): IReadableStream;
+}
+
+/**
+ * https://github.com/node-inspector/v8-profiler#cpu-profile-api
+ */
+export external public interface Profile {
+    public getHeader(): string;
+    public delete(): void;
+    
+    @Promisifiable
+    public export(callback: {function(Error, string)}): IReadableStream;
+}
+
+/* -*- mode: typescript;-*- */
