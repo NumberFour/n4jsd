@@ -97,6 +97,11 @@ export external public class Options {
     public window(): Window;
 }
 
+export public interface ~Dimensions {
+    public width: int;
+    public height: int;
+}
+
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Window.html
  */
