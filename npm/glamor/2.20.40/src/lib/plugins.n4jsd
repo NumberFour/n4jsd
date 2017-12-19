@@ -1,1 +1,1 @@
-export default external public const plugins: Object;
+export default external public const plugins: Object+;

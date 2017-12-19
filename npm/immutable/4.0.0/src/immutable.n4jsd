@@ -1,0 +1,1580 @@
+import { IteratorExt } from "Iterator";
+
+export external public interface ~ImmutableObject {
+    /**
+     * Deeply converts  to equivalent JS.
+     *
+     * @alias toJSON
+     */
+    public toJS(): Object;
+
+    /**
+     * Shallowly converts this iterable to an Array, discarding keys.
+     */
+    public toArray(): Array</*V*/ any>;
+
+    /**
+     *
+     * Throws if keys are not strings.    
+    */
+    public toObject(): Object;
+    /**
+     * True if this and the other Immutable have value equality, as defined
+     * by `Immutable.is()`.
+     *
+     * Note: This is equivalent to `Immutable.is(this, other)`, but provided to
+     * allow for chained expressions.
+     */
+    public equals(other: ImmutableObject): boolean;
+    
+}
+//FIXME Talk to mor about whether or not we can make Iterable2 et al structural
+export external public abstract class ImmutableIterable<out K, out V> implements Iterable<Iterable2<K, V>>, ImmutableObject {
+    public static isIterable(any): boolean;
+    // Value equality
+    /**
+     * True if this and the other Immutable have value equality, as defined
+     * by `Immutable.is()`.
+     *
+     * Note: This is equivalent to `Immutable.is(this, other)`, but provided to
+     * allow for chained expressions.
+     */
+    @Override
+    public equals(other: ImmutableObject): boolean;
+    /**
+     * Computes and returns the hashed identity for this ImmutableIterable.
+     *
+     * The `hashCode` of an ImmutableIterable is used to determine potential equality,
+     * and is used when adding this to a `Set` or as a key in a `Map`, enabling
+     * lookup via a different instance.
+     *
+     *     var a = List.of(1, 2, 3);
+     *     var b = List.of(1, 2, 3);
+     *     assert(a !== b); // different instances
+     *     var set = Set.of(a);
+     *     assert(set.has(b) === true);
+     *
+     * If two values have the same `hashCode`, they are [not guaranteed
+     * to be equal][Hash Collision]. If two values have different `hashCode`s,
+     * they must not be equal.
+     *
+     * [Hash Collision]: http://en.wikipedia.org/wiki/Collision_(computer_science)
+     */
+    public hashCode(): number;
+
+
+    // Reading values
+
+    /**
+     * Returns the value associated with the provided key, or notSetValue if
+     * the ImmutableIterable does not contain this key.
+     *
+     * Note: it is possible a key may be associated with an `undefined` value,
+     * so if `notSetValue` is not provided and this method returns `undefined`,
+     * that does not guarantee the key was not found.
+     */
+    public get(key: /*K*/ any, notSetValue: /*V*/ any=): V;
+
+    /**
+     * True if a key exists within this `ImmutableIterable`, using `Immutable.is` to determine equality
+     */
+    public has(key: /*K*/ any): boolean;
+
+    /**
+     * True if a value exists within this `ImmutableIterable`, using `Immutable.is` to determine equality
+     * @alias contains
+     */
+    public includes(value: /*V*/ any): boolean;
+    public contains(value: /*V*/ any): boolean;
+
+    /**
+     * The first value in the ImmutableIterable.
+     */
+    public first(): V;
+
+    /**
+     * The last value in the ImmutableIterable.
+     */
+    public last(): V;
+
+
+    // Reading deep values
+
+    /**
+     * Returns the value found by following a path of keys or indices through
+     * nested Iterables.
+     */
+    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
+
+    /**
+     * True if the result of following a path of keys or indices through nested
+     * Iterables results in a set value.
+     */
+    public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+
+    // Conversion to JavaScript types
+
+    /**
+     * Deeply converts this ImmutableIterable to equivalent JS.
+     *
+     * `ImmutableIterable.Indexeds`, and `ImmutableIterable.Sets` become Arrays, while
+     * `ImmutableIterable.Keyeds` become Objects.
+     *
+     * @alias toJSON
+     */
+    @Override
+    public toJS(): Object;
+
+    /**
+     * Shallowly converts this iterable to an Array, discarding keys.
+     */
+    @Override
+    public toArray(): Array</*V*/ any>;
+
+    /**
+     * Shallowly converts this ImmutableIterable to an Object.
+     *
+     * Throws if keys are not strings.
+    
+    */
+    @Override
+    public toObject(): Object;
+
+
+    // Conversion to Collections
+
+    /**
+     * Converts this ImmutableIterable to a Map, Throws if keys are not hashable.
+     *
+     * Note: This is equivalent to `Map(this.toKeyedSeq())`, but provided
+     * for convenience and to allow for chained expressions.
+     */
+    public toMap(): any //Map<K, V>;
+
+    /**
+     * Converts this ImmutableIterable to a Map, maintaining the order of iteration.
+     *
+     * Note: This is equivalent to `OrderedMap(this.toKeyedSeq())`, but
+     * provided for convenience and to allow for chained expressions.
+     */
+    public toOrderedMap(): any //OrderedMap<K, V>;
+
+    /**
+     * Converts this ImmutableIterable to a Set, discarding keys. Throws if values
+     * are not hashable.
+     *
+     * Note: This is equivalent to `Set(this)`, but provided to allow for
+     * chained expressions.
+     */
+    public toSet(): any//Set<V>;
+
+    /**
+     * Converts this ImmutableIterable to a Set, maintaining the order of iteration and
+     * discarding keys.
+     *
+     * Note: This is equivalent to `OrderedSet(this.valueSeq())`, but provided
+     * for convenience and to allow for chained expressions.
+     */
+    public toOrderedSet(): any //OrderedSet<V>;
+
+    /**
+     * Converts this ImmutableIterable to a List, discarding keys.
+     *
+     * Note: This is equivalent to `List(this)`, but provided to allow
+     * for chained expressions.
+     */
+    public toList(): any //List<V>;
+
+    /**
+     * Converts this ImmutableIterable to a Stack, discarding keys. Throws if values
+     * are not hashable.
+     *
+     * Note: This is equivalent to `Stack(this)`, but provided to allow for
+     * chained expressions.
+     */
+    public toStack(): any //Stack<V>;
+
+
+    // Conversion to Seq
+
+    /**
+     * Converts this ImmutableIterable to a Seq of the same kind (indexed,
+     * keyed, or set).
+     */
+    public toSeq(): any //Seq<K, V>;
+
+    /**
+     * Returns a Seq.Keyed from this ImmutableIterable where indices are treated as keys.
+     *
+     * This is useful if you want to operate on an
+     * ImmutableIterable.Indexed and preserve the [index, value] pairs.
+     *
+     * The returned Seq will have identical iteration order as
+     * this ImmutableIterable.
+     *
+     * Example:
+     *
+     *     var indexedSeq = Immutable.Seq.of('A', 'B', 'C');
+     *     indexedSeq.filter(v => v === 'B').toString() // Seq [ 'B' ]
+     *     var keyedSeq = indexedSeq.toKeyedSeq();
+     *     keyedSeq.filter(v => v === 'B').toString() // Seq { 1: 'B' }
+     *
+     */
+    public toKeyedSeq(): any;//Seq.Keyed<K, V>;
+
+    /**
+     * Returns an Seq.Indexed of the values of this ImmutableIterable, discarding keys.
+     */
+    public toIndexedSeq(): any;//Seq.Indexed<V>;
+
+    /**
+     * Returns a Seq.Set of the values of this ImmutableIterable, discarding keys.
+     */
+    public toSetSeq(): any; //Seq.Set<V>;
+
+
+    // Iterators
+
+    /**
+     * An iterator of this `ImmutableIterable`'s keys.
+     *
+     * Note: this will return an ES6 iterator which does not support Immutable JS sequence algorithms. Use `keySeq` instead, if this is what you want.
+     */
+    public keys(): IteratorExt<K>;
+
+    /**
+     * An iterator of this `ImmutableIterable`'s values.
+     *
+     * Note: this will return an ES6 iterator which does not support Immutable JS sequence algorithms. Use `valueSeq` instead, if this is what you want.
+     */
+    public values(): IteratorExt<V>;
+
+    /**
+     * An iterator of this `ImmutableIterable`'s entries as `[key, value]` tuples.
+     *
+     * Note: this will return an ES6 iterator which does not support Immutable JS sequence algorithms. Use `entrySeq` instead, if this is what you want.
+     */
+    public entries(): IteratorExt<Iterable2<K, V>>;
+
+
+    // ImmutableIterables (Seq)
+//
+//    /**
+//     * Returns a new Seq.Indexed of the keys of this ImmutableIterable,
+//     * discarding values.
+//     */
+//    keySeq(): Seq.Indexed<K>;
+//
+//    /**
+//     * Returns an Seq.Indexed of the values of this ImmutableIterable, discarding keys.
+//     */
+//    valueSeq(): Seq.Indexed<V>;
+//
+//    /**
+//     * Returns a new Seq.Indexed of [key, value] tuples.
+//     */
+//    entrySeq(): Seq.Indexed</*(K, V)*/Array<any>>;
+
+
+    // Sequence algorithms
+
+    /**
+     * Returns a new ImmutableIterable of the same type with values passed through a
+     * `mapper` function.
+     *
+     *     Seq({ a: 1, b: 2 }).map(x => 10 * x)
+     *     // Seq { a: 10, b: 20 }
+     *
+     */
+    public <ThisT extends ImmutableIterable<K,M>, M>map(mapper: {function (value: V, key: K=, iter: this=): M},context: any=): ThisT;
+
+    /**
+     * Returns a new ImmutableIterable of the same type with only the entries for which
+     * the `predicate` function returns true.
+     *
+     *     Seq({a:1,b:2,c:3,d:4}).filter(x => x % 2 === 0)
+     *     // Seq { b: 2, d: 4 }
+     *
+     */
+    public filter(predicate: {function(value: V=, key: K=, iter: this=):boolean},context: any=): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type with only the entries for which
+     * the `predicate` function returns false.
+     *
+     *     Seq({a:1,b:2,c:3,d:4}).filterNot(x => x % 2 === 0)
+     *     // Seq { a: 1, c: 3 }
+     *
+     */
+    public filterNot(predicate: {function(value: V=, key: K=, iter: this=):boolean},context: any=): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type in reverse order.
+     */
+    public reverse(): this;
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes the same entries,
+     * stably sorted by using a `comparator`.
+     *
+     * If a `comparator` is not provided, a default comparator uses `<` and `>`.
+     *
+     * `comparator(valueA, valueB)`:
+     *
+     *   * Returns `0` if the elements should not be swapped.
+     *   * Returns `-1` (or any negative number) if `valueA` comes before `valueB`
+     *   * Returns `1` (or any positive number) if `valueA` comes after `valueB`
+     *   * Is pure, i.e. it must always return the same value for the same pair
+     *     of values.
+     *
+     * When sorting collections which have no defined order, their ordered
+     * equivalents will be returned. e.g. `map.sort()` returns OrderedMap.
+     */
+    public sort(comparator: {function (valueA: V, valueB: V): number}): this;
+
+    /**
+     * Like `sort`, but also accepts a `comparatorValueMapper` which allows for
+     * sorting by more sophisticated means:
+     *
+     *     hitters.sortBy(hitter => hitter.avgHits);
+     *
+     */
+    public <C>sortBy(comparatorValueMapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function (valueA: C, valueB: C): number}=): this
+
+    /**
+     * Returns a `ImmutableIterable.Keyed` of `ImmutableIterable.Keyeds`, grouped by the return
+     * value of the `grouper` function.
+     *
+     * Note: This is always an eager operation.
+     */
+    public <G>groupBy(grouper: {function (value: V=, key: K=, iter: this=): G},context: any=): Map<G, this>;
+
+
+    // Side effects
+
+    /**
+     * The `sideEffect` is executed for every entry in the ImmutableIterable.
+     *
+     * Unlike `Array#forEach`, if any call of `sideEffect` returns
+     * `false`, the iteration will stop. Returns the number of entries iterated
+     * (including the last iteration which returned false).
+     */
+    public forEach(sideEffect: {function (value: V=, key: K=, iter: this=): any}, context: any=): number;
+
+
+    // Creating subsets
+
+    /**
+     * Returns a new ImmutableIterable of the same type representing a portion of this
+     * ImmutableIterable from start up to but not including end.
+     *
+     * If begin is negative, it is offset from the end of the ImmutableIterable. e.g.
+     * `slice(-2)` returns a ImmutableIterable of the last two entries. If it is not
+     * provided the new ImmutableIterable will begin at the beginning of this ImmutableIterable.
+     *
+     * If end is negative, it is offset from the end of the ImmutableIterable. e.g.
+     * `slice(0, -1)` returns an ImmutableIterable of everything but the last entry. If
+     * it is not provided, the new ImmutableIterable will continue through the end of
+     * this ImmutableIterable.
+     *
+     * If the requested slice is equivalent to the current ImmutableIterable, then it
+     * will return itself.
+     */
+    public slice(begin: number=, end: number=): this
+ 
+    /**
+     * Returns a new ImmutableIterable of the same type containing all entries except
+     * the first.
+     */
+    public rest(): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type containing all entries except
+     * the last.
+     */
+    public butLast(): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which excludes the first `amount`
+     * entries from this ImmutableIterable.
+     */
+    public skip(amount: number): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which excludes the last `amount`
+     * entries from this ImmutableIterable.
+     */
+    public skipLast(amount: number): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes entries starting
+     * from when `predicate` first returns false.
+     *
+     *     Seq.of('dog','frog','cat','hat','god')
+     *       .skipWhile(x => x.match(/g/))
+     *     // Seq [ 'cat', 'hat', 'god' ]
+     *
+     */
+    public skipWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes entries starting
+     * from when `predicate` first returns true.
+     *
+     *     Seq.of('dog','frog','cat','hat','god')
+     *       .skipUntil(x => x.match(/hat/))
+     *     // Seq [ 'hat', 'god' ]
+     *
+     */
+    public skipUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+    /**
+     * Returns a new ImmutableIterable of the same type which includes the first `amount`
+     * entries from this ImmutableIterable.
+     */
+    public take(amount: number): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes the last `amount`
+     * entries from this ImmutableIterable.
+     */
+    public takeLast(amount: number): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes entries from this
+     * ImmutableIterable as long as the `predicate` returns true.
+     *
+     *     Seq.of('dog','frog','cat','hat','god')
+     *       .takeWhile(x => x.match(/o/))
+     *     // Seq [ 'dog', 'frog' ]
+     *
+     */
+    public takeWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+
+    /**
+     * Returns a new ImmutableIterable of the same type which includes entries from this
+     * ImmutableIterable as long as the `predicate` returns false.
+     *
+     *     Seq.of('dog','frog','cat','hat','god').takeUntil(x => x.match(/at/))
+     *     // ['dog', 'frog']
+     *
+     */
+    public takeUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+
+
+    // Combination
+
+    /**
+     * Returns a new ImmutableIterable of the same type with other values and
+     * iterable-like concatenated to this one.
+     *
+     * For Seqs, all entries will be present in
+     * the resulting iterable, even if they have the same key.
+     */
+    public concat(...valuesOrImmutableIterables: /*this*/union{Array<any>,ImmutableIterable<any, any>}): this
+
+    /**
+     * Flattens nested ImmutableIterables.
+     *
+     * Will deeply flatten the ImmutableIterable by default, returning an ImmutableIterable of the
+     * same type, but a `depth` can be provided in the form of a number or
+     * boolean (where true means to shallowly flatten one level). A depth of 0
+     * (or shallow: false) will deeply flatten.
+     *
+     * Flattens only others ImmutableIterable, not Arrays or Objects.
+     *
+     * Note: `flatten(true)` operates on ImmutableIterable<any, ImmutableIterable<K, V>> and
+     * returns ImmutableIterable<K, V>
+     */
+    public flatten(depth: union{number, boolean}=): /*this*/ImmutableIterable<any, any>;
+
+    /**
+     * Flat-maps the ImmutableIterable, returning an ImmutableIterable of the same type.
+     *
+     * Similar to `iter.map(...).flatten(true)`.
+     */
+    public <MK, MV>flatMap( mapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): union{ImmutableIterable<MK, MV>, Iterable2<MK, MV>}}, context: any=): /*this*/ImmutableIterable<MK, MV>;
+
+    // Reducing a value
+
+    /**
+     * Reduces the ImmutableIterable to a value by calling the `reducer` for every entry
+     * in the ImmutableIterable and passing along the reduced value.
+     *
+     * If `initialReduction` is not provided, or is null, the first item in the
+     * ImmutableIterable will be used.
+     *
+     * @see `Array#reduce`.
+     */
+    public <R>reduce( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): R}, initialReduction: R=, context: any=): R;
+
+    /**
+     * Reduces the ImmutableIterable in reverse (from the right side).
+     *
+     * Note: Similar to this.reverse().reduce(), and provided for parity
+     * with `Array#reduceRight`.
+     */
+    public <R>reduceRight( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): R}, initialReduction: R=, context: any=): R;
+
+    /**
+     * True if `predicate` returns true for all entries in the ImmutableIterable.
+     */
+    public every(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): boolean;
+
+
+    /**
+     * True if `predicate` returns true for any entry in the ImmutableIterable.
+     */
+    public some(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): boolean;
+
+    /**
+     * Joins values together as a string, inserting a separator between each.
+     * The default separator is `","`.
+     */
+    public join(separator: string=): string;
+
+    /**
+     * Returns true if this ImmutableIterable includes no values.
+     *
+     * For some lazy `Seq`, `isEmpty` might need to iterate to determine
+     * emptiness. At most one iteration will occur.
+     */
+    public isEmpty(): boolean;
+
+    /**
+     * Returns the size of this ImmutableIterable.
+     *
+     * Regardless of if this ImmutableIterable can describe its size lazily (some Seqs
+     * cannot), this method will always return the correct size. E.g. it
+     * evaluates a lazy `Seq` if necessary.
+     *
+     * If `predicate` is provided, then this returns the count of entries in the
+     * ImmutableIterable for which the `predicate` returns true.
+     */
+    public count( predicate: {function(value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =):boolean}=, context: any=): number;
+
+    /**
+     * Returns a `Seq.Keyed` of counts, grouped by the return value of
+     * the `grouper` function.
+     *
+     * Note: This is not a lazy operation.
+     */
+    public <G>countBy( grouper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): G}, context: any=): Map<G, number>;
+
+
+    // Search for value
+
+    /**
+     * Returns the first value for which the `predicate` returns true.
+     */
+    public find( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
+
+    /**
+     * Returns the last value for which the `predicate` returns true.
+     *
+     * Note: `predicate` will be called for each entry in reverse.
+     */
+    public findLast( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
+
+    /**
+     * Returns the first [key, value] entry for which the `predicate` returns true.
+     */
+    public findEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
+
+    /**
+     * Returns the last [key, value] entry for which the `predicate`
+     * returns true.
+     * Note: `predicate` will be called for each entry in reverse.
+     */
+    public findLastEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
+
+    /**
+     * Returns the key for which the `predicate` returns true.
+     */
+    public findKey( predicate: {function (value:  V=, key:  K=, iter: this=): boolean}, context:  any=): K;
+
+    /**
+     * Returns the last key for which the `predicate` returns true.
+     *
+     * Note: `predicate` will be called for each entry in reverse.
+     */
+    public findLastKey( predicate: {function (value:  V=, key:  K=, iter: this=): boolean}, context: any=): K;
+
+    /**
+     * Returns the key associated with the search value, or undefined.
+     */
+    public keyOf(searchValue: /*V*/ any): K;
+
+    /**
+     * Returns the last key associated with the search value, or undefined.
+     */
+    public lastKeyOf(searchValue: /*V*/ any): K;
+
+    /**
+     * Returns the maximum value in this collection. If any values are
+     * comparatively equivalent, the first one found will be returned.
+     *
+     * The `comparator` is used in the same way as `ImmutableIterable#sort`. If it is not
+     * provided, the default comparator is `>`.
+     *
+     * When two values are considered equivalent, the first encountered will be
+     * returned. Otherwise, `max` will operate independent of the order of input
+     * as long as the comparator is commutative. The default comparator `>` is
+     * commutative *only* when types do not differ.
+     *
+     * If `comparator` returns 0 and either value is NaN, undefined, or null,
+     * that value will be returned.
+     */
+    public max(comparator: {function(valueA: V, valueB: V):number}=): V;
+
+    /**
+     * Like `max`, but also accepts a `comparatorValueMapper` which allows for
+     * comparing by more sophisticated means:
+     *
+     *     hitters.maxBy(hitter => hitter.avgHits);
+     *
+     */
+    public <C>maxBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function(valueA: C, valueB: C): number}=): V;
+
+    /**
+     * Returns the minimum value in this collection. If any values are
+     * comparatively equivalent, the first one found will be returned.
+     *
+     * The `comparator` is used in the same way as `ImmutableIterable#sort`. If it is not
+     * provided, the default comparator is `<`.
+     *
+     * When two values are considered equivalent, the first encountered will be
+     * returned. Otherwise, `min` will operate independent of the order of input
+     * as long as the comparator is commutative. The default comparator `<` is
+     * commutative *only* when types do not differ.
+     *
+     * If `comparator` returns 0 and either value is NaN, undefined, or null,
+     * that value will be returned.
+     */
+    public min(comparator: {function(valueA: V, valueB: V):number}=): V;
+
+    /**
+     * Like `min`, but also accepts a `comparatorValueMapper` which allows for
+     * comparing by more sophisticated means:
+     *
+     *     hitters.minBy(hitter => hitter.avgHits);
+     *
+     */
+    public <C>minBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function (valueA: C, valueB: C): number}=): V;
+
+
+    // Comparison
+
+    /**
+     * True if `iter` includes every value in this ImmutableIterable.
+     */
+    public isSubset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/>}): boolean;
+
+    /**
+     * True if this ImmutableIterable includes every value in `iter`.
+     */
+    public isSuperset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/>}): boolean;
+
+    @Override
+    public [Symbol.iterator](): Iterator<Iterable2<K,V>>
+
+}
+
+    /**
+     * Indexed Iterables have incrementing numeric keys. They exhibit
+     * slightly different behavior than `Iterable.Keyed` for some methods in order
+     * to better mirror the behavior of JavaScript's `Array`, and add methods
+     * which do not make sense on non-indexed Iterables such as `indexOf`.
+     *
+     * Unlike JavaScript arrays, `Iterable.Indexed`s are always dense. "Unset"
+     * indices and `undefined` indices are indistinguishable, and all indices from
+     * 0 to `size` are visited when iterated.
+     *
+     * All Iterable.Indexed methods return re-indexed Iterables. In other words,
+     * indices always start at 0 and increment until size. If you wish to
+     * preserve indices, using them as keys, convert to a Iterable.Keyed by
+     * calling `toKeyedSeq`.
+     */
+
+
+export external public abstract class IndexedIterable<out T> extends ImmutableIterable<number, T> {
+
+    public constructor(iter: union{IndexedIterable<T>, Iterable<T>});
+
+    public get size(): int;
+
+//    @Override
+// joem TODO actually OPR-769
+//    IDEBUG doesnt work in this case.
+//    @IDEBUG(769, "Signature of method IndexedIterable.#iterator does not conform to overridden method ImmutableIterable.#iterator: {function():Iterator<T>} is not a subtype of {function():Iterator<Iterable2<number,T>>}.")
+//    public [Symbol.iterator](): Iterator<T>
+
+      /**
+       * Returns the value associated with the provided index, or notSetValue if
+       * the index is beyond the bounds of the Iterable.
+       *
+       * `index` may be a negative number, which indexes back from the end of the
+       * Iterable. `s.get(-1)` gets the last item in the Iterable.
+       */
+    @Override
+    public get(index: /*number*/ any, notSetValue:  /*T*/ any=): T;
+
+
+      // Conversion to Seq
+//
+//      /**
+//       * Returns Seq.Indexed.
+//       * @override
+//       */
+//      toSeq(): Seq.Indexed<T>;
+//
+//      /**
+//       * If this is an iterable of [key, value] entry tuples, it will return a
+//       * Seq.Keyed of those entries.
+//       */
+//      fromEntrySeq(): Seq.Keyed<any, any>;
+//
+
+      // Combination
+
+      /**
+       * Returns an Iterable of the same type with `separator` between each item
+       * in this Iterable.
+       */
+    public interpose(separator: /*T*/ any): this;
+
+      /**
+       * Returns an Iterable of the same type with the provided `iterables`
+       * interleaved into this iterable.
+       *
+       * The resulting Iterable includes the first item from each, then the
+       * second from each, etc.
+       *
+       *     I.Seq.of(1,2,3).interleave(I.Seq.of('A','B','C'))
+       *     // Seq [ 1, 'A', 2, 'B', 3, 'C' ]
+       *
+       * The shortest Iterable stops interleave.
+       *
+       *     I.Seq.of(1,2,3).interleave(
+       *       I.Seq.of('A','B'),
+       *       I.Seq.of('X','Y','Z')
+       *     )
+       *     // Seq [ 1, 'A', 'X', 2, 'B', 'Y' ]
+       */
+    public interleave(...iterables: ImmutableIterable<any, /*T*/ any>): this;
+
+      /**
+       * Splice returns a new indexed Iterable by replacing a region of this
+       * Iterable with new values. If values are not provided, it only skips the
+       * region to be removed.
+       *
+       * `index` may be a negative number, which indexes back from the end of the
+       * Iterable. `s.splice(-2)` splices after the second to last item.
+       *
+       *     Seq(['a','b','c','d']).splice(1, 2, 'q', 'r', 's')
+       *     // Seq ['a', 'q', 'r', 's', 'd']
+       *
+       */
+    public splice(index: number, removeNum: number,...values: /*Array<Iterable.Indexed<T> | T>*/any): this
+
+      /**
+       * Returns an Iterable of the same type "zipped" with the provided
+       * iterables.
+       *
+       * Like `zipWith`, but using the default `zipper`: creating an `Array`.
+       *
+       *     var a = Seq.of(1, 2, 3);
+       *     var b = Seq.of(4, 5, 6);
+       *     var c = a.zip(b); // Seq [ [ 1, 4 ], [ 2, 5 ], [ 3, 6 ] ]
+       *
+       */
+    public zip(...iterables: ImmutableIterable<any, any>): this;
+
+      /**
+       * Returns an Iterable of the same type "zipped" with the provided
+       * iterables by using a custom `zipper` function.
+       *
+       *     var a = Seq.of(1, 2, 3);
+       *     var b = Seq.of(4, 5, 6);
+       *     var c = a.zipWith((a, b) => a + b, b); // Seq [ 5, 7, 9 ]
+       *
+       */
+    public <U, Z>zipWith( zipper: {function (value: T, otherValue: U): Z}, otherIterable: ImmutableIterable<any, U>): IndexedIterable<Z>;
+
+      // Search for value
+      /**
+       * Returns the first index at which a given value can be found in the
+       * Iterable, or -1 if it is not present.
+       */
+    public indexOf(searchValue: /*T*/ any): number;
+
+      /**
+       * Returns the last index at which a given value can be found in the
+       * Iterable, or -1 if it is not present.
+       */
+    public lastIndexOf(searchValue: /*T*/ any): number;
+
+      /**
+       * Returns the first index in the Iterable where a value satisfies the
+       * provided predicate function. Otherwise -1 is returned.
+       */
+    public findIndex(predicate: {function (value:  T=, index:  number=, iter: this=): boolean}, context:  any=): number;
+
+      /**
+       * Returns the last index in the Iterable where a value satisfies the
+       * provided predicate function. Otherwise -1 is returned.
+       */
+    public findLastIndex(predicate: {function (value:  T=, index:  number=, iter: this=): boolean}, context:  any=): number;
+
+}
+
+export external public class List<out T> extends IndexedIterable<T> {
+    /**
+     * True if the provided value is a List.
+     */
+    public static isList(maybeList: any): boolean;
+    
+    public constructor(iter:Iterable<any> =);
+
+    /**
+     * Returns a new List which includes `value` at `index`. If `index` already
+     * exists in this List, it will be replaced.
+     *
+     * `index` may be a negative number, which indexes back from the end of the
+     * List. `v.set(-1, "value")` sets the last item in the List.
+     *
+     * If `index` larger than `size`, the returned List's `size` will be large
+     * enough to include the `index`.
+     */
+    public set(index: number, value: /*T*/ any): this;
+
+    /**
+     * Returns a new List which excludes this `index` and with a size 1 less
+     * than this List. Values at indices above `index` are shifted down by 1 to
+     * fill the position.
+     *
+     * This is synonymous with `list.splice(index, 1)`.
+     *
+     * `index` may be a negative number, which indexes back from the end of the
+     * List. `v.delete(-1)` deletes the last item in the List.
+     *
+     * Note: `delete` cannot be safely used in IE8
+     * @alias remove
+     */
+    public delete(index: number): this;
+    public remove(index: number): this;
+
+    /**
+     * Returns a new List with `value` at `index` with a size 1 more than this
+     * List. Values at indices above `index` are shifted over by 1.
+     *
+     * This is synonymous with `list.splice(index, 0, value)
+     */
+    public insert(index: number, value: /*T*/ any): this;
+
+    /**
+     * Returns a new List with 0 size and no values.
+     */
+    public clear(): this;
+
+    /**
+     * Returns a new List with the provided `values` appended, starting at this
+     * List's `size`.
+     */
+    public push(...values: /*T*/ any): this;
+
+    /**
+     * Returns a new List with a size ones less than this List, excluding
+     * the last index in this List.
+     *
+     * Note: this differs from `Array#pop` because it returns a new
+     * List rather than the removed value. Use `last()` to get the last value
+     * in this List.
+     */
+    public pop(): this;
+
+    /**
+     * Returns a new List with the provided `values` prepended, shifting other
+     * values ahead to higher indices.
+     */
+    public unshift(...values: /*T*/ any): this;
+
+    /**
+     * Returns a new List with a size ones less than this List, excluding
+     * the first index in this List, shifting all other values to a lower index.
+     *
+     * Note: this differs from `Array#shift` because it returns a new
+     * List rather than the removed value. Use `first()` to get the first
+     * value in this List.
+     */
+    public shift(): this;
+
+    /**
+     * Returns a new List with an updated value at `index` with the return
+     * value of calling `updater` with the existing value, or `notSetValue` if
+     * `index` was not set. If called with a single argument, `updater` is
+     * called with the List itself.
+     *
+     * `index` may be a negative number, which indexes back from the end of the
+     * List. `v.update(-1)` updates the last item in the List.
+     *
+     * @see `Map#update`
+     */
+    public update(index: number, notSetValue: /*T*/ any, updater: {function (value: T): /*T*/ any}): this;
+
+    /**
+     * @see `Map#merge`
+     */
+    public merge(...iterables: Iterable</*T*/ any>): this;
+
+    /**
+     * @see `Map#mergeWith`
+     */
+    public mergeWith(merger: {function (previous: T=, next: T=, key: number=): /*T*/ any}, ...iterables: Iterable</*T*/ any>): this;
+
+    /**
+     * @see `Map#mergeDeep`
+     */
+    public mergeDeep(...iterables: Iterable</*T*/ any>): this;
+
+    /**
+     * @see `Map#mergeDeepWith`
+     */
+    public mergeDeepWith(merger: {function (previous: T=, next: T=, key: number=): /*T*/ any},...iterables: Iterable</*T*/ any>): this;
+
+    /**
+     * Returns a new List with size `size`. If `size` is less than this
+     * List's size, the new List will exclude values at the higher indices.
+     * If `size` is greater than this List's size, the new List will have
+     * undefined values for the newly available indices.
+     *
+     * When building a new List and the final size is known up front, `setSize`
+     * used in conjunction with `withMutations` may result in the more
+     * performant construction.
+     */
+    public setSize(size: number): List<T>;
+    
+}
+export external public interface ~IMap<out K, out V> {
+
+    public get size(): int;
+
+    // Persistent changes
+    public set(key: /*K*/ any, value: /*V*/ any): this;
+    /**
+     * Returns a new Map which excludes this `key`.
+     *
+     * Note: `delete` cannot be safely used in IE8, but is provided to mirror
+     * the ES6 collection API.
+     * @alias remove
+     */
+    public delete(key: /*K*/ any): this;
+    public remove(key: /*K*/ any): this;
+
+    /**
+     * Returns a new Map containing no keys or values.
+     */
+    public clear(): this;
+
+    /**
+     * Returns a new Map having updated the value at this `key` with the return
+     * value of calling `updater` with the existing value, or `notSetValue` if
+     * the key was not set. If called with only a single argument, `updater` is
+     * called with the Map itself.
+     *
+     * Equivalent to: `map.set(key, updater(map.get(key, notSetValue)))`.
+     */
+    public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: V): /*V*/ any}): this;
+
+    /**
+     * Returns a new Map resulting from merging the provided Iterables
+     * (or JS objects) into this Map. In other words, this takes each entry of
+     * each iterable and sets it on this Map.
+     *
+     * If any of the values provided to `merge` are not Iterable (would return
+     * false for `Immutable.Iterable.isIterable`) then they are deeply converted
+     * via `Immutable.fromJS` before being merged. However, if the value is an
+     * Iterable but includes non-iterable JS objects or arrays, those nested
+     * values will be preserved.
+     *
+     *     var x = Immutable.Map({a: 10, b: 20, c: 30});
+     *     var y = Immutable.Map({b: 40, a: 50, d: 60});
+     *     x.merge(y) // { a: 50, b: 40, c: 30, d: 60 }
+     *     y.merge(x) // { b: 20, a: 10, d: 60, c: 30 }
+     *
+     */
+    public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
+
+    /**
+     * Like `merge()`, `mergeWith()` returns a new Map resulting from merging
+     * the provided Iterables (or JS objects) into this Map, but uses the
+     * `merger` function for dealing with conflicts.
+     *
+     *     var x = Immutable.Map({a: 10, b: 20, c: 30});
+     *     var y = Immutable.Map({b: 40, a: 50, d: 60});
+     *     x.mergeWith((prev, next) => prev / next, y) // { a: 0.2, b: 0.5, c: 30, d: 60 }
+     *     y.mergeWith((prev, next) => prev / next, x) // { b: 2, a: 5, d: 60, c: 30 }
+     *
+     */
+    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * Like `merge()`, but when two Iterables conflict, it merges them as well,
+     * recursing deeply through the nested data.
+     *
+     *     var x = Immutable.fromJS({a: { x: 10, y: 10 }, b: { x: 20, y: 50 } });
+     *     var y = Immutable.fromJS({a: { x: 2 }, b: { y: 5 }, c: { z: 3 } });
+     *     x.mergeDeep(y) // {a: { x: 2, y: 10 }, b: { x: 20, y: 5 }, c: { z: 3 } }
+     *
+     */
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * Like `mergeDeep()`, but when two non-Iterables conflict, it uses the
+     * `merger` function to determine the resulting value.
+     *
+     *     var x = Immutable.fromJS({a: { x: 10, y: 10 }, b: { x: 20, y: 50 } });
+     *     var y = Immutable.fromJS({a: { x: 2 }, b: { y: 5 }, c: { z: 3 } });
+     *     x.mergeDeepWith((prev, next) => prev / next, y)
+     *     // {a: { x: 5, y: 10 }, b: { x: 20, y: 10 }, c: { z: 3 } }
+     *
+     */
+    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+
+
+    // Deep persistent changes
+
+    /**
+     * Returns a new Map having set `value` at this `keyPath`. If any keys in
+     * `keyPath` do not exist, a new immutable Map will be created at that key.
+     */
+    public setIn(keyPath: Array<?>, value: any): this;
+
+
+    /**
+     * Returns a new Map having removed the value at this `keyPath`. If any keys
+     * in `keyPath` do not exist, no change will occur.
+     *
+     * @alias removeIn
+     */
+    public deleteIn(keyPath: Array<?>): this;
+    public removeIn(keyPath: Array<?>): this;
+
+    /**
+     * Returns a new Map having applied the `updater` to the entry found at the
+     * keyPath.
+     *
+     * If any keys in `keyPath` do not exist, new Immutable `Map`s will
+     * be created at those keys. If the `keyPath` does not already contain a
+     * value, the `updater` function will be called with `notSetValue`, if
+     * provided, otherwise `undefined`.
+     *
+     *     var data = Immutable.fromJS({ a: { b: { c: 10 } } });
+     *     data = data.updateIn(['a', 'b', 'c'], val => val * 2);
+     *     // { a: { b: { c: 20 } } }
+     *
+     * If the `updater` function returns the same value it was called with, then
+     * no change will occur. This is still true if `notSetValue` is provided.
+     *
+     *     var data1 = Immutable.fromJS({ a: { b: { c: 10 } } });
+     *     data2 = data1.updateIn(['x', 'y', 'z'], 100, val => val);
+     *     assert(data2 === data1);
+     *
+     */
+    public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
+
+    /**
+     * A combination of `updateIn` and `merge`, returning a new Map, but
+     * performing the merge at a point arrived at by following the keyPath.
+     * In other words, these two lines are equivalent:
+     *
+     *     x.updateIn(['a', 'b', 'c'], abc => abc.merge(y));
+     *     x.mergeIn(['a', 'b', 'c'], y);
+     *
+     */
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * A combination of `updateIn` and `mergeDeep`, returning a new Map, but
+     * performing the deep merge at a point arrived at by following the keyPath.
+     * In other words, these two lines are equivalent:
+     *
+     *     x.updateIn(['a', 'b', 'c'], abc => abc.mergeDeep(y));
+     *     x.mergeDeepIn(['a', 'b', 'c'], y);
+     *
+     */
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+
+    // Transient changes
+
+    /**
+     * Every time you call one of the above functions, a new immutable Map is
+     * created. If a pure function calls a number of these to produce a final
+     * return value, then a penalty on performance and memory has been paid by
+     * creating all of the intermediate immutable Maps.
+     *
+     * If you need to apply a series of mutations to produce a new immutable
+     * Map, `withMutations()` creates a temporary mutable copy of the Map which
+     * can apply mutations in a highly performant manner. In fact, this is
+     * exactly how complex mutations like `merge` are done.
+     *
+     * As an example, this results in the creation of 2, not 4, new Maps:
+     *
+     *     var map1 = Immutable.Map();
+     *     var map2 = map1.withMutations(map => {
+     *       map.set('a', 1).set('b', 2).set('c', 3);
+     *     });
+     *     assert(map1.size === 0);
+     *     assert(map2.size === 3);
+     *
+     * Note: Not all methods can be used on a mutable collection or within
+     * `withMutations`! Only `set` and `merge` may be used mutatively.
+     *
+     */
+    public withMutations(mutator: {function (mutable: Map<K, V>): void}): this;
+
+    /**
+     * Another way to avoid creation of intermediate Immutable maps is to create
+     * a mutable copy of this collection. Mutable copies *always* return `this`,
+     * and thus shouldn't be used for equality. Your function should never return
+     * a mutable copy of a collection, only use it internally to create a new
+     * collection. If possible, use `withMutations` as it provides an easier to
+     * use API.
+     *
+     * Note: if the collection is already mutable, `asMutable` returns itself.
+     *
+     * Note: Not all methods can be used on a mutable collection or within
+     * `withMutations`! Only `set` and `merge` may be used mutatively.
+     */
+    public asMutable(): this;
+
+    /**
+     * The yin to `asMutable`'s yang. Because it applies to mutable collections,
+     * this operation is *mutable* and returns itself. Once performed, the mutable
+     * copy has become immutable and can be safely returned from a function.
+     */
+    public asImmutable(): this;
+}
+
+export external public class Map<out K, out V> extends ImmutableIterable<K, V> implements IMap<K, V>{
+    
+    public constructor(iter:union{Iterable<Iterable2<K,V>>, Object}=);
+
+    @Override
+    public get size(): int;
+
+    /**
+     * true if object is a map
+     */
+    public static isMap(maybeMap: any): boolean
+    
+    public static of(...keys): Map<any, any>
+
+    // Persistent changes
+    @Override
+    public set(key: /*K*/ any, value: /*V*/ any): this;
+    /**
+     * Returns a new Map which excludes this `key`.
+     *
+     * Note: `delete` cannot be safely used in IE8, but is provided to mirror
+     * the ES6 collection API.
+     * @alias remove
+     */
+    @Override
+    public delete(key: /*K*/ any): this;
+    @Override
+    public remove(key: /*K*/ any): this;
+
+    /**
+     * Returns a new Map containing no keys or values.
+     */
+    @Override
+    public clear(): this;
+
+    /**
+     * Returns a new Map having updated the value at this `key` with the return
+     * value of calling `updater` with the existing value, or `notSetValue` if
+     * the key was not set. If called with only a single argument, `updater` is
+     * called with the Map itself.
+     *
+     * Equivalent to: `map.set(key, updater(map.get(key, notSetValue)))`.
+     */
+    @Override
+    public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: V): /*V*/ any}): this;
+
+    /**
+     * Returns a new Map resulting from merging the provided Iterables
+     * (or JS objects) into this Map. In other words, this takes each entry of
+     * each iterable and sets it on this Map.
+     *
+     * If any of the values provided to `merge` are not Iterable (would return
+     * false for `Immutable.Iterable.isIterable`) then they are deeply converted
+     * via `Immutable.fromJS` before being merged. However, if the value is an
+     * Iterable but includes non-iterable JS objects or arrays, those nested
+     * values will be preserved.
+     *
+     *     var x = Immutable.Map({a: 10, b: 20, c: 30});
+     *     var y = Immutable.Map({b: 40, a: 50, d: 60});
+     *     x.merge(y) // { a: 50, b: 40, c: 30, d: 60 }
+     *     y.merge(x) // { b: 20, a: 10, d: 60, c: 30 }
+     *
+     */
+    @Override
+    public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
+
+    /**
+     * Like `merge()`, `mergeWith()` returns a new Map resulting from merging
+     * the provided Iterables (or JS objects) into this Map, but uses the
+     * `merger` function for dealing with conflicts.
+     *
+     *     var x = Immutable.Map({a: 10, b: 20, c: 30});
+     *     var y = Immutable.Map({b: 40, a: 50, d: 60});
+     *     x.mergeWith((prev, next) => prev / next, y) // { a: 0.2, b: 0.5, c: 30, d: 60 }
+     *     y.mergeWith((prev, next) => prev / next, x) // { b: 2, a: 5, d: 60, c: 30 }
+     *
+     */
+    @Override
+    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * Like `merge()`, but when two Iterables conflict, it merges them as well,
+     * recursing deeply through the nested data.
+     *
+     *     var x = Immutable.fromJS({a: { x: 10, y: 10 }, b: { x: 20, y: 50 } });
+     *     var y = Immutable.fromJS({a: { x: 2 }, b: { y: 5 }, c: { z: 3 } });
+     *     x.mergeDeep(y) // {a: { x: 2, y: 10 }, b: { x: 20, y: 5 }, c: { z: 3 } }
+     *
+     */
+    @Override
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * Like `mergeDeep()`, but when two non-Iterables conflict, it uses the
+     * `merger` function to determine the resulting value.
+     *
+     *     var x = Immutable.fromJS({a: { x: 10, y: 10 }, b: { x: 20, y: 50 } });
+     *     var y = Immutable.fromJS({a: { x: 2 }, b: { y: 5 }, c: { z: 3 } });
+     *     x.mergeDeepWith((prev, next) => prev / next, y)
+     *     // {a: { x: 5, y: 10 }, b: { x: 20, y: 10 }, c: { z: 3 } }
+     *
+     */
+    @Override
+    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+
+
+    // Deep persistent changes
+
+    /**
+     * Returns a new Map having set `value` at this `keyPath`. If any keys in
+     * `keyPath` do not exist, a new immutable Map will be created at that key.
+     */
+    @Override
+    public setIn(keyPath: Iterable<any>, value: any): this;
+
+
+    /**
+     * Returns a new Map having removed the value at this `keyPath`. If any keys
+     * in `keyPath` do not exist, no change will occur.
+     *
+     * @alias removeIn
+     */
+    @Override
+    public deleteIn(keyPath: Iterable<any>): this;
+    @Override
+    public removeIn(keyPath: Iterable<any>): this;
+
+    /**
+     * Returns a new Map having applied the `updater` to the entry found at the
+     * keyPath.
+     *
+     * If any keys in `keyPath` do not exist, new Immutable `Map`s will
+     * be created at those keys. If the `keyPath` does not already contain a
+     * value, the `updater` function will be called with `notSetValue`, if
+     * provided, otherwise `undefined`.
+     *
+     *     var data = Immutable.fromJS({ a: { b: { c: 10 } } });
+     *     data = data.updateIn(['a', 'b', 'c'], val => val * 2);
+     *     // { a: { b: { c: 20 } } }
+     *
+     * If the `updater` function returns the same value it was called with, then
+     * no change will occur. This is still true if `notSetValue` is provided.
+     *
+     *     var data1 = Immutable.fromJS({ a: { b: { c: 10 } } });
+     *     data2 = data1.updateIn(['x', 'y', 'z'], 100, val => val);
+     *     assert(data2 === data1);
+     *
+     */
+    @Override
+    public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
+
+    /**
+     * A combination of `updateIn` and `merge`, returning a new Map, but
+     * performing the merge at a point arrived at by following the keyPath.
+     * In other words, these two lines are equivalent:
+     *
+     *     x.updateIn(['a', 'b', 'c'], abc => abc.merge(y));
+     *     x.mergeIn(['a', 'b', 'c'], y);
+     *
+     */
+    @Override
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    /**
+     * A combination of `updateIn` and `mergeDeep`, returning a new Map, but
+     * performing the deep merge at a point arrived at by following the keyPath.
+     * In other words, these two lines are equivalent:
+     *
+     *     x.updateIn(['a', 'b', 'c'], abc => abc.mergeDeep(y));
+     *     x.mergeDeepIn(['a', 'b', 'c'], y);
+     *
+     */
+    @Override
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+
+    // Transient changes
+
+    /**
+     * Every time you call one of the above functions, a new immutable Map is
+     * created. If a pure function calls a number of these to produce a final
+     * return value, then a penalty on performance and memory has been paid by
+     * creating all of the intermediate immutable Maps.
+     *
+     * If you need to apply a series of mutations to produce a new immutable
+     * Map, `withMutations()` creates a temporary mutable copy of the Map which
+     * can apply mutations in a highly performant manner. In fact, this is
+     * exactly how complex mutations like `merge` are done.
+     *
+     * As an example, this results in the creation of 2, not 4, new Maps:
+     *
+     *     var map1 = Immutable.Map();
+     *     var map2 = map1.withMutations(map => {
+     *       map.set('a', 1).set('b', 2).set('c', 3);
+     *     });
+     *     assert(map1.size === 0);
+     *     assert(map2.size === 3);
+     *
+     * Note: Not all methods can be used on a mutable collection or within
+     * `withMutations`! Only `set` and `merge` may be used mutatively.
+     *
+     */
+    @Override
+    public withMutations(mutator: {function (mutable: Map<K, V>): void}): this;
+
+    /**
+     * Another way to avoid creation of intermediate Immutable maps is to create
+     * a mutable copy of this collection. Mutable copies *always* return `this`,
+     * and thus shouldn't be used for equality. Your function should never return
+     * a mutable copy of a collection, only use it internally to create a new
+     * collection. If possible, use `withMutations` as it provides an easier to
+     * use API.
+     *
+     * Note: if the collection is already mutable, `asMutable` returns itself.
+     *
+     * Note: Not all methods can be used on a mutable collection or within
+     * `withMutations`! Only `set` and `merge` may be used mutatively.
+     */
+    @Override
+    public asMutable(): this;
+
+    /**
+     * The yin to `asMutable`'s yang. Because it applies to mutable collections,
+     * this operation is *mutable* and returns itself. Once performed, the mutable
+     * copy has become immutable and can be safely returned from a function.
+     */
+    @Override
+    public asImmutable(): this;
+}
+
+export external public class OrderedMap<out K, out V> extends Map<K, V> {
+    public static isOrderedMap(maybeOrderedMap: any): boolean;
+}
+
+ /**
+   * A Collection of unique values with `O(log32 N)` adds and has.
+   *
+   * When iterating a Set, the entries will be (value, value) pairs. Iteration
+   * order of a Set is undefined, however is stable. Multiple iterations of the
+   * same Set will iterate in the same order.
+   *
+   * Set values, like Map keys, may be of any type. Equality is determined using
+   * `Immutable.is`, enabling Sets to uniquely include other Immutable
+   * collections, custom value types, and NaN.
+   */
+export external public class Set<out T> extends ImmutableIterable<T,T>{
+
+    public get size(): int;
+
+    /**
+     * True if the provided value is a Set
+     */
+    public static isSet(maybeSet: any): boolean;
+
+    /**
+     * Creates a new Set containing `values`.
+     */
+    public static <T>of(...values: T): Set<T>;
+
+    /**
+     * `Set.fromKeys()` creates a new immutable Set containing the keys from
+     * this Iterable or JavaScript Object.
+     */
+    public static <T>fromKeys(iter: union{ImmutableIterable<T, any>, Object}): Set<T>;
+  
+
+    public constructor(iter: Iterable<T> =);
+    // Persistent changes
+
+    /**
+     * Returns a new Set which also includes this value.
+     */
+    public add(value: /*T*/ any): this;
+
+    /**
+     * Returns a new Set which excludes this value.
+     *
+     * Note: `delete` cannot be safely used in IE8
+     * @alias remove
+     */
+    public delete(value: /*T*/ any): this;
+    public remove(value: /*T*/ any): this;
+
+    /**
+     * Returns a new Set containing no values.
+     */
+    public clear(): this;
+
+    /**
+     * Returns a Set including any value from `iterables` that does not already
+     * exist in this Set.
+     * @alias merge
+     */
+    public union(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+    public merge(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+
+
+
+    /**
+     * Returns a Set which has removed any values not also contained
+     * within `iterables`.
+     */
+    public intersect(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+
+    /**
+     * Returns a Set excluding any values contained within `iterables`.
+     */
+    public subtract(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+
+
+    // Transient changes
+
+    /**
+     * Note: Not all methods can be used on a mutable collection or within
+     * `withMutations`! Only `add` may be used mutatively.
+     *
+     * @see `Map#withMutations`
+     */
+    public withMutations(mutator: {function (mutable: Set<T>): void}): this;
+
+    /**
+     * @see `Map#asMutable`
+     */
+    public asMutable(): this;
+
+    /**
+     * @see `Map#asImmutable`
+     */
+    public asImmutable(): this;
+}
+export external public class OrderedSet<out T> extends Set<T>{
+    /**
+     * True if the provided value is an OrderedSet.
+     */
+    public static isOrderedSet(maybeOrderedSet: any): boolean;
+}
+
+export external public interface ~IRecord extends ImmutableObject {
+    // Reading values
+    public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
+    public has(key: /*K*/ any): boolean;
+    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
+    public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+
+    // Persistent changes
+    public set(key: /*K*/ any, value: /*V*/ any): this;
+    public delete(key: /*K*/ any): this;
+    public remove(key: /*K*/ any): this;
+    public clear(): this;
+    public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: any): /*V*/ any}): this;
+    public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
+    public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+
+    // Deep persistent changes
+    public setIn(keyPath: Array<?>, value: any): this;
+    public deleteIn(keyPath: Array<?>): this;
+    public removeIn(keyPath: Array<?>): this;
+    public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    // Transient changes
+    public withMutations(mutator: {function (mutable: IRecord): void}): this;
+    public asMutable(): this;
+    public asImmutable(): this;
+}
+
+/**
+ * @attention no Map anymore in version 4
+ */
+export external public class Record implements IRecord {
+    @Override public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
+    @Override public has(key: /*K*/ any): boolean;
+    @Override public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
+    @Override public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+    @Override public toJS(): Object;
+    @Override public toArray(): Array</*V*/ any>;
+    @Override public toObject(): Object;
+    @Override public equals(other: ImmutableObject): boolean;
+
+    // Persistent changes
+    @Override public set(key: /*K*/ any, value: /*V*/ any): this;
+    @Override public delete(key: /*K*/ any): this;
+    @Override public remove(key: /*K*/ any): this;
+    @Override public clear(): this;
+    @Override public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: any): /*V*/ any}): this;
+    @Override public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
+    @Override public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    @Override public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    @Override public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+
+    // Deep persistent changes
+    @Override public setIn(keyPath: Array<?>, value: any): this;
+    @Override public deleteIn(keyPath: Array<?>): this;
+    @Override public removeIn(keyPath: Array<?>): this;
+    @Override public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
+    @Override public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    @Override public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+
+    // Transient changes
+    @Override public withMutations(mutator: {function (mutable: IRecord): void}): this;
+    @Override public asMutable(): this;
+    @Override public asImmutable(): this;
+
+//    /**
+//     * True if maybeRecord is an instance of a Record.
+//     * 
+//     * @attention
+//     * since version 4
+//     */
+//    public static isRecord(maybeRecord: any): boolean;
+    
+    public constructor(spec: Object=);
+    (spec: Object=): (spec: Object=)=>Record //(spec: T?): (spec: T?)=>Record<T>
+}
+export public const Iterable: constructor{ImmutableIterable};
+export public const Indexed: constructor{IndexedIterable}
+export external public function fromJS(arg, reviver: {function (k: any, v: ImmutableIterable<?,?>):any}=): ImmutableObject;
+
+/* -*- mode: typescript;-*- */

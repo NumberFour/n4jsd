@@ -1,9 +1,9 @@
-ProjectId: selenium-webdriver
+ProjectId: cookie-parser
 ProjectType: library
-ProjectVersion: 3.6.0
+ProjectVersion: 1.4.3
 VendorId: npm
 Output: "."
-MainModule: "selenium-webdriver"
+MainModule: "cookie-parser"
 ModuleLoader: commonjs
 Sources {
     source {
@@ -13,4 +13,8 @@ Sources {
 
 RequiredRuntimeLibraries {
     n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
 }

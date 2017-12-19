@@ -10,3 +10,7 @@ Sources {
         "src"
     }
 }
+
+ProjectDependencies {
+    redux
+}

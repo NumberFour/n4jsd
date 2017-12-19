@@ -1,4 +1,3 @@
-import {Dimensions} from "n4/SeleniumTestBase";
 import {ActionLocation} from "selenium-webdriver/lib/actions";
 import {ActionSequence} from "selenium-webdriver/lib/actions";
 import {TouchSequence} from "selenium-webdriver/lib/actions";

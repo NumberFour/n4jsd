@@ -1,7 +1,7 @@
 /**
  * https://www.npmjs.com/package/nomnom-patched
  */
-export default external public function script(name: string): NomnomConfig;
+export external public function script(name: string): NomnomConfig;
 
 export external public interface NomnomConfig {
     public help(help: string): NomnomConfig;

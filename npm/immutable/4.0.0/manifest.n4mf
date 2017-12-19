@@ -1,9 +1,9 @@
-ProjectId: selenium-webdriver
+ProjectId: immutable
 ProjectType: library
-ProjectVersion: 3.6.0
+ProjectVersion: 3.8.2
 VendorId: npm
 Output: "."
-MainModule: "selenium-webdriver"
+MainModule: "immutable"
 ModuleLoader: commonjs
 Sources {
     source {
@@ -12,5 +12,5 @@ Sources {
 }
 
 RequiredRuntimeLibraries {
-    n4js-runtime-node
+    n4js-runtime-es2015
 }

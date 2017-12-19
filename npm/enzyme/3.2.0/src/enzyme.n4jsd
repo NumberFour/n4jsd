@@ -53,7 +53,7 @@ export external public interface Wrapper {
     public everyWhere(fn: {function(node: Wrapper): boolean}): boolean;
 }
 
-export external interface ShallowWrapper extends Wrapper {
+export external public interface ShallowWrapper extends Wrapper {
     public shallow(options: ~Object with {context?: Object}=): ShallowWrapper;
     public render(): CheerioWrapper;
     public unmount(): ShallowWrapper;
@@ -82,7 +82,7 @@ export external interface ShallowWrapper extends Wrapper {
     @Override public forEach(fn: {function(n: Wrapper, i: int): void}): ShallowWrapper;
 }
 
-export external interface ReactWrapper extends Wrapper {
+export external public interface ReactWrapper extends Wrapper {
     public mount(): ReactWrapper;
     public unmount(): ReactWrapper;
     public render(): CheerioWrapper;
