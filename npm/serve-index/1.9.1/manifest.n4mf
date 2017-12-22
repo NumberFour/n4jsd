@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.9.1
 VendorId: npm
 Output: "."
-MainModule: "serve-index"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

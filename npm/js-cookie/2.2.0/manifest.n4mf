@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.2.0
 VendorId: npm
 Output: "."
-MainModule: "js-cookie"
+MainModule: "src/js.cookie"
 ModuleLoader: commonjs
 Sources {
     source {

@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.1.0
 VendorId: npm
 Output: "."
-MainModule: "enzyme-adapter-react-16"
+MainModule: "build/index"
 ModuleLoader: commonjs
 Sources {
     source {

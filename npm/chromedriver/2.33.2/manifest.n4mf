@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.33.2
 VendorId: npm
 Output: "."
-MainModule: "chromedriver"
+MainModule: "lib/chromedriver"
 ModuleLoader: commonjs
 Sources {
     source {

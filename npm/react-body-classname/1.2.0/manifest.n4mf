@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.2.0
 VendorId: npm
 Output: "."
-MainModule: "react-body-classname"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

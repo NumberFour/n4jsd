@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 11.5.1
 VendorId: npm
 Output: "."
-MainModule: "jsdom"
+MainModule: "lib/api"
 ModuleLoader: commonjs
 Sources {
     source {

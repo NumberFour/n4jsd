@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 3.7.2
 VendorId: npm
 Output: "."
-MainModule: "redux"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

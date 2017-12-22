@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.8.4
 VendorId: npm
 Output: "."
-MainModule: "cors"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

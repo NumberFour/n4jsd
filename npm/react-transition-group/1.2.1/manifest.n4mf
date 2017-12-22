@@ -3,7 +3,6 @@ ProjectType: library
 ProjectVersion: 1.2.1
 VendorId: npm
 Output: "."
-MainModule: "react-transition-group"
 ModuleLoader: commonjs
 Sources {
     source {

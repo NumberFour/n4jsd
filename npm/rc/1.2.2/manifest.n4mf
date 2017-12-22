@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.2.2
 VendorId: npm
 Output: "."
-MainModule: "rc"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

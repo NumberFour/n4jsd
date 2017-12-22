@@ -250,7 +250,7 @@ export external public interface ~NukaCarouselState {
 /**
  * https://github.com/FormidableLabs/nuka-carousel
  */
-export default external class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
+export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
     public startAutoplay(): void;
     public stopAutoplay(): void;
 

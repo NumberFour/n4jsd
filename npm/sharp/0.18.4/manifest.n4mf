@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 0.18.4
 VendorId: npm
 Output: "."
-MainModule: "sharp"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

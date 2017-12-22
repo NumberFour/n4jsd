@@ -7,7 +7,7 @@ export public interface ~DocumentTitleProps extends React.ComponentProps {
 /**
  * https://github.com/gaearon/react-document-title
  */
-export default external class DocumentTitle extends React.Component<DocumentTitleProps, undefined> {
+export default external public class DocumentTitle extends React.Component<DocumentTitleProps, undefined> {
     @Override
     public render(): React.Element<?>;
 }

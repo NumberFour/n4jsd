@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 5.13.1
 VendorId: npm
 Output: "."
-MainModule: "fetch-mock"
+MainModule: "src/server"
 ModuleLoader: commonjs
 Sources {
     source {

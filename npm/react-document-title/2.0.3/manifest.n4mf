@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.0.3
 VendorId: npm
 Output: "."
-MainModule: "react-document-title"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

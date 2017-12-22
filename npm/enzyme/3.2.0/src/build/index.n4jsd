@@ -118,7 +118,7 @@ export external public interface ReactWrapper extends Wrapper {
  * 
  * Cheerio - https://github.com/cheeriojs/cheerio
  */
-export external interface CheerioWrapper extends Wrapper {}
+export external public interface CheerioWrapper extends Wrapper {}
 
 export external public function render(node: React.Element<?>, options: Object=): CheerioWrapper;
 export external public function shallow(node: React.Element<?>, options: Object=): ShallowWrapper;

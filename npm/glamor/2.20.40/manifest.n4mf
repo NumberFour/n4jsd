@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.20.40
 VendorId: npm
 Output: "."
-MainModule: "glamor"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

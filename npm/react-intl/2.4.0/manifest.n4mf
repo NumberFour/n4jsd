@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 2.4.0
 VendorId: npm
 Output: "."
-MainModule: "react-intl"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

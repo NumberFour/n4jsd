@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 3.6.0
 VendorId: npm
 Output: "."
-MainModule: "selenium-webdriver"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

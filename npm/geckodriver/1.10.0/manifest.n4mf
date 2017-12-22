@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.10.0
 VendorId: npm
 Output: "."
-MainModule: "geckodriver"
+MainModule: "lib/geckodriver"
 ModuleLoader: commonjs
 Sources {
     source {

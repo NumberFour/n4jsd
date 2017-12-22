@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 4.2.0
 VendorId: npm
 Output: "."
-MainModule: "next"
+MainModule: "dist/server/next"
 ModuleLoader: commonjs
 Sources {
     source {

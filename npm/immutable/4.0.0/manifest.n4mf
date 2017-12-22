@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 3.8.2
 VendorId: npm
 Output: "."
-MainModule: "immutable"
+MainModule: "dist/immutable"
 ModuleLoader: commonjs
 Sources {
     source {

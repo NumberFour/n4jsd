@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 1.9.0
 VendorId: npm
 Output: "."
-MainModule: "morgan"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {

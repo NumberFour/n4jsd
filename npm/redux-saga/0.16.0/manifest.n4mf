@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 0.16.0
 VendorId: npm
 Output: "."
-MainModule: "redux-saga"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

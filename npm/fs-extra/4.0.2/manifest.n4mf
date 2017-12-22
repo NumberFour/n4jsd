@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 4.0.2
 VendorId: npm
 Output: "."
-MainModule: "fs-extra"
+MainModule: "lib/index"
 ModuleLoader: commonjs
 Sources {
     source {

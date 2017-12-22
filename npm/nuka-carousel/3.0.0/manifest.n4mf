@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 3.0.0
 VendorId: npm
 Output: "."
-MainModule: "nuka-carousel"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {
