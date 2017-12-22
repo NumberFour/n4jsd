@@ -9,7 +9,7 @@ import { ReduxAction } from "redux";
 /**
  * Instruction yielded to the middleware (e.g. via put(), call()).
  */
-export external public interface ~ReduxSagaEffect<NextT> {
+export external public interface ~ReduxSagaEffect {
     public get CALL(): Object;
     public get PUT(): Object;
     public get TAKE(): Object;
@@ -37,7 +37,7 @@ export external public interface ~ReduxSagaTask<ResultT> {
  */
 export external public interface ~ReduxSagaMiddleware {
     public run(
-        saga: Function, // {function(): Generator<union{ReduxSagaEffect<?>, Array<ReduxSagaEffect<?>>}, undefined, any>},
+        saga: Function, // {function(): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
         ...args
     ): ReduxSagaTask<?>;
 }
@@ -53,13 +53,15 @@ export default external public function createSagaMiddleware(options: Object=): 
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#throttlems-pattern-saga-args
+ * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
  */
 export external public function throttle(
     ms: int,
     pattern: union{Array<string>, string, {function(string): boolean}},
-    workerSaga: {function(ReduxAction): Generator<union{ReduxSagaEffect<?>, Array<ReduxSagaEffect<?>>}, undefined, any>},
+    workerSaga: {function(ReduxAction): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
     ...args
-): ReduxSagaEffect<ReduxSagaTask<?>>;
+): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#delayms-val

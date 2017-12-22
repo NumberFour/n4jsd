@@ -15,27 +15,27 @@ export external public const put: type{__PutFn};
 
 @Final
 export external public class __PutFn {
-    (action: ReduxAction): ReduxSagaEffect<undefined>;
-    public static resolve(action: union{Promise<?, ?>, ReduxAction}): ReduxSagaEffect<undefined>;
-    public static sync(action: ReduxAction): ReduxSagaEffect<undefined>
+    (action: ReduxAction): ReduxSagaEffect;
+    public static resolve(action: union{Promise<?, ?>, ReduxAction}): ReduxSagaEffect;
+    public static sync(action: ReduxAction): ReduxSagaEffect
 }
 
 ///**
 // * Just like put but the effect is blocking and will bubble up errors from downstream.
 // */
-//export external public function put.sync(action: ReduxAction): ReduxSagaEffect<undefined>;
+//export external public function put.sync(action: ReduxAction): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#callfn-args
  */
-export external public function <RetT> call(fn: Function, ...args): ReduxSagaEffect<RetT>;
+export external public function call(fn: Function, ...args): ReduxSagaEffect;
 
 /**
  * Creates an Effect description that instructs the middleware to invoke fn as a Node style function.
  * 
  * https://redux-saga.github.io/redux-saga/docs/api/
  */
-export external public function <RetT> cps(fn: Function, ...args): ReduxSagaEffect<RetT>;
+export external public function cps(fn: Function, ...args): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#takepattern
@@ -47,65 +47,75 @@ export external public function <RetT> cps(fn: Function, ...args): ReduxSagaEffe
  * If the terminated Saga has still some forked tasks which are still running,
  * it will wait for all the child tasks to terminate before terminating the Task.
  */
-export external public function <ActionT> take(
-    pattern: union{Array<string>, Array<string | {function(ReduxAction): boolean}>, string, {function(ReduxAction): boolean}}
-): ReduxSagaEffect<ActionT>;
+export external public function take(
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean
+): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#takeeverypattern-saga-args
  * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ * 
  * @param workerSaga generator function thast takes all var args and the action
  */
 export external public function takeEvery(
-    pattern: union{Array<string>, Array<string | {function(ReduxAction): boolean}>, string, {function(ReduxAction): boolean}},
-    workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect<?>, Array<ReduxSagaEffect<?>>}, undefined, any>},
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean,
+    workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
     ...args
-): ReduxSagaEffect<ReduxSagaTask<?>>;
+): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#takelatestpattern-saga-args
  * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ * 
  * @param workerSaga generator function thast takes all var args and the action
  */
 export external public function takeLatest(
-    pattern: union{Array<string>, Array<string | {function(ReduxAction): boolean}>, string, {function(ReduxAction): boolean}},
-    workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect<?>, Array<ReduxSagaEffect<?>>}, undefined, any>},
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean,
+    workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
     ...args
-): ReduxSagaEffect<ReduxSagaTask<?>>;
+): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#takempattern
  * 
  * Same as take(pattern) but does not automatically terminate the Saga on an END action.
+ * 
+ * Effect resolves into an action object.
  */
-export external public function <ActionT> takem(
-    pattern: union{Array<string>, Array<string | {function(ReduxAction): boolean}>, string, {function(ReduxAction): boolean}}
-): ReduxSagaEffect<ActionT>;
+export external public function takem(
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean
+): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#forkfn-args
  * 
  * Attached task.
  * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ * 
  * @param fn generator function thast takes all var args
  */
-export external public function fork(fn: Function, ...args): ReduxSagaEffect<ReduxSagaTask<?>>;
+export external public function fork(fn: Function, ...args): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#spawnfn-args
  * 
  * Detached task.
  * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ * 
  * @param fn generator function thast takes all var args
  */
-export external public function spawn(fn: Function, ...args): ReduxSagaEffect<undefined>;
+export external public function spawn(fn: Function, ...args): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#jointask
  * 
  * Creates an Effect description that instructs the middleware to wait for the result of a previously forked task.
  */
-export external public function join(task: ReduxSagaTask<?>): ReduxSagaEffect<?>;
+export external public function join(task: ReduxSagaTask<?>): ReduxSagaEffect;
 
 /**
  * Cancels the provided task/tasks. If no argument is provided, 
@@ -122,34 +132,42 @@ export external public function join(task: ReduxSagaTask<?>): ReduxSagaEffect<?>
  * https://redux-saga.github.io/redux-saga/docs/api/#cancel
  * cancel(): Creates an Effect description that instructs the middleware to cancel a task in which it has been yielded (self cancellation).
  */
-export external public function cancel(...tasks: ReduxSagaTask<?>): ReduxSagaEffect<undefined>;
+export external public function cancel(...tasks: ReduxSagaTask<?>): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#cancelled
  * 
  * Use in `finally` block to check whether task has been cancelled.
+ * 
+ * Effect resolves into a boolean.
  */
-export external public function cancelled(): ReduxSagaEffect<boolean>;
+export external public function cancelled(): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#raceeffects
  * 
  * Resolves the first winner, all other are cancelled.
+ * 
+ * Effect resolves into a plain Object of same shape as the `effectsMap`.
  */
-export external public function race(effectsMap: Object): ReduxSagaEffect<Object>;
+export external public function race(effectsMap: Object): ReduxSagaEffect;
 
 /**
  * https://redux-saga.js.org/docs/api/#alleffects
  * 
  * Creates an Effect description that instructs the middleware to run multiple Effects in parallel and wait for all of them to complete.
+ * 
+ * Effect resolves into same shape as `effects`.
  */
-export external public function all(effects: Object|Array<?>): ReduxSagaEffect<Object|Array<?>>;
+export external public function all(effects: Object|Array<?>): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#selectselector-args
  * 
  * Selects on the current store state.
+ * 
+ * Effect resolves into what's been selected.
  */
-export external public function <StoreStateT> select(selector: {function(StoreStateT, Array<any> =)}=, ...args): ReduxSagaEffect<any>;
+export external public function <StoreStateT> select(selector: {function(StoreStateT, Array<any> =)}=, ...args): ReduxSagaEffect;
 
 /* -*- mode: typescript;-*- */
