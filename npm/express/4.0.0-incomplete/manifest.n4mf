@@ -3,7 +3,7 @@ ProjectType: library
 ProjectVersion: 4.0.0-incomplete
 VendorId: npm
 Output: "."
-MainModule: "express"
+MainModule: "index"
 ModuleLoader: commonjs
 Sources {
     source {
