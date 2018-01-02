@@ -1,0 +1,16 @@
+ProjectId: fs-extra
+ProjectType: library
+ProjectVersion: 4.0.2
+VendorId: npm
+Output: "."
+MainModule: "lib/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}

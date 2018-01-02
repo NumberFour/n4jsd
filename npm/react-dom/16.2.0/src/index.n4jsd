@@ -1,0 +1,86 @@
+import {Element, Component} from "react";
+
+/**
+ * @see http://facebook.github.io/react/docs/events.html
+ */
+export external public class ~SyntheticEvent {
+    protected constructor();
+
+    /**
+     * Allows to retain references on the (otherwise pooled) event.
+     */
+    public persist(): void;
+
+    public isPropagationStopped(): boolean;
+    public isDefaultPrevented(): boolean;
+
+    @Final public bubbles: boolean;
+    @Final public cancelable: boolean;
+    @Final public currentTarget: EventTarget;
+    @Final public defaultPrevented: boolean;
+    @Final public eventPhase: number;
+    @Final public isTrusted: boolean;
+    @Final public nativeEvent: Event+;
+    public preventDefault(): void;
+    public stopPropagation(): void;
+    @Final public target: EventTarget;
+    @Final public timeStamp: number;
+    @Final public type: string;
+
+    @Final public keyCode: number;
+    @Final public shiftKey: boolean;
+    @Final public ctrlKey: boolean;
+    @Final public altKey: boolean;
+    @Final public metaKey: boolean;
+    @Final public repeat: boolean;
+    @Final public which: number;
+    @Final public charCode: number;
+    @Final public code: string;
+    
+    public getModifierState(key: string): boolean;
+    @Final public key: string;
+
+    @Final public screenX: int;
+    @Final public screenY: int;
+    @Final public clientX: int;
+    @Final public clientY: int;
+}
+
+export external public function findDOMNode(component: Component<?, ?>): Node;
+
+/**
+ * Render a Element into the DOM in the supplied container and return a reference to the component.
+ * If the Element was previously rendered into container, this will perform an update on it and only mutate
+ * the DOM as necessary to reflect the latest React component.
+ * If the optional callback is provided, it will be executed after the component is rendered or updated.
+ */
+export external public function render(
+    element: string | Element<?> | Iterable<string | Element<?>> | Function,
+    container: Node,
+    callback: Function=): void;
+
+/**
+ * Same as render(), but is used to hydrate a container whose HTML contents were rendered by ReactDOMServer.
+ * React will attach event listeners while preserving as much of the existing DOM as possible.
+ * For best results, you should try to render the same content on the server as on the client, with as few differences as possible.
+ */
+export external public function hydrate(
+    element: string | Element<?> | Iterable<string | Element<?>> | Function,
+    container: Node,
+    callback: Function=): void;
+
+/**
+ * Creates a portal. Portals provide a way to render children into a DOM node that exists outside the hierarchy of the DOM component.
+ */
+export external public function createPortal(
+    child: string | Element<?> | Iterable<string | Element<?>> | Function,
+    container: Node): Element<?>;
+
+/**
+ * Remove a mounted React component from the DOM and clean up its event handlers and state.
+ * If no component was mounted in the container, calling this function does nothing.
+ * Returns true if a component was unmounted and false if there was no component to unmount.
+ */
+export external public function unmountComponentAtNode(container: Node): boolean;
+
+/* -*- mode: typescript;-*- */

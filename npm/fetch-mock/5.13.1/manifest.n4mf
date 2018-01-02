@@ -1,0 +1,17 @@
+ProjectId: fetch-mock
+ProjectType: library
+ProjectVersion: 5.13.1
+VendorId: npm
+Output: "."
+MainModule: "src/server"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node,
+    n4js-runtime-fetch
+}

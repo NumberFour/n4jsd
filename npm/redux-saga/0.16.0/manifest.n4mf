@@ -1,0 +1,16 @@
+ProjectId: redux-saga
+ProjectType: library
+ProjectVersion: 0.16.0
+VendorId: npm
+Output: "."
+MainModule: "lib/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    redux
+}

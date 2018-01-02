@@ -1,0 +1,16 @@
+ProjectId: immutable
+ProjectType: library
+ProjectVersion: 3.8.2
+VendorId: npm
+Output: "."
+MainModule: "dist/immutable"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-es2015
+}

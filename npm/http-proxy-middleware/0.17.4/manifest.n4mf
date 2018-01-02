@@ -1,0 +1,20 @@
+ProjectId: http-proxy-middleware
+ProjectType: library
+ProjectVersion: 0.17.4
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
+}

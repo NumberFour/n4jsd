@@ -1,0 +1,17 @@
+ProjectId: react-redux
+ProjectType: library
+ProjectVersion: 5.0.6
+VendorId: npm
+Output: "."
+MainModule: "lib/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react,
+    redux
+}

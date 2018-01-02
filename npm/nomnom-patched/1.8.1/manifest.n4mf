@@ -1,0 +1,16 @@
+ProjectId: nomnom-patched
+ProjectType: library
+ProjectVersion: 1.8.1
+VendorId: npm
+Output: "."
+MainModule: "nomnom"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}

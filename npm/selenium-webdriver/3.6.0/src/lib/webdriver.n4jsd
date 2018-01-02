@@ -1,0 +1,113 @@
+import {ActionLocation} from "selenium-webdriver/lib/actions";
+import {ActionSequence} from "selenium-webdriver/lib/actions";
+import {TouchSequence} from "selenium-webdriver/lib/actions";
+import {By} from "selenium-webdriver/lib/by";
+import {Condition} from "selenium-webdriver/lib/condition";
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html
+ * 
+ * General remark for promisified WebElementPromise:
+ * WebDriver internally queues up all locating operations, so there's no need to `await`
+ * for elements until you want to execute/inspect them, e.g. assert a certain size.
+ * 
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElementPromise.html
+ */
+export external public class WebDriver {
+    private constructor(session, executor, opt_flow, opt_onQuit);
+
+    public navigate(): Navigation;
+    public getCurrentUrl(): Promise<string, any>;
+    public quit(): Promise<undefined, any>;
+    
+    public manage(): Options;
+    
+    public close(): Promise<undefined, any>;
+    public getWindowHandle(): Promise<string, any>;
+    public getAllWindowHandles(): Promise<Array<string>, any>;
+    public switchTo(): TargetLocator;
+    
+    public executeScript(script: union{string, Function}, ...var_args): Promise<any, any>;
+    public executeAsyncScript(script: union{string, Function}, ...var_args): Promise<any, any>;
+
+    public sleep(ms: int): Promise<undefined, any>;
+    public wait(
+        cond: union{Promise<?, any>, Condition<?>, {function(): union{boolean, Promise<boolean, any>}}},
+        opt_timeout: int=,
+        opt_message: string=): Promise<WebElement, any>;
+
+    public actions(): ActionSequence;
+    public touchActions(): TouchSequence;
+    
+    public findElement(locator: union{By, {function(WebElement): union{WebElement, Promise<WebElement, any>}}}): Promise<WebElement, any>;
+    public findElements(locator: union{By, {function(WebElement): union{WebElement, Promise<Array<WebElement>, any>}}}): Promise<Array<WebElement>, any>;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_TargetLocator.html
+ */
+export external public class TargetLocator {
+    private constructor(driver: WebDriver);
+
+    public window(nameOrHandle: string): Promise<undefined, any>;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Navigation.html
+ */
+export external public class Navigation {
+    private constructor(driver: WebDriver);
+
+    public back(): Promise<undefined, any>;
+    public forward(): Promise<undefined, any>;
+    public refresh(): Promise<undefined, any>;
+    public to(url: string): Promise<undefined, any>;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElement.html
+ */
+export external public class WebElement {
+    public constructor(driver: WebDriver, id: string);
+
+    public static equals(a: WebElement, b: WebElement): Promise<boolean, any>;
+
+    public getLocation(): Promise<ActionLocation, any>;
+
+    public findElement(locator: union{By, {function(WebElement): any}}): Promise<WebElement, any>;
+    public findElements(locator: union{By, {function(WebElement): any}}): Promise<Array<WebElement>, any>;
+
+    public click(): Promise<undefined, any>;
+    public sendKeys(...var_args: string): Promise<undefined, any>;
+
+    public getCssValue(cssValue: string): Promise<string, any>;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElementCondition.html
+ */
+export external public class WebElementCondition extends Condition<WebElement> {
+    public constructor(message: string, fn: Function);
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Options.html
+ */
+export external public class Options {
+    public window(): Window;
+}
+
+export public interface ~Dimensions {
+    public width: int;
+    public height: int;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Window.html
+ */
+export external public class Window {
+    public setSize(width: int, height: int): Promise<undefined, any>;
+    public getSize(): Promise<Dimensions, any>;
+}
+
+/* -*- mode: typescript;-*- */

@@ -1,0 +1,20 @@
+ProjectId: cookie-parser
+ProjectType: library
+ProjectVersion: 1.4.3
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
+}

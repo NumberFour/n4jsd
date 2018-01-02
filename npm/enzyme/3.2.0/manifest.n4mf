@@ -1,0 +1,20 @@
+ProjectId: enzyme
+ProjectType: library
+ProjectVersion: 3.2.0
+VendorId: npm
+Output: "."
+MainModule: "build/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-html5
+}

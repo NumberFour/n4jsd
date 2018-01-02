@@ -1,0 +1,19 @@
+import {IWritableStream} from "stream";
+import {IReadableStream} from "stream";
+
+/**
+ * @see https://github.com/lovell/sharp
+ */
+export external public abstract class Sharp implements IWritableStream, IReadableStream {
+    public resize(width: number, height: number=): this;
+
+    public min(): this;
+    public max(): this;
+
+    public withoutEnlargement(f: boolean=): this;
+    public ignoreAspectRatio(f: boolean): this;
+}
+
+export default external public function sharp(filePath: string=): Sharp;
+
+/* -*- mode: typescript;-*- */

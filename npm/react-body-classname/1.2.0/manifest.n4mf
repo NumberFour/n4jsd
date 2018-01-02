@@ -1,0 +1,16 @@
+ProjectId: react-body-classname
+ProjectType: library
+ProjectVersion: 1.2.0
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}

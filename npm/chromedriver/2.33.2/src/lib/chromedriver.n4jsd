@@ -1,0 +1,16 @@
+import { ChildProcess } from "child_process";
+
+/**
+ * https://www.npmjs.com/package/chromedriver
+ */
+export default external public class ~ChromeDriver {
+    public const path: string;
+    public const version: string;
+    
+    public defaultInstance?: ChildProcess;
+    
+    public static start(): ChildProcess; 
+    public static stop(): void; 
+}
+
+/* -*- mode: typescript;-*- */

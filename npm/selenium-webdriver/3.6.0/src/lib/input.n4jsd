@@ -1,0 +1,78 @@
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Key.html
+ */
+export external public class Key {
+    public const ADD: string;
+    public const ALT: string;
+    public const ARROW_DOWN: string;
+    public const ARROW_LEFT: string;
+    public const ARROW_RIGHT: string;
+    public const ARROW_UP: string;
+    public const BACK_SPACE: string;
+    public const CANCEL: string;
+    public const CLEAR: string;
+    public const COMMAND: string;
+    public const CONTROL: string;
+    public const DECIMAL: string;
+    public const DELETE: string;
+    public const DIVIDE: string;
+    public const DOWN: string;
+    public const END: string;
+    public const ENTER: string;
+    public const EQUALS: string;
+    public const ESCAPE: string;
+    public const F1: string;
+    public const F10: string;
+    public const F11: string;
+    public const F12: string;
+    public const F2: string;
+    public const F3: string;
+    public const F4: string;
+    public const F5: string;
+    public const F6: string;
+    public const F7: string;
+    public const F8: string;
+    public const F9: string;
+    public const HELP: string;
+    public const HOME: string;
+    public const INSERT: string;
+    public const LEFT: string;
+    public const META: string;
+    public const MULTIPLY: string;
+    public const NULL: string;
+    public const NUMPAD0: string;
+    public const NUMPAD1: string;
+    public const NUMPAD2: string;
+    public const NUMPAD3: string;
+    public const NUMPAD4: string;
+    public const NUMPAD5: string;
+    public const NUMPAD6: string;
+    public const NUMPAD7: string;
+    public const NUMPAD8: string;
+    public const NUMPAD9: string;
+    public const PAGE_DOWN: string;
+    public const PAGE_UP: string;
+    public const PAUSE: string;
+    public const RETURN: string;
+    public const RIGHT: string;
+    public const SEMICOLON: string;
+    public const SEPARATOR: string;
+    public const SHIFT: string;
+    public const SPACE: string;
+    public const SUBTRACT: string;
+    public const TAB: string;
+    public const UP: string;
+
+    public static chord(...var_args: string): string;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Button.html
+ */
+export external public class Button {
+    public const LEFT;
+    public const MIDDLE;
+    public const RIGHT;
+}
+
+/* -*- mode: typescript;-*- */

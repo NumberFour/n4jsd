@@ -1,0 +1,138 @@
+import { RequestInit } from "fetch/RequestInit";
+
+/*
+ * see https://www.npmjs.com/package/fetch-mock for full documentation
+ */
+
+export external public interface ~ResponseObject {   
+    public body?: union{string, Object}
+    public status?: int
+    public headers?: Object
+    public throws?: any
+    public sendAsJson?: boolean
+}
+export external public interface ~MockOptions {
+    public name?: string
+    public method?: string
+    public headers?: Object
+    public matcher?: union{string, RegExp, {function(string, Object): boolean }}
+    public response?: union{Response,number, string, ResponseObject, Object}
+    public times?: int
+}
+
+export default external public class FetchMock {
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param options Additional properties defining the route to mock
+      */
+    public static mock( matcher:union{string, RegExp, {function(string|Request, RequestInit): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted mock with the once option. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static once( matcher:union{string, RegExp, {function(string, RequestInit): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted to the GET
+        method. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static get(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted to the PUT
+        method. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static put(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted to the POST
+        method. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static post(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted to the DELETE
+        method. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static delete(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    /**
+     * Replaces fetch() with a stub which records its calls, grouped by
+       route, and optionally returns a mocked Response object or passes the
+        call through to fetch(). Shorthand for mock() restricted to the HEAD
+        method. Calls to .mock() can be chained.
+      * @param matcher Condition for selecting which requests to mock
+      * @param response Configures the http response returned by the mock
+      * @param [options] Additional properties defining the route to mock
+      */
+    public static head(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static getOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static putOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static postOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static deleteOnce(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static headOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
+    public static catch(response:union{Response,number, string, ResponseObject, Object, Function}): type{this};
+    public static spy(): type{this};
+   /**
+    * Chainable method that restores fetch() to its unstubbed state and
+       clears all data recorded for its calls.
+    */
+    public static restore(): type{this};
+    /**
+     * Chainable method that clears all data recorded for fetch()'s calls
+     */
+    public static reset(): type{this};
+    /**
+     * Returns a Boolean indicating whether fetch was called and a route
+       named matcherName was matched. If no matcherName is given all routes are used.
+      */
+    public static called(matcherName:string=): boolean;
+    public static done(matcherName:string=): boolean;
+    public static calls(matcherName:string=): ~Object with {matched:Array<Object>; unmatched:Array<Object>};
+     /**
+     * Returns the arguments for the last call to fetch matching
+       matcherName. If no matcherName is given all routes are used.
+      */
+    public static lastCall(name: string=):Array<any>;
+    /**
+     * Returns the url for the last call to fetch matching matcherName. If no matcherName is given all routes are used.
+     */
+    public static lastUrl(name: string=):string;
+    /**
+     * Returns the options for the last call to fetch matching matcherName
+     */
+    public static lastOptions(name: string=):RequestInit;
+    /**
+     * Set some global config options, which include
+         * sendAsJson [default `true`] - by default fetchMock will
+           convert objects to JSON before sending. This is overrideable
+            for each call but for some scenarios, e.g. when dealing with a
+            lot of array buffers, it can be useful to default to `false`
+      */
+    public static configure(options:~Object with{sendAsJson:boolean;}):type{this};
+}
+
+/* -*- mode: typescript;-*- */

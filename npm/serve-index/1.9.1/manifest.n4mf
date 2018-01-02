@@ -1,0 +1,20 @@
+ProjectId: serve-index
+ProjectType: library
+ProjectVersion: 1.9.1
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
+}

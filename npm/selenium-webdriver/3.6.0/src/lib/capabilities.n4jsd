@@ -1,0 +1,19 @@
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_Capabilities.html
+ */
+export external public class Capabilities {
+    public constructor(opt_other);
+    
+    public set(key: string, value: any): this;
+    
+    public static android(): Capabilities;
+    public static chrome(): Capabilities;
+    public static firefox(): Capabilities;
+    public static ipad(): Capabilities;
+    public static iphone(): Capabilities;
+    public static safari(): Capabilities;
+    
+    public keys(): Iterable<string>;
+}
+
+/* -*- mode: typescript;-*- */

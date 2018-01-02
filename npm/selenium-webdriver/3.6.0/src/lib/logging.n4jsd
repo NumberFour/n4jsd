@@ -1,0 +1,41 @@
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging.html#installConsoleHandler
+ */
+export external public function installConsoleHandler(): void;
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Level.html
+ */
+export external public class Level {
+    public const ALL: Level;
+    public const DEBUG: Level;
+    public const FINE: Level;
+    public const FINER: Level;
+    public const FINEST: Level;
+    public const INFO: Level;
+    public const OFF: Level;
+    public const SEVERE: Level;
+    public const WARNING: Level;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Preferences.html
+ */
+export external public class Preferences {
+    public constructor();
+    
+    public setLevel(type: Type, level: Level): void;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Type.html
+ */
+export external public enum Type {
+    BROWSER,
+    CLIENT,
+    DRIVER,
+    PERFORMANCE,
+    SERVER
+}
+
+/* -*- mode: typescript;-*- */

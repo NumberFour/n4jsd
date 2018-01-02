@@ -1,0 +1,16 @@
+ProjectId: chromedriver
+ProjectType: library
+ProjectVersion: 2.33.2
+VendorId: npm
+Output: "."
+MainModule: "lib/chromedriver"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}

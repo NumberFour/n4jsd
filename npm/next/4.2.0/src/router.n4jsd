@@ -1,0 +1,58 @@
+/**
+ * Passed into page props.
+ */
+export external public class ~RoutingOptions {
+    public shallow?: boolean;
+}
+
+/**
+ * https://github.com/zeit/next.js#imperatively
+ */
+@Final
+export default external public class ~Router {
+    private constructor();
+    
+    /**
+     * String of the current route.
+     */
+    public static get route(): string;
+    /**
+     * String of the current path excluding the query string.
+     */
+    public static get pathname(): string;
+    /**
+     * Object with the parsed query string. Defaults to {}
+     */
+    public static get query(): Object+;
+    /**
+     * performs a pushState call associated with the current component
+     */
+    public static push(url, as: string=, options: RoutingOptions=): void;
+    /**
+     * performs a replaceState call associated with the current component
+     */
+    public static replace(url: string, as: string=, options: RoutingOptions=): void;
+
+    /**
+     * Fires when a route starts to change.
+     */
+    public static routeChangeStart: {function(url: string): void};
+    /**
+     * Fires when a route changed completely.
+     */
+    public static routeChangeComplete: {function(url: string): void};
+    /**
+     * Fires when there's an error when changing routes.
+     */
+    public static routeChangeError: {function(err: ~Error with { cancelled: boolean; }, url: string): void};
+    /**
+     * Fires just before changing the browser's history
+     */
+    public static beforeHistoryChange: {function(url: string): void};
+    /**
+     * Fires when switching pages and there's a new version of the app}.
+     */
+    public static appUpdated: {function(nextRoute: string): void};
+}
+
+/* -*- mode: typescript;-*- */

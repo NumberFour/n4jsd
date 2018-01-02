@@ -1,0 +1,6 @@
+/**
+ * https://www.npmjs.com/package/rc
+ */
+export default external public function rc(name: string, defaults: Object=, argvParser: Function=, parser: Function=): Object;
+
+/* -*- mode: typescript;-*- */

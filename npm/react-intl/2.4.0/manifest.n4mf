@@ -1,0 +1,20 @@
+ProjectId: react-intl
+ProjectType: library
+ProjectVersion: 2.4.0
+VendorId: npm
+Output: "."
+MainModule: "lib/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-ecma402
+}
+
+ProjectDependencies {
+    react
+}

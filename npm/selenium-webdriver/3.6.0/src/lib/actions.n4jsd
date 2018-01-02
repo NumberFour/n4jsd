@@ -1,0 +1,46 @@
+import {WebDriver} from "selenium-webdriver/lib/webdriver";
+import {WebElement} from "selenium-webdriver/lib/webdriver";
+import { Button } from "selenium-webdriver/lib/input";
+
+export external public class ~ActionLocation {
+    public x: int;
+    public y: int;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_ActionSequence.html
+ */
+export external public class ActionSequence {
+    private constructor(driver: WebDriver);
+
+    public mouseMove(location: union{WebElement, ActionLocation}, opt_offset: ActionLocation=): this;
+    public sendKeys(...var_args: string): this;
+    public mouseDown(opt_elementOrButton: union{WebElement, Button}=, opt_button: Button=): this;
+    public mouseUp(opt_elementOrButton: union{WebElement, Button}=, opt_button: Button=): this;
+    public click(opt_elementOrButton: union{WebElement, Button}=, opt_button: Button=): this;
+
+    public perform(): Promise<undefined, any>;
+}
+
+/**
+ * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_TouchSequence.html
+ */
+export external public class TouchSequence {
+    private constructor(driver: WebDriver);
+    
+    public tap(elem: WebElement): this;
+    public doubleTap(elem: WebElement): this;
+    public flickElement(elem: WebElement, offset: ActionLocation, speed: number): this;
+    public flick(speed: ~Object with { xspeed: number; yspeed: number; }): this;
+
+    public scroll(offset: ActionLocation): this;
+    public scrollFromElement(element: WebElement, offset: ActionLocation): this;
+
+    public move(location: ActionLocation): this;    
+    public release(location: ActionLocation): this;    
+    public tapAndHold(location: ActionLocation): this;    
+
+    public perform(): Promise<undefined, any>;
+}
+
+/* -*- mode: typescript;-*- */

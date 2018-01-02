@@ -1,0 +1,14 @@
+import * as express from "express";
+
+/**
+ * https://www.npmjs.com/package/body-parser
+ */
+@Final
+export default external public class BodyParser {
+    public static json(options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+    public static raw(options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+    public static text(options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+    public static urlencoded(options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+}
+
+/* -*- mode: typescript;-*- */

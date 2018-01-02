@@ -1,0 +1,16 @@
+ProjectId: geckodriver
+ProjectType: library
+ProjectVersion: 1.10.0
+VendorId: npm
+Output: "."
+MainModule: "lib/geckodriver"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}

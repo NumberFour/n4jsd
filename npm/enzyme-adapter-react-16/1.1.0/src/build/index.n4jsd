@@ -1,0 +1,3 @@
+import {EnzymeAdapter} from "enzyme";
+
+export default external public class Adapter implements EnzymeAdapter {};

@@ -1,0 +1,16 @@
+import { ChildProcess } from "child_process";
+
+/**
+ * https://github.com/mozilla/geckodriver
+ */
+export default external public class ~GeckoDriver {
+    public const path: string;
+    public const version: string;
+    
+    public defaultInstance?: ChildProcess;
+    
+    public static start(): ChildProcess; 
+    public static stop(): void; 
+}
+
+/* -*- mode: typescript;-*- */

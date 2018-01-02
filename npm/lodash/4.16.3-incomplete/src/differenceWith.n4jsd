@@ -1,0 +1,9 @@
+/**
+ * https://lodash.com/docs/4.17.4#differenceWith
+ * note: the actual signature accepts a rest argument as the second parameter. As that is not
+ * typeable in n4js only a single second array may be used.
+ */
+export default external public function <T> differenceWith(arr1: Array<T>, arr2: Array<T> =, 
+    comparator: {function(T, T):boolean} =): Array<T>;
+
+/* -*- mode: typescript;-*- */

@@ -1,0 +1,28 @@
+import {ReduxStore} from "redux";
+import * as React from "react";
+
+export external public interface ~ProviderProps extends React.ComponentProps {
+    public store: ReduxStore<?>;
+}
+
+export external public class Provider
+    extends React.PureComponent<ProviderProps, Object> {
+
+    @Override
+    public render(): React.Element<ProviderProps>;
+}
+
+export external public class ~ConnectOptions {
+    public pure?: boolean; // defaults to true
+    public withRef?: boolean; // defaults to false
+}
+
+export external public function <PropsT extends React.ComponentProps>
+    connect(
+        mapStateToProps: Function=, //{function(state:any, ownProps: any?): Object},
+        mapDispatchToProps: Function=, //{function(dispatch:Function, ownProps: any?): Object}?,
+        mergeProps: Function=,
+        options: ConnectOptions=
+    ): (constructor{?}) => (PropsT) => React.Element<?>;
+
+/* -*- mode: typescript;-*- */

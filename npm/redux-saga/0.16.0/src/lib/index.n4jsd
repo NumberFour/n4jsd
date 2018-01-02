@@ -1,0 +1,83 @@
+import { ReduxAction } from "redux";
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/
+ * 
+ * The saga generator yield type is one/more instruction object(s) processed by the middleware.
+ */
+
+/**
+ * Instruction yielded to the middleware (e.g. via put(), call()).
+ */
+export external public interface ~ReduxSagaEffect {
+    public get CALL(): Object;
+    public get PUT(): Object;
+    public get TAKE(): Object;
+    //...
+}
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#task
+ * 
+ * Background Task.
+ */
+export external public interface ~ReduxSagaTask<ResultT> {
+    public isRunning(): boolean;
+    public isCancelled(): boolean;
+    public result(): ResultT;
+    public error(): any;
+    public get done(): Promise<ResultT, any>;
+    public cancel(): void;
+}
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#middlewarerunsaga-args
+ * 
+ * @param saga generator function thast takes all var args
+ */
+export external public interface ~ReduxSagaMiddleware {
+    public run(
+        saga: Function, // {function(): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
+        ...args
+    ): ReduxSagaTask<?>;
+}
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#createsagamiddlewareoptions
+ * 
+ * options.logger
+ * options.sagaMonitor
+ * options.onError
+ */
+export default external public function createSagaMiddleware(options: Object=): ReduxSagaMiddleware;
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#throttlems-pattern-saga-args
+ * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ */
+export external public function throttle(
+    ms: int,
+    pattern: union{Array<string>, string, {function(string): boolean}},
+    workerSaga: {function(ReduxAction): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
+    ...args
+): ReduxSagaEffect;
+
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#delayms-val
+ */
+export external public function <ValT> delay(ms: int, val: ValT=): Promise<ValT, any>;
+
+/**
+ * Special store action on END.
+ */
+export external public const END: ReduxAction;
+
+/**
+ * Special function property to attach a cancelation handler on a promise.
+ * 
+ * @see https://redux-saga.js.org/docs/api#canceltask
+ */
+export external public const CANCEL: string;
+
+/* -*- mode: typescript;-*- */

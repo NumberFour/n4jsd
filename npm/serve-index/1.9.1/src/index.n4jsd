@@ -1,0 +1,8 @@
+import * as express from "express";
+
+/**
+ * https://www.npmjs.com/package/serve-index
+ */
+export default external public function serveIndex(path: string, options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+
+/* -*- mode: typescript;-*- */

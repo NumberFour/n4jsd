@@ -1,0 +1,270 @@
+import * as React from "react";
+
+@StringBased
+export external public enum NukaCarouselCellAlignment {
+    left,
+    center,
+    right
+}
+
+/**
+ * https://github.com/chenglou/tween-functions
+ */
+@StringBased
+export external public enum TweenFunction {
+    linear,
+    easeInQuad,
+    easeOutQuad,
+    easeInOutQuad,
+    easeInCubic,
+    easeOutCubic,
+    easeInOutCubic,
+    easeInQuart,
+    easeOutQuart,
+    easeInOutQuart,
+    easeInQuint,
+    easeOutQuint,
+    easeInOutQuint,
+    easeInSine,
+    easeOutSine,
+    easeInOutSine,
+    easeInExpo,
+    easeOutExpo,
+    easeInOutExpo,
+    easeInCirc,
+    easeOutCirc,
+    easeInOutCirc,
+    easeInElastic,
+    easeOutElastic,
+    easeInOutElastic,
+    easeInBack,
+    easeOutBack,
+    easeInOutBack,
+    easeInBounce,
+    easeOutBounce,
+    easeInOutBounce
+}
+
+@StringBased
+export external public enum NukaCarouselMultipleSlidesScrollMode {
+    auto
+}
+
+@StringBased
+export external public enum NukaCarouselDecoratorPosition {
+    TopLeft,
+    TopCenter,
+    TopRight,
+    CenterLeft,
+    CenterCenter,
+    CenterRight,
+    BottomLeft,
+    BottomCenter,
+    BottomRight
+}
+
+/**
+ * Props passed to the decorator component.
+ */
+export external public interface ~NukaCarouselDecoratorProps extends React.ComponentProps {
+    /**
+     * Slides to show at once.
+     */
+    public slidesToShow?: int;
+
+    /**
+     * Slides to scroll at once. Set to "auto" to always scroll the current number of visible slides.
+     */
+    public slidesToScroll?: union{int, NukaCarouselMultipleSlidesScrollMode};
+
+    /**
+     * Manually set slideWidth.
+     * If you want hard pixel widths, use a string like slideWidth="20px",
+     * and if you prefer a percentage of the container, use a decimal integer like slideWidth={0.8}
+     */
+    public slideWidth?: union{number, string};
+
+    /**
+     * Sets infinite wrapAround mode. Defaults to false.
+     */
+    public wrapAround?: boolean;
+
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellSpacing?: int;
+
+    public goToSlide: {function(index: int): void};
+    public nextSlide: {function(): void};
+    public previousSlide: {function(): void};
+
+    public currentSlide: int;
+    public slideCount: int;
+    public frameWidth: int;
+}
+
+/**
+ * Decorator objects have component, position & style properties;
+ * component takes a React component, position takes a predefined
+ * position string and style takes an object of styles to be applied to the decorator.
+ */
+export external public interface ~NukaCarouselDecorator {
+    public component: union{{function(props: NukaCarouselDecoratorProps): React.Element<?>}, constructor{React.Component}};
+    public position: NukaCarouselDecoratorPosition;
+    public style?: Object;
+}
+
+
+export external public interface ~NukaCarouselProps extends React.ComponentProps {
+    /**
+     * Hook to be called after a slide is changed.
+     */
+    public afterSlide?: {function(): void};
+    
+    /**
+     * Autoplay mode active. Defaults to false.
+     */
+    public autoplay?: boolean;
+    
+    /**
+     * Interval for autoplay iteration. Defaults to 3000.
+     */
+    public autoplayInterval?: int;
+    
+    /**
+     * Hook to be called before a slide is changed.
+     */
+    public beforeSlide?: {function(): void};
+    
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellAlign?: NukaCarouselCellAlignment;
+    
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellSpacing?: int;
+    
+    /**
+     * Used with the ControllerMixin to add carousel data to parent state.
+     */
+    public data?: any;
+    
+    /**
+     * An array of objects that supply internal carousel controls.
+     */
+    public decorators?: Iterable<NukaCarouselDecorator>;
+    
+    /**
+     * Enable mouse swipe/dragging.
+     */
+    public dragging?: boolean;
+    
+    /**
+     * Animation easing function;
+     * see valid easings here: https://github.com/chenglou/tween-functions
+     */
+    public easing?: TweenFunction;
+    
+    /**
+     * Used to set the margin of the slider frame. Accepts any string dimension value such as "0px 20px" or "500px".
+     */
+    public framePadding?: string;
+    
+    /**
+     * Used to set overflow style property on slider frame. Defaults to hidden.
+     */
+    public frameOverflow?: string;
+    
+    /**
+     * Animation easing function when swipe exceeds edge;
+     * see valid easings here: https://github.com/chenglou/tween-functions
+     */
+    public edgeEasing?: TweenFunction;
+    
+    /**
+     * Initial height of the slides in pixels.
+     */
+    public initialSlideHeight?: int;
+    
+    /**
+     * Initial width of the slides in pixels.
+     */
+    public initialSlideWidth?: int;
+
+    /**
+     * Manually set the index of the slide to be shown.
+     */
+    public slideIndex?: int;
+
+    /**
+     * Slides to show at once.
+     */
+    public slidesToShow?: int;
+
+    /**
+     * Slides to scroll at once. Set to "auto" to always scroll the current number of visible slides.
+     */
+    public slidesToScroll?: union{int, NukaCarouselMultipleSlidesScrollMode};
+
+    /**
+     * Manually set slideWidth.
+     * If you want hard pixel widths, use a string like slideWidth="20px",
+     * and if you prefer a percentage of the container, use a decimal integer like slideWidth={0.8}
+     */
+    public slideWidth?: union{number, string};
+
+    /**
+     * Animation duration.
+     */
+    public speed?: int;
+
+    /**
+     * Enable touch swipe/dragging.
+     */
+    public swiping?: boolean;
+
+    /**
+     * Enable the slides to transition vertically.
+     */
+    public vertical?: boolean;
+
+    /**
+     * Used to hardcode the slider width. Accepts any string dimension value such as "80%" or "500px".
+     */
+    public width?: string;
+
+    /**
+     * Sets infinite wrapAround mode. Defaults to false.
+     */
+    public wrapAround?: boolean;
+}
+
+// left out: ControllerMixin doesnt't fit ES6
+
+export external public interface ~NukaCarouselState {
+    public currentSlide: int;
+}
+
+/**
+ * https://github.com/FormidableLabs/nuka-carousel
+ */
+export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
+    public startAutoplay(): void;
+    public stopAutoplay(): void;
+
+    public goToSlide(index: int): void;
+    public nextSlide(): void;
+    public previousSlide(): void;
+
+    /**
+     * @internal
+     */
+    public setDimensions(): void;
+
+    @Override
+    public render(): React.Element<?>;
+};
+
+/* -*- mode: typescript;-*- */

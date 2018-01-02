@@ -1,0 +1,8 @@
+import * as express from "express";
+
+/**
+ * https://www.npmjs.com/package/morgan
+ */
+export default external public function morgan(format: string, options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+
+/* -*- mode: typescript;-*- */

@@ -1,0 +1,15 @@
+ProjectId: react-transition-group
+ProjectType: library
+ProjectVersion: 1.2.1
+VendorId: npm
+Output: "."
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}

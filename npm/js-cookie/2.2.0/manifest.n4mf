@@ -1,0 +1,12 @@
+ProjectId: js-cookie
+ProjectType: library
+ProjectVersion: 2.2.0
+VendorId: npm
+Output: "."
+MainModule: "src/js.cookie"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}

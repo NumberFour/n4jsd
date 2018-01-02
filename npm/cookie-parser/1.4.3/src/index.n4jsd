@@ -1,0 +1,8 @@
+import * as express from "express";
+
+/**
+ * https://github.com/expressjs/cookie-parser
+ */
+export default external public function cookieParser(secret: string=, options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+
+/* -*- mode: typescript;-*- */

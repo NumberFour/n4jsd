@@ -1,0 +1,21 @@
+ProjectId: next
+ProjectType: library
+ProjectVersion: 4.2.0
+VendorId: npm
+Output: "."
+MainModule: "dist/server/next"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+ProjectDependencies {
+    react
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node,
+    n4js-runtime-fetch
+}

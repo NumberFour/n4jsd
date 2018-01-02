@@ -1,0 +1,219 @@
+import {DateTimeFormatOptions} from "IntlClasses";
+import {NumberFormatOptions} from "IntlClasses";
+import * as React from "react";
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/API#message-descriptor
+ */
+export external public interface ~__MessageDescriptor {
+    /**
+     * A unique, stable identifier for the message.
+     */
+    public id: string;
+    /**
+     * The default message (probably in English).
+     */
+    public defaultMessage?: string;
+    /**
+     * Context for the translator about how it's used in the UI.
+     */
+    public description?: string | Object;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/API#formatrelative
+ */
+export external public interface ~__RelativeFormatOptions {
+    /**
+     * 'best fit', 'numeric'; default 'best fit',
+     */
+    public style?: string;
+
+    /**
+     * 'second', 'minute', 'hour', 'day', 'month', 'year'
+     */
+    public units?: string;
+    public format?: string;
+    public now?: any;
+}
+
+/**
+ * The imperative formatting API.
+ * 
+ * https://github.com/yahoo/react-intl/wiki/API#intlshape
+ */
+export external public interface ~__IntlFormat {
+    public formatDate: (value: any, options: DateTimeFormatOptions=) => string;
+    public formatTime: (value: any, options: DateTimeFormatOptions=) => string;
+    public formatRelative: (value: any, options: __RelativeFormatOptions=) => string;
+    public formatNumber: (value: any, options: NumberFormatOptions=) => string;
+    public formatMessage: (messageDescriptor: __MessageDescriptor, values: Object=) => string;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/API#addlocaledata
+ */
+export external public function addLocaleData(data: Array<Object>): void;
+
+export external public abstract class InjectIntlComponent<CompT, PropsT extends React.ComponentProps>
+    extends React.Component<PropsT, Object> {
+
+    public static get WrappedComponent(): constructor{React.Component};
+
+    @Final public getWrappedInstance(): CompT;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/API#injectintl
+ */
+export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
+injectIntl(ctor: constructor{CompT}, options: ~Object with {
+        intlPropName?: string,  // defaults to 'intl'
+        withRef?: boolean       // defaults to false
+    }=): (PropsT) => React.Element<?>;
+
+/**
+ * The intl metadata passed as props into the parent <IntlProvider>.
+ * 
+ * https://github.com/yahoo/react-intl/wiki/API#intlshape
+ */
+export external public interface ~IntlConfig {
+    public locale?: string;
+    public formats?: Object;
+    /**
+     * Format: {[id: string]: string}
+     */
+    public messages?: Object;
+    /**
+     * Defaults to 'span'
+     */
+    public textComponent?: any;
+    /**
+     * Defaults to 'en'
+     */
+    public defaultLocale?: string;
+    public defaultFormats?: Object;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/API#intlshape
+ */
+export external public interface ~IntlShape extends IntlConfig, __IntlFormat {
+    /**
+     * A function that returns the current time.
+     */
+    public now?: {function():number};
+}
+
+export external public interface ~IntlProviderContext {
+    public intl?: IntlShape;
+}
+
+export external public interface ~IntlProviderProps extends React.ComponentProps, IntlProviderContext, IntlConfig {
+    public initialNow?: any;
+}
+
+export external public interface ~IntlProviderState {
+    public formatters?: Object;
+    public now: {function():number};
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/Components#intlprovider
+ */
+export external public class IntlProvider extends React.Component<IntlProviderProps, IntlProviderState> {
+
+    public getConfig(): IntlConfig;
+
+    public getBoundFormatFns(config: IntlConfig, state: IntlProviderState): Array<Function>
+
+    public getChildContext(): IntlProviderContext;
+
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/Components#formatteddate
+ */
+
+export external public interface ~FormattedDateProps extends React.ComponentProps, DateTimeFormatOptions {
+    public value: any;
+    public format?: string;
+}
+
+export external class FormattedDate extends React.Component<FormattedDateProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/Components#formattedtime
+ */
+
+export external public interface ~FormattedTimeProps extends React.ComponentProps, DateTimeFormatOptions {
+    public value: any;
+    public format?: string;
+}
+
+export external class FormattedTime extends React.Component<FormattedTimeProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * By default <FormattedRelative> will render the formatted relative time into a <span>, and update it a maximum of every 10 seconds. 
+ * If you need to customize rendering, you can either wrap it with another React element (recommended), or pass a function as the child.
+ * 
+ * https://github.com/yahoo/react-intl/wiki/Components#formattedrelative
+ */
+export external public interface ~FormattedRelativeProps extends React.ComponentProps, __RelativeFormatOptions {
+    public value: any;
+    /**
+     * default: 1000 * 10
+     */
+    public updateInterval?: number;
+    public initialNow?: any;
+}
+
+export external class FormattedRelative extends React.Component<FormattedRelativeProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/Components#formattednumber
+ */
+export external public interface ~FormattedNumberProps extends React.ComponentProps, NumberFormatOptions {
+    public value: any;
+    public format?: string;
+}
+
+export external class FormattedNumber extends React.Component<FormattedNumberProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * https://github.com/yahoo/react-intl/wiki/Components#formattedmessage
+ */
+
+export external public interface ~FormattedMessageProps extends React.ComponentProps, __MessageDescriptor {
+    /**
+     * Values for the placeholders in the message.
+     */
+    public values?: Object;
+    /**
+     * Name of the tag to wrap the message into; defaults to 'span'.
+     */
+    public tagName?: string;
+}
+
+export external public class FormattedMessage extends React.Component<FormattedMessageProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+export external public const intlShape;
+
+/* -*- mode: typescript;-*- */

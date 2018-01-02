@@ -1,0 +1,20 @@
+ProjectId: cors
+ProjectType: library
+ProjectVersion: 2.8.4
+VendorId: npm
+Output: "."
+MainModule: "lib/index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}
+
+ProjectDependencies {
+    express
+}

@@ -1,0 +1,136 @@
+import * as React from "react";
+
+/**
+ * Docs: http://airbnb.io/enzyme/docs/api/
+ */
+export external public interface Wrapper {
+    public find(selector: union{string, Object, React.Component<?, ?>, Function}): Wrapper;
+    public findWhere(predicate: (wrapper: Wrapper) => boolean): Wrapper;
+    public filter(selector: union{string, Object, React.Component<?, ?>}): Wrapper;
+    public filterWhere(predicate: (wrapper: Wrapper) => boolean): Wrapper;
+    public contains(nodeOrNodes: union{React.Element<?>, Array<React.Element<?>>}): boolean;
+    public containsMatchingElement(node: React.Component<?, ?>): boolean;
+    public containsAllMatchingElements(nodes: Array<React.Component<?, ?>>): boolean;
+    public containsAnyMatchingElements(nodes: Array<React.Component<?, ?>>): boolean;
+    public hasClass(className: string): boolean;
+    public is(selector: union{string, Object, React.Component<?, ?>}): boolean;
+    public exists(): boolean;
+    public not(selector: union{string, Object, React.Component<?, ?>}): Wrapper;
+    public children(): Wrapper;
+    public childAt(index: int): Wrapper;
+    public parents(): Wrapper;
+    public parent(): Wrapper;
+    public closest(selector: union{string, Object, React.Component<?, ?>}): Wrapper;
+    public props(): Object+;
+    public prop(key: string): any;
+    public key(): string;
+    public text(): string;
+    public html(): string;
+    public get(index:int): React.Element<?>;
+    public at(index:int): Wrapper;
+    public first(): Wrapper;
+    public last(): Wrapper;
+    public state(key: string=): any;
+    public context(key: string=): any;
+    public simulate(eventName: string, ...args: any): Wrapper;
+    public setState(state: Object, callback: Function=): Wrapper;
+    public setProps(props: Object): Wrapper;
+    public setContext(context: Object): Wrapper;
+    public instance(): React.Component<?, ?>;
+    public update(): Wrapper;
+    public type(): union{string, Function, constructor{React.Component}};
+    public name(): string;
+    public forEach(fn: {function(n: Wrapper, i: int)}): Wrapper;
+    public map(fn: {function(n: Wrapper, i: int): any}): Array<any>;
+    public matchesElement(node: React.Component<?, ?>): boolean;
+    public reduce(fn: {function(prev: any, n: Wrapper, i: int): any}, init: any=): any;
+    public reduceRight(fn: {function(prev: any, n: Wrapper, i: int): any}, init: any=): any;
+    public tap(intercepter: Wrapper): Wrapper;
+    public some(selector: union{string, Object, React.Component<?, ?>}): boolean;
+    public someWhere(fn: {function(node: Wrapper): boolean}): boolean;
+    public every(selector: union{string, Object, React.Component<?, ?>}): boolean;
+    public length: int;
+    public everyWhere(fn: {function(node: Wrapper): boolean}): boolean;
+}
+
+export external public interface ShallowWrapper extends Wrapper {
+    public shallow(options: ~Object with {context?: Object}=): ShallowWrapper;
+    public render(): CheerioWrapper;
+    public unmount(): ShallowWrapper;
+    public equals(node: React.Component<?, ?>): boolean;
+    public dive(options: ~Object with {context?: Object}=): ShallowWrapper;
+    public slice(begin: int, end: int=): ShallowWrapper;
+
+    @Override public find(selector: union{string, Object, React.Component<?, ?>, Function}): ShallowWrapper;
+    @Override public findWhere(predicate: (wrapper: Wrapper) => boolean): ShallowWrapper;
+    @Override public filter(selector: union{string, Object, React.Component<?, ?>}): ShallowWrapper;
+    @Override public filterWhere(predicate: (wrapper: Wrapper) => boolean): ShallowWrapper;
+    @Override public not(selector: union{string, Object, React.Component<?, ?>}): ShallowWrapper;
+    @Override public children(): ShallowWrapper;
+    @Override public childAt(index: int): ShallowWrapper;
+    @Override public parents(): ShallowWrapper;
+    @Override public parent(): ShallowWrapper;
+    @Override public closest(selector: union{string, Object, React.Component<?, ?>}): ShallowWrapper;
+    @Override public at(index:int): ShallowWrapper;
+    @Override public first(): ShallowWrapper;
+    @Override public last(): ShallowWrapper;
+    @Override public simulate(eventName: string, ...args: any): ShallowWrapper;
+    @Override public setState(state: Object, callback: Function=): ShallowWrapper;
+    @Override public setProps(props: Object): ShallowWrapper;
+    @Override public setContext(context: Object): ShallowWrapper;
+    @Override public update(): ShallowWrapper;
+    @Override public forEach(fn: {function(n: Wrapper, i: int): void}): ShallowWrapper;
+}
+
+export external public interface ReactWrapper extends Wrapper {
+    public mount(): ReactWrapper;
+    public unmount(): ReactWrapper;
+    public render(): CheerioWrapper;
+    public ref(refName: string): ReactWrapper;
+    public detach(): void;
+    public getDOMNode(): Element+;
+    public slice(begin: int, end: int=): ReactWrapper;
+
+    @Override public find(selector: union{string, Object, React.Component<?, ?>, Function}): ReactWrapper;
+    @Override public findWhere(predicate: (wrapper: Wrapper) => boolean): ReactWrapper;
+    @Override public filter(selector: union{string, Object, React.Component<?, ?>}): ReactWrapper;
+    @Override public filterWhere(predicate: (wrapper: Wrapper) => boolean): ReactWrapper;
+    @Override public not(selector: union{string, Object, React.Component<?, ?>}): ReactWrapper;
+    @Override public children(): ReactWrapper;
+    @Override public childAt(index: int): ReactWrapper;
+    @Override public parents(): ReactWrapper;
+    @Override public parent(): ReactWrapper;
+    @Override public closest(selector: union{string, Object, React.Component<?, ?>}): ReactWrapper;
+    @Override public at(index:int): ReactWrapper;
+    @Override public first(): ReactWrapper;
+    @Override public last(): ReactWrapper;
+    @Override public simulate(eventName: string, ...args: any): ReactWrapper;
+    @Override public setState(state: Object, callback: Function=): ReactWrapper;
+    @Override public setProps(props: Object): ReactWrapper;
+    @Override public setContext(context: Object): ReactWrapper;
+    @Override public update(): ReactWrapper;
+    @Override public forEach(fn: {function(n: Wrapper, i: int)}): ReactWrapper;
+    public debug(): string;
+}
+
+/**
+ * Enzyme uses a different library called (Cheerio) for HTML parsing and traversal.
+ * 
+ * Cheerio - https://github.com/cheeriojs/cheerio
+ */
+export external public interface CheerioWrapper extends Wrapper {}
+
+export external public function render(node: React.Element<?>, options: Object=): CheerioWrapper;
+export external public function shallow(node: React.Element<?>, options: Object=): ShallowWrapper;
+export external public function mount(node: React.Element<?>, options: Object=): ReactWrapper;
+
+export external public interface EnzymeAdapter {};
+
+@Final
+export default external public class Enzyme {
+    public static configure(options: ~Object with {
+        adapter: EnzymeAdapter
+    }): void;
+}
+
+/* -*- mode: typescript;-*- */

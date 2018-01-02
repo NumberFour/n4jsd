@@ -1,0 +1,8 @@
+import * as express from "express";
+
+/**
+ * https://www.npmjs.com/package/http-proxy-middleware
+ */
+export default external public function httpProxy(context: string, options: Object=): (req: express.Request, res: express.Response, next: Function) => void;
+
+/* -*- mode: typescript;-*- */

@@ -1,0 +1,16 @@
+ProjectId: rc
+ProjectType: library
+ProjectVersion: 1.2.2
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "src"
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}

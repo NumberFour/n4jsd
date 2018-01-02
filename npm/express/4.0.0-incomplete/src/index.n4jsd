@@ -120,6 +120,8 @@ export external public interface ~IRouter {
 }
 export external public class Route {
     public constructor(path: string);
+    (path: string): Route;
+
     public path: string;
     public stack: any;
     public all(name: union{string, RegExp}, ...handlers: {function(req: Request, res: Response, next: Function)}): this;
@@ -145,7 +147,6 @@ export default external public class __default {
     (): Application;
 
     public static Router(options: any = undefined): IRouter;
-    public static Route(path: string): Route;
 
     public static static(path: string): {function(req: Request, res: Response, next: {function()})};
     public static query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
