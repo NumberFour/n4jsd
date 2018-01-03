@@ -7,6 +7,6 @@ MainModule: "lib/sinon"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }

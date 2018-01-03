@@ -7,7 +7,7 @@ MainModule: "lib/api"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

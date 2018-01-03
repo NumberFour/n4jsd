@@ -7,7 +7,7 @@ MainModule: "build/index"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

@@ -7,7 +7,7 @@ MainModule: "nomnom"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

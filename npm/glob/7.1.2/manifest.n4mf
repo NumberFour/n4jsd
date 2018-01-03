@@ -7,7 +7,7 @@ MainModule: "glob"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

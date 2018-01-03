@@ -7,6 +7,6 @@ MainModule: "debug"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }

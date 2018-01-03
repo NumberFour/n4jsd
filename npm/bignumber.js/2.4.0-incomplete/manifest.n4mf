@@ -7,6 +7,6 @@ MainModule: "bignumber"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
