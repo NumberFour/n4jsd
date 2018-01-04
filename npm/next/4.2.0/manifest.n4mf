@@ -7,7 +7,7 @@ MainModule: "dist/server/next"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

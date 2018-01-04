@@ -7,6 +7,6 @@ MainModule: "cycle"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }

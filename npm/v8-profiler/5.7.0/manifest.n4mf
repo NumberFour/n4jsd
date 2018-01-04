@@ -7,7 +7,7 @@ MainModule: "v8-profiler"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

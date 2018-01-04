@@ -7,7 +7,7 @@ MainModule: "lib/chromedriver"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

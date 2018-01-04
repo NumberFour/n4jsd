@@ -7,7 +7,7 @@ MainModule: "lib/geckodriver"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

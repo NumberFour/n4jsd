@@ -7,7 +7,7 @@ MainModule: "src/server"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

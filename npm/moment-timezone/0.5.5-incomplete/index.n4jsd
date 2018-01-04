@@ -1,7 +1,7 @@
 /**
  * Accessible fields of a moment object, used for the getter.
  */
-export @StringBased public enum MomentFieldName {
+export @StringBased external public enum MomentFieldName {
     year, month, date,
     hour, minute, second, millisecond
 }
@@ -9,7 +9,7 @@ export @StringBased public enum MomentFieldName {
 /**
  * Accessible fields of a moment object, used for the getter.
  */
-export @StringBased public enum MomentDurationUnit {
+export @StringBased external public enum MomentDurationUnit {
     years, months, days, weeks,
     hours, minutes, seconds, milliseconds
 }

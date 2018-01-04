@@ -7,6 +7,6 @@ MainModule: "lodash"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }

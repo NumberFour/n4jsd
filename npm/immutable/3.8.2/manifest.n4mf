@@ -7,7 +7,7 @@ MainModule: "dist/immutable"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 

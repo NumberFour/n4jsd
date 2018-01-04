@@ -7,7 +7,7 @@ MainModule: "src/react-markdown"
 ModuleLoader: commonjs
 Sources {
     source {
-        "src"
+        "."
     }
 }
 
