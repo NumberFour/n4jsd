@@ -1,1 +1,6 @@
 ModuleLoader: commonjs
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node,
+    n4js-runtime-fetch
+}

@@ -10,6 +10,7 @@ Sources {
         "."
     }
 }
+
 RequiredRuntimeLibraries {
     n4js-runtime-node
 }
