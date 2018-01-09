@@ -1,1 +1,9 @@
 ModuleLoader: commonjs
+
+ProjectDependencies {
+    react
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-html5
+}
