@@ -1,9 +1,9 @@
 ProjectId: react-markdown
 ProjectType: library
-ProjectVersion: 3.0.2
+ProjectVersion: 2.5.1
 VendorId: npm
 Output: "."
-MainModule: "lib/react-markdown"
+MainModule: "src/react-markdown"
 ModuleLoader: commonjs
 Sources {
     source {
