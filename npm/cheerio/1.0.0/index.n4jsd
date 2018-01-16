@@ -1,0 +1,43 @@
+/**
+ * @see https://github.com/cheeriojs/cheerio
+ * 
+ * TODO incomplete
+ */
+export external public interface ~Cheerio {
+    public contents(): Cheerio;
+    public find(selector: union{string, Object, Function}): Cheerio;
+    public findWhere(predicate: (Cheerio: Cheerio) => boolean): Cheerio;
+    public filter(selector: union{string, Object}): Cheerio;
+    public filterWhere(predicate: (Cheerio: Cheerio) => boolean): Cheerio;
+    public hasClass(className: string): boolean;
+    public is(selector: union{string, Object}): boolean;
+    public exists(): boolean;
+    public not(selector: union{string, Object}): Cheerio;
+    public children(): Cheerio;
+    public childAt(index: int): Cheerio;
+    public parents(): Cheerio;
+    public parent(): Cheerio;
+    public closest(selector: union{string, Object}): Cheerio;
+    public prop(key: string): any;
+    public text(): string;
+    public html(): string;
+    public at(index:int): Cheerio;
+    public first(): Cheerio;
+    public last(): Cheerio;
+    public type(): string;
+    public name(): string;
+    public forEach(fn: {function(n: Cheerio, i: int)}): Cheerio;
+    public each(fn: {function(n: Cheerio, i: int)}): Cheerio;
+    public map(fn: {function(n: Cheerio, i: int): any}): Array<Cheerio>;
+    public reduce(fn: {function(prev: any, n: Cheerio, i: int): any}, init: any=): any;
+    public reduceRight(fn: {function(prev: any, n: Cheerio, i: int): any}, init: any=): any;
+    public tap(intercepter: Cheerio): Cheerio;
+    public some(selector: union{string, Object}): boolean;
+    public someWhere(fn: {function(node: Cheerio): boolean}): boolean;
+    public every(selector: union{string, Object}): boolean;
+    public length: int;
+}
+
+export external public function load(html: string, options: Object=): Cheerio;
+
+/* -*- mode: typescript;-*- */
