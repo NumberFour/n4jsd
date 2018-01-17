@@ -1,0 +1,22 @@
+export public interface ~PdfParseResponse {
+    // number of pages
+    public numpages: int;
+    // number of rendered pages
+    public numrender: int;
+    // PDF info
+    public info: Object+;
+    // PDF metadata
+    public metadata: Object+; 
+    // PDF.js version
+    // check https://mozilla.github.io/pdf.js/getting_started/
+    public version: string;
+    // PDF text
+    public text: string;
+}
+
+/**
+ * @see https://www.npmjs.com/package/pdf-parse
+ */
+export default external public async function pdfParse(data: Buffer|string, options: Object=): PdfParseResponse;
+
+/* -*- mode: typescript;-*- */

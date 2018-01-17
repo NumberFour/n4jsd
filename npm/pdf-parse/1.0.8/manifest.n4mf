@@ -1,0 +1,16 @@
+ProjectId: pdf-parse
+ProjectType: library
+ProjectVersion: 1.0.8
+VendorId: npm
+Output: "."
+MainModule: "index"
+ModuleLoader: commonjs
+Sources {
+    source {
+        "."
+    }
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node
+}
