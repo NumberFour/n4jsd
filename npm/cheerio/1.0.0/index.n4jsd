@@ -1,7 +1,5 @@
 /**
  * @see https://github.com/cheeriojs/cheerio
- * 
- * TODO incomplete
  */
 export external public interface ~Cheerio {
     public contents(): Cheerio;
