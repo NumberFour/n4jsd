@@ -36,6 +36,6 @@ export external public interface ~Cheerio {
     public length: int;
 }
 
-export external public function load(html: string, options: Object=): Cheerio;
+export external public function load(html: string, options: Object=): (string) => Cheerio;
 
 /* -*- mode: typescript;-*- */
