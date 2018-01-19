@@ -1,6 +1,6 @@
 ProjectId: next
 ProjectType: library
-ProjectVersion: 4.2.0
+ProjectVersion: 4.1.4
 VendorId: npm
 Output: "."
 MainModule: "dist/server/next"

@@ -1,6 +1,6 @@
-ProjectId: react-dom
+ProjectId: react
 ProjectType: library
-ProjectVersion: 16.2.0
+ProjectVersion: 16.0.0
 VendorId: npm
 Output: "."
 MainModule: "index"
@@ -9,12 +9,4 @@ Sources {
     source {
         "."
     }
-}
-
-RequiredRuntimeLibraries {
-    n4js-runtime-html5
-}
-
-ProjectDependencies {
-    react
 }
