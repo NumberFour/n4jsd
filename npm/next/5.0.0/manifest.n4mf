@@ -1,9 +1,9 @@
-ProjectId: react-dom
+ProjectId: next
 ProjectType: library
-ProjectVersion: 16.0.0
+ProjectVersion: 5.0.0
 VendorId: npm
 Output: "."
-MainModule: "index"
+MainModule: "dist/server/next"
 ModuleLoader: commonjs
 Sources {
     source {
@@ -11,10 +11,11 @@ Sources {
     }
 }
 
-RequiredRuntimeLibraries {
-    n4js-runtime-html5
-}
-
 ProjectDependencies {
     react
+}
+
+RequiredRuntimeLibraries {
+    n4js-runtime-node,
+    n4js-runtime-fetch
 }
