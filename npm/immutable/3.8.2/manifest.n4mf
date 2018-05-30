@@ -1,5 +1,5 @@
 ProjectId: immutable
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 3.8.2
 VendorId: npm
 Output: "."

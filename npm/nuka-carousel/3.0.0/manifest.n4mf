@@ -1,5 +1,5 @@
 ProjectId: nuka-carousel
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 3.0.0
 VendorId: npm
 Output: "."

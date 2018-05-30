@@ -1,5 +1,5 @@
 ProjectId: jsdom
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 11.5.1
 VendorId: npm
 Output: "."

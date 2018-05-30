@@ -1,5 +1,5 @@
 ProjectId: fs-extra
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 4.0.2
 VendorId: npm
 Output: "."

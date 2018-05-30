@@ -1,5 +1,5 @@
 ProjectId: pdf-parse
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.0.8
 VendorId: npm
 Output: "."

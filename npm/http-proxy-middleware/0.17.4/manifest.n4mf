@@ -1,5 +1,5 @@
 ProjectId: http-proxy-middleware
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 0.17.4
 VendorId: npm
 Output: "."

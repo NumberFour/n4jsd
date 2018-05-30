@@ -1,5 +1,5 @@
 ProjectId: moment-timezone
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 0.5.5-incomplete
 VendorId: npm
 Output: "."

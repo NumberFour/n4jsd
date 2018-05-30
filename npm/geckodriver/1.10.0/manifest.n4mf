@@ -1,5 +1,5 @@
 ProjectId: geckodriver
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.10.0
 VendorId: npm
 Output: "."

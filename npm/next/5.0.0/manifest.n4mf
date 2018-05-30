@@ -1,5 +1,5 @@
 ProjectId: next
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 5.0.0
 VendorId: npm
 Output: "."

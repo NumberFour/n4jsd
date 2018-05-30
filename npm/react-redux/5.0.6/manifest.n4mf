@@ -1,5 +1,5 @@
 ProjectId: react-redux
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 5.0.6
 VendorId: npm
 Output: "."

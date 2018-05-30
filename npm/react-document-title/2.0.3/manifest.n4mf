@@ -1,5 +1,5 @@
 ProjectId: react-document-title
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.0.3
 VendorId: npm
 Output: "."

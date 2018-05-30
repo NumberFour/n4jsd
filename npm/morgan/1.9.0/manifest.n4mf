@@ -1,5 +1,5 @@
 ProjectId: morgan
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.9.0
 VendorId: npm
 Output: "."

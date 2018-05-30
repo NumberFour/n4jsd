@@ -1,5 +1,5 @@
 ProjectId: serve-index
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.9.1
 VendorId: npm
 Output: "."

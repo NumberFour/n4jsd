@@ -1,5 +1,5 @@
 ProjectId: cookie-parser
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.4.3
 VendorId: npm
 Output: "."

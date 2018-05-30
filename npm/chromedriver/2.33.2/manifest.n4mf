@@ -1,5 +1,5 @@
 ProjectId: chromedriver
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.33.2
 VendorId: npm
 Output: "."

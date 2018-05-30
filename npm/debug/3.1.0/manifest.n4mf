@@ -1,5 +1,5 @@
 ProjectId: debug
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 3.1.0
 VendorId: npm
 Output: "."
