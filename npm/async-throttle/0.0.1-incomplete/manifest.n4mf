@@ -1,5 +1,5 @@
 ProjectId: async-throttle
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 0.0.1-incomplete
 VendorId: npm
 Output: "."

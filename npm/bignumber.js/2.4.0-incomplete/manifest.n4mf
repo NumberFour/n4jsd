@@ -1,5 +1,5 @@
 ProjectId: bignumber.js
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.4.0-incomplete
 VendorId: npm
 Output: "."

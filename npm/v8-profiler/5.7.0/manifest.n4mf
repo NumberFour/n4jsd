@@ -1,5 +1,5 @@
 ProjectId: v8-profiler
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 5.7.0
 VendorId: npm
 Output: "."

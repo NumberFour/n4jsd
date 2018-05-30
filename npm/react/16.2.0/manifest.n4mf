@@ -1,5 +1,5 @@
 ProjectId: react
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 16.2.0
 VendorId: npm
 Output: "."

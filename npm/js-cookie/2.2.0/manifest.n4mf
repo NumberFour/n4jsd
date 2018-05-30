@@ -1,5 +1,5 @@
 ProjectId: js-cookie
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.2.0
 VendorId: npm
 Output: "."

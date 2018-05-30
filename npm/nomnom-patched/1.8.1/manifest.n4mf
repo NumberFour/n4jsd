@@ -1,5 +1,5 @@
 ProjectId: nomnom-patched
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.8.1
 VendorId: npm
 Output: "."

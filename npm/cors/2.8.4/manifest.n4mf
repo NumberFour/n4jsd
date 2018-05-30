@@ -1,5 +1,5 @@
 ProjectId: cors
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.8.4
 VendorId: npm
 Output: "."

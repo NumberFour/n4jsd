@@ -1,5 +1,5 @@
 ProjectId: sinon
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 4.1.2
 VendorId: npm
 Output: "."

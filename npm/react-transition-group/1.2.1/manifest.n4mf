@@ -1,5 +1,5 @@
 ProjectId: react-transition-group
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.2.1
 VendorId: npm
 Output: "."

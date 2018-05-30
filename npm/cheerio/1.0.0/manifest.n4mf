@@ -1,5 +1,5 @@
 ProjectId: cheerio
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.0.0
 VendorId: npm
 Output: "."

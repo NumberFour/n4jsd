@@ -1,5 +1,5 @@
 ProjectId: selenium-webdriver
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 3.6.0
 VendorId: npm
 Output: "."

@@ -1,5 +1,5 @@
 ProjectId: react-body-classname
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.2.0
 VendorId: npm
 Output: "."

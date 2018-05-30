@@ -1,5 +1,5 @@
 ProjectId: redux
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 3.7.2
 VendorId: npm
 Output: "."

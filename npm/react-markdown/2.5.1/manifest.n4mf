@@ -1,5 +1,5 @@
 ProjectId: react-markdown
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 2.5.1
 VendorId: npm
 Output: "."

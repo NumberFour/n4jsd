@@ -1,5 +1,5 @@
 ProjectId: redux-saga
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 0.16.0
 VendorId: npm
 Output: "."

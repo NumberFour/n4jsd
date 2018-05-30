@@ -1,5 +1,5 @@
 ProjectId: node-uuid
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 1.4.7-incomplete
 VendorId: npm
 Output: "."

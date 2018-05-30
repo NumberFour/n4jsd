@@ -1,5 +1,5 @@
 ProjectId: body-parser
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 16.0.0
 VendorId: npm
 Output: "."

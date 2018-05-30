@@ -1,5 +1,5 @@
 ProjectId: fetch-mock
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 5.13.1
 VendorId: npm
 Output: "."

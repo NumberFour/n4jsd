@@ -1,5 +1,5 @@
 ProjectId: lodash
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 4.16.3-incomplete
 VendorId: npm
 Output: "."

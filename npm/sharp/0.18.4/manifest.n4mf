@@ -1,5 +1,5 @@
 ProjectId: sharp
-ProjectType: library
+ProjectType: validation
 ProjectVersion: 0.18.4
 VendorId: npm
 Output: "."
