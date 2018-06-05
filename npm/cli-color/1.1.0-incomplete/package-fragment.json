@@ -1,7 +1,7 @@
 {
   "moduleLoader": "commonjs",
   "dependencies": {
-    "n4js-runtime-node": "latest"
+    "n4js-runtime-node": "*"
   },
   "n4js": {
     "requiredRuntimeLibraries": [

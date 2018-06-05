@@ -1,6 +1,6 @@
 {
   "moduleLoader": "commonjs",
   "dependencies": {
-    "enzyme": "latest"
+    "enzyme": "*"
   }
 }

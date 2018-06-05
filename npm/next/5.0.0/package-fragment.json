@@ -1,9 +1,9 @@
 {
   "moduleLoader": "commonjs",
   "dependencies": {
-    "react": "latest",
-    "n4js-runtime-node": "latest",
-    "n4js-runtime-fetch": "latest"
+    "react": "*",
+    "n4js-runtime-node": "*",
+    "n4js-runtime-fetch": "*"
   },
   "n4js": {
     "requiredRuntimeLibraries": [

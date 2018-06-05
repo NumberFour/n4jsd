@@ -1,7 +1,7 @@
 {
   "moduleLoader": "commonjs",
   "dependencies": {
-    "react": "latest",
-    "redux": "latest"
+    "react": "*",
+    "redux": "*"
   }
 }

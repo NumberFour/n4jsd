@@ -1,8 +1,8 @@
 {
   "moduleLoader": "commonjs",
   "dependencies": {
-    "express": "latest",
-    "n4js-runtime-node": "latest"
+    "express": "*",
+    "n4js-runtime-node": "*"
   },
   "n4js": {
     "requiredRuntimeLibraries": [
