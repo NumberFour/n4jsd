@@ -1,0 +1,11 @@
+{
+  "moduleLoader": "commonjs",
+  "dependencies": {
+    "n4js-runtime-es2015": "latest"
+  },
+  "n4js": {
+    "requiredRuntimeLibraries": [
+      "n4js-runtime-es2015"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "moduleLoader": "commonjs",
+  "dependencies": {
+    "n4js-runtime-ecma402": "latest",
+    "react": "latest"
+  },
+  "n4js": {
+    "requiredRuntimeLibraries": [
+      "n4js-runtime-ecma402"
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "moduleLoader": "commonjs",
+  "dependencies": {
+    "redux": "latest"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "moduleLoader": "commonjs",
+  "dependencies": {
+    "react": "latest",
+    "n4js-runtime-html5": "latest"
+  },
+  "n4js": {
+    "requiredRuntimeLibraries": [
+      "n4js-runtime-html5"
+    ]
+  }
+}
