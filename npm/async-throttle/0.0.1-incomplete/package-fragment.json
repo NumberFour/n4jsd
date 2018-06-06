@@ -1,3 +1,5 @@
 {
-  "moduleLoader": "commonjs"
+  "n4js": {
+    "moduleLoader": "commonjs"
+  }
 }

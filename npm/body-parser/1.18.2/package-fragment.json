@@ -1,10 +1,10 @@
 {
-  "moduleLoader": "commonjs",
   "dependencies": {
     "express": "*",
     "n4js-runtime-node": "*"
   },
   "n4js": {
+    "moduleLoader": "commonjs",
     "requiredRuntimeLibraries": [
       "n4js-runtime-node"
     ]

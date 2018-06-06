@@ -1,6 +1,8 @@
 {
-  "moduleLoader": "commonjs",
   "dependencies": {
     "redux": "*"
+  },
+  "n4js": {
+    "moduleLoader": "commonjs"
   }
 }

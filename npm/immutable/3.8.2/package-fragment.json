@@ -1,9 +1,9 @@
 {
-  "moduleLoader": "commonjs",
   "dependencies": {
     "n4js-runtime-es2015": "*"
   },
   "n4js": {
+    "moduleLoader": "commonjs",
     "requiredRuntimeLibraries": [
       "n4js-runtime-es2015"
     ]
