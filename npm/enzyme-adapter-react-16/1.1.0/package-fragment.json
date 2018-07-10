@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "enzyme": "*"
+  },
+  "n4js": {
+    "moduleLoader": "commonjs"
+  }
+}

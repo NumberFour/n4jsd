@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "redux": "*"
+  },
+  "n4js": {
+    "moduleLoader": "commonjs"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "n4js-runtime-ecma402": "*",
+    "react": "*"
+  },
+  "n4js": {
+    "moduleLoader": "commonjs",
+    "requiredRuntimeLibraries": [
+      "n4js-runtime-ecma402"
+    ]
+  }
+}
