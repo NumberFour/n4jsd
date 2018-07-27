@@ -1,6 +1,6 @@
 {
 	"name": "cors-n4jsd",
-	"version": "0.0.1",
+	"version": "2.8.4",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "cors",

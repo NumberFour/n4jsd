@@ -1,6 +1,6 @@
 {
 	"name": "react-dom-n4jsd",
-	"version": "0.0.1",
+	"version": "16.2.0",
 	"dependencies": {
 		"n4js-runtime-html5": "*",
 		"react": "*"

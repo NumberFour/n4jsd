@@ -1,6 +1,6 @@
 {
 	"name": "rc-n4jsd",
-	"version": "0.0.1",
+	"version": "1.2.2",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "rc",

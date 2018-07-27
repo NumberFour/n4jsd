@@ -1,6 +1,6 @@
 {
 	"name": "react-transition-group-n4jsd",
-	"version": "0.0.1",
+	"version": "1.2.1",
 	"dependencies": {
 		"react": "*"
 	},

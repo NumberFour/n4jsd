@@ -1,6 +1,6 @@
 {
 	"name": "redux-saga-n4jsd",
-	"version": "0.0.1",
+	"version": "0.16.0",
 	"dependencies": {
 		"redux": "*"
 	},

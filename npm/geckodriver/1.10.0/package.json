@@ -1,6 +1,6 @@
 {
 	"name": "geckodriver-n4jsd",
-	"version": "0.0.1",
+	"version": "1.10.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "geckodriver",

@@ -1,6 +1,6 @@
 {
 	"name": "react-n4jsd",
-	"version": "0.0.1",
+	"version": "16.2.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react",

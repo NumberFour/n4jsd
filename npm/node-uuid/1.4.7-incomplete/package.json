@@ -1,6 +1,6 @@
 {
 	"name": "node-uuid-n4jsd",
-	"version": "0.0.1",
+	"version": "1.4.7",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "node-uuid",

@@ -1,6 +1,6 @@
 {
 	"name": "immutable-n4jsd",
-	"version": "0.0.1",
+	"version": "3.8.2",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "immutable",

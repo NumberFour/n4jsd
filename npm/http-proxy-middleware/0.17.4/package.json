@@ -1,6 +1,6 @@
 {
 	"name": "http-proxy-middleware-n4jsd",
-	"version": "0.0.1",
+	"version": "0.17.4",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "http-proxy-middleware",

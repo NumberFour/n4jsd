@@ -1,6 +1,6 @@
 {
 	"name": "bignumber.js-n4jsd",
-	"version": "0.0.1",
+	"version": "2.4.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "bignumber.js",

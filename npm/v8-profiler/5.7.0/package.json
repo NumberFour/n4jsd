@@ -1,6 +1,6 @@
 {
 	"name": "v8-profiler-n4jsd",
-	"version": "0.0.1",
+	"version": "5.7.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "v8-profiler",

@@ -1,6 +1,6 @@
 {
 	"name": "enzyme-n4jsd",
-	"version": "0.0.1",
+	"version": "3.2.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "enzyme",

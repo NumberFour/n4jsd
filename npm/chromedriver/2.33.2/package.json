@@ -1,6 +1,6 @@
 {
 	"name": "chromedriver-n4jsd",
-	"version": "0.0.1",
+	"version": "2.33.2",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "chromedriver",

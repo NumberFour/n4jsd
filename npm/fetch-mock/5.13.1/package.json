@@ -1,6 +1,6 @@
 {
 	"name": "fetch-mock-n4jsd",
-	"version": "0.0.1",
+	"version": "5.13.1",
 	"dependencies": {
 		"n4js-runtime-node": "*",
 		"n4js-runtime-fetch": "*"

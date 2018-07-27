@@ -1,6 +1,6 @@
 {
 	"name": "morgan-n4jsd",
-	"version": "0.0.1",
+	"version": "1.9.0",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "morgan",

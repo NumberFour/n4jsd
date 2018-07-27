@@ -1,6 +1,6 @@
 {
 	"name": "sharp-n4jsd",
-	"version": "0.0.1",
+	"version": "0.18.4",
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "sharp",
