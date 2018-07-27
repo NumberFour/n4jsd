@@ -1,0 +1,18 @@
+{
+	"name": "redux-promise-n4jsd",
+	"version": "0.0.1",
+	"dependencies": {
+		"redux": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "redux-promise",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

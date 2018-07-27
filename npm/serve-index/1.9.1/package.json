@@ -1,0 +1,22 @@
+{
+	"name": "serve-index-n4jsd",
+	"version": "0.0.1",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "serve-index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"express": "*",
+		"n4js-runtime-node": "*"
+	}
+}

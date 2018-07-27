@@ -1,0 +1,15 @@
+{
+	"name": "json-cycle-n4jsd",
+	"version": "0.0.1",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "json-cycle",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

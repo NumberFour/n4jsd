@@ -1,0 +1,15 @@
+{
+	"name": "redux-n4jsd",
+	"version": "0.0.1",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "redux",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}
