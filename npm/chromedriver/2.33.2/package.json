@@ -1,0 +1,21 @@
+{
+	"name": "chromedriver-n4jsd",
+	"version": "2.33.2",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "chromedriver",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": "*"
+	}
+}

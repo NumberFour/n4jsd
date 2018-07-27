@@ -1,0 +1,22 @@
+{
+	"name": "http-proxy-middleware-n4jsd",
+	"version": "0.17.4",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "http-proxy-middleware",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"express": "*",
+		"n4js-runtime-node": "*"
+	}
+}

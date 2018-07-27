@@ -1,0 +1,22 @@
+{
+	"name": "react-intl-n4jsd",
+	"version": "2.4.0",
+	"dependencies": {
+		"n4js-runtime-ecma402": "*",
+		"react": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-intl",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-ecma402"
+		]
+	}
+}

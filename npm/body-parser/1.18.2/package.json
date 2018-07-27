@@ -1,0 +1,22 @@
+{
+	"name": "body-parser-n4jsd",
+	"version": "1.18.2",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "body-parser",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"express": "*",
+		"n4js-runtime-node": "*"
+	}
+}

@@ -1,0 +1,19 @@
+{
+	"name": "react-redux-n4jsd",
+	"version": "5.0.6",
+	"dependencies": {
+		"react": "*",
+		"redux": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-redux",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

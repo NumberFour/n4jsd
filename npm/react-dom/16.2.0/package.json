@@ -1,0 +1,22 @@
+{
+	"name": "react-dom-n4jsd",
+	"version": "16.2.0",
+	"dependencies": {
+		"n4js-runtime-html5": "*",
+		"react": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-dom",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-html5"
+		]
+	}
+}

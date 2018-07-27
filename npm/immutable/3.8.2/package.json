@@ -1,0 +1,21 @@
+{
+	"name": "immutable-n4jsd",
+	"version": "3.8.2",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "immutable",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": "*"
+	}
+}

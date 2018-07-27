@@ -1,0 +1,15 @@
+{
+	"name": "uuid-n4jsd",
+	"version": "2.0.3",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "uuid",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

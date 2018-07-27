@@ -1,0 +1,22 @@
+{
+	"name": "enzyme-n4jsd",
+	"version": "3.2.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "enzyme",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-html5"
+		]
+	},
+	"dependencies": {
+		"react": "*",
+		"n4js-runtime-html5": "*"
+	}
+}

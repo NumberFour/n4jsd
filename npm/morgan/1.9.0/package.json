@@ -1,0 +1,22 @@
+{
+	"name": "morgan-n4jsd",
+	"version": "1.9.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "morgan",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"express": "*",
+		"n4js-runtime-node": "*"
+	}
+}

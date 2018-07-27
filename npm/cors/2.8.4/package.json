@@ -1,0 +1,22 @@
+{
+	"name": "cors-n4jsd",
+	"version": "2.8.4",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "cors",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"express": "*",
+		"n4js-runtime-node": "*"
+	}
+}

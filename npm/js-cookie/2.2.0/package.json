@@ -1,0 +1,15 @@
+{
+	"name": "js-cookie-n4jsd",
+	"version": "2.2.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "js-cookie",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

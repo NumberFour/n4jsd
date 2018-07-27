@@ -1,0 +1,21 @@
+{
+	"name": "selenium-webdriver-n4jsd",
+	"version": "3.6.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "selenium-webdriver",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": "*"
+	}
+}

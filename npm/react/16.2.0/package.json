@@ -1,0 +1,15 @@
+{
+	"name": "react-n4jsd",
+	"version": "16.2.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

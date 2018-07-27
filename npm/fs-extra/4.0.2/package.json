@@ -1,0 +1,21 @@
+{
+	"name": "fs-extra-n4jsd",
+	"version": "4.0.2",
+	"dependencies": {
+		"n4js-runtime-node": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "fs-extra",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	}
+}

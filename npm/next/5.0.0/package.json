@@ -1,0 +1,24 @@
+{
+	"name": "next-n4jsd",
+	"version": "5.0.0",
+	"dependencies": {
+		"react": "*",
+		"n4js-runtime-node": "*",
+		"n4js-runtime-fetch": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "next",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node",
+			"n4js-runtime-fetch"
+		]
+	}
+}

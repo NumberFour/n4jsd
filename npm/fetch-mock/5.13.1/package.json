@@ -1,0 +1,23 @@
+{
+	"name": "fetch-mock-n4jsd",
+	"version": "5.13.1",
+	"dependencies": {
+		"n4js-runtime-node": "*",
+		"n4js-runtime-fetch": "*"
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "fetch-mock",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node",
+			"n4js-runtime-fetch"
+		]
+	}
+}

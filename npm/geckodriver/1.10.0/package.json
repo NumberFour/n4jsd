@@ -1,0 +1,21 @@
+{
+	"name": "geckodriver-n4jsd",
+	"version": "1.10.0",
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "geckodriver",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": "*"
+	}
+}
