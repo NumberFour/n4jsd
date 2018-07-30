@@ -9,6 +9,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "next",
+		"MainModule": "dist/server/next",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

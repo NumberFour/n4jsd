@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-document-title",
+		"MainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

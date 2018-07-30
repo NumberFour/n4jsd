@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "glob",
+		"MainModule": "glob",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

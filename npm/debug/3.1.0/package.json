@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "debug",
+		"MainModule": "debug",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

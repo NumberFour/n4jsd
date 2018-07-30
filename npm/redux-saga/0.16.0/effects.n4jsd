@@ -1,6 +1,6 @@
 import {ReduxAction} from "redux";
-import {ReduxSagaEffect} from "redux-saga";
-import {ReduxSagaTask} from "redux-saga";
+import {ReduxSagaEffect} from "lib/index";
+import {ReduxSagaTask} from "lib/index";
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#effect-creators

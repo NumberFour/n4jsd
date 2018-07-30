@@ -8,6 +8,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-redux",
+		"MainModule": "lib/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

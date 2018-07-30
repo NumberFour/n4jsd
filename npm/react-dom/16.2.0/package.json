@@ -8,6 +8,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-dom",
+		"MainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -1,4 +1,4 @@
-import {WebElement} from "selenium-webdriver/lib/webdriver";
+import {WebElement} from "lib/webdriver";
 
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/by_exports_By.html

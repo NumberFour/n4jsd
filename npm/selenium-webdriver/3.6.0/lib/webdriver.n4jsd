@@ -1,8 +1,8 @@
-import {ActionLocation} from "selenium-webdriver/lib/actions";
-import {ActionSequence} from "selenium-webdriver/lib/actions";
-import {TouchSequence} from "selenium-webdriver/lib/actions";
-import {By} from "selenium-webdriver/lib/by";
-import {Condition} from "selenium-webdriver/lib/condition";
+import {ActionLocation} from "lib/actions";
+import {ActionSequence} from "lib/actions";
+import {TouchSequence} from "lib/actions";
+import {By} from "lib/by";
+import {Condition} from "lib/condition";
 
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebDriver.html

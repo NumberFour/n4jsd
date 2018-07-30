@@ -7,6 +7,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-transition-group",
+		"MainModule": "CSSTransitionGroup",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
