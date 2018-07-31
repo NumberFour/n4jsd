@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "express",
+		"mainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

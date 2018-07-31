@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "cors",
+		"mainModule": "lib/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
@@ -16,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"express": "*",
+		"express-n4jsd": "*",
 		"n4js-runtime-node": "*"
 	}
 }

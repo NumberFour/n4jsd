@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "geckodriver",
+		"mainModule": "lib/geckodriver",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

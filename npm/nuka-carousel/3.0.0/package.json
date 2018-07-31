@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "nuka-carousel",
+		"mainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
@@ -13,6 +14,6 @@
 		"moduleLoader": "commonjs"
 	},
 	"dependencies": {
-		"react": "*"
+		"react-n4jsd": "*"
 	}
 }

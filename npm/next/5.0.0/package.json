@@ -2,13 +2,14 @@
 	"name": "next-n4jsd",
 	"version": "5.0.0",
 	"dependencies": {
-		"react": "*",
+		"react-n4jsd": "*",
 		"n4js-runtime-node": "*",
 		"n4js-runtime-fetch": "*"
 	},
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "next",
+		"mainModule": "dist/server/next",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -7,6 +7,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "fs-extra",
+		"mainModule": "lib/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

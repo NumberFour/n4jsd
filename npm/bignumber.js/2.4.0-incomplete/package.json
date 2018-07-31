@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "bignumber.js",
+		"mainModule": "bignumber",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

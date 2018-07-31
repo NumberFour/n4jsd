@@ -1,5 +1,5 @@
-import {Capabilities} from "selenium-webdriver/lib/capabilities";
-import {Preferences} from "selenium-webdriver/lib/logging";
+import {Capabilities} from "lib/capabilities";
+import {Preferences} from "lib/logging";
 
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/chrome_exports_Options.html

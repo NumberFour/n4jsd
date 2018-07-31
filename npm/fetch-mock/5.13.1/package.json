@@ -8,6 +8,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "fetch-mock",
+		"mainModule": "src/server",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

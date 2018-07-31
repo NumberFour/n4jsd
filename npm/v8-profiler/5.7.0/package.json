@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "v8-profiler",
+		"mainModule": "v8-profiler",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

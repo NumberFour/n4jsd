@@ -1,6 +1,6 @@
-import {WebDriver} from "selenium-webdriver/lib/webdriver";
-import {WebElement} from "selenium-webdriver/lib/webdriver";
-import { Button } from "selenium-webdriver/lib/input";
+import {WebDriver} from "lib/webdriver";
+import {WebElement} from "lib/webdriver";
+import { Button } from "lib/input";
 
 export external public class ~ActionLocation {
     public x: int;

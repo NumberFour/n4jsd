@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "js-cookie",
+		"mainModule": "src/js-cookie",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "sinon",
+		"mainModule": "lib/sinon",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

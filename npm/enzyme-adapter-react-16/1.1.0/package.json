@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "enzyme-adapter-react-16",
+		"mainModule": "build/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
@@ -13,6 +14,6 @@
 		"moduleLoader": "commonjs"
 	},
 	"dependencies": {
-		"enzyme": "*"
+		"enzyme-n4jsd": "*"
 	}
 }

@@ -4,6 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "cheerio",
+		"mainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
