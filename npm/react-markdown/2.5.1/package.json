@@ -7,7 +7,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-markdown",
-		"MainModule": "src/react-markdown",
+		"mainModule": "src/react-markdown",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "enzyme",
-		"MainModule": "build/index",
+		"mainModule": "build/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

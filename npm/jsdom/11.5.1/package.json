@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "jsdom",
-		"MainModule": "lib/api",
+		"mainModule": "lib/api",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "immutable",
-		"MainModule": "dist/immutable",
+		"mainModule": "dist/immutable",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

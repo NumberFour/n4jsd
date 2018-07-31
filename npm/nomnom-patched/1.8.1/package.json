@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "nomnom-patched",
-		"MainModule": "nomnom",
+		"mainModule": "nomnom",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

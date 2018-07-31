@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "lodash",
-		"MainModule": "lodash",
+		"mainModule": "lodash",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "json-cycle",
-		"MainModule": "cycle",
+		"mainModule": "cycle",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

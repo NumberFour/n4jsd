@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "chromedriver",
-		"MainModule": "lib/chromedriver",
+		"mainModule": "lib/chromedriver",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

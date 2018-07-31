@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "node-uuid",
-		"MainModule": "uuid",
+		"mainModule": "uuid",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [

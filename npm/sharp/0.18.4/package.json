@@ -4,7 +4,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "sharp",
-		"MainModule": "lib/index",
+		"mainModule": "lib/index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
