@@ -2,7 +2,7 @@
 	"name": "redux-promise-n4jsd",
 	"version": "0.5.3",
 	"dependencies": {
-		"redux": "*"
+		"redux-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

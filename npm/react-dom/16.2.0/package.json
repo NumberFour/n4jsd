@@ -3,7 +3,7 @@
 	"version": "16.2.0",
 	"dependencies": {
 		"n4js-runtime-html5": "*",
-		"react": "*"
+		"react-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

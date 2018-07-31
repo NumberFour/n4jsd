@@ -2,7 +2,7 @@
 	"name": "react-markdown-n4jsd",
 	"version": "2.5.1",
 	"dependencies": {
-		"react": "*"
+		"react-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

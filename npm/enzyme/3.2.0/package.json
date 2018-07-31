@@ -17,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"react": "*",
+		"react-n4jsd": "*",
 		"n4js-runtime-html5": "*"
 	}
 }

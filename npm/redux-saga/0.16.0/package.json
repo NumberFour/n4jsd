@@ -2,7 +2,7 @@
 	"name": "redux-saga-n4jsd",
 	"version": "0.16.0",
 	"dependencies": {
-		"redux": "*"
+		"redux-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

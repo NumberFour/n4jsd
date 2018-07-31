@@ -2,8 +2,8 @@
 	"name": "react-redux-n4jsd",
 	"version": "5.0.6",
 	"dependencies": {
-		"react": "*",
-		"redux": "*"
+		"react-n4jsd": "*",
+		"redux-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

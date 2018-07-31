@@ -3,7 +3,7 @@
 	"version": "2.4.0",
 	"dependencies": {
 		"n4js-runtime-ecma402": "*",
-		"react": "*"
+		"react-n4jsd": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

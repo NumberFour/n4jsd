@@ -17,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"express": "*",
+		"express-n4jsd": "*",
 		"n4js-runtime-node": "*"
 	}
 }
