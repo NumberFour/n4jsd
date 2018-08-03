@@ -13,10 +13,10 @@
 		},
 		"moduleLoader": "commonjs",
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-node"
+			"n4js-runtime-es2015"
 		]
 	},
 	"dependencies": {
-		"n4js-runtime-node": "*"
+		"n4js-runtime-es2015": "*"
 	}
 }
