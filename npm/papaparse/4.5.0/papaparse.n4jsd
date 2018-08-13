@@ -1,0 +1,62 @@
+import {IReadableStream} from "stream";
+
+/** https://www.papaparse.com/docs#csv-to-json */
+export external public function parse(input: union { string,IReadableStream }, config: PapaConfig=undefined);
+
+/** https://www.papaparse.com/docs#errors */
+export external public class ~PapaError {
+    /** A generalization of the error */
+    type: string;
+    /** Standardized error code */
+    code: string;
+    /** Human-readable details */
+    message: string;
+    /** Row index of parsed data where error is */
+    row: int;
+}
+
+/** https://www.papaparse.com/docs#meta */
+export external public class ~PapaMeta {
+    /** Delimiter used */
+    delimiter: string;
+    /** Line break sequence used */
+    linebreak: string;
+    /**Whether process was aborted */
+    aborted: boolean;
+    /**Array of field names */
+    fields?: Array<String>;
+    /**Whether preview consumed all input */
+    truncated: boolean;
+}
+
+/** https://www.papaparse.com/docs#results */
+export external public class ~PapaResults {
+    public data: Array<any+>;
+    public errors: Array<PapaError>;
+    public meta: PapaMeta;
+}
+
+/** https://www.papaparse.com/docs#config */
+export external public class ~PapaConfig {
+    public delimiter?: string;
+    public newline?: string;
+    public quoteChar?: string;
+    public escapeChar?: string;
+    public header?: boolean;
+    public trimHeaders?: boolean;
+    public dynamicTyping?: boolean;
+    public preview?: number;
+    public encoding?: string;
+    public worker?: boolean;
+    public comments?: boolean;
+    public step?: ( PapaResults)=>void;
+    public complete?: ( PapaResults) => void;
+    public error?: Error;
+    public download?: boolean;
+    public skipEmptyLines?: boolean;
+    public chunk?: undefined;
+    public fastMode?: undefined;
+    public beforeFirstChunk?: undefined;
+    public withCredentials?: undefined;
+    public transform?: undefined;
+}
