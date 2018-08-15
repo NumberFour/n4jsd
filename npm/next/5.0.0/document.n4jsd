@@ -16,6 +16,17 @@ export default external public class NextDocument<PropsT extends React.Component
 
 export external public function Head(props: React.ComponentProps=): React.Element<?>;
 export external public function Main(props: React.ComponentProps=): React.Element<?>;
-export external public function NextScript(props: React.ComponentProps=): React.Element<?>;
+
+export external public interface ~NextScriptProps extends React.ComponentProps {
+    public nonce?: string;
+}
+
+export external public class NextScript extends React.Component<NextScriptProps, Object> {
+
+    public static getInlineScriptSource (documentProps: React.ComponentProps): string;
+
+    @Override
+    public render (): React.Element<?>;
+}
 
 /* -*- mode: typescript;-*- */
