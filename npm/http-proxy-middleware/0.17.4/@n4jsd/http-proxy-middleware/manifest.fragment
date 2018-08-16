@@ -1,9 +1,0 @@
-ModuleLoader: commonjs
-
-RequiredRuntimeLibraries {
-    n4js-runtime-node
-}
-
-ProjectDependencies {
-    express
-}

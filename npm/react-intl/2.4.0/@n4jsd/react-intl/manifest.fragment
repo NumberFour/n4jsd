@@ -1,9 +1,0 @@
-ModuleLoader: commonjs
-
-RequiredRuntimeLibraries {
-    n4js-runtime-ecma402
-}
-
-ProjectDependencies {
-    react
-}
