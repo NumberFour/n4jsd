@@ -1,5 +1,5 @@
 {
-	"name": "debug-n4jsd",
+	"name": "@n4jsd/debug",
 	"version": "3.1.0",
 	"n4js": {
 		"projectType": "definition",

@@ -1,5 +1,5 @@
 {
-	"name": "async-throttle-n4jsd",
+	"name": "@n4jsd/async-throttle",
 	"version": "0.0.1",
 	"n4js": {
 		"projectType": "definition",

@@ -1,5 +1,5 @@
 {
-	"name": "redux-n4jsd",
+	"name": "@n4jsd/redux",
 	"version": "3.7.2",
 	"n4js": {
 		"projectType": "definition",

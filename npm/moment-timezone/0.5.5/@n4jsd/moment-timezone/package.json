@@ -1,5 +1,5 @@
 {
-	"name": "moment-timezone-n4jsd",
+	"name": "@n4jsd/moment-timezone",
 	"version": "0.5.5",
 	"n4js": {
 		"projectType": "definition",

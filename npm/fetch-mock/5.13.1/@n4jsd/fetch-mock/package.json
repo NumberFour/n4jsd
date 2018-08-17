@@ -1,5 +1,5 @@
 {
-	"name": "fetch-mock-n4jsd",
+	"name": "@n4jsd/fetch-mock",
 	"version": "5.13.1",
 	"dependencies": {
 		"n4js-runtime-node": "*",

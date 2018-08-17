@@ -1,5 +1,5 @@
 {
-	"name": "nuka-carousel-n4jsd",
+	"name": "@n4jsd/nuka-carousel",
 	"version": "3.0.0",
 	"n4js": {
 		"projectType": "definition",
@@ -14,6 +14,6 @@
 		"moduleLoader": "commonjs"
 	},
 	"dependencies": {
-		"react-n4jsd": "*"
+		"@n4jsd/react": "*"
 	}
 }

@@ -1,5 +1,5 @@
 {
-	"name": "uuid-n4jsd",
+	"name": "@n4jsd/uuid",
 	"version": "3.1.0",
 	"n4js": {
 		"projectType": "definition",

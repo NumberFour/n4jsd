@@ -1,5 +1,5 @@
 {
-	"name": "enzyme-n4jsd",
+	"name": "@n4jsd/enzyme",
 	"version": "3.2.0",
 	"n4js": {
 		"projectType": "definition",
@@ -17,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"react-n4jsd": "*",
+		"@n4jsd/react": "*",
 		"n4js-runtime-html5": "*"
 	}
 }

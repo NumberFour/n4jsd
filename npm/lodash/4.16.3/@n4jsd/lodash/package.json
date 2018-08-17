@@ -1,5 +1,5 @@
 {
-	"name": "lodash-n4jsd",
+	"name": "@n4jsd/lodash",
 	"version": "4.16.3",
 	"n4js": {
 		"projectType": "definition",

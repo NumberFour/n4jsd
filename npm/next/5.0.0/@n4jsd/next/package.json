@@ -1,8 +1,8 @@
 {
-	"name": "next-n4jsd",
+	"name": "@n4jsd/next",
 	"version": "5.0.0",
 	"dependencies": {
-		"react-n4jsd": "*",
+		"@n4jsd/react": "*",
 		"n4js-runtime-node": "*",
 		"n4js-runtime-fetch": "*"
 	},

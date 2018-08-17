@@ -1,5 +1,5 @@
 {
-	"name": "cheerio-n4jsd",
+	"name": "@n4jsd/cheerio",
 	"version": "1.0.0",
 	"n4js": {
 		"projectType": "definition",

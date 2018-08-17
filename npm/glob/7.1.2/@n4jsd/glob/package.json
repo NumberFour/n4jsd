@@ -1,5 +1,5 @@
 {
-	"name": "glob-n4jsd",
+	"name": "@n4jsd/glob",
 	"version": "7.1.2",
 	"n4js": {
 		"projectType": "definition",

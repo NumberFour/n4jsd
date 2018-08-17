@@ -1,5 +1,5 @@
 {
-	"name": "js-cookie-n4jsd",
+	"name": "@n4jsd/js-cookie",
 	"version": "2.2.0",
 	"n4js": {
 		"projectType": "definition",

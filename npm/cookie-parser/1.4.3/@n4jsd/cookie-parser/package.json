@@ -1,5 +1,5 @@
 {
-	"name": "cookie-parser-n4jsd",
+	"name": "@n4jsd/cookie-parser",
 	"version": "1.4.3",
 	"n4js": {
 		"projectType": "definition",
@@ -17,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"express-n4jsd": "*",
+		"@n4jsd/express": "*",
 		"n4js-runtime-node": "*"
 	}
 }

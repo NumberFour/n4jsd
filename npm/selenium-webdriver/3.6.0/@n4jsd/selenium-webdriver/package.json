@@ -1,5 +1,5 @@
 {
-	"name": "selenium-webdriver-n4jsd",
+	"name": "@n4jsd/selenium-webdriver",
 	"version": "3.6.0",
 	"n4js": {
 		"projectType": "definition",

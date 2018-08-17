@@ -1,0 +1,20 @@
+{
+  "version": "independent",
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        ".project"
+      ]
+    },
+    "bootstrap": {
+      "ignore": "component-*",
+      "npmClientArgs": [
+        "--no-package-lock"
+      ]
+    }
+  },
+  "packages": [
+    "npm/**/*"
+  ],
+  "lerna": "2.11.0"
+}

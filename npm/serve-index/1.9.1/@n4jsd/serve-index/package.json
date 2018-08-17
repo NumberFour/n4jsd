@@ -1,5 +1,5 @@
 {
-	"name": "serve-index-n4jsd",
+	"name": "@n4jsd/serve-index",
 	"version": "1.9.1",
 	"n4js": {
 		"projectType": "definition",
@@ -17,7 +17,7 @@
 		]
 	},
 	"dependencies": {
-		"express-n4jsd": "*",
+		"@n4jsd/express": "*",
 		"n4js-runtime-node": "*"
 	}
 }

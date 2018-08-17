@@ -1,5 +1,5 @@
 {
-	"name": "chromedriver-n4jsd",
+	"name": "@n4jsd/chromedriver",
 	"version": "2.33.2",
 	"n4js": {
 		"projectType": "definition",

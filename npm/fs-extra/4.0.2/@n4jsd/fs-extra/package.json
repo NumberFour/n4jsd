@@ -1,5 +1,5 @@
 {
-	"name": "fs-extra-n4jsd",
+	"name": "@n4jsd/fs-extra",
 	"version": "4.0.2",
 	"dependencies": {
 		"n4js-runtime-node": "*"

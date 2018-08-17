@@ -1,5 +1,5 @@
 {
-	"name": "deep-equal-n4jsd",
+	"name": "@n4jsd/deep-equal",
 	"version": "1.0.1",
 	"n4js": {
 		"projectType": "definition",

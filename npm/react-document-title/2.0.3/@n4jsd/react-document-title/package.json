@@ -1,5 +1,5 @@
 {
-	"name": "react-document-title-n4jsd",
+	"name": "@n4jsd/react-document-title",
 	"version": "2.0.3",
 	"n4js": {
 		"projectType": "definition",
@@ -14,6 +14,6 @@
 		"moduleLoader": "commonjs"
 	},
 	"dependencies": {
-		"react-n4jsd": "*"
+		"@n4jsd/react": "*"
 	}
 }

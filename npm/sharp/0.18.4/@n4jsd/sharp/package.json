@@ -1,5 +1,5 @@
 {
-	"name": "sharp-n4jsd",
+	"name": "@n4jsd/sharp",
 	"version": "0.18.4",
 	"n4js": {
 		"projectType": "definition",

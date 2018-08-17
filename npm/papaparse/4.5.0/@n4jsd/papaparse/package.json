@@ -1,5 +1,5 @@
 {
-    "name": "papaparse-n4jsd",
+    "name": "@n4jsd/papaparse",
     "version": "4.5.0",
     "dependencies": {
         "n4js-runtime-node": "*"

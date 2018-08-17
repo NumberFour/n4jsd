@@ -1,5 +1,5 @@
 {
-	"name": "pdf-parse-n4jsd",
+	"name": "@n4jsd/pdf-parse",
 	"version": "1.0.8",
 	"n4js": {
 		"projectType": "definition",

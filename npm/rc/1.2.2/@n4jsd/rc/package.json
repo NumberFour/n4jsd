@@ -1,5 +1,5 @@
 {
-	"name": "rc-n4jsd",
+	"name": "@n4jsd/rc",
 	"version": "1.2.2",
 	"n4js": {
 		"projectType": "definition",

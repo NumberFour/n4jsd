@@ -1,5 +1,5 @@
 {
-	"name": "json-cycle-n4jsd",
+	"name": "@n4jsd/json-cycle",
 	"version": "1.0.5",
 	"n4js": {
 		"projectType": "definition",

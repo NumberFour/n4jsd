@@ -1,5 +1,5 @@
 {
-	"name": "immutable-n4jsd",
+	"name": "@n4jsd/immutable",
 	"version": "3.8.2",
 	"n4js": {
 		"projectType": "definition",

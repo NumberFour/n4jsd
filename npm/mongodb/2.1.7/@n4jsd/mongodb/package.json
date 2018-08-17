@@ -1,5 +1,5 @@
 {
-	"name": "mongodb-n4jsd",
+	"name": "@n4jsd/mongodb",
 	"version": "2.1.7",
 	"n4js": {
 		"projectType": "definition",

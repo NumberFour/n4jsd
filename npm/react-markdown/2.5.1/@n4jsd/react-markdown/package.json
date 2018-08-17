@@ -1,8 +1,8 @@
 {
-	"name": "react-markdown-n4jsd",
+	"name": "@n4jsd/react-markdown",
 	"version": "2.5.1",
 	"dependencies": {
-		"react-n4jsd": "*"
+		"@n4jsd/react": "*"
 	},
 	"n4js": {
 		"projectType": "definition",

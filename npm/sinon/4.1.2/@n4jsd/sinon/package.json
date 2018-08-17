@@ -1,5 +1,5 @@
 {
-	"name": "sinon-n4jsd",
+	"name": "@n4jsd/sinon",
 	"version": "4.1.2",
 	"n4js": {
 		"projectType": "definition",

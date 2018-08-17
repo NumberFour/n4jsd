@@ -1,5 +1,5 @@
 {
-	"name": "react-n4jsd",
+	"name": "@n4jsd/react",
 	"version": "16.2.0",
 	"n4js": {
 		"projectType": "definition",

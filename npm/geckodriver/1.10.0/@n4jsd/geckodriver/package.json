@@ -1,5 +1,5 @@
 {
-	"name": "geckodriver-n4jsd",
+	"name": "@n4jsd/geckodriver",
 	"version": "1.10.0",
 	"n4js": {
 		"projectType": "definition",
