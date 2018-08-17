@@ -23,6 +23,6 @@ export external public function <PropsT extends React.ComponentProps>
         mapDispatchToProps: Function=, //{function(dispatch:Function, ownProps: any?): Object}?,
         mergeProps: Function=,
         options: ConnectOptions=
-    ): (constructor{?}) => (PropsT) => React.Element<?>;
+    ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
 
 /* -*- mode: typescript;-*- */

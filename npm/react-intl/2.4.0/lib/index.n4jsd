@@ -67,7 +67,7 @@ export external public abstract class InjectIntlComponent<CompT, PropsT extends 
  * https://github.com/yahoo/react-intl/wiki/API#injectintl
  */
 export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
-injectIntl(ctor: constructor{CompT}, options: ~Object with {
+injectIntl(ctor: constructor{CompT} | (PropsT) => React.Element<?>, options: ~Object with {
         intlPropName?: string,  // defaults to 'intl'
         withRef?: boolean       // defaults to false
     }=): (PropsT) => React.Element<?>;
