@@ -1,5 +1,11 @@
 {
-  "n4js": {
-    "moduleLoader": "commonjs"
-  }
+    "dependencies": {
+        "n4js-runtime-esnext": "*"
+    },
+    "n4js": {
+        "moduleLoader": "commonjs",
+        "requiredRuntimeLibraries": [
+            "n4js-runtime-esnext"
+        ]
+    }
 }
