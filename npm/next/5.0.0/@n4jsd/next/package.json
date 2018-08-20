@@ -3,8 +3,8 @@
 	"version": "5.0.0",
 	"dependencies": {
 		"@n4jsd/react": "*",
-		"n4js-runtime-node": "*",
-		"n4js-runtime-fetch": "*"
+		"n4js-runtime-node": "",
+		"n4js-runtime-fetch": ""
 	},
 	"n4js": {
 		"projectType": "definition",

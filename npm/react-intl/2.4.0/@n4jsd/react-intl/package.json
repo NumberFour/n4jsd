@@ -2,7 +2,7 @@
 	"name": "@n4jsd/react-intl",
 	"version": "2.4.0",
 	"dependencies": {
-		"n4js-runtime-ecma402": "*",
+		"n4js-runtime-ecma402": "",
 		"@n4jsd/react": "*"
 	},
 	"n4js": {
