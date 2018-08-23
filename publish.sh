@@ -58,13 +58,15 @@ export PATH=`pwd`/node_modules/.bin:${PATH}
 echo "starting new verdaccio"
 verdaccio --config config.yaml &
 VERDACCIO_PID=$!
-echo "   sleep 1s"
+echo "sleep 1s"
 sleep 1s
 
 
 
 echo "publish to local verdaccio"
-# works always since verdaccio is clean and fresh
+N4JSC_NPMRC=${DIR}/n4jsc_npmrc
+export NPM_CONFIG_GLOBALCONFIG="${N4JSC_NPMRC}" # user information is inside .npmrc
+# never fails since verdaccio is clean and fresh
 lerna exec "npm publish --registry=http://localhost:4873;"
 
 
@@ -84,9 +86,7 @@ echo "found $PRJ_COUNT projects"
 
 echo "validate all n4jsd projects separately"
 COUNT=1
-ERRORS=""
-N4JSC_NPMRC=${DIR}/n4jsc_npmrc
-export NPM_CONFIG_GLOBALCONFIG="${N4JSC_NPMRC}" # this may be obsolete due to argument '--npmrcRootLocation'
+ERRORS=false
 echo "using .npmrc file from $N4JSC_NPMRC"
 set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
@@ -97,7 +97,7 @@ do
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
 		echo "$OUTPUT"
-		ERRORS="$OUTPUT"
+		ERRORS=true
 	fi
 
 	COUNT=$[$COUNT +1];
@@ -112,7 +112,7 @@ kill $VERDACCIO_PID
 
 
 
-if [ ${#ERRORS} -ne 0 ]; then
+if [[ "$ERRORS" = true ]]; then
 	echo "There were errors during validating all n4jsd projects. See output above."
 	echo "exit."
 	exit -1;
