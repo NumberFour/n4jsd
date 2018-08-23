@@ -32,7 +32,8 @@ echo "check for old verdaccio"
 set +e # ignore problems
 OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
 if [ $? -eq 0 ]; then
-	echo "kill old verdaccio"
+	lsof -ti :4873 -c node -a
+	echo "kill old verdaccio with pid: $OLD_VERDACCIO_PID"
 	kill $OLD_VERDACCIO_PID
 fi
 set -e
