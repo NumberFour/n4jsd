@@ -4,3 +4,4 @@ package-lock.json
 lerna-debug.log
 /.npmrc
 node_modules
+/storage
