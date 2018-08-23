@@ -4,7 +4,6 @@
 # -x  == enable debug. (+x for disable)
 set -e +x
 
-#export NPM_CONFIG_GLOBALCONFIG=/Users/marcus.mews/GitHub/n4jsd/
 echo "== Start publishing"
 DIR=`dirname $0`
 echo "dir of scipt is $DIR"
@@ -48,7 +47,7 @@ fi
 
 
 echo "Run npm install using registry nexus3-aws"
-export NPM_CONFIG_GLOBALCONFIG="${DIR}"
+export NPM_CONFIG_GLOBALCONFIG="${DIR}/.npmrc"
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
@@ -65,7 +64,7 @@ sleep 1s
 
 
 echo "publish to local verdaccio"
-N4JSC_NPMRC=${DIR}/n4jsc_npmrc
+N4JSC_NPMRC="${DIR}/n4jsc_npmrc/.npmrc"
 export NPM_CONFIG_GLOBALCONFIG="${N4JSC_NPMRC}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
 lerna exec "npm publish --registry=http://localhost:4873;"
@@ -103,7 +102,7 @@ do
 
 	COUNT=$[$COUNT +1];
 done
-export NPM_CONFIG_GLOBALCONFIG="${DIR}" # reset global variable
+export NPM_CONFIG_GLOBALCONFIG="${DIR}/.npmrc" # reset global variable
 
 
 echo "killing verdaccio"
