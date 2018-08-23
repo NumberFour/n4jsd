@@ -7,6 +7,7 @@ set -e +x
 #export NPM_CONFIG_GLOBALCONFIG=/Users/marcus.mews/GitHub/n4jsd/
 echo "== Start publishing"
 DIR=`dirname $0`
+echo "dir of scipt is $DIR"
 
 
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
