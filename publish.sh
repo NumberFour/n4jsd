@@ -29,7 +29,7 @@ fi
 echo "executing outside docker: $OUTSIDE_DOCKER"
 
 
-if [[ $OUTSIDE_DOCKER ]]; then
+if [[ "$OUTSIDE_DOCKER" = true ]]; then
 	echo "check for old verdaccio"
 	set +e # ignore problems
 	OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
