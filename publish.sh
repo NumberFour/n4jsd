@@ -19,7 +19,7 @@ else
 fi
 
 
-echo "Run yarn install"
+echo "Run npm install using registry nexus3-aws"
 export NPM_CONFIG_GLOBALCONFIG="${DIR}"
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
@@ -30,7 +30,7 @@ export PATH=`pwd`/node_modules/.bin:${PATH}
 
 echo "check for old verdaccio"
 set +e # ignore problems
-OLD_VERDACCIO_PID="$(lsof -ti :4873)"
+OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
 if [ $? -eq 0 ]; then
 	echo "kill old verdaccio"
 	kill $OLD_VERDACCIO_PID
