@@ -8,8 +8,9 @@ set -e +x
 echo "== Start publishing"
 DIR=`dirname $0`
 
+
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
-if [ -z "$1" ]; then
+if [[ -z "$1" ]]; then
 	export NPM_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal"
 	echo "The url to npm registry must be specified."
 	echo "Using default registry: $NPM_REGISTRY"
@@ -19,29 +20,38 @@ else
 fi
 
 
+
+if [[ -f /.dockerenv ]]; then
+	OUTSIDE_DOCKER=false
+else
+	OUTSIDE_DOCKER=true
+fi
+echo "executing outside docker: $OUTSIDE_DOCKER"
+
+
+if [[ OUTSIDE_DOCKER ]]; then
+	echo "check for old verdaccio"
+	set +e # ignore problems
+	OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
+	if [[ $? -eq 0 ]]; then
+		#lsof -ti :4873 -c node -a
+		echo "kill old verdaccio with pid: $OLD_VERDACCIO_PID"
+		kill $OLD_VERDACCIO_PID
+	fi
+	set -e
+
+	echo "clean artifacts of old verdaccio"
+	rm -rf ./storage
+fi
+
+
+
 echo "Run npm install using registry nexus3-aws"
 export NPM_CONFIG_GLOBALCONFIG="${DIR}"
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
 
-
-
-
-echo "check for old verdaccio"
-set +e # ignore problems
-OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
-if [ $? -eq 0 ]; then
-	lsof -ti :4873 -c node -a
-	echo "kill old verdaccio with pid: $OLD_VERDACCIO_PID"
-	kill $OLD_VERDACCIO_PID
-fi
-set -e
-
-
-
-echo "clean artifacts of old verdaccio"
-rm -rf ./storage
 
 
 
