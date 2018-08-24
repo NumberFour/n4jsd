@@ -21,7 +21,7 @@ pipeline {
     }
 
     triggers {
-        cron   ('H   6 * * *') // Publish every day a 6am (extended nightly should be finished by then)
+        cron   ('H   5 * * *') // Publish every day a 5am GMT (extended nightly should be finished by then)
     }
 
     stages {

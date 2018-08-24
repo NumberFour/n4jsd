@@ -121,8 +121,7 @@ kill $VERDACCIO_PID
 
 
 if [[ "$ERRORS" = true ]]; then
-	echo "There were errors during validating all n4jsd projects. See output above."
-	echo "exit."
+	echo "== failed due to validation errors of n4jsd projects"
 	exit -1;
 fi
 
