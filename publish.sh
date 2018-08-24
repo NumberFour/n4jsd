@@ -12,7 +12,7 @@ function setNpmConfig {
 	export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
 }
 
-
+NPM_TEST_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal"
 
 
 echo "== Start publishing"
@@ -22,9 +22,8 @@ echo "dir of scipt is $DIR"
 
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
 if [[ -z "$1" ]]; then
-	export NPM_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal"
-	echo "The url to npm registry must be specified."
-	echo "Using default registry: $NPM_REGISTRY"
+	export NPM_REGISTRY="$NPM_TEST_REGISTRY"
+	echo "Using default registry: $NPM_TEST_REGISTRY"
 	#exit -1
 else
 	export NPM_REGISTRY=$1
@@ -45,7 +44,6 @@ if [[ "$OUTSIDE_DOCKER" = true ]]; then
 	set +e # ignore problems
 	OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
 	if [[ $? -eq 0 ]]; then
-		#lsof -ti :4873 -c node -a
 		echo "kill old verdaccio with pid: $OLD_VERDACCIO_PID"
 		kill $OLD_VERDACCIO_PID
 	fi
@@ -78,12 +76,12 @@ echo "publish to local verdaccio"
 N4JSC_NPMRC="${DIR}/n4jsc_npmrc/.npmrc"
 setNpmConfig "${N4JSC_NPMRC}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-lerna exec "npm publish --registry=http://localhost:4873;"
+lerna exec 'npm publish --registry=http://localhost:4873'
 
 
 
 
-echo "get all projects"
+echo "get all project locations"
 PRJ_LOCS="$(lerna exec pwd)"
 PRJ_COUNT=0
 for PRJ_LOC in $PRJ_LOCS;
@@ -132,12 +130,25 @@ fi
 
 
 
-
+echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;"
+OUTPUT="$(lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;")"
 
+if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
+	echo "published successfully:"
+	echo "$OUTPUT"
+else
+	if [[ $OUTPUT = *"npm ERR! code EPUBLISHCONFLICT"* ]]; then
+		# never mind
+	fi
 
+	if [[ $OUTPUT = *"npm ERR! code ENEEDAUTH"* ]]; then
+		echo "failed due to authentication error"
+		exit -1
+	fi
+fi
 
 echo "== Publishing done."
+exit 0
 
 
