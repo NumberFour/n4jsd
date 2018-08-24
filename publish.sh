@@ -76,7 +76,7 @@ echo "publish to local verdaccio"
 N4JSC_NPMRC="${DIR}/n4jsc_npmrc/.npmrc"
 setNpmConfig "${N4JSC_NPMRC}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-#lerna exec 'npm publish --registry=http://localhost:4873'
+lerna exec 'npm publish --registry=http://localhost:4873'
 
 
 
@@ -101,7 +101,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	#OUTPUT="$(n4jsc --npmrcRootLocation $N4JSC_NPMRC -imd -bt projects $PRJ_LOC 2>&1)"
+	OUTPUT="$(n4jsc --npmrcRootLocation $N4JSC_NPMRC -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -133,7 +133,7 @@ fi
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
 OUTPUT="$(lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;" 2>&1)"
-echo $OUTPUT
+echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
 	echo "published successfully:"
@@ -145,7 +145,7 @@ else
 	fi
 
 	if [[ $OUTPUT = *"ENEEDAUTH"* ]]; then
-		echo "failed due to authentication error"
+		echo "== failed due to authentication error"
 		exit -1
 	fi
 fi
