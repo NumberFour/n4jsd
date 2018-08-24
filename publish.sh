@@ -101,7 +101,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	OUTPUT="$(n4jsc --npmrcRootLocation $N4JSC_NPMRC -imd -bt projects $PRJ_LOC 2>&1)"
+	#OUTPUT="$(n4jsc --npmrcRootLocation $N4JSC_NPMRC -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
