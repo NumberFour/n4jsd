@@ -76,7 +76,7 @@ echo "publish to local verdaccio"
 N4JSC_NPMRC="${DIR}/n4jsc_npmrc/.npmrc"
 setNpmConfig "${N4JSC_NPMRC}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-lerna exec 'npm publish --registry=http://localhost:4873'
+#lerna exec 'npm publish --registry=http://localhost:4873'
 
 
 
@@ -132,7 +132,8 @@ fi
 
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-OUTPUT="$(lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;")"
+OUTPUT="$(lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;" 2>&1)"
+echo $OUTPUT
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
 	echo "published successfully:"
