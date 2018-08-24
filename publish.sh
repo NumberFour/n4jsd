@@ -138,11 +138,12 @@ if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
 	echo "published successfully:"
 	echo "$OUTPUT"
 else
-	if [[ $OUTPUT = *"npm ERR! code EPUBLISHCONFLICT"* ]]; then
+	if [[ $OUTPUT = *"EPUBLISHCONFLICT"* ]]; then
 		# never mind
+		echo "one or more npm packages remain unchanged"
 	fi
 
-	if [[ $OUTPUT = *"npm ERR! code ENEEDAUTH"* ]]; then
+	if [[ $OUTPUT = *"ENEEDAUTH"* ]]; then
 		echo "failed due to authentication error"
 		exit -1
 	fi
