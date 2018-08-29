@@ -17,7 +17,7 @@ function setNpmConfig {
 	fi
 }
 
-NPM_TEST_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal"
+NPM_TEST_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal/"
 
 
 echo "== Start publishing"
@@ -63,9 +63,7 @@ fi
 
 
 echo "Run npm install using registry nexus3-aws"
-npm config list -l
 setNpmConfig "${NPMRC_PUBLISH}"
-npm config list -l
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
