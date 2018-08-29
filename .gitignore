@@ -1,6 +1,7 @@
+/storage
+/workspace
 
-yarn.lock
-package-lock.json
 lerna-debug.log
 node_modules
-/storage
+package-lock.json
+yarn.lock

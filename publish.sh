@@ -19,6 +19,8 @@ echo "== Start publishing"
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 echo "dir of scipt is $DIR"
 
+NPMRC_VERDACCIO="${DIR}/npmrc_verdaccio/.npmrc"
+NPMRC_PUBLISH="${DIR}/npmrc_publish/.npmrc"
 
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
 if [[ -z "$1" ]]; then
@@ -56,7 +58,7 @@ fi
 
 
 echo "Run npm install using registry nexus3-aws"
-setNpmConfig "${DIR}/.npmrc"
+setNpmConfig "${NPMRC_PUBLISH}"
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
@@ -73,8 +75,7 @@ sleep 1s
 
 
 echo "publish to local verdaccio"
-N4JSC_NPMRC="${DIR}/n4jsc_npmrc/.npmrc"
-setNpmConfig "${N4JSC_NPMRC}" # user information is inside .npmrc
+setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
 lerna exec 'npm publish --registry=http://localhost:4873'
 
@@ -96,12 +97,12 @@ echo "found $PRJ_COUNT projects"
 echo "validate all n4jsd projects separately"
 COUNT=1
 ERRORS=false
-echo "using .npmrc file from $N4JSC_NPMRC"
+echo "using .npmrc file from $NPMRC_VERDACCIO"
 set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	OUTPUT="$(n4jsc --npmrcRootLocation $N4JSC_NPMRC -imd -bt projects $PRJ_LOC 2>&1)"
+	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -111,7 +112,7 @@ do
 
 	COUNT=$[$COUNT +1];
 done
-setNpmConfig "${DIR}/.npmrc" # reset global variable
+setNpmConfig "${NPMRC_PUBLISH}" # reset global variable
 
 echo "killing verdaccio"
 set +e # ignore problems
