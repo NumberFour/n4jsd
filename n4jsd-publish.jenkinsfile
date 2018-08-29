@@ -39,7 +39,7 @@ pipeline {
 
         stage('publish') {
             steps {
-                withCredentials([string(credentialsId: 'npm-token-webclients1-nexus', variable: 'NPM_TOKEN')]) {
+                withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN_webclients1-nexus', variable: 'NPM_TOKEN')]) {
                     script {
                         // public registry: http://registry.npmjs.org/
                         // internal test nexus : http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal/
