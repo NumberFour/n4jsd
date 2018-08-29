@@ -147,11 +147,11 @@ else
 	if [[ $OUTPUT = *"EPUBLISHCONFLICT"* ]]; then
 		# never mind
 		echo "one or more npm packages remain unchanged"
-	fi
-
-	if [[ $OUTPUT = *"ENEEDAUTH"* ]]; then
-		echo "== failed due to authentication error"
-		exit -1
+	else
+		if [[ $OUTPUT = *"npm ERR! code"* ]]; then
+			echo "== failed. see outpu above"
+			exit -1
+		fi
 	fi
 fi
 

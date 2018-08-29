@@ -4,7 +4,7 @@ pipeline {
         dockerfile {
             filename 'Dockerfile'
             dir '.'
-            label 'm5xlarge'
+            label 'M5Large'
         }
     }
 
