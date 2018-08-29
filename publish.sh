@@ -58,7 +58,7 @@ fi
 
 
 echo "Run npm install using registry nexus3-aws"
-setNpmConfig "${NPMRC_PUBLISH}"
+#setNpmConfig "${NPMRC_PUBLISH}"
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
