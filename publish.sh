@@ -8,8 +8,13 @@ set -e +x
 
 function setNpmConfig {
 	NPM_RC=$1
-	echo "set NPM_CONFIG_GLOBALCONFIG to $NPM_RC"
-	export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
+	if [ -f $FILE ]; then
+		echo "set NPM_CONFIG_GLOBALCONFIG to $NPM_RC"
+		export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
+	else
+		echo "cannot set NPM_CONFIG_GLOBALCONFIG: $FILE does not exist."
+		exit -1
+	fi
 }
 
 NPM_TEST_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal"
@@ -58,7 +63,9 @@ fi
 
 
 echo "Run npm install using registry nexus3-aws"
-#setNpmConfig "${NPMRC_PUBLISH}"
+npm config list -l
+setNpmConfig "${NPMRC_PUBLISH}"
+npm config list -l
 npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
