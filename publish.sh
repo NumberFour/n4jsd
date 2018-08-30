@@ -17,7 +17,7 @@ function setNpmConfig {
 	fi
 }
 
-NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/"
+NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/"
 
 
 echo "== Start publishing"

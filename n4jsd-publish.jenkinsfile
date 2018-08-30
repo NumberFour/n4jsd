@@ -42,8 +42,8 @@ pipeline {
                 withCredentials([string(credentialsId: 'npm-token-n4ide1-nexus', variable: 'NPM_TOKEN')]) {
                     script {
                         // public registry: http://registry.npmjs.org/
-                        // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/
-                        sh './publish.sh http://n4ide1-nexus.service.cd-dev.consul/'
+                        // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/
+                        sh './publish.sh http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/'
                     }
                 }
             }
