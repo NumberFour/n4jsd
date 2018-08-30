@@ -4,7 +4,7 @@ pipeline {
         dockerfile {
             filename 'Dockerfile'
             dir '.'
-            label 'm5large'
+            label 'm5xlarge'
         }
     }
 
@@ -39,11 +39,11 @@ pipeline {
 
         stage('publish') {
             steps {
-                withCredentials([string(credentialsId: 'NPM_AUTH_TOKEN_webclients1-nexus', variable: 'NPM_TOKEN')]) {
+                withCredentials([string(credentialsId: 'npm-token-n4ide1-nexus', variable: 'NPM_TOKEN')]) {
                     script {
                         // public registry: http://registry.npmjs.org/
-                        // internal test nexus : http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal/
-                        sh './publish.sh http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal/'
+                        // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/
+                        sh './publish.sh http://n4ide1-nexus.service.cd-dev.consul/'
                     }
                 }
             }

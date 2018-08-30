@@ -17,7 +17,7 @@ function setNpmConfig {
 	fi
 }
 
-NPM_TEST_REGISTRY="http://webclients1-nexus.service.cd-dev.consul/repository/npm-internal/"
+NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/"
 
 
 echo "== Start publishing"
@@ -149,7 +149,7 @@ else
 		echo "one or more npm packages remain unchanged"
 	else
 		if [[ $OUTPUT = *"npm ERR! code"* ]]; then
-			echo "== failed. see outpu above"
+			echo "== failed. see output above"
 			exit -1
 		fi
 	fi
