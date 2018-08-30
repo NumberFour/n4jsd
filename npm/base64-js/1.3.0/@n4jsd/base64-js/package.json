@@ -1,6 +1,15 @@
 {
 	"name": "@n4jsd/base64-js",
 	"version": "1.3.0",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for base64-js",
+	"keywords": [
+		"n4js"
+	],
 	"dependencies": {
 		"n4js-runtime-esnext": ""
 	},

@@ -1,6 +1,15 @@
 {
     "name": "@n4jsd/papaparse",
     "version": "4.5.0",
+    "license": "EPL-1.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/NumberFour/n4jsd"
+    },
+    "description": "N4JS type definitions for papaparse",
+    "keywords": [
+        "n4js"
+    ],
     "dependencies": {
         "n4js-runtime-node": ""
     },

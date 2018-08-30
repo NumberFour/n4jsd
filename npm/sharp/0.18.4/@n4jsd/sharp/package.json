@@ -1,6 +1,15 @@
 {
 	"name": "@n4jsd/sharp",
 	"version": "0.18.4",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for sharp",
+	"keywords": [
+		"n4js"
+	],
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "sharp",
