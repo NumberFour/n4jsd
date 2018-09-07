@@ -19,14 +19,23 @@ function setNpmConfig {
 
 
 function publishNPM {
-	npm view .
+	REGISTRY=$1
+	if [ -f $REGISTRY ]; then
+		echo "set NPM_CONFIG_GLOBALCONFIG to $NPM_RC"
+		export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
+	else
+		echo "Registry not set."
+		exit -1
+	fi
+
 	VERSION="$( npm view . version )"
 	NAME="$( npm view . name )"
 	RESULT=" $(npm view "${NAME}@${VERSION}" )"
 	if [[ -z "${RESULT// }" ]]; then
-		echo "no   result   ${NAME}@${VERSION}"
+		echo "skipping already published package ${NAME}@${VERSION}"
 	else
-		echo "have result   ${NAME}@${VERSION}"
+		echo "publishing ${NAME}@${VERSION} to registry $REGISTRY"
+		npm publish --access=public --registry="$REGISTRY"
 	fi
 }
 
@@ -96,7 +105,7 @@ sleep 1s
 echo "publish to local verdaccio"
 setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-#lerna exec 'set +e; npm publish --registry=http://localhost:4873; set -e;'
+lerna exec 'publishNPM http://localhost:4873'
 
 
 
@@ -121,7 +130,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -151,7 +160,7 @@ fi
 
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-OUTPUT="$(lerna exec "set +e; npm publish --access=public --registry=$NPM_REGISTRY; set -e;" 2>&1)"
+OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
 echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
