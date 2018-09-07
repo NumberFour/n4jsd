@@ -82,7 +82,7 @@ sleep 1s
 echo "publish to local verdaccio"
 setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-lerna exec 'npm publish --registry=http://localhost:4873'
+lerna exec 'set +e; npm publish --registry=http://localhost:4873; set -e;'
 
 
 
