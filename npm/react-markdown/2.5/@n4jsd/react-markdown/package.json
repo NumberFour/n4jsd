@@ -11,7 +11,7 @@
 		"n4js"
 	],
 	"dependencies": {
-		"@n4jsd/react": "*"
+		"@n4jsd/react": ""
 	},
 	"n4js": {
 		"projectType": "definition",

@@ -12,7 +12,7 @@
 	],
 	"dependencies": {
 		"n4js-runtime-ecma402": "",
-		"@n4jsd/react": "*"
+		"@n4jsd/react": ""
 	},
 	"n4js": {
 		"projectType": "definition",

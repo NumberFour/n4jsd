@@ -11,8 +11,8 @@
 		"n4js"
 	],
 	"dependencies": {
-		"@n4jsd/react": "*",
-		"@n4jsd/redux": "*"
+		"@n4jsd/react": "",
+		"@n4jsd/redux": ""
 	},
 	"n4js": {
 		"projectType": "definition",

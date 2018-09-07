@@ -23,6 +23,6 @@
 		"moduleLoader": "commonjs"
 	},
 	"dependencies": {
-		"@n4jsd/react": "*"
+		"@n4jsd/react": ""
 	}
 }

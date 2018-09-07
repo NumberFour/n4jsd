@@ -12,7 +12,7 @@
 	],
 	"dependencies": {
 		"n4js-runtime-html5": "",
-		"@n4jsd/react": "*"
+		"@n4jsd/react": ""
 	},
 	"n4js": {
 		"projectType": "definition",
