@@ -17,6 +17,20 @@ function setNpmConfig {
 	fi
 }
 
+
+function publishNPM {
+	npm view .
+	VERSION="$( npm view . version )"
+	NAME="$( npm view . name )"
+	RESULT=" $(npm view "${NAME}@${VERSION}" )"
+	if [[ -z "${RESULT// }" ]]; then
+		echo "no   result   ${NAME}@${VERSION}"
+	else
+		echo "have result   ${NAME}@${VERSION}"
+	fi
+}
+
+
 NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/"
 
 
@@ -82,7 +96,7 @@ sleep 1s
 echo "publish to local verdaccio"
 setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
 # never fails since verdaccio is clean and fresh
-lerna exec 'set +e; npm publish --registry=http://localhost:4873; set -e;'
+#lerna exec 'set +e; npm publish --registry=http://localhost:4873; set -e;'
 
 
 
@@ -107,7 +121,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
