@@ -39,16 +39,19 @@ function publishNPM {
 	fi
 }
 
-
 NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/"
-
-
-echo "== Start publishing"
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
-echo "dir of scipt is $DIR"
-
 NPMRC_VERDACCIO="${DIR}/npmrc_verdaccio/.npmrc"
 NPMRC_PUBLISH="${DIR}/npmrc_publish/.npmrc"
+
+
+
+
+
+
+echo "== Start publish script"
+echo "dir of scipt is $DIR"
+
 
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
 if [[ -z "$1" ]]; then
@@ -104,7 +107,6 @@ sleep 1s
 
 echo "publish to local verdaccio"
 setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
-# never fails since verdaccio is clean and fresh
 lerna exec 'publishNPM http://localhost:4873'
 
 
@@ -130,7 +132,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -160,7 +162,7 @@ fi
 
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
+#OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
 echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
@@ -178,7 +180,7 @@ else
 	fi
 fi
 
-echo "== Publishing done."
+echo "== End publish script."
 exit 0
 
 
