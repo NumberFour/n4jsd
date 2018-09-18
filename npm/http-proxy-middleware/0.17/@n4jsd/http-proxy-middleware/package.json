@@ -1,0 +1,32 @@
+{
+	"name": "@n4jsd/http-proxy-middleware",
+	"version": "0.17.5",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for http-proxy-middleware",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "http-proxy-middleware",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"@n4jsd/express": "",
+		"n4js-runtime-node": ""
+	}
+}

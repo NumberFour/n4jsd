@@ -1,0 +1,31 @@
+{
+	"name": "@n4jsd/pdf-parse",
+	"version": "1.0.8",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for pdf-parse",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "pdf-parse",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": ""
+	}
+}

@@ -1,0 +1,25 @@
+{
+	"name": "@n4jsd/bignumber.js",
+	"version": "2.4.0",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for bignumber.js",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "bignumber.js",
+		"mainModule": "bignumber",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

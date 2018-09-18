@@ -1,0 +1,31 @@
+{
+	"name": "@n4jsd/cli-color",
+	"version": "1.1.0",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for cli-color",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "cli-color",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-node": ""
+	}
+}

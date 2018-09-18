@@ -1,0 +1,32 @@
+{
+	"name": "@n4jsd/cors",
+	"version": "2.8.5",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for cors",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "cors",
+		"mainModule": "lib/index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node"
+		]
+	},
+	"dependencies": {
+		"@n4jsd/express": "",
+		"n4js-runtime-node": ""
+	}
+}

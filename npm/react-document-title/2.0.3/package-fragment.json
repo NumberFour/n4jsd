@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "react": "*"
-  },
-  "n4js": {
-    "moduleLoader": "commonjs"
-  }
-}

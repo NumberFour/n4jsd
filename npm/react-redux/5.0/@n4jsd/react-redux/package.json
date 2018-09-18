@@ -1,0 +1,29 @@
+{
+	"name": "@n4jsd/react-redux",
+	"version": "5.0.7",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for react-redux",
+	"keywords": [
+		"n4js"
+	],
+	"dependencies": {
+		"@n4jsd/react": "",
+		"@n4jsd/redux": ""
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-redux",
+		"mainModule": "lib/index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

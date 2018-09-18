@@ -1,0 +1,28 @@
+{
+	"name": "@n4jsd/react-body-classname",
+	"version": "1.2.1",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for react-body-classname",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-body-classname",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	},
+	"dependencies": {
+		"@n4jsd/react": ""
+	}
+}

@@ -1,0 +1,32 @@
+{
+	"name": "@n4jsd/react-dom",
+	"version": "16.2.1",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for react-dom",
+	"keywords": [
+		"n4js"
+	],
+	"dependencies": {
+		"n4js-runtime-html5": "",
+		"@n4jsd/react": ""
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-dom",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-html5"
+		]
+	}
+}

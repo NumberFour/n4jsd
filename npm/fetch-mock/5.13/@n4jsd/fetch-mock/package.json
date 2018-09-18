@@ -1,0 +1,33 @@
+{
+	"name": "@n4jsd/fetch-mock",
+	"version": "5.13.1",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for fetch-mock",
+	"keywords": [
+		"n4js"
+	],
+	"dependencies": {
+		"n4js-runtime-node": "",
+		"n4js-runtime-fetch": ""
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "fetch-mock",
+		"mainModule": "src/server",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node",
+			"n4js-runtime-fetch"
+		]
+	}
+}
