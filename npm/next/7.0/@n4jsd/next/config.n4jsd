@@ -1,0 +1,6 @@
+export default external public function getConfig(): ~Object with {
+    serverRuntimeConfig: Object;
+    publicRuntimeConfig: Object;
+};
+
+/* -*- mode: typescript;-*- */

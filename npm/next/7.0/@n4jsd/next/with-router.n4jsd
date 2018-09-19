@@ -1,0 +1,9 @@
+import * as React from "react";
+import { INextRouter } from "router";
+
+export external public interface ~SupportsRouter {
+    public router?: INextRouter;
+}
+
+export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
+withRouter(ctor: constructor{CompT} | (PropsT) => React.Element<?>): (PropsT) => React.Element<?>;
