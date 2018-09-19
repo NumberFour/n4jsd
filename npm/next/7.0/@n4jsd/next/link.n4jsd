@@ -1,0 +1,13 @@
+import * as React from "react";
+
+/**
+ * https://github.com/zeit/next.js#with-link
+ */
+
+export external public interface ~LinkProps extends React.ComponentProps {
+    public href?: string
+}
+
+export default external public function Link(props: ~LinkProps+ =): React.Element<LinkProps+>;
+
+/* -*- mode: typescript;-*- */

@@ -1,0 +1,34 @@
+{
+	"name": "@n4jsd/next",
+	"version": "7.0.0",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for next",
+	"keywords": [
+		"n4js"
+	],
+	"dependencies": {
+		"@n4jsd/react": "",
+		"n4js-runtime-node": "",
+		"n4js-runtime-fetch": ""
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "next",
+		"mainModule": "dist/server/next",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs",
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-node",
+			"n4js-runtime-fetch"
+		]
+	}
+}

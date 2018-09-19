@@ -1,0 +1,16 @@
+import * as React from "react";
+import { LinkProps } from "link";
+
+/**
+ * https://github.com/zeit/next.js#prefetching-pages
+ */
+
+export external public interface ~PrefetchLinkProps extends LinkProps {
+    public prefetch?: boolean
+}
+
+export default external public function PrefetchLink(props: ~PrefetchLinkProps+ =): React.Element<PrefetchLinkProps+>;
+
+export external public function prefetch(href: string): void;
+
+/* -*- mode: typescript;-*- */
