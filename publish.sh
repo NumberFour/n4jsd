@@ -38,6 +38,8 @@ function publishNPM {
 		npm publish --access=public --registry="$REGISTRY"
 	fi
 }
+export -f publishNPM
+
 
 NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/"
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
