@@ -147,8 +147,7 @@ OUTPUT="$(lerna exec "$PUBLISH_SINGLE_NPM $NPM_REGISTRY" 2>&1)"
 echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
-	echo "published successfully:"
-	echo "$OUTPUT"
+	echo "published successfully"
 else
 	if [[ $OUTPUT = *"EPUBLISHCONFLICT"* ]]; then
 		# never mind
