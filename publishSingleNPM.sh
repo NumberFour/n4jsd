@@ -19,4 +19,10 @@ if [[ -z "${RESULT// }" ]]; then
 	npm publish --access=public --registry="$REGISTRY"
 else
 	echo "skipping already published package ${NAME}@${VERSION}"
+	echo "result was"
+	echo "$RESULT"
 fi
+
+cat package.json
+echo "_________________________________"
+echo "---------------------------------"
