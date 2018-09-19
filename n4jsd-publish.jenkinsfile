@@ -39,9 +39,11 @@ pipeline {
 
         stage('publish') {
             steps {
-                withCredentials([string(credentialsId: 'npm-token-npmjs', variable: 'NPM_TOKEN')]) {
+                // public token:   npm-token-npmjs
+                // internal token: npm-token-n4ide1-nexus
+                withCredentials([string(credentialsId: 'npm-token-n4ide1-nexus', variable: 'NPM_TOKEN')]) {
                     script {
-                        // public registry: http://registry.npmjs.org/
+                        // public registry:      http://registry.npmjs.org/
                         // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/
                         sh './publish.sh http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/'
                     }
