@@ -18,24 +18,6 @@ function setNpmConfig {
 }
 
 
-function publishNPM {
-	if [[ $# -eq 0 ]]; then
-		echo "Registry not set."
-		exit -1
-	fi
-
-	REGISTRY=$1
-	VERSION="$( npm view --registry="$REGISTRY" . version )"
-	NAME="$( npm view --registry="$REGISTRY" . name )"
-	RESULT=" $(npm view --registry="$REGISTRY" "${NAME}@${VERSION}" )"
-	if [[ -z "${RESULT// }" ]]; then
-		echo "publishing ${NAME}@${VERSION} to registry $REGISTRY"
-		npm publish --access=public --registry="$REGISTRY"
-	else
-		echo "skipping already published package ${NAME}@${VERSION}"
-	fi
-}
-export -f publishNPM
 
 
 NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/"
@@ -127,11 +109,10 @@ echo "validate all n4jsd projects separately"
 COUNT=1
 ERRORS=false
 echo "using .npmrc file from $NPMRC_VERDACCIO"
-set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -146,6 +127,7 @@ setNpmConfig "${NPMRC_PUBLISH}" # reset global variable
 echo "killing verdaccio"
 set +e # ignore problems
 kill $VERDACCIO_PID
+set -e
 
 
 
