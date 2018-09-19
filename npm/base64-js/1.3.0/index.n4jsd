@@ -1,7 +1,0 @@
-/*
- * See https://github.com/beatgammit/base64-js
- */
-
-export external public function byteLength(str: string): int;
-export external public function toByteArray(str: string): Uint8Array;
-export external public function fromByteArray(arr: Uint8Array): string;
