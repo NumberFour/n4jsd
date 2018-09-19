@@ -42,7 +42,7 @@ NPM_TEST_REGISTRY="http://n4ide1-nexus.service.cd-dev.consul/repository/npm-inte
 DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 NPMRC_VERDACCIO="${DIR}/npmrc_verdaccio/.npmrc"
 NPMRC_PUBLISH="${DIR}/npmrc_publish/.npmrc"
-
+export PUBLISH_SINGLE_NPM="${DIR}/publishSingleNPM.sh"
 
 
 
@@ -56,7 +56,7 @@ echo "dir of scipt is $DIR"
 if [[ -z "$1" ]]; then
 	export NPM_REGISTRY="$NPM_TEST_REGISTRY"
 	echo "Using default registry: $NPM_TEST_REGISTRY"
-	exit -1
+	#exit -1
 else
 	export NPM_REGISTRY=$1
 fi
@@ -106,7 +106,7 @@ sleep 1s
 
 echo "publish to local verdaccio"
 setNpmConfig "${NPMRC_VERDACCIO}" # user information is inside .npmrc
-lerna exec 'publishNPM http://localhost:4873'
+lerna exec 'source ${PUBLISH_SINGLE_NPM} http://localhost:4873'
 
 
 
@@ -161,7 +161,7 @@ fi
 
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
+OUTPUT="$(lerna exec "$PUBLISH_SINGLE_NPM $NPM_REGISTRY" 2>&1)"
 echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then

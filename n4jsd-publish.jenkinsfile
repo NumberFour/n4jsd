@@ -43,7 +43,7 @@ pipeline {
                     script {
                         // public registry: http://registry.npmjs.org/
                         // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/
-                        sh './publish.sh http://registry.npmjs.org/'
+                        sh './publish.sh http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/'
                     }
                 }
             }
