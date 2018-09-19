@@ -1,6 +1,0 @@
-ModuleLoader: commonjs
-
-ProjectDependencies {
-    react,
-    redux
-}

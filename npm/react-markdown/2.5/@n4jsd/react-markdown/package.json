@@ -1,0 +1,28 @@
+{
+	"name": "@n4jsd/react-markdown",
+	"version": "2.5.2",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for react-markdown",
+	"keywords": [
+		"n4js"
+	],
+	"dependencies": {
+		"@n4jsd/react": ""
+	},
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react-markdown",
+		"mainModule": "src/react-markdown",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"moduleLoader": "commonjs"
+	}
+}

@@ -1,0 +1,61 @@
+
+pipeline {
+    agent {
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
+            label 'm5xlarge'
+        }
+    }
+
+    options {
+        ansiColor('xterm')
+        buildDiscarder(
+            logRotator(
+                numToKeepStr:          '15',
+                artifactDaysToKeepStr: '30',
+                artifactNumToKeepStr:  '15',
+                daysToKeepStr:         '30'))
+        timeout(time: 2, unit: 'HOURS')
+        timestamps()
+    }
+
+    triggers {
+        cron   ('H   5 * * *') // Publish every day a 5am GMT (extended nightly should be finished by then)
+    }
+
+    stages {
+        stage('fs browse') {
+            steps {
+                script {
+                        sh """\
+                                pwd
+                                git status
+                                ls -la
+                           """
+                }
+            }
+        }
+
+        stage('publish') {
+            steps {
+                // public token:   npm-token-npmjs
+                // internal token: npm-token-n4ide1-nexus
+                withCredentials([string(credentialsId: 'npm-token-npmjs', variable: 'NPM_TOKEN')]) {
+                    script {
+                        // public registry:      http://registry.npmjs.org/
+                        // internal test nexus : http://n4ide1-nexus.service.cd-dev.consul/repository/npm-internal/
+                        sh './publish.sh http://registry.npmjs.org/'
+                    }
+                }
+            }
+        }
+    }
+    
+    post {
+        cleanup {
+            echo 'cleaning up'
+            deleteDir()
+        }
+    }
+}

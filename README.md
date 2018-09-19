@@ -1,10 +1,14 @@
 # N4JSD
 
-Type definitions for N4JS.
+Type definition packages for JavaScript npms.
+Find the documentation here: https://github.com/eclipse/n4js/blob/master/docs/org.eclipse.n4js.doc/src/userguides/type-defintion-projects.adoc
+
 
 ## Installation
 
-The N4JSD files will be installed automatically.
+The N4JSD files will be published from this repository to https://www.npmjs.com/.
+From there, `npm` and `yarn` can be used for installation.
+
 
 ## License
 
