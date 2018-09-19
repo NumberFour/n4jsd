@@ -1,7 +1,7 @@
 # N4JSD
 
 Type definition packages for JavaScript npms.
-Find the documentation here: https://github.com/eclipse/n4js/blob/master/docs/org.eclipse.n4js.doc/src/userguides/type-defintion-projects.adoc
+Find the documentation here: [Subchapter 'N4JS Type Definitions' in N4JS Spec](https://github.com/eclipse/n4js/blob/master/docs/org.eclipse.n4js.spec/chapters/12_components/components.adoc#n4js-type-definitions)
 
 
 ## Installation
