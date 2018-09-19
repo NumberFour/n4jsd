@@ -8,34 +8,31 @@ set -e +x
 
 function setNpmConfig {
 	NPM_RC=$1
-	if [ -f $FILE ]; then
+	if [[ -f $NPM_RC ]]; then
 		echo "set NPM_CONFIG_GLOBALCONFIG to $NPM_RC"
 		export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
 	else
-		echo "cannot set NPM_CONFIG_GLOBALCONFIG: $FILE does not exist."
+		echo "cannot set NPM_CONFIG_GLOBALCONFIG: $NPM_RC does not exist."
 		exit -1
 	fi
 }
 
 
 function publishNPM {
-	REGISTRY=$1
-	if [ -f $REGISTRY ]; then
-		echo "set NPM_CONFIG_GLOBALCONFIG to $NPM_RC"
-		export NPM_CONFIG_GLOBALCONFIG=$NPM_RC
-	else
+	if [[ $# -eq 0 ]]; then
 		echo "Registry not set."
 		exit -1
 	fi
 
-	VERSION="$( npm view . version )"
-	NAME="$( npm view . name )"
-	RESULT=" $(npm view "${NAME}@${VERSION}" )"
+	REGISTRY=$1
+	VERSION="$( npm view --registry="$REGISTRY" . version )"
+	NAME="$( npm view --registry="$REGISTRY" . name )"
+	RESULT=" $(npm view --registry="$REGISTRY" "${NAME}@${VERSION}" )"
 	if [[ -z "${RESULT// }" ]]; then
-		echo "skipping already published package ${NAME}@${VERSION}"
-	else
 		echo "publishing ${NAME}@${VERSION} to registry $REGISTRY"
 		npm publish --access=public --registry="$REGISTRY"
+	else
+		echo "skipping already published package ${NAME}@${VERSION}"
 	fi
 }
 export -f publishNPM
@@ -59,7 +56,7 @@ echo "dir of scipt is $DIR"
 if [[ -z "$1" ]]; then
 	export NPM_REGISTRY="$NPM_TEST_REGISTRY"
 	echo "Using default registry: $NPM_TEST_REGISTRY"
-	#exit -1
+	exit -1
 else
 	export NPM_REGISTRY=$1
 fi
@@ -79,12 +76,12 @@ if [[ "$OUTSIDE_DOCKER" = true ]]; then
 	set +e # ignore problems
 	OLD_VERDACCIO_PID="$(lsof -ti :4873 -c node -a)"
 	if [[ $? -eq 0 ]]; then
-		echo "kill old verdaccio with pid: $OLD_VERDACCIO_PID"
+		echo "  kill old verdaccio with pid: $OLD_VERDACCIO_PID"
 		kill $OLD_VERDACCIO_PID
 	fi
 	set -e
 
-	echo "clean artifacts of old verdaccio"
+	echo "  clean artifacts of old verdaccio"
 	rm -rf ./storage
 fi
 
@@ -134,7 +131,7 @@ set +e # skip problems
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -164,7 +161,7 @@ fi
 
 echo "no errors during validation"
 echo "publish to $NPM_REGISTRY"
-#OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
+OUTPUT="$(lerna exec "publishNPM $NPM_REGISTRY" 2>&1)"
 echo "$OUTPUT"
 
 if [[ $OUTPUT = *"+ @n4jsd/"* ]]; then
