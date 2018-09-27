@@ -49,7 +49,7 @@ export external public class ~PapaConfig {
     public encoding?: string;
     public worker?: boolean;
     public comments?: boolean;
-    public step?: ( PapaResults)=>void;
+    public step?: ( PapaResults, PapaParser)=>void;
     public complete?: ( PapaResults) => void;
     public error?: Error;
     public download?: boolean;
@@ -59,4 +59,8 @@ export external public class ~PapaConfig {
     public beforeFirstChunk?: undefined;
     public withCredentials?: undefined;
     public transform?: undefined;
+}
+
+export external public class ~PapaParser {
+    public abort: { function(): void }
 }
