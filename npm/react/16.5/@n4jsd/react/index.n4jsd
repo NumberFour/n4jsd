@@ -3,10 +3,10 @@ export external public interface ~Ref<T extends Object> {
 }
 
 export external public interface ~ComponentProps {
-    public children?: string | Element<?> | Iterable<string | Element<?>> | Function;
-    public ref?: {(Object /* HTMLElement, React.Component, ... */) => any | Ref<?>};
+    public get children?(): string | Element<?> | Iterable<string | Element<?>> | Function;
+    public get ref?(): (Object /* HTMLElement, React.Component, ... */) => any | Ref<?>;
     // Attention: Beware that you can't read/rely on the key property when rendering, see https://facebook.github.io/react/docs/lists-and-keys.html
-    public key?: string;
+    public get key?(): string;
 }
 
 export external public abstract class Element<out PropsT extends ComponentProps> {
@@ -15,7 +15,7 @@ export external public abstract class Element<out PropsT extends ComponentProps>
     public get props(): PropsT;
     public get key(): string;
     public get ref(): string;
-};
+}
 
 export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> {
     public static name: string;
@@ -309,7 +309,7 @@ export external public function <T extends Object> createRef(): Ref<T>;
 /**
  * @see https://reactjs.org/docs/forwarding-refs.html
  */
-export external public function <PropsT extends React.ComponentProps>
-forwardRef((PropsT, ref: Ref<?>) => React.Element<?>): (PropsT) => React.Element<?>;
+export external public function <PropsT extends ComponentProps>
+forwardRef(comp: (props: PropsT, ref: Ref<?>) => Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean): (PropsT) => Element<?>;
 
 /* -*- mode: typescript;-*- */
