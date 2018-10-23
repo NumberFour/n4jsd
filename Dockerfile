@@ -12,7 +12,7 @@ RUN set -x \
     && apk update \
     && apk add --no-cache --virtual .gyp python make g++ \
     && apk add vips-dev fftw-dev --update-cache --repository https://dl-3.alpinelinux.org/alpine/edge/testing/ \
-    && apk add --no-cache bash tzdata git openjdk8="$JAVA_ALPINE_VERSION"
+    && apk add --no-cache bash tzdata git openjdk8=${JAVA_ALPINE_VERSION}
 
 ENV TZ Europe/Berlin
 
