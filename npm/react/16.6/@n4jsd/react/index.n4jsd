@@ -17,7 +17,43 @@ export external public abstract class Element<out PropsT extends ComponentProps>
     public get ref(): string;
 }
 
+export external public interface ~ContextProviderProps<ContextValueT> extends ComponentProps {
+    public get value(): ContextValueT;
+}
+
+export external public interface ~SuspenseProps extends ComponentProps {
+    public get fallback?(): Element<?>;
+}
+
+export external public interface ~Context<ContextValueT> {
+    /**
+     * @see https://reactjs.org/docs/context.html#contextprovider
+     */
+    public get Provider(): Component<ContextProviderProps<ContextValueT>, Object>;
+
+    /**
+     * Requires function as a child, `value` passed as argument.
+     * @see https://reactjs.org/docs/context.html#contextconsumer
+     */
+    public get Consumer(): Component<ComponentProps, Object>;
+}
+
 export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> {
+
+    /**
+     * @see https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
+     * @see https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
+     */    
+    //public static getDerivedStateFromProps(props: PropsT, state: StateT): StateT;
+
+    /**
+     * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#static-getderivedstatefromerror
+     * @see https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror
+     */    
+    //public static getDerivedStateFromError(error: any): StateT;
+
+    public static contextType: Context<?>;
+
     public static name: string;
     public get props(): PropsT;
     public state: StateT;
@@ -26,7 +62,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
     public get refs(): Object+;
     public static get displayName(): string;
 
-    public abstract render(): Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean;
+    public abstract render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
 
     /**
      * Base class helpers for the updating state of a component.
@@ -153,14 +189,19 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * If you need to update state in response to a prop change, use componentWillReceiveProps instead.
      */
     protected componentWillUpdate(nextProps: PropsT, nextState: StateT): void;
-    
+
+    /**
+     * @see https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
+     */
+    protected getSnapshotBeforeUpdate(prevProps: PropsT, prevState: StateT): any; 
+
     /**
      * Invoked immediately after the component's updates are flushed to the DOM.
      * This method is not called for the initial render.
      * 
      * Use this as an opportunity to operate on the DOM when the component has been updated.
      */
-    protected componentDidUpdate(prevProps: PropsT, prevState: StateT): void;
+    protected componentDidUpdate(prevProps: PropsT, prevState: StateT, snapshot: any): void;
     
     /**
      * Invoked immediately before a component is unmounted from the DOM.
@@ -169,6 +210,12 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * cleaning up any DOM Elements that were created in componentDidMount.
      */
     protected componentWillUnmount(): void;
+    
+    /**
+     * @see https://reactjs.org/docs/react-component.html#componentdidcatch
+     * @see https://reactjs.org/docs/error-boundaries.html#component-stack-traces
+     */
+    protected componentDidCatch(error: any, info: ~Object with { componentStack }): void;
 }
 
 /**
@@ -186,7 +233,8 @@ export external public abstract class PureComponent<PropsT extends ComponentProp
  */
 export external public function <PropsT extends ComponentProps> createElement(
     type: union{string, {function(PropsT=): Element<PropsT>}, constructor{? extends Component/*<PropsT>*/}},
-    props: PropsT+ =, ...children: string | Element<?> | Iterable<string | Element<?>> | Function): Element<PropsT>;
+    props: PropsT+ =, ...children: string | Element<?> | Iterable<string | Element<?>> | Function
+): Element<PropsT>;
 
 /**
  * Clone and return a new Element using Element as the starting point.
@@ -198,7 +246,8 @@ export external public function <PropsT extends ComponentProps> createElement(
 export external public function cloneElement(
     Element: union{string, Element<?>},
     props: Object=,
-    ...children: string | Element<?> | Iterable<string | Element<?>> | Function): Element<?>;
+    ...children: string | Element<?> | Iterable<string | Element<?>> | Function
+): Element<?>;
 
 /**
  * Verifies the object is an Element.
@@ -298,7 +347,26 @@ export external public class ~PropTypes {
 @Final
 export external public class Fragment extends Component<ComponentProps, Object> {
     @Override
-    public render(): Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean;
+    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+}
+
+/**
+ * @see https://reactjs.org/blog/2018/03/29/react-v-16-3.html#strictmode-component
+ * @see https://reactjs.org/docs/strict-mode.html
+ */
+@Final
+export external public class StrictMode extends Component<ComponentProps, Object> {
+    @Override
+    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+}
+
+/**
+ * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactlazy-code-splitting-with-suspense
+ */
+@Final
+export external public class Suspense extends Component<SuspenseProps, Object> {
+    @Override
+    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
 }
 
 /**
@@ -309,7 +377,31 @@ export external public function <T extends Object> createRef(): Ref<T>;
 /**
  * @see https://reactjs.org/docs/forwarding-refs.html
  */
-export external public function <PropsT extends ComponentProps>
-forwardRef(comp: (props: PropsT, ref: Ref<?>) => Array<Element<?>|string|number|boolean> | Element<?> | string | number | boolean): (PropsT) => Element<?>;
+export external public function <PropsT extends ComponentProps> forwardRef(
+    comp: (props: PropsT, ref: Ref<?>) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean
+): (PropsT) => Element<?>;
+
+/**
+ * @see https://reactjs.org/docs/context.html
+ * @see https://reactjs.org/docs/context.html#reactcreatecontext
+ */
+export external public function <ContextValueT> createContext(
+    defaultValue: ContextValueT=
+): Context<ContextValueT>;
+
+/**
+ * Pure function component.
+ * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactmemo
+ */
+export external public function <PropsT extends ComponentProps> memo(
+    comp: (props: PropsT) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean
+): (PropsT) => Element<?>;
+
+/**
+ * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactlazy-code-splitting-with-suspense
+ */
+export external public function <PropsT extends ComponentProps> lazy(
+    asyncCompFn: () => Promise<constructor{Component} | (props: PropsT) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean, any>
+): (PropsT) => Element<?>;
 
 /* -*- mode: typescript;-*- */
