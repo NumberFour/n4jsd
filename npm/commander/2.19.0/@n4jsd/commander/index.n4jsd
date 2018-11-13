@@ -1,0 +1,17 @@
+/**
+ * @see https://github.com/tj/commander.js/
+ */
+export external public class __Command {
+    public version(v: string, customFlag: string=): __Command;
+    public description(desc: string): __Command;
+    public option(opt: string, descr: string, fn: Function | string=): __Command;
+    public command(cmd: string): __Command;
+    public alias(alias: string): __Command;
+    public action(fn: Function): __Command;
+    public parse(argv: [string]): Object;
+    public args: [string];
+    public help: Function;
+}
+// By default, export an instance of Command
+export default external public const program: __Command;
+export external public const Command: constructor{__Command};
