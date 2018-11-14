@@ -16,5 +16,4 @@ export external public class Command {
 }
 // By default, export an instance of Command
 export default external public const program: Command;
-
  
