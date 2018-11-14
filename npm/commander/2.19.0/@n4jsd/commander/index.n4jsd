@@ -1,0 +1,19 @@
+/**
+ * @see https://github.com/tj/commander.js/
+ */
+export external public class Command {
+    public version(v: string, customFlag: string=): Command;
+    public arguments(args: string): Command
+    public description(desc: string): Command;
+    public usage(usg: string): Command
+    public option(opt: string, descr: string, collector: Function | RegExp | any=,deft: any=): Command;
+    public command(cmd: string, descr: string, config: ~Object with {isDefault: boolean}): Command;
+    public alias(alias: string): Command;
+    public action(fn: Function): Command;
+    public parse(argv: [string]): Object;
+    public args: [string];
+    public help(): void;
+}
+// By default, export an instance of Command
+export default external public const program: Command;
+ 
