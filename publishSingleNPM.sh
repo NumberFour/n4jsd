@@ -13,7 +13,12 @@ fi
 REGISTRY=$1
 NAME=$(node -p -e "require('./package.json').name")
 VERSION=$(node -p -e "require('./package.json').version")
+
+echo "NAME@Version = ${NAME}@{}"
+echo "VERSION = ${VERSION}"
+echo "BEFORE RESULT"
 RESULT=" $(npm view --registry="$REGISTRY" "${NAME}@${VERSION}" )"
+echo "AFTER RESULT"
 
 if [[ -z "${RESULT// }" ]]; then
 	echo "publishing ${NAME}@${VERSION} to registry $REGISTRY"
