@@ -12,7 +12,7 @@ export external public class Command {
     public action(fn: Function): Command;
     public parse(argv: [string]): Object;
     public args: [string];
-    public help: Function;
+    public help(): void;
 }
 // By default, export an instance of Command
 export default external public const program: Command;
