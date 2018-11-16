@@ -1,0 +1,71 @@
+export external public class TestObj {
+    // Chainable, see https://www.chaijs.com/api/bdd/
+    public get to(): TestObj;
+    public get be(): TestObj;
+    public get been(): TestObj;
+    public get is(): TestObj;
+    public get that(): TestObj;
+    public get which(): TestObj;
+    public get and(): TestObj;
+    public get has(): TestObj;
+    public get have(): TestObj;
+    public get with(): TestObj;
+    public get at(): TestObj;
+    public get of(): TestObj;
+    public get same(): TestObj;
+    public get but(): TestObj;
+    public get does(): TestObj;
+    public get not(): TestObj;
+    public get deep(): TestObj;
+    public get nested(): TestObj;
+    public get own(): TestObj;
+    public get ordered(): TestObj;
+    public get any(): TestObj;
+    public get all(): TestObj;
+
+    // Assertion
+    public a(type: string, msg: string=): TestObj;
+    public get an(): TestObj;
+    public include(val: any, msg: string=): TestObj;
+    public get ok() TestObj;
+    public get true(): TestObj;
+    public get false(): TestObj;
+    public get null(): TestObj;
+    public get undefined(): TestObj;
+    public get NaN(): TestObj;
+    public get exist(): TestObj;
+    public get empty(): TestObj;
+    public get arguments(): TestObj;
+    public equal(obj: any, msg: string=): TestObj;
+    public eql(obj: any, msg: string=): TestObj;
+    public above(n: number, msg: string=): TestObj;
+    public least(n: number, msg: string=): TestObj;
+    public below(n: number, msg: string=): TestObj;
+    public most(n: number, msg: string=): TestObj;
+    public within(start: number, finish: number, msg: string=): TestObj;
+    public instanceof(c: Function, msg: string=): TestObj;
+    public instanceOf(c: Function, msg: string=): TestObj; // Alias for instanceof
+    public property(name: string, val: any=, msg: string=): TestObj;
+    public ownPropertyDescriptor(name: string, descriptor: Object=, msg: string=): TestObj;
+    public lengthOf(len: int, msg: string=): TestObj;
+    public match(re: RegExp, msg: string=): TestObj;
+//    public string(re: RegExp, msg: string=): TestObj; TODO: not possible
+//    public keys(keys: any, ...): TestObj; TODO: how?
+    public throw(errorLike: Error | constructor{Error} | string | RegExp=, errMsgMatcher: string | RegExp=, msg: string=): TestObj;
+    public respondTo(method: string,  msg: string=): TestObj;
+    public get itself(): TestObj;
+    public satisfy(matcher: Function, msg: string=): TestObj;
+    public closeTo(expected: number, delta: number, msg: string=): TestObj;
+    public members(set: Array<any>, msg: string=): TestObj;
+    public oneOf(list: Array<any>, msg: string=): TestObj;
+    public change(subject: string, prop: string=, msg:string=): TestObj;
+    public increase(subject: string | Function, prop: string=, msg:string=): TestObj;
+    public decrease(subject: string | Function, prop: string=, msg:string=): TestObj;
+    public by(delta: number=, msg:string=): TestObj;
+    public get extensible(): TestObj;
+    public get sealed(): TestObj;
+    public get frozen(): TestObj;
+    public get finite(): TestObj;
+    public fail(actual: any, expected: any, message: string, operator: string): TestObj;
+}
+export external public function expect(obj: any): TestObj;
