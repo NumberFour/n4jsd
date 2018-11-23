@@ -1,0 +1,17 @@
+/**
+ * @see https://www.npmjs.com/package/nconf
+ */
+export external public interface ~NConf {
+	public argv(): NConf;
+	public env(c: string=): NConf;
+	public file(p1: string, p2: string | ~Object with { file: string, dir?: string, search?: boolean}=): NConf;
+	public set(vari: string, val: any);
+	public get(v: string): any;
+	public defaults(arg: ~Object);
+	public required(arg: Array<string>);
+	public overrides(arg:~Object)
+}
+
+export default external public const nconf: NConf;
+
+/* -*- mode: typescript;-*- */
