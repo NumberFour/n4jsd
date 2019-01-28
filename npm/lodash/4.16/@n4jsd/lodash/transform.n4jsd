@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.11#transform
+ */
+export default external public function transform(object: Object, iter: (acc: Object, val: any, key: string, object: Object) => boolean?, acc: Object=): Object;
