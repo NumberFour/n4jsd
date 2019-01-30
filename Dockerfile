@@ -11,9 +11,9 @@ ENV PATH $PATH:/usr/lib/jvm/java-1.8-openjdk/jre/bin:/usr/lib/jvm/java-1.8-openj
 RUN set -x \
     && apk update \
     && apk add --no-cache --virtual .gyp python make g++ \
-    && apk add fftw-dev --update-cache --repository https://dl-3.alpinelinux.org/alpine/edge/main/ \
-    && apk add vips-dev --update-cache --repository https://dl-3.alpinelinux.org/alpine/edge/testing/ \
-    && apk add --no-cache --repository https://dl-cdn.alpinelinux.org/alpine/v3.6/community/ openjdk8="$JAVA_ALPINE_VERSION" \
+    && apk add fftw-dev --update-cache --repository https://ftp.halifax.rwth-aachen.de/alpine/edge/main/ \
+    && apk add vips-dev --update-cache --repository https://ftp.halifax.rwth-aachen.de/alpine/edge/testing/ \
+    && apk add --no-cache --repository https://ftp.halifax.rwth-aachen.de/alpine/v3.8/community/ openjdk8="$JAVA_ALPINE_VERSION" \
     && apk add --no-cache bash git openssl wget tzdata
 
 ENV TZ Europe/Berlin
