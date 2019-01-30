@@ -106,13 +106,13 @@ export external public abstract class ImmutableIterable<out K, out V, out IterT>
      * Returns the value found by following a path of keys or indices through
      * nested Iterables.
      */
-    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any, ?>}, notSetValue: any=): any;
+    public getIn(searchKeyPath: Iterable<any>|ImmutableIterable<any, any, ?>, notSetValue: any=): any;
 
     /**
      * True if the result of following a path of keys or indices through nested
      * Iterables results in a set value.
      */
-    public hasIn(searchKeyPath: union{ImmutableIterable<any, any, ?>, Iterable<any>}): boolean;
+    public hasIn(searchKeyPath: Iterable<any>|ImmutableIterable<any, any, ?>): boolean;
 
     // Conversion to JavaScript types
 
