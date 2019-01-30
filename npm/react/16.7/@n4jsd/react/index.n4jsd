@@ -404,4 +404,96 @@ export external public function <PropsT extends ComponentProps> lazy(
     asyncCompFn: () => Promise<constructor{Component} | (props: PropsT) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean, any>
 ): (PropsT) => Element<?>;
 
+
+/**
+ * Hooks to be used in function components.
+ *
+ * @see https://reactjs.org/docs/hooks-intro.html
+ * @see https://reactjs.org/docs/hooks-reference.html
+ */
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usestate
+ */
+export external public function <StateT> useState(
+    initialState: StateT
+): Iterable2<StateT, (state: StateT) => void>;
+
+/**
+ * https://reactjs.org/docs/hooks-reference.html#useeffect
+ */
+export external public function useEffect(
+    didUpdate: () => Function?
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usecontext
+ */
+export external public function <ContextValueT> useContext(
+    context: Context<ContextValueT>
+): ContextValueT;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usereducer
+ */
+export external public function <StateT> useReducer(
+    reducer: (state: StateT, action: any) => StateT,
+    initialState: StateT,
+    initialAction: any
+): Iterable2<StateT, (action: any) => void>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usecallback
+ */
+export external public function <FuncT extends Function> useCallback(
+    fn: FuncT,
+    inputs: [any]
+): FuncT;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usememo
+ */
+export external public function <ValueT> useMemo(
+    fn: () => ValueT,
+    inputs: [any]=
+): ValueT;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#useref
+ */
+export external public function <T extends Object> useRef(
+    initialValue: T=
+): Ref<T>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#useimperativehandle
+ */
+export external public function <T extends Object> useImperativeHandle(
+    ref: Ref<T>,
+    createHandle: () => Object,
+    inputs: [any]=
+): Ref<T>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usemutationeffect
+ */
+export external public function useMutationEffect(
+    didUpdate: () => Function?
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#uselayouteffect
+ */
+export external public function useLayoutEffect(
+    didUpdate: () => Function?
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usedebugvalue
+ */
+export external public function useDebugValue(
+    value,
+    format: (any) => string =
+): void;
+
 /* -*- mode: typescript;-*- */

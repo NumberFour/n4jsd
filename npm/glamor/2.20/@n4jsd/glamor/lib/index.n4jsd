@@ -6,8 +6,8 @@
 export external public class __GlamorFn {
     (...cssStylePropsAndCssRules: Object): Object;
 
-    public static global(selector: string, cssStyleProps: Object): void;
-    public static insert(css: Object): void;
+    public static global(selector: string, cssStyleProps: Object|string): void;
+    public static insert(css: Object|string): void;
     public static fontFace(font: Object): Object;
     public static keyframes(timeline: Object): Object;
 }

@@ -148,7 +148,7 @@ export default external public class __default {
 
     public static Router(options: any = undefined): IRouter;
 
-    public static static(path: string): {function(req: Request, res: Response, next: {function()})};
+    public static static(path: string, options: Object=): {function(req: Request, res: Response, next: {function()})};
     public static query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
 
     public const application: Application;

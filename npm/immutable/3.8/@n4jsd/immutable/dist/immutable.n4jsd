@@ -29,7 +29,9 @@ export external public interface ~ImmutableObject {
     
 }
 //FIXME Talk to mor about whether or not we can make Iterable2 et al structural
-export external public abstract class ImmutableIterable<out K, out V> implements Iterable<Iterable2<K, V>>, ImmutableObject {
+export external public abstract class ImmutableIterable<out K, out V, out IterT>
+    implements Iterable<IterT>, ImmutableObject {
+
     public static isIterable(any): boolean;
     // Value equality
     /**
@@ -104,13 +106,13 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      * Returns the value found by following a path of keys or indices through
      * nested Iterables.
      */
-    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
+    public getIn(searchKeyPath: Iterable<any>|ImmutableIterable<any, any, ?>, notSetValue: any=): any;
 
     /**
      * True if the result of following a path of keys or indices through nested
      * Iterables results in a set value.
      */
-    public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+    public hasIn(searchKeyPath: Iterable<any>|ImmutableIterable<any, any, ?>): boolean;
 
     // Conversion to JavaScript types
 
@@ -286,7 +288,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     // Seq { a: 10, b: 20 }
      *
      */
-    public <ThisT extends ImmutableIterable<K,M>, M>map(mapper: {function (value: V, key: K=, iter: this=): M},context: any=): ThisT;
+    public <ThisT extends ImmutableIterable<K,M,?>, M>map(mapper: {function (value: V, key: K=, iter: this=): M},context: any=): ThisT;
 
     /**
      * Returns a new ImmutableIterable of the same type with only the entries for which
@@ -339,7 +341,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     hitters.sortBy(hitter => hitter.avgHits);
      *
      */
-    public <C>sortBy(comparatorValueMapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function (valueA: C, valueB: C): number}=): this
+    public <C>sortBy(comparatorValueMapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): C}, comparator: {function (valueA: C, valueB: C): number}=): this
 
     /**
      * Returns a `ImmutableIterable.Keyed` of `ImmutableIterable.Keyeds`, grouped by the return
@@ -415,7 +417,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     // Seq [ 'cat', 'hat', 'god' ]
      *
      */
-    public skipWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+    public skipWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): this
 
     /**
      * Returns a new ImmutableIterable of the same type which includes entries starting
@@ -426,7 +428,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     // Seq [ 'hat', 'god' ]
      *
      */
-    public skipUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+    public skipUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): this
     /**
      * Returns a new ImmutableIterable of the same type which includes the first `amount`
      * entries from this ImmutableIterable.
@@ -448,7 +450,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     // Seq [ 'dog', 'frog' ]
      *
      */
-    public takeWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+    public takeWhile( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): this
 
     /**
      * Returns a new ImmutableIterable of the same type which includes entries from this
@@ -458,7 +460,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     // ['dog', 'frog']
      *
      */
-    public takeUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): this
+    public takeUntil( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): this
 
 
     // Combination
@@ -470,7 +472,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      * For Seqs, all entries will be present in
      * the resulting iterable, even if they have the same key.
      */
-    public concat(...valuesOrImmutableIterables: /*this*/union{Array<any>,ImmutableIterable<any, any>}): this
+    public concat(...valuesOrImmutableIterables: /*this*/union{Array<any>,ImmutableIterable<any, any, ?>}): this
 
     /**
      * Flattens nested ImmutableIterables.
@@ -485,14 +487,14 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      * Note: `flatten(true)` operates on ImmutableIterable<any, ImmutableIterable<K, V>> and
      * returns ImmutableIterable<K, V>
      */
-    public flatten(depth: union{number, boolean}=): /*this*/ImmutableIterable<any, any>;
+    public flatten(depth: union{number, boolean}=): /*this*/ImmutableIterable<any, any, ?>;
 
     /**
      * Flat-maps the ImmutableIterable, returning an ImmutableIterable of the same type.
      *
      * Similar to `iter.map(...).flatten(true)`.
      */
-    public <MK, MV>flatMap( mapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): union{ImmutableIterable<MK, MV>, Iterable2<MK, MV>}}, context: any=): /*this*/ImmutableIterable<MK, MV>;
+    public <MK, MV>flatMap( mapper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): union{ImmutableIterable<MK, MV, ?>, Iterable2<MK, MV>}}, context: any=): /*this*/ImmutableIterable<MK, MV, ?>;
 
     // Reducing a value
 
@@ -505,7 +507,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *
      * @see `Array#reduce`.
      */
-    public <R>reduce( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): R}, initialReduction: R=, context: any=): R;
+    public <R>reduce( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): R}, initialReduction: R=, context: any=): R;
 
     /**
      * Reduces the ImmutableIterable in reverse (from the right side).
@@ -513,18 +515,18 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      * Note: Similar to this.reverse().reduce(), and provided for parity
      * with `Array#reduceRight`.
      */
-    public <R>reduceRight( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): R}, initialReduction: R=, context: any=): R;
+    public <R>reduceRight( reducer: {function (reduction: R=, value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): R}, initialReduction: R=, context: any=): R;
 
     /**
      * True if `predicate` returns true for all entries in the ImmutableIterable.
      */
-    public every(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): boolean;
+    public every(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): boolean;
 
 
     /**
      * True if `predicate` returns true for any entry in the ImmutableIterable.
      */
-    public some(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=): boolean;
+    public some(predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=): boolean;
 
     /**
      * Joins values together as a string, inserting a separator between each.
@@ -550,7 +552,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      * If `predicate` is provided, then this returns the count of entries in the
      * ImmutableIterable for which the `predicate` returns true.
      */
-    public count( predicate: {function(value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =):boolean}=, context: any=): number;
+    public count( predicate: {function(value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =):boolean}=, context: any=): number;
 
     /**
      * Returns a `Seq.Keyed` of counts, grouped by the return value of
@@ -558,7 +560,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *
      * Note: This is not a lazy operation.
      */
-    public <G>countBy( grouper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): G}, context: any=): Map<G, number>;
+    public <G>countBy( grouper: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): G}, context: any=): Map<G, number>;
 
 
     // Search for value
@@ -566,26 +568,26 @@ export external public abstract class ImmutableIterable<out K, out V> implements
     /**
      * Returns the first value for which the `predicate` returns true.
      */
-    public find( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
+    public find( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
 
     /**
      * Returns the last value for which the `predicate` returns true.
      *
      * Note: `predicate` will be called for each entry in reverse.
      */
-    public findLast( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
+    public findLast( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=, notSetValue: /*V*/ any=): V;
 
     /**
      * Returns the first [key, value] entry for which the `predicate` returns true.
      */
-    public findEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
+    public findEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
 
     /**
      * Returns the last [key, value] entry for which the `predicate`
      * returns true.
      * Note: `predicate` will be called for each entry in reverse.
      */
-    public findLastEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
+    public findLastEntry( predicate: {function (value: V=, key: K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): boolean}, context: any=, notSetValue: /*V*/ any=): /*[K, V]*/Array<any>;
 
     /**
      * Returns the key for which the `predicate` returns true.
@@ -633,7 +635,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     hitters.maxBy(hitter => hitter.avgHits);
      *
      */
-    public <C>maxBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function(valueA: C, valueB: C): number}=): V;
+    public <C>maxBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): C}, comparator: {function(valueA: C, valueB: C): number}=): V;
 
     /**
      * Returns the minimum value in this collection. If any values are
@@ -659,7 +661,7 @@ export external public abstract class ImmutableIterable<out K, out V> implements
      *     hitters.minBy(hitter => hitter.avgHits);
      *
      */
-    public <C>minBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V> =): C}, comparator: {function (valueA: C, valueB: C): number}=): V;
+    public <C>minBy(comparatorValueMapper: {function (value:  V=, key:  K=, iter: /*this*/ImmutableIterable<K, V, IterT> =): C}, comparator: {function (valueA: C, valueB: C): number}=): V;
 
 
     // Comparison
@@ -667,36 +669,33 @@ export external public abstract class ImmutableIterable<out K, out V> implements
     /**
      * True if `iter` includes every value in this ImmutableIterable.
      */
-    public isSubset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/>}): boolean;
+    public isSubset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/, ?>}): boolean;
 
     /**
      * True if this ImmutableIterable includes every value in `iter`.
      */
-    public isSuperset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/>}): boolean;
+    public isSuperset(iter: union{Array<any /*V*/>,ImmutableIterable<any, any /*V*/, ?>}): boolean;
 
     @Override
-    public [Symbol.iterator](): Iterator<Iterable2<K,V>>
-
+    public [Symbol.iterator](): Iterator<IterT>;
 }
 
-    /**
-     * Indexed Iterables have incrementing numeric keys. They exhibit
-     * slightly different behavior than `Iterable.Keyed` for some methods in order
-     * to better mirror the behavior of JavaScript's `Array`, and add methods
-     * which do not make sense on non-indexed Iterables such as `indexOf`.
-     *
-     * Unlike JavaScript arrays, `Iterable.Indexed`s are always dense. "Unset"
-     * indices and `undefined` indices are indistinguishable, and all indices from
-     * 0 to `size` are visited when iterated.
-     *
-     * All Iterable.Indexed methods return re-indexed Iterables. In other words,
-     * indices always start at 0 and increment until size. If you wish to
-     * preserve indices, using them as keys, convert to a Iterable.Keyed by
-     * calling `toKeyedSeq`.
-     */
-
-
-export external public abstract class IndexedIterable<out T> extends ImmutableIterable<number, T> {
+/**
+ * Indexed Iterables have incrementing numeric keys. They exhibit
+ * slightly different behavior than `Iterable.Keyed` for some methods in order
+ * to better mirror the behavior of JavaScript's `Array`, and add methods
+ * which do not make sense on non-indexed Iterables such as `indexOf`.
+ *
+ * Unlike JavaScript arrays, `Iterable.Indexed`s are always dense. "Unset"
+ * indices and `undefined` indices are indistinguishable, and all indices from
+ * 0 to `size` are visited when iterated.
+ *
+ * All Iterable.Indexed methods return re-indexed Iterables. In other words,
+ * indices always start at 0 and increment until size. If you wish to
+ * preserve indices, using them as keys, convert to a Iterable.Keyed by
+ * calling `toKeyedSeq`.
+ */
+export external public abstract class IndexedIterable<out T> extends ImmutableIterable<number, T, T> {
 
     public constructor(iter: union{IndexedIterable<T>, Iterable<T>});
 
@@ -760,7 +759,7 @@ export external public abstract class IndexedIterable<out T> extends ImmutableIt
        *     )
        *     // Seq [ 1, 'A', 'X', 2, 'B', 'Y' ]
        */
-    public interleave(...iterables: ImmutableIterable<any, /*T*/ any>): this;
+    public interleave(...iterables: ImmutableIterable<any, /*T*/ any, ?>): this;
 
       /**
        * Splice returns a new indexed Iterable by replacing a region of this
@@ -787,7 +786,7 @@ export external public abstract class IndexedIterable<out T> extends ImmutableIt
        *     var c = a.zip(b); // Seq [ [ 1, 4 ], [ 2, 5 ], [ 3, 6 ] ]
        *
        */
-    public zip(...iterables: ImmutableIterable<any, any>): this;
+    public zip(...iterables: ImmutableIterable<any, any, ?>): this;
 
       /**
        * Returns an Iterable of the same type "zipped" with the provided
@@ -798,7 +797,7 @@ export external public abstract class IndexedIterable<out T> extends ImmutableIt
        *     var c = a.zipWith((a, b) => a + b, b); // Seq [ 5, 7, 9 ]
        *
        */
-    public <U, Z>zipWith( zipper: {function (value: T, otherValue: U): Z}, otherIterable: ImmutableIterable<any, U>): IndexedIterable<Z>;
+    public <U, Z>zipWith( zipper: {function (value: T, otherValue: U): Z}, otherIterable: ImmutableIterable<any, U, U>): IndexedIterable<Z>;
 
       // Search for value
       /**
@@ -1015,7 +1014,7 @@ export external public interface ~IMap<out K, out V> {
      *     y.mergeWith((prev, next) => prev / next, x) // { b: 2, a: 5, d: 60, c: 30 }
      *
      */
-    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, any>): this;
 
     /**
      * Like `merge()`, but when two Iterables conflict, it merges them as well,
@@ -1026,7 +1025,7 @@ export external public interface ~IMap<out K, out V> {
      *     x.mergeDeep(y) // {a: { x: 2, y: 10 }, b: { x: 20, y: 5 }, c: { z: 3 } }
      *
      */
-    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any, any>): this;
 
     /**
      * Like `mergeDeep()`, but when two non-Iterables conflict, it uses the
@@ -1038,7 +1037,7 @@ export external public interface ~IMap<out K, out V> {
      *     // {a: { x: 5, y: 10 }, b: { x: 20, y: 10 }, c: { z: 3 } }
      *
      */
-    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, any> ): this;
 
 
     // Deep persistent changes
@@ -1091,7 +1090,7 @@ export external public interface ~IMap<out K, out V> {
      *     x.mergeIn(['a', 'b', 'c'], y);
      *
      */
-    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     /**
      * A combination of `updateIn` and `mergeDeep`, returning a new Map, but
@@ -1102,7 +1101,7 @@ export external public interface ~IMap<out K, out V> {
      *     x.mergeDeepIn(['a', 'b', 'c'], y);
      *
      */
-    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
 
     // Transient changes
@@ -1156,7 +1155,7 @@ export external public interface ~IMap<out K, out V> {
     public asImmutable(): this;
 }
 
-export external public class Map<out K, out V> extends ImmutableIterable<K, V> implements IMap<K, V>{
+export external public class Map<out K, out V> extends ImmutableIterable<K, V, Iterable2<K, V>> implements IMap<K, V>{
     
     public constructor(iter:union{Iterable<Iterable2<K,V>>, Object}=);
 
@@ -1234,7 +1233,7 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V> i
      *
      */
     @Override
-    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeWith(merger: {function (previous: V=, next: V=, key: K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     /**
      * Like `merge()`, but when two Iterables conflict, it merges them as well,
@@ -1246,7 +1245,7 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V> i
      *
      */
     @Override
-    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     /**
      * Like `mergeDeep()`, but when two non-Iterables conflict, it uses the
@@ -1259,7 +1258,7 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V> i
      *
      */
     @Override
-    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+    public mergeDeepWith(merger: {function (previous:  V=, next:  V=, key:  K=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?> ): this;
 
 
     // Deep persistent changes
@@ -1317,7 +1316,7 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V> i
      *
      */
     @Override
-    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     /**
      * A combination of `updateIn` and `mergeDeep`, returning a new Map, but
@@ -1329,7 +1328,7 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V> i
      *
      */
     @Override
-    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
 
     // Transient changes
@@ -1401,7 +1400,7 @@ export external public class OrderedMap<out K, out V> extends Map<K, V> {
    * `Immutable.is`, enabling Sets to uniquely include other Immutable
    * collections, custom value types, and NaN.
    */
-export external public class Set<out T> extends ImmutableIterable<T,T>{
+export external public class Set<out T> extends ImmutableIterable<T,T, T>{
 
     public get size(): int;
 
@@ -1419,7 +1418,7 @@ export external public class Set<out T> extends ImmutableIterable<T,T>{
      * `Set.fromKeys()` creates a new immutable Set containing the keys from
      * this Iterable or JavaScript Object.
      */
-    public static <T>fromKeys(iter: union{ImmutableIterable<T, any>, Object}): Set<T>;
+    public static <T>fromKeys(iter: union{ImmutableIterable<T, any, ?>, Object}): Set<T>;
   
 
     public constructor(iter: Iterable<T> =);
@@ -1449,8 +1448,8 @@ export external public class Set<out T> extends ImmutableIterable<T,T>{
      * exist in this Set.
      * @alias merge
      */
-    public union(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
-    public merge(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+    public union(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any, ?>}): this;
+    public merge(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any, ?>}): this;
 
 
 
@@ -1458,12 +1457,12 @@ export external public class Set<out T> extends ImmutableIterable<T,T>{
      * Returns a Set which has removed any values not also contained
      * within `iterables`.
      */
-    public intersect(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+    public intersect(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any, ?>}): this;
 
     /**
      * Returns a Set excluding any values contained within `iterables`.
      */
-    public subtract(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any>}): this;
+    public subtract(...iterables: union{Array</*T*/ any>, ImmutableIterable<any, /*T*/ any, ?>}): this;
 
 
     // Transient changes
@@ -1497,8 +1496,8 @@ export external public interface ~IRecord extends ImmutableObject {
     // Reading values
     public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
     public has(key: /*K*/ any): boolean;
-    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
-    public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+    public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any, ?>}, notSetValue: any=): any;
+    public hasIn(searchKeyPath: union{ImmutableIterable<any, any,?>, Iterable<any>}): boolean;
 
     // Persistent changes
     public set(key: /*K*/ any, value: /*V*/ any): this;
@@ -1507,17 +1506,17 @@ export external public interface ~IRecord extends ImmutableObject {
     public clear(): this;
     public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: any): /*V*/ any}): this;
     public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
-    public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+    public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?> ): this;
 
     // Deep persistent changes
     public setIn(keyPath: Array<?>, value: any): this;
     public deleteIn(keyPath: Array<?>): this;
     public removeIn(keyPath: Array<?>): this;
     public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
-    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     // Transient changes
     public withMutations(mutator: {function (mutable: IRecord): void}): this;
@@ -1531,8 +1530,8 @@ export external public interface ~IRecord extends ImmutableObject {
 export external public class Record implements IRecord {
     @Override public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
     @Override public has(key: /*K*/ any): boolean;
-    @Override public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any>}, notSetValue: any=): any;
-    @Override public hasIn(searchKeyPath: union{ImmutableIterable<any, any>, Iterable<any>}): boolean;
+    @Override public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any, ?>}, notSetValue: any=): any;
+    @Override public hasIn(searchKeyPath: union{ImmutableIterable<any, any, ?>, Iterable<any>}): boolean;
     @Override public toJS(): Object;
     @Override public toArray(): Array</*V*/ any>;
     @Override public toObject(): Object;
@@ -1545,17 +1544,17 @@ export external public class Record implements IRecord {
     @Override public clear(): this;
     @Override public update(key: /*K*/ any, notSetValue: /*V*/ any, updater: {function (value: any): /*V*/ any}): this;
     @Override public merge(...iterables: union{Object, Iterable<Iterable2<?,?>>}): this;
-    @Override public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    @Override public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    @Override public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any> ): this;
+    @Override public mergeWith(merger: {function (previous: any=, next: any=, key: any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    @Override public mergeDeep(...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    @Override public mergeDeepWith(merger: {function (previous:  any=, next:  any=, key:  any=): /*V*/ any}, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?> ): this;
 
     // Deep persistent changes
     @Override public setIn(keyPath: Array<?>, value: any): this;
     @Override public deleteIn(keyPath: Array<?>): this;
     @Override public removeIn(keyPath: Array<?>): this;
     @Override public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
-    @Override public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
-    @Override public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any>): this;
+    @Override public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+    @Override public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
 
     // Transient changes
     @Override public withMutations(mutator: {function (mutable: IRecord): void}): this;
@@ -1575,6 +1574,6 @@ export external public class Record implements IRecord {
 }
 export public const Iterable: constructor{ImmutableIterable};
 export public const Indexed: constructor{IndexedIterable}
-export external public function fromJS(arg, reviver: {function (k: any, v: ImmutableIterable<?,?>):any}=): ImmutableObject;
+export external public function fromJS(arg, reviver: {function (k: any, v: ImmutableIterable<?,?,?>):any}=): ImmutableObject;
 
 /* -*- mode: typescript;-*- */
