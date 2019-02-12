@@ -13,8 +13,9 @@ export external public class Provider
 }
 
 export external public class ~ConnectOptions {
-    public pure?: boolean; // defaults to true
-    public withRef?: boolean; // defaults to false
+    public get pure?(): boolean; // defaults to true
+    public get forwardRef?(): boolean; // defaults to false
+    public get context?(): constructor{React.Context};
 }
 
 export external public function <PropsT extends React.ComponentProps>
