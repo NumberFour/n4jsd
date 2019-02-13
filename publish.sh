@@ -112,8 +112,16 @@ echo "using .npmrc file from $NPMRC_VERDACCIO"
 for PRJ_LOC in $PRJ_LOCS;
 do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
-	n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1
-	#OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	
+	set +e # ignore problems
+	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	set -e
+
+	if [[ $? -eq 0 ]]; then
+		echo "== failed due to problems when calling n4jsc"
+		echo "$OUTPUT"
+		exit -1
+	fi
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
@@ -138,7 +146,6 @@ if [[ "$ERRORS" = true ]]; then
 	exit -1;
 fi
 
-exit 0
 
 
 
