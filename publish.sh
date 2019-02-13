@@ -115,13 +115,15 @@ do
 	
 	set +e # ignore problems
 	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
-	set -e
 
-	if [[ $? -eq 0 ]]; then
+
+	if [[ $? -ne 0 ]]; then
+		set -e
 		echo "== failed due to problems when calling n4jsc"
 		echo "$OUTPUT"
 		exit -1
 	fi
+	set -e
 
 	if [[ $OUTPUT = *"ERROR:"* ]]; then
 		echo "There were errors in the output:"
