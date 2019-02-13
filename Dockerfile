@@ -1,5 +1,5 @@
-# https://github.com/nodejs/docker-node/blob/b3ca6573b5c179148b446107386ae96ac6204ad3/8/alpine/Dockerfile
-FROM node:8.11-alpine
+# https://github.com/nodejs/docker-node/blob/45fa3ebe94598758b9c9e4a382236fc7e879e2e6/10/alpine/Dockerfile
+FROM node:10-alpine
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8
@@ -19,7 +19,7 @@ RUN set -x \
 ENV TZ Europe/Berlin
 
 LABEL version="1.0.0" \
-    description="Image based on node:8.11 with pre-installed openjdk-8." \
+    description="Image based on node:10-alpine with pre-installed openjdk-8." \
     maintainer="Dev-Tools Team <staff-devtools@numberfour.eu>" \
     eu.numberfour.dockerimage.name="n4jsd-publish" \
     eu.numberfour.dockerimage.github="numberfour/n4jsd"
