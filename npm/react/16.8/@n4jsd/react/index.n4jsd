@@ -1,17 +1,17 @@
-export external public interface ~Ref<T extends Object> {
+export external public interface ~Ref<T> {
     public get current?(): T; // HTMLElement, React.Component, ...
 }
 
 export external public interface ~ComponentProps {
     public get children?(): string | Element<?> | Iterable<string | Element<?>> | Function;
-    public get ref?(): (Object /* HTMLElement, React.Component, ... */) => any | Ref<?>;
+    public get ref?(): (any /* HTMLElement, React.Component, ... */) => any | Ref<?>;
     // Attention: Beware that you can't read/rely on the key property when rendering, see https://facebook.github.io/react/docs/lists-and-keys.html
     public get key?(): string;
 }
 
 export external public abstract class Element<out PropsT extends ComponentProps> {
     private constructor();
-    public get type(): union{string, constructor{Component}};
+    public get type(): string | constructor{Component} | Function;
     public get props(): PropsT;
     public get key(): string;
     public get ref(): string;
@@ -62,7 +62,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
     public get refs(): Object+;
     public static get displayName(): string;
 
-    public abstract render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+    public abstract render(): any;
 
     /**
      * Base class helpers for the updating state of a component.
@@ -232,7 +232,7 @@ export external public abstract class PureComponent<PropsT extends ComponentProp
  * mor TODO IDE-2323
  */
 export external public function <PropsT extends ComponentProps> createElement(
-    type: union{string, {function(PropsT=): Element<PropsT>}, constructor{? extends Component/*<PropsT>*/}},
+    type: string | constructor{? extends Component/*<PropsT>*/} | Function,
     props: PropsT+ =, ...children: string | Element<?> | Iterable<string | Element<?>> | Function
 ): Element<PropsT>;
 
@@ -244,7 +244,7 @@ export external public function <PropsT extends ComponentProps> createElement(
  * There is no special behavior for merging any props (unlike cloneWithProps).
  */    
 export external public function cloneElement(
-    Element: union{string, Element<?>},
+    Element: string | Element<?>,
     props: Object=,
     ...children: string | Element<?> | Iterable<string | Element<?>> | Function
 ): Element<?>;
@@ -347,7 +347,7 @@ export external public class ~PropTypes {
 @Final
 export external public class Fragment extends Component<ComponentProps, Object> {
     @Override
-    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+    public render(): any;
 }
 
 /**
@@ -357,7 +357,7 @@ export external public class Fragment extends Component<ComponentProps, Object> 
 @Final
 export external public class StrictMode extends Component<ComponentProps, Object> {
     @Override
-    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+    public render(): any;
 }
 
 /**
@@ -366,7 +366,7 @@ export external public class StrictMode extends Component<ComponentProps, Object
 @Final
 export external public class Suspense extends Component<SuspenseProps, Object> {
     @Override
-    public render(): [Element<?>|string|number|boolean] | Element<?> | string | number | boolean;
+    public render(): any;
 }
 
 /**
@@ -378,8 +378,8 @@ export external public function <T extends Object> createRef(): Ref<T>;
  * @see https://reactjs.org/docs/forwarding-refs.html
  */
 export external public function <PropsT extends ComponentProps> forwardRef(
-    comp: (props: PropsT, ref: Ref<?>) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean
-): (PropsT) => Element<?>;
+    comp: (props: PropsT, ref: Ref<?>) => any
+): (PropsT) => any;
 
 /**
  * @see https://reactjs.org/docs/context.html
@@ -394,15 +394,15 @@ export external public function <ContextValueT> createContext(
  * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactmemo
  */
 export external public function <PropsT extends ComponentProps> memo(
-    comp: (props: PropsT) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean
-): (PropsT) => Element<?>;
+    comp: (props: PropsT) => any
+): (PropsT) => any;
 
 /**
  * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactlazy-code-splitting-with-suspense
  */
 export external public function <PropsT extends ComponentProps> lazy(
-    asyncCompFn: () => Promise<constructor{Component} | (props: PropsT) => [Element<?>|string|number|boolean] | Element<?> | string | number | boolean, any>
-): (PropsT) => Element<?>;
+    asyncCompFn: () => Promise<constructor{Component} | Function, any>
+): (PropsT) => any;
 
 
 /**
