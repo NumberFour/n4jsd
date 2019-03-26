@@ -379,7 +379,7 @@ export external public function <T extends Object> createRef(): Ref<T>;
  */
 export external public function <PropsT extends ComponentProps> forwardRef(
     comp: (props: PropsT, ref: Ref<?>) => any
-): (PropsT) => any;
+): (PropsT) => Element<PropsT>;
 
 /**
  * @see https://reactjs.org/docs/context.html
@@ -395,14 +395,14 @@ export external public function <ContextValueT> createContext(
  */
 export external public function <PropsT extends ComponentProps> memo(
     comp: (props: PropsT) => any
-): (PropsT) => any;
+): (PropsT) => Element<PropsT>;
 
 /**
  * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#reactlazy-code-splitting-with-suspense
  */
 export external public function <PropsT extends ComponentProps> lazy(
     asyncCompFn: () => Promise<constructor{Component} | Function, any>
-): (PropsT) => any;
+): (PropsT) => Element<PropsT>;
 
 
 /**
