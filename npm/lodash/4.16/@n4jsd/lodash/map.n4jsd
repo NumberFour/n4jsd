@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.11#map
+ */
+export default external public function <T,U> map(collection: Array<T>|Object, iteratee: {function(value: T, index: number|string, collection: Array<T>): U}=): Array<U>;
