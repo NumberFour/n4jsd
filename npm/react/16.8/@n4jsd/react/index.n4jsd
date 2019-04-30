@@ -27,15 +27,19 @@ export external public interface ~SuspenseProps extends ComponentProps {
 
 export external public interface ~Context<ContextValueT> {
     /**
+     * Constructor for `Component<ContextProviderProps<ContextValueT>, Object>}`.
+     * 
      * @see https://reactjs.org/docs/context.html#contextprovider
      */
-    public get Provider(): Component<ContextProviderProps<ContextValueT>, Object>;
+    public get Provider(): constructor{Component};
 
     /**
+     * Constructor for `Component<ComponentProps, Object>`.
+     * 
      * Requires function as a child, `value` passed as argument.
      * @see https://reactjs.org/docs/context.html#contextconsumer
      */
-    public get Consumer(): Component<ComponentProps, Object>;
+    public get Consumer(): constructor{Component};
 }
 
 export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> {
@@ -43,13 +47,13 @@ export external public abstract class Component<PropsT extends ComponentProps, S
     /**
      * @see https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
      * @see https://reactjs.org/docs/react-component.html#static-getderivedstatefromprops
-     */    
+     */
     //public static getDerivedStateFromProps(props: PropsT, state: StateT): StateT;
 
     /**
      * @see https://reactjs.org/blog/2018/10/23/react-v-16-6.html#static-getderivedstatefromerror
      * @see https://reactjs.org/docs/react-component.html#static-getderivedstatefromerror
-     */    
+     */
     //public static getDerivedStateFromError(error: any): StateT;
 
     public static contextType: Context<?>;
