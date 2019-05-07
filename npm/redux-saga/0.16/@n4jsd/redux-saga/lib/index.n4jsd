@@ -26,7 +26,7 @@ export external public interface ~ReduxSagaTask<ResultT> {
     public isCancelled(): boolean;
     public result(): ResultT;
     public error(): any;
-    public get done(): Promise<ResultT, any>;
+    public toPromise(): Promise<ResultT, any>;
     public cancel(): void;
 }
 

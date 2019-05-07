@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/redux-saga",
-	"version": "0.16.1",
+	"version": "0.16.2",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
