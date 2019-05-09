@@ -21,6 +21,8 @@ export external public interface ~ContextProviderProps<ContextValueT> extends Co
     public get value(): ContextValueT;
 }
 
+export external public abstract class ContextProvider extends Component<ContextProviderProps<any>, Object> {}
+
 export external public interface ~SuspenseProps extends ComponentProps {
     public get fallback?(): Element<?>;
 }
@@ -31,7 +33,7 @@ export external public interface ~Context<ContextValueT> {
      * 
      * @see https://reactjs.org/docs/context.html#contextprovider
      */
-    public get Provider(): constructor{Component};
+    public get Provider(): constructor{ContextProvider};
 
     /**
      * Constructor for `Component<ComponentProps, Object>`.
@@ -56,13 +58,13 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      */
     //public static getDerivedStateFromError(error: any): StateT;
 
-    public static contextType: Context<?>;
+    public static contextType: Context<? /* ContextValueT */>;
 
     public static name: string;
     public get props(): PropsT;
     public state: StateT;
 
-    public get context(): Object+;
+    public get context(): any; // i.e. ContextValueT
     public get refs(): Object+;
     public static get displayName(): string;
 
