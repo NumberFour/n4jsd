@@ -16,7 +16,6 @@ export external public abstract class NodeFetchBody extends Body {
     public async textConverted(): string;
 }
 
-// TODO: npm/n4jsd
 export default external public async function fetch(input: union{string, Request}, init: NodeFetchRequestInit=): Response;
 
 export external public const Request: constructor{Request};
