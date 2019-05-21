@@ -55,19 +55,11 @@ export external public interface ~__IntlFormat {
  */
 export external public function addLocaleData(data: Array<Object>): void;
 
-export external public abstract class InjectIntlComponent<CompT, PropsT extends React.ComponentProps>
-    extends React.Component<PropsT, Object> {
-
-    public static get WrappedComponent(): constructor{React.Component};
-
-    @Final public getWrappedInstance(): CompT;
-}
-
 /**
  * https://github.com/yahoo/react-intl/wiki/API#injectintl
  */
-export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
-injectIntl(ctor: constructor{CompT} | (PropsT) => React.Element<?>, options: ~Object with {
+export external public function <PropsT extends React.ComponentProps, CompT extends React.Component<PropsT, ?>>
+injectIntl(comp: union{{function(PropsT): React.Element<?>}, constructor{CompT}}, options: ~Object with {
         intlPropName?: string,  // defaults to 'intl'
         withRef?: boolean       // defaults to false
     }=): (PropsT) => React.Element<?>;
@@ -197,7 +189,6 @@ export external class FormattedNumber extends React.Component<FormattedNumberPro
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#formattedmessage
  */
-
 export external public interface ~FormattedMessageProps extends React.ComponentProps, __MessageDescriptor {
     /**
      * Values for the placeholders in the message.
@@ -214,6 +205,30 @@ export external public class FormattedMessage extends React.Component<FormattedM
     public render(): React.Element<?>;
 }
 
+/**
+ * https://github.com/formatjs/react-intl/wiki/Components#formattedplural
+ */
+export external public interface ~FormattedPluralProps extends React.ComponentProps, __MessageDescriptor {
+    public style?: string;
+    public value?: any;
+    public other: React.Element<?>;
+    public zero?: React.Element<?>;
+    public one?: React.Element<?>;
+    public two?: React.Element<?>;
+    public few?: React.Element<?>;
+    public many?: React.Element<?>;
+    @Override
+    public children?: (formattedPlural: React.Element<?>) => React.Element<?>
+}
+
+export external public class FormattedPlural extends React.Component<FormattedPluralProps, Object> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+
 export external public const intlShape;
+
+export external public const IntlContext: React.Context<IntlShape>;
 
 /* -*- mode: typescript;-*- */
