@@ -6,14 +6,20 @@ import { ReduxAction } from "redux";
  * The saga generator yield type is one/more instruction object(s) processed by the middleware.
  */
 
+@StringBased
+export external public enum ReduxSagaEffectType {
+    CALL,
+    PUT,
+    TAKE,
+    FORK
+    // ...
+}
+
 /**
  * Instruction yielded to the middleware (e.g. via put(), call()).
  */
 export external public interface ~ReduxSagaEffect {
-    public get CALL(): Object;
-    public get PUT(): Object;
-    public get TAKE(): Object;
-    //...
+    public get type(): ReduxSagaEffectType;
 }
 
 /**
@@ -49,24 +55,7 @@ export external public interface ~ReduxSagaMiddleware {
  * options.sagaMonitor
  * options.onError
  */
-export default external public function createSagaMiddleware(options: Object=): ReduxSagaMiddleware;
-
-/**
- * https://redux-saga.github.io/redux-saga/docs/api/#throttlems-pattern-saga-args
- * 
- * Effect resolves into a `ReduxSagaTask<?>`.
- */
-export external public function throttle(
-    ms: int,
-    pattern: union{Array<string>, string, {function(string): boolean}},
-    workerSaga: {function(ReduxAction): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
-    ...args
-): ReduxSagaEffect;
-
-/**
- * https://redux-saga.github.io/redux-saga/docs/api/#delayms-val
- */
-export external public function <ValT> delay(ms: int, val: ValT=): Promise<ValT, any>;
+export default external public function sagaMiddlewareFactory(options: Object=): ReduxSagaMiddleware;
 
 /**
  * Special store action on END.

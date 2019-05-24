@@ -1,29 +1,37 @@
 import {ReduxAction} from "redux";
-import {ReduxSagaEffect} from "lib/index";
-import {ReduxSagaTask} from "lib/index";
+import {ReduxSagaEffect} from "deps/redux-saga/redux-saga";
+import {ReduxSagaTask} from "deps/redux-saga/redux-saga";
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#effect-creators
  */
 
 /**
- * https://redux-saga.github.io/redux-saga/docs/api/#putaction
+ * https://redux-saga.github.io/redux-saga/docs/api/#throttlems-pattern-saga-args
  * 
- * This effect is non-blocking and any errors that are thrown downstream (e.g. in a reducer) will not bubble back into the saga.
+ * Effect resolves into a `ReduxSagaTask<?>`.
  */
-export external public const put: type{__PutFn};
+export external public function throttle(
+    ms: int,
+    pattern: union{Array<string>, string, {function(string): boolean}},
+    workerSaga: {function(ReduxAction): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
+    ...args
+): ReduxSagaEffect;
 
-@Final
-export external public class __PutFn {
-    (action: ReduxAction): ReduxSagaEffect;
-    public static resolve(action: union{Promise<?, ?>, ReduxAction}): ReduxSagaEffect;
-    public static sync(action: ReduxAction): ReduxSagaEffect
-}
+/**
+ * https://redux-saga.github.io/redux-saga/docs/api/#delayms-val
+ */
+export external public function <ValT> delay(ms: int, val: ValT=): Promise<ValT, any>;
 
-///**
-// * Just like put but the effect is blocking and will bubble up errors from downstream.
-// */
-//export external public function put.sync(action: ReduxAction): ReduxSagaEffect;
+/**
+ * https://redux-saga.js.org/docs/api/#putaction
+ */
+export external public function put(action: ReduxAction): ReduxSagaEffect;
+
+/**
+ * https://redux-saga.js.org/docs/api/#putresolveaction
+ */
+export external public function putResolve(action: ReduxAction): ReduxSagaEffect;
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#callfn-args
@@ -52,6 +60,13 @@ export external public function take(
 ): ReduxSagaEffect;
 
 /**
+ * https://redux-saga.js.org/docs/api/#takemaybepattern
+ */
+export external public function takeMaybe(
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean
+): ReduxSagaEffect;
+
+/**
  * https://redux-saga.github.io/redux-saga/docs/api/#takeeverypattern-saga-args
  * 
  * Effect resolves into a `ReduxSagaTask<?>`.
@@ -72,6 +87,19 @@ export external public function takeEvery(
  * @param workerSaga generator function thast takes all var args and the action
  */
 export external public function takeLatest(
+    pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean,
+    workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
+    ...args
+): ReduxSagaEffect;
+
+/**
+ * https://redux-saga.js.org/docs/api/#takeleadingpattern-saga-args
+ * 
+ * Effect resolves into a `ReduxSagaTask<?>`.
+ * 
+ * @param workerSaga generator function thast takes all var args and the action
+ */
+export external public function takeLeading(
     pattern: Array<string> | Array<string | (ReduxAction) => boolean> | string | (ReduxAction) => boolean,
     workerSaga: Function, //{function(/*puts the args in front of action ...args, ReduxAction */): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
     ...args
