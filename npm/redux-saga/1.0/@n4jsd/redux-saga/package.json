@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/redux-saga",
-	"version": "0.16.2",
+	"version": "1.0.0",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -16,7 +16,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "redux-saga",
-		"mainModule": "lib/index",
+		"mainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
