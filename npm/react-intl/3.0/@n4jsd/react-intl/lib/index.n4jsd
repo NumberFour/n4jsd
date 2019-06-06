@@ -231,6 +231,6 @@ export external public const intlShape;
 
 export external public const IntlContext: React.Context<IntlShape>;
 
-export external public function useIntl(): Iterable2<(messageDescriptor: __MessageDescriptor, values: Object=) => string, IntlShape>;
+export external public function useIntl(): IntlShape;
 
 /* -*- mode: typescript;-*- */
