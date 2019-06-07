@@ -1,4 +1,4 @@
 /**
  * @see https://lodash.com/docs/4.17.10#pick
  */
-export default external public function pick(object: Object, paths: [string]): Object;
+export default external public function pick(object: Object, paths: string[]): Object;

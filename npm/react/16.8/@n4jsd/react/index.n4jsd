@@ -453,7 +453,7 @@ export external public function <StateT> useReducer(
  */
 export external public function <FuncT extends Function> useCallback(
     fn: FuncT,
-    inputs: [any]
+    inputs: any[]
 ): FuncT;
 
 /**
@@ -461,7 +461,7 @@ export external public function <FuncT extends Function> useCallback(
  */
 export external public function <ValueT> useMemo(
     fn: () => ValueT,
-    inputs: [any]=
+    inputs: any[]=
 ): ValueT;
 
 /**
@@ -477,7 +477,7 @@ export external public function <T extends Object> useRef(
 export external public function <T extends Object> useImperativeHandle(
     ref: Ref<T>,
     createHandle: () => Object,
-    inputs: [any]=
+    inputs: any[]=
 ): Ref<T>;
 
 /**

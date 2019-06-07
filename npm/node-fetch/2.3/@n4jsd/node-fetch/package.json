@@ -20,7 +20,6 @@
 				"."
 			]
 		},
-		"moduleLoader": "commonjs",
 		"requiredRuntimeLibraries": [
 			"n4js-runtime-fetch",
 			"n4js-runtime-node"

@@ -25,7 +25,6 @@
 				"."
 			]
 		},
-		"moduleLoader": "commonjs",
 		"requiredRuntimeLibraries": [
 			"n4js-runtime-node",
 			"n4js-runtime-fetch"

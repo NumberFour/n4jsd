@@ -22,7 +22,6 @@
 			"source": [
 				"."
 			]
-		},
-		"moduleLoader": "commonjs"
+		}
 	}
 }

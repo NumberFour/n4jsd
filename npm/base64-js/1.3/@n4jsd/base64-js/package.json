@@ -23,7 +23,6 @@
 				"."
 			]
 		},
-		"moduleLoader": "commonjs",
 		"requiredRuntimeLibraries": [
 			"n4js-runtime-esnext"
 		]

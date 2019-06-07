@@ -24,7 +24,6 @@
 				"."
 			]
 		},
-		"moduleLoader": "commonjs",
 		"requiredRuntimeLibraries": [
 			"n4js-runtime-html5"
 		]
