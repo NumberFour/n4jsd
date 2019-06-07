@@ -1,9 +1,9 @@
 
 pipeline {
     agent {
-        docker {
-            alwaysPull true
-            image "docker-corp.numberfour.eu/n4ide/n4js-extended.build:master"
+        dockerfile {
+            filename 'Dockerfile'
+            dir '.'
             label 'm5xlarge'
         }
     }
