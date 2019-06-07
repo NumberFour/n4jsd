@@ -1,7 +1,7 @@
 
 pipeline {
     agent {
-        dockerfile {
+        docker {
             alwaysPull true
             image "docker-corp.numberfour.eu/n4ide/n4js-extended.build:master"
             label 'm5xlarge'
