@@ -1,4 +1,4 @@
 /**
  * @see https://lodash.com/docs/4.17.10#words
  */
-export default external public function words(str: string = "", pattern: RegExp|string =): [string];
+export default external public function words(str: string = "", pattern: RegExp|string =): string[];

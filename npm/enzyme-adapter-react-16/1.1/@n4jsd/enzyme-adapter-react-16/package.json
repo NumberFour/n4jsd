@@ -19,8 +19,7 @@
 			"source": [
 				"."
 			]
-		},
-		"moduleLoader": "commonjs"
+		}
 	},
 	"dependencies": {
 		"@n4jsd/enzyme": ""

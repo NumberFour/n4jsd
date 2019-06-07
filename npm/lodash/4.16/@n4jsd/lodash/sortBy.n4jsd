@@ -1,3 +1,3 @@
-export default external public function <T> sortBy(collection: Array<T>, iteratees: [(T) => any]): Array<T>;
+export default external public function <T> sortBy(collection: Array<T>, iteratees: (T) => any[]): Array<T>;
 
 /* -*- mode: typescript;-*- */

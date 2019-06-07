@@ -36,12 +36,12 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
     /**
      *  Defines which types of nodes should be allowed (rendered). (default: all types).
      */
-    public allowedTypes?: [ReactMarkdownType];
+    public allowedTypes?: ReactMarkdownType[];
 
     /**
      * Defines which types of nodes should be disallowed (not rendered). (default: none).
      */
-    public dissalowedTypes?: [ReactMarkdownType];
+    public dissalowedTypes?: ReactMarkdownType[];
 
     /**
      * Setting to true will try to extract/unwrap the children of disallowed nodes. For instance, 

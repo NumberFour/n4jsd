@@ -10,8 +10,8 @@ export external public class Command {
     public command(cmd: string, descr: string=, config: ~Object with {isDefault: boolean}=): Command;
     public alias(alias: string): Command;
     public action(fn: Function): Command;
-    public parse(argv: [string]): Object;
-    public args: [string];
+    public parse(argv: string[]): Object;
+    public args: string[];
     public help(): void;
 }
 // By default, export an instance of Command
