@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/react-dom",
-	"version": "16.8.0",
+	"version": "16.8.1",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -11,8 +11,8 @@
 		"n4js"
 	],
 	"dependencies": {
-		"n4js-runtime-html5": "",
-		"@n4jsd/react": ""
+		"@n4jsd/react": "",
+		"n4js-runtime-html5": ""
 	},
 	"n4js": {
 		"projectType": "definition",

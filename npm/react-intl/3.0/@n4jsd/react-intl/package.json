@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/react-intl",
-	"version": "3.0.0",
+	"version": "3.0.1",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -11,8 +11,8 @@
 		"n4js"
 	],
 	"dependencies": {
-		"n4js-runtime-ecma402": "",
-		"@n4jsd/react": ""
+		"@n4jsd/react": "",
+		"n4js-runtime-ecma402": ""
 	},
 	"n4js": {
 		"projectType": "definition",

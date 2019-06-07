@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/next",
-	"version": "7.0.0",
+	"version": "7.0.1",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -12,8 +12,8 @@
 	],
 	"dependencies": {
 		"@n4jsd/react": "",
-		"n4js-runtime-node": "",
-		"n4js-runtime-fetch": ""
+		"n4js-runtime-fetch": "",
+		"n4js-runtime-node": ""
 	},
 	"n4js": {
 		"projectType": "definition",
