@@ -1,0 +1,83 @@
+import {ReduxStore} from "redux";
+import * as React from "react";
+
+export external public interface ~ProviderProps extends React.ComponentProps {
+    public store: ReduxStore<?>;
+    public children?: string | Element<?> | Iterable<string | Element<?>> | Function;
+    public context?: React.Context<?>;
+}
+
+export external public class Provider
+    extends React.PureComponent<ProviderProps, Object> {
+
+    @Override
+    public render(): React.Element<ProviderProps>;
+}
+
+export external public class ~ConnectOptions {
+    public get context?(): constructor{React.Context};
+    public get pure?(): boolean; // defaults to true
+    public get areStatesEqual?(): Function; // {function(next: Object, prev: Object) => boolean} strictEqual: (next, prev) => prev === next
+    public get areOwnPropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
+    public get areStatePropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
+    public get areMergedPropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
+    public get forwardRef?(): boolean; // defaults to false
+    
+}
+
+export external public class ~ConnectAdvancedOptions {
+    public get getDisplayName?(): Function; // default value: name => 'ConnectAdvanced('+name+')'
+    public get methodName?(): string; // default value: connectAdvanced
+    public get renderCountProp?(): string; // defaults to undefined
+    public get shouldHandleStateChanges?(): boolean; // defaults to true
+    public get forwardRef?(): boolean; // defaults to false
+    public get extras?(): any; // any extra options passed via connectOptions will be passed through to your selectorFactory in the factoryOptions argument
+}
+
+export external public function <PropsT extends React.ComponentProps>
+    connect(
+        mapStateToProps: Function=, //{function(state:any, ownProps: any?): Object},
+        mapDispatchToProps: Function= | Object=, //{function(dispatch:Function, ownProps: any?): Object}?,
+        mergeProps: Function=,
+        options: ConnectOptions=
+    ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
+
+/**
+ * @see https://react-redux.js.org/api/connect-advanced
+ */
+export external public function <PropsT extends React.ComponentProps>
+    connectAdvanced(
+        selectorFactory: Function,
+        connectOptions?: ConnectAdvancedOptions=
+    ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
+
+
+/**
+ * @see https://react-redux.js.org/api/batch
+ */
+export external public function batch(fn: Function): any;
+
+
+/**
+ * Hooks to be used in redux.
+ *
+ * @see https://react-redux.js.org/api/hooks
+ */
+
+
+/**
+ * @see https://react-redux.js.org/api/hooks#useselector
+ */
+export external public function useSelector(selector: Function, equalityFn?: Function): any;
+
+/**
+ * @see https://react-redux.js.org/api/hooks#usedispatch
+ */
+export external public function useDispatch(): Function;
+
+/**
+ * @see https://react-redux.js.org/api/hooks#usestore
+ */
+export external public function useStore(): ReduxStore<?>;
+
+/* -*- mode: typescript;-*- */
