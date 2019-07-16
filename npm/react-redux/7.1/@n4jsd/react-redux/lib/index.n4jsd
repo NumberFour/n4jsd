@@ -1,9 +1,8 @@
-import {ReduxStore} from "redux";
+import {ReduxStore, ReduxAction} from "redux";
 import * as React from "react";
 
 export external public interface ~ProviderProps extends React.ComponentProps {
     public store: ReduxStore<?>;
-    public children?: string | Element<?> | Iterable<string | Element<?>> | Function;
     public context?: React.Context<?>;
 }
 
@@ -16,22 +15,21 @@ export external public class Provider
 
 export external public class ~ConnectOptions {
     public get context?(): constructor{React.Context};
-    public get pure?(): boolean; // defaults to true
-    public get areStatesEqual?(): Function; // {function(next: Object, prev: Object) => boolean} strictEqual: (next, prev) => prev === next
-    public get areOwnPropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
-    public get areStatePropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
-    public get areMergedPropsEqual?(): Function; // {function(next: Object, prev: Object) => boolean} shallowEqual: (objA, objB) => boolean
-    public get forwardRef?(): boolean; // defaults to false
-    
+    public get pure?(): boolean; // @default true
+    public get areStatesEqual?(nextState: Object, prevState: Object): boolean; // @default strictEqual
+    public get areOwnPropsEqual?(nextOwnProps: Object, prevOwnProps: Object): boolean; // @default shallowEqual
+    public get areStatePropsEqual?(nextStateProps: Object, prevStateProps: Object): boolean; // @default shallowEqual 
+    public get areMergedPropsEqual?(nextMergedProps: Object, prevMergedProps: Object): boolean; // @default shallowEqual 
+    public get forwardRef?(): boolean; // @default false    
 }
 
 export external public class ~ConnectAdvancedOptions {
-    public get getDisplayName?(): Function; // default value: name => 'ConnectAdvanced('+name+')'
-    public get methodName?(): string; // default value: connectAdvanced
-    public get renderCountProp?(): string; // defaults to undefined
-    public get shouldHandleStateChanges?(): boolean; // defaults to true
-    public get forwardRef?(): boolean; // defaults to false
-    public get extras?(): any; // any extra options passed via connectOptions will be passed through to your selectorFactory in the factoryOptions argument
+    public get getDisplayName?(componentName: string): string; // @default name => 'ConnectAdvanced('+name+')'
+    public get methodName?(): string; // @default connectAdvanced
+    public get renderCountProp?(): string; // @default undefined
+    public get shouldHandleStateChanges?(): boolean; // @default true
+    public get forwardRef?(): boolean; // @default false   
+    public get extras?(): Object+; // any extra options passed via connectOptions will be passed through to your selectorFactory in the factoryOptions argument
 }
 
 export external public function <PropsT extends React.ComponentProps>
@@ -51,29 +49,23 @@ export external public function <PropsT extends React.ComponentProps>
         connectOptions?: ConnectAdvancedOptions=
     ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
 
-
 /**
  * @see https://react-redux.js.org/api/batch
  */
-export external public function batch(fn: Function): any;
-
-
-/**
- * Hooks to be used in redux.
- *
- * @see https://react-redux.js.org/api/hooks
- */
-
+export external public function batch(cb: () => void): void;
 
 /**
  * @see https://react-redux.js.org/api/hooks#useselector
  */
-export external public function useSelector(selector: Function, equalityFn?: Function): any;
+export external public function useSelector<TState, TSelected>(
+    selector: (state: TState) => TSelected,
+    equalityFn?: (left: TSelected, right: TSelected) => boolean
+): TSelected;
 
 /**
  * @see https://react-redux.js.org/api/hooks#usedispatch
  */
-export external public function useDispatch(): Function;
+export external public function useDispatch(): ReduxAction;
 
 /**
  * @see https://react-redux.js.org/api/hooks#usestore
