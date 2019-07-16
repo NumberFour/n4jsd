@@ -14,28 +14,111 @@ export external public class Provider
 }
 
 export external public class ~ConnectOptions {
-    public get context?(): constructor{React.Context};
-    public get pure?(): boolean; // @default true
-    public get areStatesEqual?(nextState: Object, prevState: Object): boolean; // @default strictEqual
-    public get areOwnPropsEqual?(nextOwnProps: Object, prevOwnProps: Object): boolean; // @default shallowEqual
-    public get areStatePropsEqual?(nextStateProps: Object, prevStateProps: Object): boolean; // @default shallowEqual 
-    public get areMergedPropsEqual?(nextMergedProps: Object, prevMergedProps: Object): boolean; // @default shallowEqual 
-    public get forwardRef?(): boolean; // @default false    
+    /**
+     * If true, implements shouldComponentUpdate and shallowly compares the result of mergeProps,
+     * preventing unnecessary updates, assuming that the component is a “pure” component
+     * and does not rely on any input or state other than its props and the selected Redux store’s state.
+     * 
+     * @default true
+     */
+    public get pure?(): boolean;
+    
+    /**
+     * If true, uses React's forwardRef to expose a ref of the wrapped component
+     *
+     * @default false
+     */
+    public get forwardRef?(): boolean;
+
+    /**
+     * When pure, compares incoming store state to its previous value.
+     * 
+     * @default strictEqual
+     */
+    public get areStatesEqual?(): (nextState: Object, prevState: Object) => boolean;
+
+    /**
+     * When pure, compares incoming props to its previous value.
+     * 
+     * @default shallowEqual
+     */
+    public get areOwnPropsEqual?(): (nextOwnProps: Object, prevOwnProps: Object) => boolean;
+
+    /**
+     * When pure, compares the result of mapStateToProps to its previous value.
+     * 
+     * @default shallowEqual
+     */
+    public get areStatePropsEqual?(): (nextStateProps: Object, prevStateProps: Object) => boolean;
+
+    /**
+     * When pure, compares the result of mergeProps to its previous value.
+     * 
+     * @default shallowEqual
+     */
+    public get areMergedPropsEqual?(): (nextMergedProps: Object, prevMergedProps: Object) => boolean;
+    
+    /**
+     * The react context to get the store from. 
+     */
+    public get context?(): constructor{React.Context};  
 }
 
 export external public class ~ConnectAdvancedOptions {
-    public get getDisplayName?(componentName: string): string; // @default name => 'ConnectAdvanced('+name+')'
-    public get methodName?(): string; // @default connectAdvanced
-    public get renderCountProp?(): string; // @default undefined
-    public get shouldHandleStateChanges?(): boolean; // @default true
-    public get forwardRef?(): boolean; // @default false   
-    public get extras?(): Object+; // any extra options passed via connectOptions will be passed through to your selectorFactory in the factoryOptions argument
+    /**
+     * Computes the connector component's displayName property relative to that of the wrapped component. Usually
+     * overridden by wrapper functions.
+     *
+     * @default name => 'ConnectAdvanced('+name+')'
+     * 
+     * @param componentName
+     */
+    public get getDisplayName?(): (componentName: string) => string;
+
+    /**
+     * Shown in error messages. Usually overridden by wrapper functions.
+     *
+     * @default 'connectAdvanced'
+     */
+    public get methodName?(): string;
+
+    /**
+     * If defined, a property named this value will be added to the props passed to the wrapped component. Its value
+     * will be the number of times the component has been rendered, which can be useful for tracking down unnecessary
+     * re-renders.
+     *
+     * @default undefined
+     */
+    public get renderCountProp?(): string;
+
+    /**
+     * Controls whether the connector component subscribes to redux store state changes. If set to false, it will only
+     * re-render when parent component re-renders.
+     *
+     * @default true
+     */
+    public get shouldHandleStateChanges?(): boolean;
+    
+    /**
+     * The key of props/context to get the store. You probably only need this if you are in the inadvisable position of
+     * having multiple stores.
+     *
+     * @default 'store'
+     */
+    public get storeKey?(): string;
+
+    /**
+     * If true, adding a ref to the connected wrapper component will actually return the instance of the wrapped component.
+     *
+     * @default false
+     */
+    public get forwardRef?(): boolean;
 }
 
 export external public function <PropsT extends React.ComponentProps>
     connect(
-        mapStateToProps: Function=, //{function(state:any, ownProps: any?): Object},
-        mapDispatchToProps: Function= | Object=, //{function(dispatch:Function, ownProps: any?): Object}?,
+        mapStateToProps: Function=,
+        mapDispatchToProps: (Function|Object)=,
         mergeProps: Function=,
         options: ConnectOptions=
     ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
@@ -46,29 +129,51 @@ export external public function <PropsT extends React.ComponentProps>
 export external public function <PropsT extends React.ComponentProps>
     connectAdvanced(
         selectorFactory: Function,
-        connectOptions?: ConnectAdvancedOptions=
+        connectOptions: ConnectAdvancedOptions=
     ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
 
 /**
  * @see https://react-redux.js.org/api/batch
+ * 
+ * Wraps ReactDOM or React Native's internal unstable_batchedUpdate function.
  */
 export external public function batch(cb: () => void): void;
 
 /**
  * @see https://react-redux.js.org/api/hooks#useselector
+ * 
+ * A hook to access the redux store's state. This hook takes a selector function
+ * as an argument. The selector is called with the store state.
+ *
+ * This hook takes an optional equality comparison function as the second parameter
+ * that allows you to customize the way the selected state is compared to determine
+ * whether the component needs to be re-rendered.
+ *
+ * @param selector the selector function
+ * @param equalityFn the function that will be used to determine equality
+ *
+ * @returns the selected state
  */
-export external public function useSelector<TState, TSelected>(
+export external public function <TState, TSelected> useSelector(
     selector: (state: TState) => TSelected,
-    equalityFn?: (left: TSelected, right: TSelected) => boolean
+    equalityFn: ((left: TSelected, right: TSelected) => boolean)=
 ): TSelected;
 
 /**
  * @see https://react-redux.js.org/api/hooks#usedispatch
+ * 
+ * A hook to access the redux dispatch function.
+ * 
+ * @returns redux store's dispatch function
  */
-export external public function useDispatch(): ReduxAction;
+export external public function useDispatch(): (action: Promise<ReduxAction, any> | ReduxAction) => (Promise<ReduxAction, any> | ReduxAction);
 
 /**
  * @see https://react-redux.js.org/api/hooks#usestore
+ * 
+ * A hook to access the redux store.
+ *
+ * @returns the redux store
  */
 export external public function useStore(): ReduxStore<?>;
 
