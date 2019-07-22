@@ -1,4 +1,4 @@
-export external public interface ~Ref<T> {
+export external public interface ~Ref<T extends Object> {
     public get current?(): T; // HTMLElement, React.Component, ...
 }
 
@@ -429,7 +429,8 @@ export external public function <StateT> useState(
  * https://reactjs.org/docs/hooks-reference.html#useeffect
  */
 export external public function useEffect(
-    didUpdate: () => Function?
+    didUpdate: () => Function?,
+    deps: any[]=
 ): void;
 
 /**
@@ -453,7 +454,7 @@ export external public function <StateT> useReducer(
  */
 export external public function <FuncT extends Function> useCallback(
     fn: FuncT,
-    inputs: any[]
+    deps: any[]
 ): FuncT;
 
 /**
@@ -461,7 +462,7 @@ export external public function <FuncT extends Function> useCallback(
  */
 export external public function <ValueT> useMemo(
     fn: () => ValueT,
-    inputs: any[]=
+    deps: any[]=
 ): ValueT;
 
 /**
@@ -477,21 +478,15 @@ export external public function <T extends Object> useRef(
 export external public function <T extends Object> useImperativeHandle(
     ref: Ref<T>,
     createHandle: () => Object,
-    inputs: any[]=
+    deps: any[]=
 ): Ref<T>;
-
-/**
- * @see https://reactjs.org/docs/hooks-reference.html#usemutationeffect
- */
-export external public function useMutationEffect(
-    didUpdate: () => Function?
-): void;
 
 /**
  * @see https://reactjs.org/docs/hooks-reference.html#uselayouteffect
  */
 export external public function useLayoutEffect(
-    didUpdate: () => Function?
+    didUpdate: () => Function?,
+    deps: any[]=
 ): void;
 
 /**
