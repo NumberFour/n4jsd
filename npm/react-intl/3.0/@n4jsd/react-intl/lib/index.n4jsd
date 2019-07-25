@@ -21,21 +21,21 @@ export external public interface ~__MessageDescriptor {
 }
 
 /**
- * https://github.com/yahoo/react-intl/wiki/API#formatrelative
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RelativeTimeFormat
+ * without localeMatcher
  */
-export external public interface ~__RelativeFormatOptions {
+export external public interface ~FormatRelativeTimeOptions {
     /**
-     * 'best fit', 'numeric'; default 'best fit',
+     * 'always' (default), 'auto'
      */
-    public style?: string;
+    public numeric?: string;
 
     /**
-     * 'second', 'minute', 'hour', 'day', 'month', 'year'
+     * 'long' (default), 'short', 'narrow'
      */
-    public units?: string;
-    public format?: string;
-    public now?: any;
+    public style?: string;
 }
+
 
 /**
  * The imperative formatting API.
@@ -45,15 +45,13 @@ export external public interface ~__RelativeFormatOptions {
 export external public interface ~__IntlFormat {
     public formatDate: (value: any, options: DateTimeFormatOptions=) => string;
     public formatTime: (value: any, options: DateTimeFormatOptions=) => string;
-    public formatRelative: (value: any, options: __RelativeFormatOptions=) => string;
+    /**
+     * second, seconds, minute, minutes, hour, hours, day, days, week, weeks, month, months, quarter, quarters, year, years
+     */
+    public formatRelativeTime: (value: number, unit: string=, opts: FormatRelativeTimeOptions=) => string;
     public formatNumber: (value: any, options: NumberFormatOptions=) => string;
     public formatMessage: (messageDescriptor: __MessageDescriptor, values: Object=) => string;
 }
-
-/**
- * https://github.com/yahoo/react-intl/wiki/API#addlocaledata
- */
-export external public function addLocaleData(data: Array<Object>): void;
 
 /**
  * https://github.com/yahoo/react-intl/wiki/API#injectintl
@@ -153,22 +151,14 @@ export external class FormattedTime extends React.Component<FormattedTimeProps, 
     public render(): React.Element<?>;
 }
 
-/**
- * By default <FormattedRelative> will render the formatted relative time into a <span>, and update it a maximum of every 10 seconds. 
- * If you need to customize rendering, you can either wrap it with another React element (recommended), or pass a function as the child.
- * 
- * https://github.com/yahoo/react-intl/wiki/Components#formattedrelative
- */
-export external public interface ~FormattedRelativeProps extends React.ComponentProps, __RelativeFormatOptions {
-    public value: any;
-    /**
-     * default: 1000 * 10
-     */
-    public updateInterval?: number;
-    public initialNow?: any;
+export external public interface ~FormattedRelativeTimeProps extends React.ComponentProps, FormatRelativeTimeOptions {
+    public value?: number;
+    public unit?: string;
+    public format?: string;
+    public updateIntervalInSeconds?: number;
 }
 
-export external class FormattedRelative extends React.Component<FormattedRelativeProps, Object> {
+export external class FormattedRelativeTime extends React.Component<FormattedRelativeTimeProps, Object> {
     @Override
     public render(): React.Element<?>;
 }
