@@ -507,7 +507,11 @@ export external public interface ~ProfilerProps extends ComponentProps {
         baseDuration: number, // estimated time to render the entire subtree without memoization
         startTime: number, // when React began rendering this update
         commitTime: number, // when React committed this update
-        interactions: Set<any+>
+        interactions: Set<~Object with {
+                id: number;
+                name: string;
+                timestamp: number
+            }>
       ) => void;
 }
 

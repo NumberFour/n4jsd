@@ -19,6 +19,12 @@
 			"source": [
 				"."
 			]
-		}
+		},
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-es2015"
+		]
+	},
+ 	"dependencies": {
+		"n4js-runtime-es2015": ""
 	}
 }
