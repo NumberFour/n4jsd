@@ -144,7 +144,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * Invoked once, both on the client and server, immediately before the initial rendering occurs.
      * If you call setState within this method, render() will see the updated state and will be executed only once despite the state change.
      */
-    protected componentWillMount(): void;
+    protected UNSAFE_componentWillMount(): void;
     
     /**
      * Invoked once, only on the client (not on the server), immediately after the initial rendering occurs.
@@ -160,7 +160,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * Use this as an opportunity to react to a prop transition before render() is called by updating the state using this.setState().
      * The old props can be accessed via this.props. Calling this.setState() within this function will not trigger an additional render.
      */
-    protected componentWillReceiveProps(nextProps: PropsT): void;
+    protected UNSAFE_componentWillReceiveProps(nextProps: PropsT): void;
 
     /**
      * Invoked before rendering when new props or state are being received.
@@ -194,7 +194,7 @@ export external public abstract class Component<PropsT extends ComponentProps, S
      * You cannot use this.setState() in this method.
      * If you need to update state in response to a prop change, use componentWillReceiveProps instead.
      */
-    protected componentWillUpdate(nextProps: PropsT, nextState: StateT): void;
+    protected UNSAFE_componentWillUpdate(nextProps: PropsT, nextState: StateT): void;
 
     /**
      * @see https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
@@ -496,5 +496,28 @@ export external public function useDebugValue(
     value,
     format: (any) => string =
 ): void;
+
+
+export external public interface ~ProfilerProps extends ComponentProps {
+    public get id(): string;
+    public get onRender(): (
+        id: string , // the "id" prop of the Profiler tree that has just committed
+        phase: string, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+        actualDuration: number, // time spent rendering the committed update
+        baseDuration: number, // estimated time to render the entire subtree without memoization
+        startTime: number, // when React began rendering this update
+        commitTime: number, // when React committed this update
+        interactions: Set<any+>
+      ) => void;
+}
+
+/**
+ * @see https://reactjs.org/docs/profiler.html
+ */
+@Final
+export external public class Profiler extends Component<ProfilerProps, Object> {
+    @Override
+    public render(): any;
+}
 
 /* -*- mode: typescript;-*- */
