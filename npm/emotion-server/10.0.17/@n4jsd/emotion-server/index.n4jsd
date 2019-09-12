@@ -1,0 +1,29 @@
+import { Writable } from "stream";
+
+export external public interface EmotionCritical {
+  public html: string;
+  public ids: string[];
+  public css: string;
+}
+
+/**
+ * Returns a string of html that inlines the critical css required right before it’s used.
+ * 
+ * @see https://emotion.sh/docs/ssr#renderstylestostring
+ */
+export external public function renderStylesToString(html: string): string;
+
+/**
+ * Returns a Node Stream Writable that can be used to insert critical css right before it’s required
+ * 
+ * @see https://emotion.sh/docs/ssr#renderstylestonodestream
+ */
+export external public function renderStylesToNodeStream(): Writable;
+
+/**
+ * Returns an object with the properties html, ids and css. 
+ * It removes unused rules that were created with emotion(it still includes rules that were inserted with injectGlobal).
+ * 
+ * @see https://emotion.sh/docs/ssr#renderstylestostring
+ */
+export external public function extractCritical(html: string): EmotionCritical;
