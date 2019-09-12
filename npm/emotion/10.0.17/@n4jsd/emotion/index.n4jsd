@@ -1,0 +1,32 @@
+/**
+ * Accepts styles as a object, or array of objects and returns a class name.
+ * 
+ * @see https://emotion.sh/docs/emotion#global-styles
+ */
+export external public function css(...args: any): string;
+
+/**
+ * Detects emotion generated class names ensuring styles are overwritten in the correct order.
+ * 
+ * @see https://emotion.sh/docs/emotion#cx
+ */
+export external public function cx(...classNames: any): string;
+
+/**
+ * Injects styles into the global scope.
+ * 
+ * @see https://emotion.sh/docs/emotion#global-styles
+ */
+export external public function injectGlobal(...args: any): void;
+
+/**
+ * Generates a unique animation name that can be used to animate elements with CSS animations.
+ * 
+ * @see https://emotion.sh/docs/emotion#animation-keyframes
+ */
+export external public function keyframes(...args: any): string;
+
+/**
+ * @see https://emotion.sh/docs/ssr#hydrate
+ */
+export external public function hydrate(ids: string[]): void;
