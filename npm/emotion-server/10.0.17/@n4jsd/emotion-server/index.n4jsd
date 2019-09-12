@@ -1,9 +1,9 @@
 import { Writable } from "stream";
 
-export external public interface EmotionCritical {
-  public html: string;
-  public ids: string[];
-  public css: string;
+export external public interface ~EmotionCritical {
+    public html: string;
+    public ids: string[];
+    public css: string;
 }
 
 /**
