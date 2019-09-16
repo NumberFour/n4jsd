@@ -1,4 +1,13 @@
-import { StyleSheet, EmotionCache, Options } from "emotion";
+import { StyleSheet, EmotionCache } from "emotion";
+
+export external public interface ~Options {
+    public nonce?: string;
+    public stylisPlugins?: (context: any, content: any, selector: string[], parent: string[], line: int, column: int, length: int, at: int, depth: int) => any | ((context: any, content: any, selector: string[], parent: string[], line: int, column: int, length: int, at: int, depth: int) => any)[];
+    public prefix?: (boolean | (key: string, value: string, context: any) => boolean);
+    public key?: string;
+    public container?: HTMLElement;
+    public speedy?: boolean;
+}
 
 export external public interface ~Emotion {
     /**

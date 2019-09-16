@@ -22,6 +22,7 @@
 		}
 	},
 	"dependencies": {
-		"@n4jsd/emotion": ""
+		"@n4jsd/emotion": "",
+		"n4js-runtime-html5": ""
 	}
 }
