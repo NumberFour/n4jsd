@@ -20,5 +20,8 @@
 				"."
 			]
 		}
+	},
+	"dependencies": {
+		"n4js-runtime-html5": ""
 	}
 }

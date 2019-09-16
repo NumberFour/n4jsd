@@ -1,3 +1,35 @@
+export external public interface ~Options {
+    nonce?: string;
+    key: string;
+    container: HTMLElement;
+    speedy?: boolean;
+}
+
+export external public class StyleSheet {
+    public constructor(options: Options=);
+
+    public isSpeedy: boolean;
+    public ctr: number;
+    public tags: HTMLElement+[];
+    public container: HTMLElement;
+    public maxLength: number;
+    public key: string;
+    public nonce?: string;
+    public before?: Element;
+    public insert(rule: string): void;
+    public flush(): void;
+}
+
+export external public interface ~EmotionCache {
+    public stylis(key: string, value: string): string[];
+    public inserted: Object+;
+    public registered: Object+;
+    public sheet: StyleSheet;
+    public key: string;
+    public compat?: boolean;
+    public nonce?: string;
+}
+
 /**
  * Accepts styles as a object, or array of objects and returns a class name.
  * 
@@ -30,3 +62,13 @@ export external public function keyframes(...args: any): string;
  * @see https://emotion.sh/docs/ssr#hydrate
  */
 export external public function hydrate(ids: string[]): void;
+
+export external public function merge(className: string): string;
+
+export external public function getRegisteredStyles(registeredStyles: string[], className: string): string;
+
+export external public function flush(): void;
+
+export external public const sheet: StyleSheet;
+
+export external public const cache: EmotionCache;
