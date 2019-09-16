@@ -1,0 +1,27 @@
+{
+	"name": "@n4jsd/create-emotion",
+	"version": "10.0.14",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for create-emotion",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "create-emotion",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		}
+	},
+	"dependencies": {
+		"@n4jsd/emotion": ""
+	}
+}
