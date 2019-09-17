@@ -1,0 +1,29 @@
+import { Writable } from "stream";
+import { EmotionCritical } from "emotion-server";
+import { EmotionCache } from "emotion";
+
+export external public interface ~EmotionServer {
+    /**
+     * Returns a string of html that inlines the critical css required right before it’s used.
+     * 
+     * @see https://emotion.sh/docs/ssr#renderstylestostring
+     */
+    public renderStylesToString(html: string): string;
+    
+    /**
+     * Returns a Node Stream Writable that can be used to insert critical css right before it’s required
+     * 
+     * @see https://emotion.sh/docs/ssr#renderstylestonodestream
+     */
+    public renderStylesToNodeStream(): Writable;
+    
+    /**
+     * Returns an object with the properties html, ids and css. 
+     * It removes unused rules that were created with emotion(it still includes rules that were inserted with injectGlobal).
+     * 
+     * @see https://emotion.sh/docs/ssr#renderstylestostring
+     */
+    public extractCritical(html: string): EmotionCritical;
+}
+
+export default external public function createEmotionServer(cache: EmotionCache): EmotionServer;
