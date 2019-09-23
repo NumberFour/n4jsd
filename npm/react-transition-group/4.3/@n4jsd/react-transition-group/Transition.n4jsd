@@ -1,0 +1,121 @@
+import * as React from "react";
+
+export external public interface ~TransitionActions {
+    /**
+     * Normally a component is not transitioned if it is shown when the <Transition> component mounts. 
+     * If you want to transition on the first mount set  appear to true, 
+     * and the component will transition in as soon as the <Transition> mounts.
+     * 
+     * Note:  There are no special appear states like appearing/appeared, this prop only 
+     * adds an additional enter transition.
+     * 
+     * @default false
+     */
+    public appear ?: boolean;
+
+    /**
+     * Enable or disable enter transitions.
+     * 
+     * @default true
+     */
+    public enter ?: boolean;
+
+    /**
+     * Enable or disable exit transitions.
+     * 
+     * @default true
+     */
+    public exit ?: boolean;
+}
+
+export external public interface ~TransitionProps extends TransitionActions, React.ComponentProps {
+    /**
+     * Show the component; triggers the enter or exit states.
+     * 
+     * @default false
+     */
+    public in?: boolean;
+
+    /**
+     * By default the child component is mounted immediately along with the parent Transition component. 
+     * If you want to "lazy mount" the component on the first in={true} you can set mountOnEnter. 
+     * After the first enter transition the component will stay mounted, 
+     * even on "exited", unless you also specify  unmountOnExit.
+     * 
+     * @default false
+     */
+    public mountOnEnter ?: boolean;
+
+    /**
+     * By default the child component stays mounted after it reaches the 'exited' state. 
+     * Set unmountOnExit if you'd prefer to unmount the component after it finishes exiting.
+     * 
+     * @default false
+     */
+    public unmountOnExit ?: boolean;
+
+    /**
+     * The duration of the transition, in milliseconds. Required unless addEndListener is provided.
+     * You may specify a single timeout for all transitions:
+     *	timeout={500}
+     *  or individually:
+     *  
+     *  timeout={{
+     *  appear: 500,
+     *  enter: 300,
+     *  exit: 500,
+     *  }}
+     * 
+     * appear defaults to the value of enter
+     * enter defaults to 0
+     * exit defaults to 0
+     */
+    public timeout: int | ~Object with { appear?: number, enter?: number, exit?: number };
+
+    /**
+     * Add a custom transition end trigger. Called with the transitioning DOM
+     * node and a done callback. Allows for more fine grained transition end
+     * logic. 
+     * 
+     * Note: Timeouts are still used as a fallback if provided.
+     */
+    public addEndListener ?: (node: HTMLElement, done: () => void) => void;
+
+    /**
+     * Callback fired before the "entering" status is applied. An extra
+     * parameter `isAppearing` is supplied to indicate if the enter stage is
+     * occurring on the initial mount
+     */
+    public onEnter ?: (node: HTMLElement, isAppearing: boolean) => void;
+
+    /**
+     * Callback fired after the "entering" status is applied. An extra parameter
+     * isAppearing is supplied to indicate if the enter stage is occurring on
+     * the initial mount
+     */
+    public onEntering ?: (node: HTMLElement, isAppearing: boolean) => void;
+
+    /**
+     * Callback fired after the "entered" status is applied. An extra parameter
+     * isAppearing is supplied to indicate if the enter stage is occurring on
+     * the initial mount
+     */
+    public onEntered ?: (node: HTMLElement, isAppearing: boolean) => void;
+
+    /**
+     * Callback fired before the "exiting" status is applied.
+     */
+    public onExit ?: (node: HTMLElement) => void;
+
+    /**
+     * Callback fired after the "exiting" status is applied.
+     */
+    public onExiting ?: (node: HTMLElement) => void;
+
+    /**
+     * Callback fired after the "exited" status is applied.
+     */
+    public onExited ?: (node: HTMLElement) => void;
+}
+
+export default external public function Transition(props: TransitionProps=): React.Element<?>;

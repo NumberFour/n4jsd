@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/react-transition-group",
-	"version": "1.2.2",
+	"version": "4.3.0",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -11,7 +11,8 @@
 		"n4js"
 	],
 	"dependencies": {
-		"@n4jsd/react": ""
+		"@n4jsd/react": "",
+		"n4js-runtime-html5": ""
 	},
 	"n4js": {
 		"projectType": "definition",

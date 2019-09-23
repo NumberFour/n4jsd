@@ -1,0 +1,10 @@
+import {TransitionActions} from "Transition";
+import * as React from "react";
+
+export external public interface ~TransitionGroupProps extends TransitionActions {
+    public component?: any;
+    public children?: React.Element<?> | React.Element<?>[]
+    public childFactory(child: React.Element<?>=): React.Element<?>  
+}
+
+export default external public function TransitionGroup(props: TransitionGroupProps=): React.Element<?>;

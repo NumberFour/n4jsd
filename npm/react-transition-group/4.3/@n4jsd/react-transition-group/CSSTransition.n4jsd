@@ -1,0 +1,20 @@
+import { TransitionProps } from "Transition";
+import * as React from "react";
+
+export external public interface ~CSSTransitionClassNames {
+    public appear?: string;
+    public appearActive?: string;
+    public appearDone?: string;
+    public enter?: string;
+    public enterActive?: string;
+    public enterDone?: string;
+    public exit?: string;
+    public exitActive?: string;
+    public exitDone?: string;
+}
+
+export external public interface ~CSSTransitionProps extends TransitionProps {
+    public classNames?: string | CSSTransitionClassNames;
+}
+
+export default external public function CSSTransition(props: CSSTransitionProps=): React.Element<?>;
