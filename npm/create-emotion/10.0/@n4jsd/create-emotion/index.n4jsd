@@ -1,0 +1,48 @@
+import { StyleSheet, EmotionCache, Options } from "emotion";
+
+export external public interface ~Emotion {
+    /**
+     * Accepts styles as a object, or array of objects and returns a class name.
+     * 
+     * @see https://emotion.sh/docs/emotion#global-styles
+     */
+    public css: (...args: any) => string;
+    
+    /**
+     * Detects emotion generated class names ensuring styles are overwritten in the correct order.
+     * 
+     * @see https://emotion.sh/docs/emotion#cx
+     */
+    public cx: (...classNames: any) => string;
+    
+    /**
+     * Injects styles into the global scope.
+     * 
+     * @see https://emotion.sh/docs/emotion#global-styles
+     */
+    public injectGlobal: (...args: any) => void;
+    
+    /**
+     * Generates a unique animation name that can be used to animate elements with CSS animations.
+     * 
+     * @see https://emotion.sh/docs/emotion#animation-keyframes
+     */
+    public keyframes: (...args: any) => string;
+    
+    /**
+     * @see https://emotion.sh/docs/ssr#hydrate
+     */
+    public hydrate: (ids: string[]) => void;
+
+    public merge: (className: string) => string;
+
+    public getRegisteredStyles: (registeredStyles: string[], className: string) => string;
+
+    public flush: () => void;
+
+    public sheet: StyleSheet;
+
+    public cache: EmotionCache;
+}
+
+export default external public function createEmotion(options: Options=): Emotion;
