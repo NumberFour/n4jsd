@@ -8,14 +8,14 @@ export external public interface ~EmotionServer {
      * 
      * @see https://emotion.sh/docs/ssr#renderstylestostring
      */
-    public renderStylesToString(html: string): string;
+    public renderStylesToString: (html: string) => string;
     
     /**
      * Returns a Node Stream Writable that can be used to insert critical css right before it’s required
      * 
      * @see https://emotion.sh/docs/ssr#renderstylestonodestream
      */
-    public renderStylesToNodeStream(): Writable;
+    public renderStylesToNodeStream: () => Writable;
     
     /**
      * Returns an object with the properties html, ids and css. 
@@ -23,7 +23,7 @@ export external public interface ~EmotionServer {
      * 
      * @see https://emotion.sh/docs/ssr#renderstylestostring
      */
-    public extractCritical(html: string): EmotionCritical;
+    public extractCritical: (html: string) => EmotionCritical;
 }
 
 export default external public function createEmotionServer(cache: EmotionCache): EmotionServer;
