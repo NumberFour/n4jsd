@@ -1,5 +1,5 @@
-export external public interface ~Ref<T extends Object> {
-    public get current?(): T; // HTMLElement, React.Component, ...
+export external public interface ~Ref<T> {
+    public current?: T; // HTMLElement, React.Component, ...
 }
 
 export external public interface ~ComponentProps {
@@ -378,7 +378,7 @@ export external public class Suspense extends Component<SuspenseProps, Object> {
 /**
  * @see https://reactjs.org/docs/refs-and-the-dom.html
  */
-export external public function <T extends Object> createRef(): Ref<T>;
+export external public function <T> createRef(): Ref<T>;
 
 /**
  * @see https://reactjs.org/docs/forwarding-refs.html
@@ -468,18 +468,18 @@ export external public function <ValueT> useMemo(
 /**
  * @see https://reactjs.org/docs/hooks-reference.html#useref
  */
-export external public function <T extends Object> useRef(
+export external public function <T> useRef(
     initialValue: T=
 ): Ref<T>;
 
 /**
  * @see https://reactjs.org/docs/hooks-reference.html#useimperativehandle
  */
-export external public function <T extends Object> useImperativeHandle(
+export external public function <T> useImperativeHandle(
     ref: Ref<T>,
-    createHandle: () => Object,
+    createHandle: () => T,
     deps: any[]=
-): Ref<T>;
+): void;
 
 /**
  * @see https://reactjs.org/docs/hooks-reference.html#uselayouteffect
