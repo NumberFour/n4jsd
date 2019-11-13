@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/react-transition-group",
-	"version": "4.3.0",
+	"version": "4.3.1",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -17,7 +17,7 @@
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "react-transition-group",
-		"mainModule": "CSSTransitionGroup",
+		"mainModule": "cjs/index.js",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
