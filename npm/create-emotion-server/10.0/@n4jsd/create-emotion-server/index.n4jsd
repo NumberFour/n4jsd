@@ -1,6 +1,11 @@
 import { Writable } from "stream";
-import { EmotionCritical } from "emotion-server";
-import { EmotionCache } from "emotion";
+import { EmotionCache } from "create-emotion";
+
+export external public interface ~EmotionCritical {
+    public html: string;
+    public ids: string[];
+    public css: string;
+}
 
 export external public interface ~EmotionServer {
     /**
