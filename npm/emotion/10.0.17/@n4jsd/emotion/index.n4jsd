@@ -1,34 +1,4 @@
-export external public interface ~Options {
-    nonce?: string;
-    key: string;
-    container: HTMLElement;
-    speedy?: boolean;
-}
-
-export external public class StyleSheet {
-    public constructor(options: Options=);
-
-    public isSpeedy: boolean;
-    public ctr: number;
-    public tags: HTMLElement+[];
-    public container: HTMLElement;
-    public maxLength: number;
-    public key: string;
-    public nonce?: string;
-    public before?: Element;
-    public insert(rule: string): void;
-    public flush(): void;
-}
-
-export external public interface ~EmotionCache {
-    public stylis(key: string, value: string): string[];
-    public inserted: Object+;
-    public registered: Object+;
-    public sheet: StyleSheet;
-    public key: string;
-    public compat?: boolean;
-    public nonce?: string;
-}
+import { StyleSheet, EmotionCache, Options } from "create-emotion";
 
 /**
  * Accepts styles as a object, or array of objects and returns a class name.

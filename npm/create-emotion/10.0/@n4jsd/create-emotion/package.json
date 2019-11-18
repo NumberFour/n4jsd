@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/create-emotion",
-	"version": "10.0.15",
+	"version": "10.0.16",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -22,7 +22,6 @@
 		}
 	},
 	"dependencies": {
-		"@n4jsd/emotion": "",
 		"n4js-runtime-html5": ""
 	}
 }

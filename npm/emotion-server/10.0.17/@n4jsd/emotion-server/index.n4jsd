@@ -1,10 +1,5 @@
 import { Writable } from "stream";
-
-export external public interface ~EmotionCritical {
-    public html: string;
-    public ids: string[];
-    public css: string;
-}
+import { EmotionCritical } from "create-emotion-server";
 
 /**
  * Returns a string of html that inlines the critical css required right before it’s used.
