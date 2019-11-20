@@ -1,0 +1,461 @@
+import * as React from "react";
+
+@StringBased
+export external public enum NukaCarouselCellAlignment {
+    left,
+    center,
+    right
+}
+
+@StringBased
+export external public enum NukaCarouselHeightMode {
+    first,
+    current,
+    max
+}
+
+@StringBased
+export external public enum NukaCarouselTransitionMode {
+    fade,
+    scroll,
+    scroll3d
+}
+
+@StringBased
+export external public enum NukaCarouselMultipleSlidesScrollMode {
+    auto
+}
+
+@StringBased
+export external public enum NukaCarouselAnimationEffect {
+    zoom
+}
+
+export external public interface ~NukaCarouselSlideRenderControlProps {
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellAlign: NukaCarouselCellAlignment;
+
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellSpacing: int;
+
+    /**
+     * Current slide index
+     */
+    public currentSlide: int;
+
+    /**
+     * Current frame width (px)
+     */
+    public frameWidth: int;
+
+    /**
+     * Go to X slide method
+     * @param index Slide's index to go
+     */
+    public goToSlide: (index: int) => void;
+
+    /**
+     * Go to the next slide method
+     */
+    public nextSlide: () => void;
+
+    /**
+     * Go to the previous slide method
+     */
+    public previousSlide: () => void;
+
+    /**
+     * Total amount of slides
+     */
+    public slideCount: int;
+
+    /**
+     * Slides to scroll at once
+     */
+    public slidesToScroll: int;
+
+    /**
+     * Slides to show at once
+     */
+    public slidesToShow: int;
+
+    /**
+     * Current slide width (px)
+     */
+    public slideWidth: union{number, string};
+
+    /**
+     * Infinite mode enabled
+     */
+    public wrapAround: boolean;
+}
+
+export external public interface ~NukaCarouselProps extends React.ComponentProps {
+    /**
+     * Hook to be called after a slide is changed
+     * @param prevSlide Index of the previous slide
+     */
+    public afterSlide?: (prevSlide: int) => void;
+
+    /**
+     * Adds a zoom effect on the currently visible slide.
+     */
+    public animation?: NukaCarouselAnimationEffect;
+
+    /**
+     * Will generate a style tag to help ensure images are displayed properly
+     * @default true
+     */
+    public autoGenerateStyleTag?: boolean;
+
+    /**
+     * Autoplay mode active
+     * @default false
+     */
+    public autoplay?: boolean;
+        
+    /**
+     * Interval for autoplay iteration (ms)
+     * @default 3000
+     */
+    public autoplayInterval?: int;
+
+    /**
+     * Autoplay cycles through slide indexes in reverse
+     * @default false
+     */
+    public autoplayReverse?: boolean;
+
+    /**
+     * Hook to be called before a slide is changed
+     * @param currentSlide Index of the current slide
+     * @param endSlide Index of the last slide
+     */
+    public beforeSlide?: (currentSlide: int, endSlide: int) => void;
+    
+    /**
+     * When displaying more than one slide, sets which position to anchor the current slide to.
+     */
+    public cellAlign?: NukaCarouselCellAlignment;
+    
+    /**
+     * Space between slides, as an integer, but reflected as px
+     */
+    public cellSpacing?: int;
+    
+    /**
+     * Additional className
+     */
+    public className?: string;
+
+    /**
+     * When set to true, disable keyboard controls
+     * @default false
+     */
+    public enableKeyboardControls?: boolean;
+
+    /**
+     * Disable slides animation
+     * @default false
+     */
+    public disableAnimation?: boolean;
+
+    /**
+     * Disable swipe before first slide and after last slide
+     * @default false
+     */
+    public disableEdgeSwiping?: boolean;
+
+    /**
+     * Enable mouse swipe/dragging
+     */
+    public dragging?: boolean;
+
+    /**
+     * Animation easing function
+     * @see https://github.com/d3/d3-ease
+     */
+    public easing?: string;
+
+    /**
+     * Animation easing function when swipe exceeds edge
+     * @see https://github.com/d3/d3-ease
+     */
+    public edgeEasing?: string;
+
+    /**
+     * Used to set overflow style property on slider frame
+     * @default 'hidden'
+     */
+    public frameOverflow?: string;
+
+    /**
+     * Used to set the margin of the slider frame.
+     * Accepts any string dimension value such as "0px 20px" or "500px"
+     * @example '0px 20px'
+     * @example '500px'
+     */
+    public framePadding?: string;
+
+    /**
+     * Used to hardcode the slider height
+     * @example '80%'
+     * @example '500px'
+     */
+    public height?: string;
+
+    /**
+     * Change the height of the slides based either on the first slide,
+     * the current slide, or the maximum height of all slides.
+     */
+    public heightMode?: NukaCarouselHeightMode;
+
+    /**
+     * Initial height of the slides (px)
+     */
+    public initialSlideHeight?: int;
+
+    /**
+     * Initial width of the slides (px)
+     */
+    public initialSlideWidth?: int;
+
+    /**
+     * optional callback function
+     */
+    public onDragStart?: () => void;
+
+    /**
+     * Window onResize callback
+     */
+    public onResize?: () => void;
+
+    /**
+     * Pause autoPlay when mouse is over carousel
+     * @default true
+     */
+    public pauseOnHover?: boolean;
+
+    /**
+     * Function for rendering top left control
+     */
+    public renderTopLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering top center control
+     */
+    public renderTopCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering top right control
+     */
+    public renderTopRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering center left control
+     */
+    public renderCenterLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering center center control
+     */
+    public renderCenterCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering center right control
+     */
+    public renderCenterRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering bottom left control
+     */
+    public renderBottomLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering bottom center control
+     */
+    public renderBottomCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Function for rendering bottom right control
+     */
+    public renderBottomRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+
+    /**
+     * Manually set the index of the slide to be shown
+     */
+    public slideIndex?: number;
+
+    /**
+     * Slides to scroll at once. Set to "auto"
+     * to always scroll the current number of visible slides
+     */
+    public slidesToScroll?: union{int, NukaCarouselMultipleSlidesScrollMode};
+
+    /**
+     * Slides to show at once
+     */
+    public slidesToShow?: number;
+
+    /**
+     * Manually set slideWidth
+     * @example '20px'
+     * @example 0.8
+     */
+    public slideWidth?: union{number, string};
+
+    /**
+     * Animation duration
+     */
+    public speed?: number;
+
+    /**
+     * style object
+     */
+    public style?:Object;
+
+    /**
+     * Enable touch swipe/dragging
+     */
+    public swiping?: boolean;
+
+    /**
+     * Set the way slides transition from one to the next
+     */
+    public transitionMode?: NukaCarouselTransitionMode;
+
+    /**
+     * Enable the slides to transition vertically
+     */
+    public vertical?: boolean;
+
+    /**
+     * Used to hardcode the slider width
+     * @example '80%'
+     * @example '500px'
+     */
+    public width?: string;
+
+    /**
+     * Sets infinite wrapAround mode
+     * @default false
+     */
+    public wrapAround?: boolean;
+
+    /**
+     * Used to remove all controls at once. Overwrites the render[Top, Right, Bottom, Left]CenterControls()
+     * @default false
+     */
+    public withoutControls?: boolean;
+}
+
+export external public interface ~NukaCarouselState {
+    /**
+     * Current slide index
+     */
+    public currentSlide: int;
+
+    /**
+     * Is dragging enabled
+     */
+    public dragging: boolean;
+
+    /**
+     * Easing function name
+     */
+    public easing: string;
+
+    /**
+     * Current frame width
+     */
+    public frameWidth: int;
+
+    public isWrappingAround: boolean;
+
+    /**
+     * Current left value
+     */
+    public left: int;
+
+    public pauseOnHover: boolean;
+
+    public resetWrapAroundPosition: boolean;
+
+    /**
+     * Total amount of slides
+     */
+    public slideCount: int;
+
+    /**
+     * Slides to scroll at once
+     */
+    public slidesToScroll: int;
+
+    /**
+     * Current slide width
+     */
+    public slideWidth: union{number, string};
+
+    /**
+     * Current top value
+     */
+    public top: int;
+
+    /**
+     * Is infinite mode enabled
+     */
+    public wrapToIndex: boolean;
+}
+
+export external public interface PreviousButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+export external public interface NextButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public class NextButton extends React.Component<NextButtonProps, undefined> {
+    @Override
+    public render(): React.Element<?>;
+}
+
+export external public interface PagingDotsProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public class PagingDots extends React.Component<PagingDotsProps, undefined> {
+    public getButtonStyles(active: boolean): Object;
+    public getListStyles(): Object;
+    public getListItemStyles(): Object;
+    public getDotIndexes(
+        slideCount: int,
+        slidesToScroll: int,
+        slidesToShow: int,
+        cellAlign: NukaCarouselCellAlignment
+    ): int[];
+
+    @Override
+    public render(): React.Element<?>;
+}
+
+/**
+ * https://github.com/FormidableLabs/nuka-carousel
+ */
+export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
+
+    /**
+     * @internal
+     */
+    public setDimensions: () => void;
+    public startAutoplay: () => void;
+    public stopAutoplay: () => void;
+    public goToSlide: (index: int) => void;
+    public nextSlide: () => void;
+    public previousSlide: () => void;
+
+    @Override
+    public render(): React.Element<?>;
+};
+
+/* -*- mode: typescript;-*- */
