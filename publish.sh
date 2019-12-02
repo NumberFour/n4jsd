@@ -114,7 +114,10 @@ do
 	echo "validate $COUNT of $PRJ_COUNT: $PRJ_LOC"
 	
 	set +e # ignore problems
-	OUTPUT="$(n4jsc --npmrcRootLocation $NPMRC_VERDACCIO -imd -bt projects $PRJ_LOC 2>&1)"
+	pushd $PRJ_LOC
+		npm install
+		OUTPUT="$(n4jsc . 2>&1)"
+	popd
 
 
 	if [[ $? -ne 0 ]]; then
