@@ -1,0 +1,5 @@
+export default external public function isMatchWith(expected:any, actual:any, 
+    customizer: {function(any, any, int|string =, any=, any=)}
+):boolean
+
+/* -*- mode: typescript;-*- */

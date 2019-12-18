@@ -1,0 +1,3 @@
+export default external public function forEach(object: Array<any>|Object, iteratee: (v: any, k: string|int) => void): void;
+
+/* -*- mode: typescript;-*- */

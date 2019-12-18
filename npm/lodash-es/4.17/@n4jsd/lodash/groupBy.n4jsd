@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.5#groupBy
+ */
+export default external public function <T> groupBy(collection: Array<T> | Object, iteratee: (T) => string =): Object;

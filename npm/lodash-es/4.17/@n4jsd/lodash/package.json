@@ -1,0 +1,24 @@
+{
+	"name": "@n4jsd/lodash-es",
+	"version": "4.17.1",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for lodash-es",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "lodash-es",
+		"mainModule": "lodash",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		}
+	}
+}

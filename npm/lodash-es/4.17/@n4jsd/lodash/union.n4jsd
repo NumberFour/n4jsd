@@ -1,0 +1,3 @@
+export default external public function <T> union(...arrays:Array<T>): Array<T>;
+
+/* -*- mode: typescript;-*- */ 
