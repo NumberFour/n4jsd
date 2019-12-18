@@ -1,0 +1,3 @@
+export default external public function <T> uniq(val: Array<T>): Array<T>;
+
+/* -*- mode: typescript;-*- */

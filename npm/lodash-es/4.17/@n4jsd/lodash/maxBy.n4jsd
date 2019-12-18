@@ -1,0 +1,3 @@
+export default external public function <T> maxBy(array: Array<T>, iteratee: (T) => any): T;
+
+/* -*- mode: typescript;-*- */

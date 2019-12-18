@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.5#differenceBy
+ */
+export default external public function <T> differenceBy(collection: Array<T>, values: Array<T>, iteratee: (T) => string =): Array<T>;

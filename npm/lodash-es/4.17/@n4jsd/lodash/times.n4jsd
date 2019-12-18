@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.11#times
+ */
+export default external public function <T> times(n: int, iteratee: (int) => T): T[];
