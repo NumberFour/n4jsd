@@ -1,0 +1,6 @@
+/**
+ * @see https://lodash.com/docs/4.17.15#template
+ */
+export default external public function template(str: string = "", options = {}): (Object) => string;
+
+/* -*- mode: typescript;-*- */
