@@ -1,0 +1,22 @@
+import {IWritableStream} from "stream";
+import {IReadableStream} from "stream";
+
+/**
+ * @see https://github.com/lovell/sharp
+ */
+export external public abstract class Sharp implements IWritableStream, IReadableStream {
+    public resize(widthOrOptions: number|Object, height: number=): this;
+
+    public async toBuffer(): Buffer;
+    public async toFile(path: string): void;
+    public min(): this;
+    public max(): this;
+
+}
+
+/**
+ * @see https://sharp.pixelplumbing.com/en/stable/api-constructor/
+ */
+export default external public function sharp(input: Buffer|string=, options: Object=): Sharp;
+
+/* -*- mode: typescript;-*- */
