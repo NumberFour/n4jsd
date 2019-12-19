@@ -1,0 +1,4 @@
+/**
+ * Converts string to kebab case (a.k.a. spinal case). See Wikipedia for more details.
+ */
+export default external public function kebabCase(str: string): string;

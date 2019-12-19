@@ -1,0 +1,6 @@
+/**
+ * Creates an array of the own and inherited enumerable property names of `object`.
+ *
+ * **Note:** Non-object values are coerced to objects.
+ */
+export default external public function keysIn(object: Object): Array<string>;

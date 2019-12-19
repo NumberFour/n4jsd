@@ -1,0 +1,4 @@
+/**
+ * Converts first letter of the string to uppercase.
+ */
+export default external public function capitalize(str: string): string;

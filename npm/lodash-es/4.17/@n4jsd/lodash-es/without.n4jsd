@@ -1,0 +1,1 @@
+export default external public function <ElemT> without(array: Array<ElemT>, ...toBeExcluded: ElemT): Array<ElemT>;

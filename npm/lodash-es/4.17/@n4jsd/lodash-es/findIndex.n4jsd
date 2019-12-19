@@ -1,0 +1,1 @@
+export default external public function <ElemT> findIndex(predicate: Array<ElemT>, callback: {function(ElemT, number, Array<ElemT>): boolean} = undefined, context: Object = undefined): int;

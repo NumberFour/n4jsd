@@ -1,0 +1,4 @@
+/**
+ * Converts string to snake case. See Wikipedia for more details.
+ */
+export default external public function snakeCase(str: string): string;

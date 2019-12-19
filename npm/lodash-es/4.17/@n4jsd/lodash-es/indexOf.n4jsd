@@ -1,0 +1,4 @@
+/**
+ * Gets the index at which the first occurrence of value is found using strict equality for comparisons, i.e. ===. If the array is already sorted providing true for fromIndex will run a faster binary search.
+ */
+export default external public function indexOf(object: Object, value: any, fromIndexOrBinarySearch: union{number, boolean} = undefined): int;

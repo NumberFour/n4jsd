@@ -1,0 +1,4 @@
+/**
+ * Returns true if object is a Number (including NaN).
+ */
+export default external public function isNumber(obj: any): boolean;

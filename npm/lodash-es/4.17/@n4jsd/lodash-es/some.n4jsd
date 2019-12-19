@@ -1,0 +1,1 @@
+export default external public function <ValueT> some(collection: union{Array<ValueT>, Object, string}, callback: {function(ValueT): boolean}=, context: Object=): boolean;

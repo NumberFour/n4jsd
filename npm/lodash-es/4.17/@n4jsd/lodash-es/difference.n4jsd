@@ -1,0 +1,1 @@
+export default external public function <ElemT> difference(array: Array<ElemT>, ... toBeExcluded: Array<ElemT>): Array<ElemT>;

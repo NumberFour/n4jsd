@@ -1,0 +1,5 @@
+/**
+ * Fill in missing properties in <b>object</b> with default values from the <b>defaults</b> objects, and return the <b>object</b>.
+ * As soon as the property is filled, further defaults will have no effect.
+ */
+export default external public function defaults(object: Object, ...defaults_: Object): Object;

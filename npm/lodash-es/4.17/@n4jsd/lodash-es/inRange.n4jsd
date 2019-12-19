@@ -1,0 +1,4 @@
+/**
+ * Whether a value is inside a range [lower, upper).
+ */
+export default external public function inRange(value: number, lower: number, upper: number): boolean;

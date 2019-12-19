@@ -1,0 +1,4 @@
+/**
+ * Creates an array of function property names from all enumerable properties, own and inherited, of object.
+ */
+export default external public function methods(object: Object): Array<string>;

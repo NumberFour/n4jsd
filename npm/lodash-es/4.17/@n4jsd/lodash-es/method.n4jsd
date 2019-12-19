@@ -1,0 +1,4 @@
+/**
+ * Creates a function to execute on a collection of objects (varying context)
+ */
+export default external public function method(fn: Function, ... args: any): Function;

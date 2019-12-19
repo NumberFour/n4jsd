@@ -1,0 +1,4 @@
+/**
+ * @see https://lodash.com/docs/4.17.11#mapValues
+ */
+export default external public function mapValues(collection: Object, iteratee: (value: any=, key: string=, collection: Object=) => any=): Object;

@@ -1,0 +1,1 @@
+export default external public function <ValueT> sample(collection: union{Array<ValueT>, Object, string}, n: number=): ValueT;
