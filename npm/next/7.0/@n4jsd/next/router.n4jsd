@@ -1,3 +1,5 @@
+import * as React from "react";
+
 /**
  * Passed into page props.
  */
@@ -50,6 +52,9 @@ export external public interface ~INextRouter {
      */
     public appUpdated: {function(nextRoute: string): void};
 }
+
+export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
+withRouter(ctor: constructor{CompT} | (PropsT) => React.Element<?>): (PropsT) => React.Element<?>;
 
 /**
  * https://github.com/zeit/next.js#imperatively
