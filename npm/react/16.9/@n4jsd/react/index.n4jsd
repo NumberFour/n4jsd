@@ -422,7 +422,7 @@ export external public function <PropsT extends ComponentProps> lazy(
  * @see https://reactjs.org/docs/hooks-reference.html#usestate
  */
 export external public function <StateT> useState(
-    initialState: StateT
+    initialState: StateT|() => StateT
 ): Iterable2<StateT, (state: StateT) => void>;
 
 /**
