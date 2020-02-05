@@ -10,3 +10,4 @@ yarn.lock
 .DS_Store
 .AppleDouble
 .LSOverride
+.n4js.projectstate

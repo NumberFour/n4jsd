@@ -1,6 +1,7 @@
 import {IncomingMessage} from "http";
 import {ServerResponse} from "http";
 import {Socket} from "net";
+import {INextRouter} from "next/router";
 import * as React from "react";
 
 /**
@@ -67,6 +68,7 @@ export external public class ~NextPageURL {
 
 export public interface ~NextPageProps extends React.ComponentProps {
     public url?: NextPageURL;
+    public router?: INextRouter;
 }
 
 
@@ -92,6 +94,6 @@ export external public interface ~NextApp {
     public async renderToHTML(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): string;
 }
 
-export default external public function next(path: string, opts: ~NextAppOptions): NextApp;
+export default external public function next(pathOrOpts: string|~NextAppOptions, opts: ~NextAppOptions=): NextApp;
  
 /* -*- mode: typescript;-*- */

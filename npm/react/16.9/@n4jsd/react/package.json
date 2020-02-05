@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/react",
-	"version": "16.9.1",
+	"version": "16.9.2",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -24,7 +24,7 @@
 			"n4js-runtime-es2015"
 		]
 	},
- 	"dependencies": {
+	"dependencies": {
 		"n4js-runtime-es2015": ""
 	}
 }
