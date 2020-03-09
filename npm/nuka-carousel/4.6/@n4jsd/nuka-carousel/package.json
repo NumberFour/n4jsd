@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/nuka-carousel",
-	"version": "4.5.13",
+	"version": "4.6.5",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -22,6 +22,7 @@
 		}
 	},
 	"dependencies": {
-		"@n4jsd/react": ""
+		"@n4jsd/react": "",
+		"n4js-runtime-html5": ""
 	}
 }
