@@ -7,7 +7,7 @@ export external public interface ~AppInitialProps {
 }
 
 export external public class ~NextAppContext extends NextPageContext {
-    public Component: (props: ~Object with {router: INextRouter}) => React.Element<?>;
+    public Component: (props: ~Object with { router: INextRouter }) => React.Element<?>;
     public router: INextRouter;
     public ctx: NextPageContext;
     public AppTree: any;
