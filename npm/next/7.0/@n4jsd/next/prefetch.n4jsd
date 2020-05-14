@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LinkProps } from "lib/link";
+import { LinkProps } from "link";
 
 /**
  * https://github.com/zeit/next.js#prefetching-pages

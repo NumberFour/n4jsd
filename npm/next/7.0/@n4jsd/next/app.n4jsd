@@ -1,6 +1,6 @@
 import  * as React from "react";
-import {NextPageContext} from "lib/dist/server/next";
-import {INextRouter} from "lib/router";
+import {NextPageContext} from "dist/server/next";
+import {INextRouter} from "router";
 
 export external public interface ~AppInitialProps {
     public pageProps: Object;

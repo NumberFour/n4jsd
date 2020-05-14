@@ -1,7 +1,7 @@
 import {IncomingMessage} from "http";
 import {ServerResponse} from "http";
 import {Socket} from "net";
-import {INextRouter} from "lib/router";
+import {INextRouter} from "router";
 import * as React from "react";
 
 /**
