@@ -1,5 +1,5 @@
-import  * as React  from 'react'
-import { NextPageContext } from "dist/server/next";
+import  * as React  from "react";
+import { NextPageContext } from "lib/dist/server/next";
 
 export external public class ~NextDocumentContext<PropsT extends React.ComponentProps>
     extends NextPageContext {
