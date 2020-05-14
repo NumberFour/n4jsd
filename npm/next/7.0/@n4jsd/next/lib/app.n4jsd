@@ -3,11 +3,11 @@ import {NextPageContext} from "lib/dist/server/next";
 import {INextRouter} from "lib/router";
 
 export external public interface ~AppInitialProps {
-    pageProps: any;
+    public pageProps: Object;
 }
 
 export external public class ~NextAppContext extends NextPageContext {
-    public Component: (props: ~Object with {router: Object}) => React.Element<?>;
+    public Component: (props: ~Object with {router: INextRouter}) => React.Element<?>;
     public router: INextRouter;
     public ctx: NextPageContext;
     public AppTree: any;
@@ -17,8 +17,7 @@ export default external public class NextApp <PropsT extends React.ComponentProp
   extends React.Component<PropsT, StateT> {
 
     public static getInitialProps(ctx: NextAppContext): Promise<AppInitialProps, any>;
-    @Override
-    public componentDidCatch(error: any, info: ~Object with { componentStack }): void;
+
     @Override
     public render(): React.Element<?>;
 }
