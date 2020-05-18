@@ -925,6 +925,38 @@ export external public class List<out T> extends IndexedIterable<T> {
      */
     public update(index: number, notSetValue: /*T*/ any, updater: {function (value: T): /*T*/ any}): this;
 
+    // Deep persistent changes
+
+    /**
+     * Returns a new Map having set `value` at this `keyPath`. If any keys in
+     * `keyPath` do not exist, a new immutable Map will be created at that key.
+     */
+    public setIn(keyPath: Array<?>, value: any): this;
+
+    /**
+     * Returns a new Map having removed the value at this `keyPath`. If any keys
+     * in `keyPath` do not exist, no change will occur.
+     *
+     * @alias removeIn
+     */
+    public deleteIn(keyPath: Array<?>): this;
+    public removeIn(keyPath: Array<?>): this;
+
+    /**
+     * @see `Map#*`
+     */
+    public updateIn(keyPath: Array<?>, notSetValue: any, updater: Function): this;
+
+    /**
+     * @see `Map#*`
+     */
+    public mergeIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+
+    /**
+     * @see `Map#*`
+     */
+    public mergeDeepIn(keyPath: Array<?>, ...iterables: ImmutableIterable</*K*/ any, /*V*/ any, ?>): this;
+
     /**
      * @see `Map#merge`
      */
