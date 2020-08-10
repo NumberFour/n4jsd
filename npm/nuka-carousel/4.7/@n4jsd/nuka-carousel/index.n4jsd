@@ -51,11 +51,11 @@ export external public enum NukaCarouselControlContainer {
 }
 
 export external public interface ~NukaCarouselSlideActions {
-    public nextSlide?: number[];
-    public previousSlide?: number[];
-    public firstSlide?: number[];
-    public lastSlide?: number[];
-    public pause?: number[];
+    public nextSlide?: int[];
+    public previousSlide?: int[];
+    public firstSlide?: int[];
+    public lastSlide?: int[];
+    public pause?: int[];
 }
 
 export external public interface ~DefaultControlsConfig {
@@ -137,7 +137,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
 export external public interface ~NukaCarouselProps extends React.ComponentProps {
     /**
      * Hook to be called after a slide is changed
-     * @param prevSlide Index of the previous slide
+     * @param index Index of the current slide
      */
     public afterSlide?: (index: int) => void;
 
