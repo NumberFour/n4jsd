@@ -80,7 +80,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     /**
      * When displaying more than one slide, sets which position to anchor the current slide to.
      */
-    public cellSpacing: int;
+    public cellSpacing: number;
 
     /**
      * Current slide index
@@ -90,7 +90,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     /**
      * Current frame width (px)
      */
-    public frameWidth: int;
+    public frameWidth: number;
 
     /**
      * Go to X slide method
@@ -126,7 +126,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     /**
      * Current slide width (px)
      */
-    public slideWidth: int;
+    public slideWidth: number;
 
     /**
      * Infinite mode enabled
@@ -137,9 +137,9 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
 export external public interface ~NukaCarouselProps extends React.ComponentProps {
     /**
      * Hook to be called after a slide is changed
-     * @param prevSlide Index of the previous slide
+     * @param index Index of the current slide
      */
-    public afterSlide?: (prevSlide: int) => void;
+    public afterSlide?: (index: int) => void;
 
     /**
      * Adds a zoom effect on the currently visible slide.
@@ -162,7 +162,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Interval for autoplay iteration (ms)
      * @default 3000
      */
-    public autoplayInterval?: int;
+    public autoplayInterval?: number;
 
     /**
      * Autoplay cycles through slide indexes in reverse
@@ -206,7 +206,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Optional callback to apply styles to the container of a control.
      */
-    public getControlsContainerStyle?: (key: NukaCarouselControlContainer) => Object // CSSProperties
+    public getControlsContainerStyles?: (key: NukaCarouselControlContainer) => Object // CSSProperties
 
     /**
      * This prop lets you apply custom classes and styles to the default Next, Previous, and Paging Dots controls
@@ -278,12 +278,12 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Initial height of the slides (px)
      */
-    public initialSlideHeight?: int;
+    public initialSlideHeight?: number;
 
     /**
      * Initial width of the slides (px)
      */
-    public initialSlideWidth?: int;
+    public initialSlideWidth?: number;
 
     /**
      * optional callback function
@@ -363,6 +363,12 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     public slideIndex?: number;
 
     /**
+     * While using prop animation = "zoom", you can
+     * configure space around current slide with slideOffset.
+     */
+    public slideOffset?: number;
+
+    /**
      * Slides to scroll at once. Set to "auto"
      * to always scroll the current number of visible slides
      */
@@ -371,7 +377,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Slides to show at once
      */
-    public slidesToShow?: number;
+    public slidesToShow?: int;
 
     /**
      * Manually set slideWidth
@@ -423,6 +429,13 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * @default false
      */
     public withoutControls?: boolean;
+
+    /**
+     * Adds a number value to set the scale of zoom when animation === "zoom". 
+     * The number value should be set in a range of (0,1). 
+     * @default 0.85
+     */
+    public zoomScale?: number;
 }
 
 export external public interface ~NukaCarouselState {
@@ -444,14 +457,14 @@ export external public interface ~NukaCarouselState {
     /**
      * Current frame width
      */
-    public frameWidth: int;
+    public frameWidth: number;
 
     public isWrappingAround: boolean;
 
     /**
      * Current left value
      */
-    public left: int;
+    public left: number;
 
     public pauseOnHover: boolean;
 
@@ -475,7 +488,7 @@ export external public interface ~NukaCarouselState {
     /**
      * Current top value
      */
-    public top: int;
+    public top: number;
 
     /**
      * Is infinite mode enabled
