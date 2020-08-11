@@ -54,7 +54,7 @@ export external public interface ~INextRouter {
 }
 
 export external public function <CompT extends React.Component<PropsT, ?>, PropsT extends React.ComponentProps>
-withRouter(ctor: any): union{React.Element<? extends React.ComponentProps>,string};
+withRouter(ctor: constructor{CompT} | (PropsT) => React.Element<?>): (PropsT) => React.Element<?>;
 
 /**
  * https://github.com/zeit/next.js#imperatively
