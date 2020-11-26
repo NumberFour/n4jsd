@@ -21,9 +21,6 @@ uplinks:
   npmjs:
     url: https://registry.npmjs.org/
 
-  nexus:
-    url: http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
-
 packages:
 
   '**':
@@ -39,7 +36,7 @@ packages:
     publish: $all
 
     # if package is not available locally, proxy requests to 'npmjs' registry
-    proxy: nexus
+    proxy: npmjs
 
 # log settings
 logs:
