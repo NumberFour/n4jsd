@@ -1,4 +1,4 @@
-FROM node:10-alpine
+FROM node:14.5-alpine
 
 # Default to UTF-8 file.encoding
 ENV LANG C.UTF-8

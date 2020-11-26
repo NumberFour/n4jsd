@@ -31,7 +31,7 @@ export PUBLISH_SINGLE_NPM="${DIR}/publishSingleNPM.sh"
 
 
 echo "== Start publish script"
-echo "dir of scipt is $DIR"
+echo "dir of script is $DIR"
 
 
 # The first parameter is the url to npm registry (http://localhost:4873), if not exists then exit
@@ -69,9 +69,9 @@ fi
 
 
 
-echo "Run npm install using registry nexus3-aws"
+echo "Run npm install using registry https://registry.npmjs.org/"
 setNpmConfig "${NPMRC_PUBLISH}"
-npm install --registry=http://nexus3-aws.corp.numberfour.eu/repository/npm-public/
+npm install --registry=https://registry.npmjs.org/
 echo "export PATH"
 export PATH=`pwd`/node_modules/.bin:${PATH}
 
