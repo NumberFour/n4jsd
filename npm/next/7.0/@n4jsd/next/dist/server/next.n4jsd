@@ -89,7 +89,7 @@ export external public interface ~NextApp {
     public async close(): void;
     public async start(port: int): void;
     public async run(req: IncomingMessage, res: ServerResponse): void;
-    public getRequestHandler(): {function(req: IncomingMessage, res: ServerResponse): void};
+    public getRequestHandler(): (req: IncomingMessage, res: ServerResponse) => void;
     public async render(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): void;
     public async renderToHTML(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): string;
 }

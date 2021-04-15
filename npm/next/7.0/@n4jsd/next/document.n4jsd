@@ -4,7 +4,7 @@ import { NextPageContext } from "dist/server/next";
 export external public class ~NextDocumentContext<PropsT extends React.ComponentProps>
     extends NextPageContext {
 
-    public renderPage: {function(): PropsT}
+    public renderPage: () => PropsT;
 }
 
 export public interface ~N4DocumentProps extends React.ComponentProps {

@@ -134,6 +134,8 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     public wrapAround: boolean;
 }
 
+export external public type RenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.Element<?> | constructor{React.Component};
+
 export external public interface ~NukaCarouselProps extends React.ComponentProps {
     /**
      * Hook to be called after a slide is changed
@@ -304,47 +306,47 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Function for rendering top left control
      */
-    public renderTopLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopLeftControls?: RenderControlFn;
 
     /**
      * Function for rendering top center control
      */
-    public renderTopCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopCenterControls?: RenderControlFn;
 
     /**
      * Function for rendering top right control
      */
-    public renderTopRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopRightControls?: RenderControlFn;
 
     /**
      * Function for rendering center left control
      */
-    public renderCenterLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterLeftControls?: RenderControlFn;
 
     /**
      * Function for rendering center center control
      */
-    public renderCenterCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterCenterControls?: RenderControlFn;
 
     /**
      * Function for rendering center right control
      */
-    public renderCenterRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterRightControls?: RenderControlFn;
 
     /**
      * Function for rendering bottom left control
      */
-    public renderBottomLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomLeftControls?: RenderControlFn;
 
     /**
      * Function for rendering bottom center control
      */
-    public renderBottomCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomCenterControls?: RenderControlFn;
 
     /**
      * Function for rendering bottom right control
      */
-    public renderBottomRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomRightControls?: RenderControlFn;
 
     /**
      * Function for rendering aria-live announcement messages
