@@ -1,0 +1,30 @@
+{
+	"name": "@n4jsd/react",
+	"version": "16.9.2",
+	"license": "EPL-1.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/NumberFour/n4jsd"
+	},
+	"description": "N4JS type definitions for react",
+	"keywords": [
+		"n4js"
+	],
+	"n4js": {
+		"projectType": "definition",
+		"definesPackage": "react",
+		"mainModule": "index",
+		"vendorId": "org.eclipse.n4js",
+		"sources": {
+			"source": [
+				"."
+			]
+		},
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-es2015"
+		]
+	},
+	"dependencies": {
+		"n4js-runtime-es2015": ""
+	}
+}
