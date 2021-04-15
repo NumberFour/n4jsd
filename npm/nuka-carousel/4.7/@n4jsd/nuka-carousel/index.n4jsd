@@ -134,7 +134,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     public wrapAround: boolean;
 }
 
-export external public type RenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.Element<?> | constructor{React.Component};
+export external public type NukaCarouselRenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.Element<?> | constructor{React.Component};
 
 export external public interface ~NukaCarouselProps extends React.ComponentProps {
     /**
@@ -306,47 +306,47 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Function for rendering top left control
      */
-    public renderTopLeftControls?: RenderControlFn;
+    public renderTopLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering top center control
      */
-    public renderTopCenterControls?: RenderControlFn;
+    public renderTopCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering top right control
      */
-    public renderTopRightControls?: RenderControlFn;
+    public renderTopRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center left control
      */
-    public renderCenterLeftControls?: RenderControlFn;
+    public renderCenterLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center center control
      */
-    public renderCenterCenterControls?: RenderControlFn;
+    public renderCenterCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center right control
      */
-    public renderCenterRightControls?: RenderControlFn;
+    public renderCenterRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom left control
      */
-    public renderBottomLeftControls?: RenderControlFn;
+    public renderBottomLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom center control
      */
-    public renderBottomCenterControls?: RenderControlFn;
+    public renderBottomCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom right control
      */
-    public renderBottomRightControls?: RenderControlFn;
+    public renderBottomRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering aria-live announcement messages

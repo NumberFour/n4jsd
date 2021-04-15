@@ -92,7 +92,7 @@ export external public interface ~IntlShape extends IntlConfig, __IntlFormat {
     /**
      * A function that returns the current time.
      */
-    public now?: () => number;
+    public now?: () => int;
 }
 
 export external public interface ~IntlProviderContext {
@@ -105,7 +105,7 @@ export external public interface ~IntlProviderProps extends React.ComponentProps
 
 export external public interface ~IntlProviderState {
     public formatters?: Object;
-    public now: () => number;
+    public now: () => int;
 }
 
 /**
