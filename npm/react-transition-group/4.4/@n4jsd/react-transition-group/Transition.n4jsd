@@ -120,7 +120,7 @@ export external public interface ~TransitionProps extends TransitionActions, Rea
     /**
      * Ref object that points to the transitioning child.
      */
-    public nodeRef?: React.Ref<?>;
+    public nodeRef?: React.RefObject<?>;
 }
 
 export default external public function Transition(props: TransitionProps=): React.Element<?>;

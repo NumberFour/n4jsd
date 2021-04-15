@@ -1,4 +1,4 @@
-import {Element, Component} from "react";
+import {Element, Component, ReactNode} from "react";
 
 /**
  * @see http://facebook.github.io/react/docs/events.html
@@ -46,7 +46,7 @@ export external public class ~SyntheticEvent {
     @Final public clientY: int;
 }
 
-export external public function findDOMNode(component: Component<?, ?>): Node;
+export external public function findDOMNode(component: Component<?, ?, ?>): Node;
 
 /**
  * Render a Element into the DOM in the supplied container and return a reference to the component.
@@ -55,7 +55,7 @@ export external public function findDOMNode(component: Component<?, ?>): Node;
  * If the optional callback is provided, it will be executed after the component is rendered or updated.
  */
 export external public function render(
-    element: string | Element<?> | Iterable<string | Element<?>> | Function,
+    element: ReactNode,
     container: Node,
     callback: Function=): void;
 
@@ -65,7 +65,7 @@ export external public function render(
  * For best results, you should try to render the same content on the server as on the client, with as few differences as possible.
  */
 export external public function hydrate(
-    element: string | Element<?> | Iterable<string | Element<?>> | Function,
+    element: ReactNode,
     container: Node,
     callback: Function=): void;
 
@@ -73,7 +73,7 @@ export external public function hydrate(
  * Creates a portal. Portals provide a way to render children into a DOM node that exists outside the hierarchy of the DOM component.
  */
 export external public function createPortal(
-    child: string | Element<?> | Iterable<string | Element<?>> | Function,
+    child: ReactNode,
     container: Node): Element<?>;
 
 /**

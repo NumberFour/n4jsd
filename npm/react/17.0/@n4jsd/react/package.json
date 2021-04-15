@@ -1,28 +1,30 @@
 {
-	"name": "@n4jsd/nuka-carousel",
-	"version": "4.7.1",
+	"name": "@n4jsd/react",
+	"version": "17.0.0",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/NumberFour/n4jsd"
 	},
-	"description": "N4JS type definitions for nuka-carousel",
+	"description": "N4JS type definitions for react",
 	"keywords": [
 		"n4js"
 	],
 	"n4js": {
 		"projectType": "definition",
-		"definesPackage": "nuka-carousel",
+		"definesPackage": "react",
 		"mainModule": "index",
 		"vendorId": "org.eclipse.n4js",
 		"sources": {
 			"source": [
 				"."
 			]
-		}
+		},
+		"requiredRuntimeLibraries": [
+			"n4js-runtime-es2015"
+		]
 	},
 	"dependencies": {
-		"@n4jsd/react": "",
-		"n4js-runtime-html5": ""
+		"n4js-runtime-es2015": ""
 	}
 }

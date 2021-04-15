@@ -134,6 +134,8 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     public wrapAround: boolean;
 }
 
+export external public type NukaCarouselRenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.Element<?> | constructor{React.Component};
+
 export external public interface ~NukaCarouselProps extends React.ComponentProps {
     /**
      * Hook to be called after a slide is changed
@@ -267,7 +269,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Change the height of the slides based either on the first slide,
      * the current slide, or the maximum height of all slides.
      */
-    public innerRef?: React.Ref<HTMLInputElement>;
+    public innerRef?: React.RefObject<HTMLInputElement>;
 
     /**
      * Change the height of the slides based either on the first slide,
@@ -304,47 +306,47 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Function for rendering top left control
      */
-    public renderTopLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering top center control
      */
-    public renderTopCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering top right control
      */
-    public renderTopRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderTopRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center left control
      */
-    public renderCenterLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center center control
      */
-    public renderCenterCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering center right control
      */
-    public renderCenterRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderCenterRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom left control
      */
-    public renderBottomLeftControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomLeftControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom center control
      */
-    public renderBottomCenterControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomCenterControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering bottom right control
      */
-    public renderBottomRightControls?: union{(props: NukaCarouselSlideRenderControlProps) => React.Element<?>, constructor{React.Component}};
+    public renderBottomRightControls?: NukaCarouselRenderControlFn;
 
     /**
      * Function for rendering aria-live announcement messages
@@ -497,19 +499,19 @@ export external public interface ~NukaCarouselState {
 }
 
 export external public interface PreviousButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined> {
+export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
     public render(): React.Element<?>;
 }
 
 export external public interface NextButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class NextButton extends React.Component<NextButtonProps, undefined> {
+export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
     public render(): React.Element<?>;
 }
 
 export external public interface PagingDotsProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class PagingDots extends React.Component<PagingDotsProps, undefined> {
+export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;
     public getDotIndexes(
@@ -526,7 +528,7 @@ export external public class PagingDots extends React.Component<PagingDotsProps,
 /**
  * https://github.com/FormidableLabs/nuka-carousel
  */
-export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
+export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState, any> {
 
     /**
      * @internal
