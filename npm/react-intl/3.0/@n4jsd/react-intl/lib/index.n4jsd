@@ -216,6 +216,11 @@ export external public class FormattedPlural extends React.Component<FormattedPl
     public render(): React.Element<?>;
 }
 
+export external public interface ~RawIntlProviderProps extends React.ComponentProps {
+    public get value(): IntlShape;
+}
+
+export external public function RawIntlProvider(props: RawIntlProviderProps): React.Element<?>;
 
 export external public const intlShape;
 

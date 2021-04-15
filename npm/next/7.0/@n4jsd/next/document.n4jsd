@@ -7,13 +7,32 @@ export external public class ~NextDocumentContext<PropsT extends React.Component
     public renderPage: {function(): PropsT}
 }
 
+export public interface ~N4DocumentProps extends React.ComponentProps {
+    public dev: boolean;
+    public head: Object;
+    public html: string;
+    public errorHtml: string;
+    public chunks: string[];
+    public styles?: React.Element<?>[] | React.Fragment;
+    public lang: string;
+
+    public context: NextDocumentContext<N4DocumentProps>;
+}
+
 export default external public class NextDocument<PropsT extends React.ComponentProps, StateT extends Object>
     extends React.Component<PropsT, StateT, any> {
 
     @Override
     public render(): React.Element<?>;
+    public static getInitialProps(context: NextDocumentContext<N4DocumentProps>): Promise<N4DocumentProps, any>;
 }
 
+export external public interface ~HtmlProps extends React.ComponentProps {
+    public prefix?: string;
+    public lang?: string;
+}
+
+export external public function Html(props: HtmlProps): React.Element<?>;
 export external public function Head(props: React.ComponentProps=): React.Element<?>;
 export external public function Main(props: React.ComponentProps=): React.Element<?>;
 
