@@ -1,0 +1,411 @@
+export external public interface ~RefObject<T> {
+    public current: T;
+}
+
+export external public interface ~ComponentProps {
+    public get children?(): ReactNode;
+    public get ref?(): Ref<?>;
+    public get key?(): Key;
+}
+
+export external public type RefCallback<T> = (instance: T) => void;
+export external public type Ref<T> = RefCallback<T> | RefObject<T>;
+
+export external public type Key = string | number;
+
+export external public abstract class Element<out P extends ComponentProps> {
+    private constructor();
+    public get type(): string | constructor{Component} | Function;
+    public get props(): P;
+    public get key(): Key;
+    public get ref(): string;
+}
+
+export external public type ReactText = string | number;
+export external public type ReactChild = Element<?> | ReactText;
+
+export external public type ReactNodeArray = ReactNode[];
+export external public type ReactFragment = Object | ReactNodeArray;
+export external public type ReactNode = ReactChild | ReactFragment | ReactPortal<?> | boolean;
+
+// DOM Elements
+/**
+ * @see https://reactjs.org/docs/react-api.html#createfactory
+ */
+export external public function createFactory(
+    type: string | constructor{? extends Component/*<PropsT>*/} | Function
+): Object;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#createelement
+ */
+export external public function <P extends ComponentProps> createElement(
+    type: string | constructor{? extends Component/*<PropsT>*/} | Function,
+    props: P+ =, ...children: ReactNode | ReactNode[]
+): Element<P>;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#cloneelement
+ */
+export external public function cloneElement(
+    Element: string | Element<?>,
+    props: Object=,
+    ...children: ReactNode | ReactNode[]
+): Element<?>;
+
+/**
+ * @see https://reactjs.org/docs/context.html#reactcreatecontext
+ */
+export external public function <T>createContext(
+    defaultValue: T=
+): Context<T>;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#isvalidelement
+ */
+export external public function isValidElement(object: Object): boolean;
+
+export external public interface ~ProviderProps<T> extends ComponentProps {
+    public get value(): T;
+}
+
+export external public interface ~ConsumerProps extends ComponentProps {}
+
+export external public interface ~SuspenseProps extends ComponentProps {
+    public fallback?: Element<?>;
+}
+
+export external public abstract class Provider extends Component<ProviderProps<any>, Object, any> {}
+export external public abstract class Consumer extends Component<ConsumerProps, Object, any> {}
+
+export external public abstract class ExoticComponent<P extends ComponentProps> extends Component<P, Object, any> {
+    public constructor(props: P);
+    public get $$typeof(): symbol;
+}
+
+export external public interface ~Context<T> {
+    public get Provider(): constructor{Provider}; // Provider<T>
+    public get Consumer(): constructor{Consumer};
+    public get displayName?(): string;
+}
+
+export external public type ProfilerOnRenderCallback = (
+    id: string,
+    phase: string, // "mount" | "update"
+    actualDuration: number,
+    baseDuration: number,
+    startTime: number,
+    commitTime: number,
+    interactions: Set<~Object with {__count: number; id: number; name: string; timestamp: number;}>
+) => void;
+
+export external public interface ~ProfilerProps extends ComponentProps {
+    public id: string;
+    public onRender: ProfilerOnRenderCallback;
+}
+
+/**
+ * @see https://reactjs.org/docs/profiler.html
+ */
+export external public class Profiler extends Component<ProfilerProps, Object, undefined> {
+    @Override
+    public render(): any;
+}
+
+// Base component
+export external public abstract class Component<P extends ComponentProps, S extends Object, SS> {
+    public constructor(props: P, context: any=);
+
+    /**
+     * If set, `this.context` will be set at runtime to the current value of the given Context.
+     *
+     * @see https://reactjs.org/docs/context.html#classcontexttype
+     */
+    public static contextType?: Context<?>;
+    public static name: string;
+    /**
+     * @see https://reactjs.org/docs/context.html
+     */
+    public get context(): any;
+    public get props(): P;
+    public state: S;
+    public get refs(): Object+;
+    public setState(state: Object | (prevState: S, props: P) => Object, callback: Function=): void;
+
+    // ComponentLifecycle
+    /**
+     * Called immediately after a component is mounted. Setting state here will trigger re-rendering.
+     */
+    protected componentDidMount(): void;
+    /**
+     * Called to determine whether the change in props and state should trigger a re-render.
+     *
+     * `Component` always returns true.
+     * `PureComponent` implements a shallow comparison on props and state and returns true if any
+     * props or states have changed.
+     *
+     * If false is returned, `Component#render`, `componentWillUpdate`
+     * and `componentDidUpdate` will not be called.
+     */
+    protected shouldComponentUpdate(nextProps: P, nextState: S, nextContext: any): boolean;
+    /**
+     * Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
+     * cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
+     */
+    protected componentWillUnmount(): void;
+    /**
+     * Catches exceptions generated in descendant components. Unhandled exceptions will cause
+     * the entire component tree to unmount.
+     */
+    protected componentDidCatch(error: Error, errorInfo: ErrorInfo): void;
+
+
+    // NewLifecycle Methods
+    /**
+     * getSnapshotBeforeUpdate() is invoked right before the most recently rendered output is committed to e.g. the DOM. 
+     * It enables your component to capture some information from the DOM (e.g. scroll position) before it is potentially changed. 
+     * Any value returned by this lifecycle will be passed as a parameter to componentDidUpdate().
+     * 
+     * @see https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
+     */
+    protected getSnapshotBeforeUpdate(prevProps: P, prevState: S): SS;
+    /**
+     * componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
+     * 
+     * @see https://reactjs.org/docs/react-component.html#componentdidupdate
+     */
+    protected componentDidUpdate(prevProps: P, prevState: S, snapshot: SS): void;
+
+    // Deprecated Lifecycle Methods
+    /**
+     * Invoked once, both on the client and server, immediately before the initial rendering occurs.
+     * If you call setState within this method, render() will see the updated state and will be executed only once despite the state change.
+     */ 
+    // protected UNSAFE_componentWillMount(): void;
+    /**
+     * Invoked when a component is receiving new props.
+     * This method is not called for the initial render.
+     * 
+     * Use this as an opportunity to react to a prop transition before render() is called by updating the state using this.setState().
+     * The old props can be accessed via this.props. Calling this.setState() within this function will not trigger an additional render.
+     */
+    // protected UNSAFE_componentWillReceiveProps(nextProps: P, nextContext: any): void;
+    /**
+     * Invoked immediately before rendering when new props or state are being received.
+     * This method is not called for the initial render.
+     * 
+     * Use this as an opportunity to perform preparation before an update occurs.
+     * 
+     * Note:
+     * You cannot use this.setState() in this method.
+     * If you need to update state in response to a prop change, use componentWillReceiveProps instead.
+     */
+    // protected UNSAFE_componentWillUpdate(nextProps: P, nextState: S, nextContext: any): void;
+    
+    /**
+     * Forces an update. This should only be invoked when it is known with
+     * certainty that we are **not** in a DOM transaction.
+     *
+     * You may want to call this when you know that some deeper aspect of the
+     * component's state has changed but `setState` was not called.
+     *
+     * This will not invoke `shouldUpdateComponent`, but it will invoke
+     * `componentWillUpdate` and `componentDidUpdate`.
+     *
+     * @param callback - Called after update is complete.
+     */
+    @Final public forceUpdate(callback: Function=): void;
+    
+    public abstract render(): any;
+}
+
+/**
+ * React.PureComponent is exactly like React.Component but implements shouldComponentUpdate() with a shallow prop and state comparison.
+ */
+export external public abstract class PureComponent<P extends ComponentProps, S extends Object, SS> extends Component<P, S, SS> {}
+
+export external public abstract class ReactPortal<P extends ComponentProps> extends Element<P> {
+    @Override
+    public key: Key;
+    public children: ReactNode;
+}
+
+export external public class Children {
+    /**
+     * Invokes a function on every immediate child contained within children with this set to thisArg.
+     * If children is a keyed fragment or array it will be traversed: the function will never be
+     * passed the container objects. If children is null or undefined, returns null or 
+     * undefined rather than an array.
+     */
+    public static <T, C>map(children: C | C[], fn: (child: C, index: number) => T): Element<?>[];
+
+    /**
+     * Like React.Children.map() but does not return an array.
+     */
+    public static <C>forEach(children: C | C[], fn: (child: C, index: number) => void): void;
+
+    /**
+     * Returns the total number of components in children, equal to the number of times 
+     * that a callback passed to map or forEach would be invoked.
+     */
+    public static count(children: any): int;
+
+    /**
+     * Returns the only child in children. Throws otherwise.
+     */
+    public static <C>only(children: C): Element<?>;
+
+    /**
+     * Returns the children opaque data structure as a flat array with keys assigned to each child.
+     * Useful if you want to manipulate collections of children in your render methods, especially
+     * if you want to reorder or slice this.props.children before passing it down.
+     * 
+     * @attention React.Children.toArray() changes keys to preserve the semantics of nested arrays when
+     * flattening lists of children. That is, toArray prefixes each key in the returned array so that
+     * each element's key is scoped to the input array containing it.
+     */    
+    public static toArray(children: ReactNode | ReactNode[]): Element<?>[];
+}
+
+export external public type GetDerivedStateFromProps<P, S> = (props: P, state: S) => Object;
+export external public type GetDerivedStateFromError = (error: any) => Object;
+
+/**
+ * Fragments let you group a list of children without adding extra nodes to the DOM
+ * 
+ * @see https://reactjs.org/docs/fragments.html
+ */
+export external public class Fragment extends ExoticComponent<ComponentProps> {
+    @Override
+    public render(): any;
+}
+
+/**
+ * StrictMode is a tool for highlighting potential problems in an application. 
+ * StrictMode does not render any visible UI. 
+ * It activates additional checks and warnings for its descendants.
+ *
+ * @see https://reactjs.org/docs/strict-mode.html
+ */
+export external public class StrictMode extends ExoticComponent<ComponentProps> {
+    @Override
+    public render(): any;
+}
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usecontext
+ */
+export external public function <T>useContext(
+    context: Context<T>
+): T;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usestate
+ */
+export external public function <S>useState(
+    initialState: S | () => S
+): Iterable2<S, (state: S) => void>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#useeffect
+ */
+export external public function useEffect(
+    effect: () => Function?,
+    deps: any[]=
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usereducer
+ */
+export external public function <S> useReducer(
+    reducer: (state: S, action: any) => S,
+    initialState: S,
+    initialAction: any
+): Iterable2<S, (action: any) => void>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usecallback
+ */
+export external public function <FuncT extends Function> useCallback(
+    fn: FuncT,
+    deps: any[]
+): FuncT;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usememo
+ */
+export external public function <T> useMemo(
+    fn: () => T,
+    deps: any[]=
+): T;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#useref
+ */
+export external public function <T> useRef(
+    initialValue: T=
+): RefObject<T>;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#useimperativehandle
+ */
+export external public function <T> useImperativeHandle(
+    ref: RefObject<T>,
+    createHandle: () => T,
+    deps: any[]=
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#uselayouteffect
+ */
+export external public function useLayoutEffect(
+    didUpdate: () => Function?,
+    deps: any[]=
+): void;
+
+/**
+ * @see https://reactjs.org/docs/hooks-reference.html#usedebugvalue
+ */
+export external public function useDebugValue(
+    value,
+    format: (any) => string =
+): void;
+
+export external public interface ~ErrorInfo {
+    /**
+     * Captures which component contained the exception, and its ancestors.
+     */
+    public componentStack: string;
+}
+
+export external public class Suspense extends ExoticComponent<SuspenseProps> {
+    @Override
+    public render(): any;
+}
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#reactcreateref
+ */
+export external public function <T> createRef(): RefObject<T>;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#reactforwardref
+ */
+export external public function <P extends ComponentProps> forwardRef(
+    comp: (props: P, ref: RefObject<?>) => any
+): (P) => Element<P>;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#reactforwardref
+ */
+export external public function <P extends ComponentProps> memo(
+    Component: (props: P) => any,
+    propsAreEqual: ((prevProps: P, nextProps: P) => boolean)=
+): (P) => Element<P>;
+
+/**
+ * @see https://reactjs.org/docs/react-api.html#reactlazy
+ */
+export external public function <P extends ComponentProps> lazy(
+    factory: () => Promise<constructor{Component} | Function, any>
+): (P) => Element<P>;

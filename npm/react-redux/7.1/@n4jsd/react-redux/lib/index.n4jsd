@@ -7,7 +7,7 @@ export external public interface ~ProviderProps extends React.ComponentProps {
 }
 
 export external public class Provider
-    extends React.PureComponent<ProviderProps, Object> {
+    extends React.PureComponent<ProviderProps, Object, any> {
 
     @Override
     public render(): React.Element<ProviderProps>;

@@ -184,7 +184,7 @@ external interface MarkdownAbstractSyntaxTree {
  * https://github.com/rexxars/react-markdown
  * http://rexxars.github.io/react-markdown/
  */
-export default external public class ReactMarkdown extends React.Component<ReactMarkdownProps, undefined> {
+export default external public class ReactMarkdown extends React.Component<ReactMarkdownProps, undefined, any> {
     @Override
     public render(): React.Element<?>;
 };

@@ -8,7 +8,7 @@ export external public class ~NextDocumentContext<PropsT extends React.Component
 }
 
 export default external public class NextDocument<PropsT extends React.ComponentProps, StateT extends Object>
-    extends React.Component<PropsT, StateT> {
+    extends React.Component<PropsT, StateT, any> {
 
     @Override
     public render(): React.Element<?>;
@@ -21,7 +21,7 @@ export external public interface ~NextScriptProps extends React.ComponentProps {
     public nonce?: string;
 }
 
-export external public class NextScript extends React.Component<NextScriptProps, Object> {
+export external public class NextScript extends React.Component<NextScriptProps, Object, any> {
 
     public static getInlineScriptSource(documentProps: React.ComponentProps): string;
 

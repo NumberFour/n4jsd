@@ -267,7 +267,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Change the height of the slides based either on the first slide,
      * the current slide, or the maximum height of all slides.
      */
-    public innerRef?: React.Ref<HTMLInputElement>;
+    public innerRef?: React.RefObject<HTMLInputElement>;
 
     /**
      * Change the height of the slides based either on the first slide,
@@ -497,19 +497,19 @@ export external public interface ~NukaCarouselState {
 }
 
 export external public interface PreviousButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined> {
+export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
     public render(): React.Element<?>;
 }
 
 export external public interface NextButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class NextButton extends React.Component<NextButtonProps, undefined> {
+export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
     public render(): React.Element<?>;
 }
 
 export external public interface PagingDotsProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
-export external public class PagingDots extends React.Component<PagingDotsProps, undefined> {
+export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;
     public getDotIndexes(
@@ -526,7 +526,7 @@ export external public class PagingDots extends React.Component<PagingDotsProps,
 /**
  * https://github.com/FormidableLabs/nuka-carousel
  */
-export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState> {
+export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState, any> {
 
     /**
      * @internal

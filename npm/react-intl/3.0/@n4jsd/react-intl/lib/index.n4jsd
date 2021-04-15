@@ -56,7 +56,7 @@ export external public interface ~__IntlFormat {
 /**
  * https://github.com/yahoo/react-intl/wiki/API#injectintl
  */
-export external public function <PropsT extends React.ComponentProps, CompT extends React.Component<PropsT, ?>>
+export external public function <PropsT extends React.ComponentProps, CompT extends React.Component<PropsT, ?, ?>>
 injectIntl(comp: union{{function(PropsT): React.Element<?>}, constructor{CompT}}, options: ~Object with {
         intlPropName?: string,  // defaults to 'intl'
         forwardRef?: boolean    // defaults to false
@@ -111,7 +111,7 @@ export external public interface ~IntlProviderState {
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#intlprovider
  */
-export external public class IntlProvider extends React.Component<IntlProviderProps, IntlProviderState> {
+export external public class IntlProvider extends React.Component<IntlProviderProps, IntlProviderState, any> {
 
     public getConfig(): IntlConfig;
 
@@ -132,7 +132,7 @@ export external public interface ~FormattedDateProps extends React.ComponentProp
     public format?: string;
 }
 
-export external class FormattedDate extends React.Component<FormattedDateProps, Object> {
+export external class FormattedDate extends React.Component<FormattedDateProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
@@ -146,7 +146,7 @@ export external public interface ~FormattedTimeProps extends React.ComponentProp
     public format?: string;
 }
 
-export external class FormattedTime extends React.Component<FormattedTimeProps, Object> {
+export external class FormattedTime extends React.Component<FormattedTimeProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
@@ -158,7 +158,7 @@ export external public interface ~FormattedRelativeTimeProps extends React.Compo
     public updateIntervalInSeconds?: number;
 }
 
-export external class FormattedRelativeTime extends React.Component<FormattedRelativeTimeProps, Object> {
+export external class FormattedRelativeTime extends React.Component<FormattedRelativeTimeProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
@@ -171,7 +171,7 @@ export external public interface ~FormattedNumberProps extends React.ComponentPr
     public format?: string;
 }
 
-export external class FormattedNumber extends React.Component<FormattedNumberProps, Object> {
+export external class FormattedNumber extends React.Component<FormattedNumberProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
@@ -190,7 +190,7 @@ export external public interface ~FormattedMessageProps extends React.ComponentP
     public tagName?: string;
 }
 
-export external public class FormattedMessage extends React.Component<FormattedMessageProps, Object> {
+export external public class FormattedMessage extends React.Component<FormattedMessageProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
@@ -211,7 +211,7 @@ export external public interface ~FormattedPluralProps extends React.ComponentPr
     public children?: (formattedPlural: React.Element<?>) => React.Element<?>
 }
 
-export external public class FormattedPlural extends React.Component<FormattedPluralProps, Object> {
+export external public class FormattedPlural extends React.Component<FormattedPluralProps, Object, any> {
     @Override
     public render(): React.Element<?>;
 }
