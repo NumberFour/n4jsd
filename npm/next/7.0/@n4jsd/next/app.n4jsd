@@ -1,14 +1,14 @@
 import  * as React from "react";
 import {NextPageContext} from "dist/server/next";
-import {INextRouter} from "router";
+import {NextRouter} from "router";
 
 export external public interface ~AppInitialProps {
     public pageProps: Object;
 }
 
 export external public class ~NextAppContext extends NextPageContext {
-    public Component: (props: ~Object with { router: INextRouter }) => React.ReactElement<?>;
-    public router: INextRouter;
+    public Component: (props: ~Object with { router: NextRouter }) => React.ReactElement<?>;
+    public router: NextRouter;
     public ctx: NextPageContext;
     public AppTree: any;
 }

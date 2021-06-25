@@ -1,8 +1,6 @@
 import {IncomingMessage} from "http";
 import {ServerResponse} from "http";
 import {Socket} from "net";
-import {INextRouter} from "router";
-import * as React from "react";
 
 /**
  * Passed into `getInitialProps`.
@@ -64,11 +62,6 @@ export external public class ~NextPageURL {
      * performs a replaceState call associated with the current component
      */
     public replace(url: string, as: string=): void;
-}
-
-export public interface ~NextPageProps extends React.ComponentProps {
-    public url?: NextPageURL;
-    public router?: INextRouter;
 }
 
 

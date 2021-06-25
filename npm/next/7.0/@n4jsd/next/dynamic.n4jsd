@@ -8,6 +8,8 @@ export external public type LoaderComponent<P> = ComponentType<P> | ~Object with
 export external public type Loader<P> = (() => LoaderComponent<P>) | LoaderComponent<P>;
 export external public type LoaderMap<P> = Map<string, () => Loader<P>>;
 
+// export external public type LoaderComponent<P> = Promise<constructor{React.Component} | (props: P) => React.ReactElement<?> | ~Object with {default: ComponentType<P>}, any>;
+
 export external public interface ~LoadableGeneratedOptions<P> {
     public get webpack?(): any;
     public get modules?(): LoaderMap<P>;
