@@ -1,7 +1,7 @@
 import * as React from "react";
 
 @StringBased
-export external public enum ReactMarkdownType {
+export external public enum NodeType {
     root,
     text,
     break,
@@ -72,12 +72,12 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
     /**
      *  Defines which types of nodes should be allowed (rendered). (default: all types).
      */
-    public allowedTypes?: ReactMarkdownType[];
+    public allowedTypes?: NodeType[];
 
     /**
      * Defines which types of nodes should be disallowed (not rendered). (default: none).
      */
-    public dissalowedTypes?: ReactMarkdownType[];
+    public dissalowedTypes?: NodeType[];
 
     /**
      * Setting to true will try to extract/unwrap the children of disallowed nodes. For instance, 
@@ -93,7 +93,7 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
      * the type is not in allowedTypes (or specified as a disallowedType), it won't be included. The function will receive three arguments argument
      * (node, index, parent), where node contains different properties depending on the node type.
      */
-    public allowNode?: (node: MarkdownAbstractSyntaxTree, index: number, parent: ReactMarkdownType) => boolean;
+    public allowNode?: (node: MarkdownAbstractSyntaxTree, index: number, parent: NodeType) => boolean;
 
     /**
      * Sets the default target attribute for links. If a function is provided, it will be called with url, text, and title and 
