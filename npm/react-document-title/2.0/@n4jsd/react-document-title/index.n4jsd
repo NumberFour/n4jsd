@@ -1,6 +1,6 @@
 import * as React from "react";
 
-export public interface ~DocumentTitleProps extends React.ComponentProps {
+export public interface ~DocumentTitleProps extends React.ComponentProps<any> {
     public title: string;
 }
 
@@ -9,7 +9,7 @@ export public interface ~DocumentTitleProps extends React.ComponentProps {
  */
 export default external public class DocumentTitle extends React.Component<DocumentTitleProps, undefined, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /* -*- mode: typescript;-*- */

@@ -134,9 +134,9 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     public wrapAround: boolean;
 }
 
-export external public type NukaCarouselRenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.Element<?> | constructor{React.Component};
+export external public type NukaCarouselRenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.ReactElement<?> | constructor{React.Component};
 
-export external public interface ~NukaCarouselProps extends React.ComponentProps {
+export external public interface ~NukaCarouselProps extends React.ComponentProps<any> {
     /**
      * Hook to be called after a slide is changed
      * @param index Index of the current slide
@@ -498,19 +498,19 @@ export external public interface ~NukaCarouselState {
     public wrapToIndex: boolean;
 }
 
-export external public interface PreviousButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public interface PreviousButtonProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
 export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
-export external public interface NextButtonProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public interface NextButtonProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
 export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
-export external public interface PagingDotsProps extends React.ComponentProps, NukaCarouselSlideRenderControlProps {}
+export external public interface PagingDotsProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
 export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;
@@ -522,7 +522,7 @@ export external public class PagingDots extends React.Component<PagingDotsProps,
     ): int[];
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
@@ -541,7 +541,7 @@ export default external public class NukaCarousel extends React.Component<NukaCa
     public previousSlide: () => void;
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 };
 
 /* -*- mode: typescript;-*- */

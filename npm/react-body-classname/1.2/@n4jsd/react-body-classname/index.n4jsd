@@ -1,12 +1,12 @@
 import * as React from "react";
 
-export external public interface ~BodyClassNameProps extends React.ComponentProps {
+export external public interface ~BodyClassNameProps extends React.ComponentProps<any> {
     public className: string;
 }
 
 /**
  * https://github.com/iest/react-body-classname
  */
-export default external public function BodyClassName(props: BodyClassNameProps=): React.Element<?>;
+export default external public function BodyClassName(props: BodyClassNameProps=): React.ReactElement<?>;
 
 /* -*- mode: typescript;-*- */

@@ -1,51 +1,51 @@
 import  * as React  from "react";
 import { NextPageContext } from "dist/server/next";
 
-export external public class ~NextDocumentContext<PropsT extends React.ComponentProps>
+export external public class ~NextDocumentContext<PropsT extends React.ComponentProps<any>>
     extends NextPageContext {
 
     public renderPage: () => PropsT;
 }
 
-export public interface ~N4DocumentProps extends React.ComponentProps {
+export public interface ~N4DocumentProps extends React.ComponentProps<any> {
     public dev: boolean;
     public head: Object;
     public html: string;
     public errorHtml: string;
     public chunks: string[];
-    public styles?: React.Element<?>[] | React.Fragment;
+    public styles?: React.ReactElement<?>[] | React.Fragment;
     public lang: string;
 
     public context: NextDocumentContext<N4DocumentProps>;
 }
 
-export default external public class NextDocument<PropsT extends React.ComponentProps, StateT extends Object>
+export default external public class NextDocument<PropsT extends React.ComponentProps<any>, StateT extends Object>
     extends React.Component<PropsT, StateT, any> {
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
     public static getInitialProps(context: NextDocumentContext<N4DocumentProps>): Promise<N4DocumentProps, any>;
 }
 
-export external public interface ~HtmlProps extends React.ComponentProps {
+export external public interface ~HtmlProps extends React.ComponentProps<any> {
     public prefix?: string;
     public lang?: string;
 }
 
-export external public function Html(props: HtmlProps): React.Element<?>;
-export external public function Head(props: React.ComponentProps=): React.Element<?>;
-export external public function Main(props: React.ComponentProps=): React.Element<?>;
+export external public function Html(props: HtmlProps): React.ReactElement<?>;
+export external public function Head(props: React.ComponentProps<any>=): React.ReactElement<?>;
+export external public function Main(props: React.ComponentProps<any>=): React.ReactElement<?>;
 
-export external public interface ~NextScriptProps extends React.ComponentProps {
+export external public interface ~NextScriptProps extends React.ComponentProps<any> {
     public nonce?: string;
 }
 
 export external public class NextScript extends React.Component<NextScriptProps, Object, any> {
 
-    public static getInlineScriptSource(documentProps: React.ComponentProps): string;
+    public static getInlineScriptSource(documentProps: React.ComponentProps<any>): string;
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /* -*- mode: typescript;-*- */

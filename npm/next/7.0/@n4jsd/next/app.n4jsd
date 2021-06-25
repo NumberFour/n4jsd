@@ -7,17 +7,17 @@ export external public interface ~AppInitialProps {
 }
 
 export external public class ~NextAppContext extends NextPageContext {
-    public Component: (props: ~Object with { router: INextRouter }) => React.Element<?>;
+    public Component: (props: ~Object with { router: INextRouter }) => React.ReactElement<?>;
     public router: INextRouter;
     public ctx: NextPageContext;
     public AppTree: any;
 }
 
-export default external public class NextApp <PropsT extends React.ComponentProps, StateT extends Object>
+export default external public class NextApp <PropsT extends React.ComponentProps<any>, StateT extends Object>
   extends React.Component<PropsT, StateT, any> {
 
     public static getInitialProps(ctx: NextAppContext): Promise<AppInitialProps, any>;
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }

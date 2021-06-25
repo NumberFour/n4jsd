@@ -1,4 +1,4 @@
-import {Element, Component, ReactNode} from "react";
+import {ReactElement, Component, ReactNode} from "react";
 
 /**
  * @see http://facebook.github.io/react/docs/events.html
@@ -74,7 +74,7 @@ export external public function hydrate(
  */
 export external public function createPortal(
     child: ReactNode,
-    container: Node): Element<?>;
+    container: Node): ReactElement<?>;
 
 /**
  * Remove a mounted React component from the DOM and clean up its event handlers and state.
