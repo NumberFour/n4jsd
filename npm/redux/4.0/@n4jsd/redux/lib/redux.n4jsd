@@ -1,24 +1,24 @@
 /**
  * http://redux.js.org/docs/Glossary.html#action
  */
-export external public interface ~ReduxAction {
+export external public interface ~Action {
     public get type(): string;
 }
 
 //TODO it seems like this ReduxStoreState which adds the dispatch method
 //is actually just added to props. The store items dont actually have the dispatch method or if they do, it isn't used for anything but props.
-export external public interface ~ReduxStoreState {
-//    public get dispatch(): {function(union{Promise<ReduxAction, any>, ReduxAction}): ReduxAction};
-}
+//export external public interface ~ReduxStoreState {
+//    public get dispatch(): {function(union{Promise<Action, any>, Action}): Action};
+//}
 
 /**
  * http://redux.js.org/docs/api/Store.html
  */
-export external public interface ~ReduxStore<StoreStateT> {
+export external public interface ~Store<StoreStateT> {
     public getState(): StoreStateT;
-    public dispatch(action: union{Promise<ReduxAction, any>, ReduxAction}): union{Promise<ReduxAction, any>, ReduxAction};
+    public dispatch(action: union{Promise<Action, any>, Action}): union{Promise<Action, any>, Action};
     public subscribe(listener: Function): Function;
-    public replaceReducer(nextReducer: {function(Object /* state */, ReduxAction): Object /* new state */});
+    public replaceReducer(nextReducer: {function(Object /* state */, Action): Object /* new state */});
 }
 
 /**
@@ -28,23 +28,23 @@ export external public function
     <StoreStateT extends Object>
     combineReducers(
         reducers: Object
-        // Map: state-slice => reducer-function {function(Object /* state-slice */, ReduxAction): Object /* new state */}
-    ): {function(StoreStateT /* state */, ReduxAction): StoreStateT /* new state */};
+        // Map: state-slice => reducer-function {function(Object /* state-slice */, Action): Object /* new state */}
+    ): {function(StoreStateT /* state */, Action): StoreStateT /* new state */};
 
 /**
  * http://redux.js.org/docs/api/createStore.html
  */
 export external public function <StoreStateT extends Object> createStore(
-    reducer: {function(StoreStateT /* state */, ReduxAction): StoreStateT /* new state */},
+    reducer: {function(StoreStateT /* state */, Action): StoreStateT /* new state */},
     preloadedState: Object=,
     enhancer: Function=
-): ReduxStore<StoreStateT>;
+): Store<StoreStateT>;
 
 /**
  * http://redux.js.org/docs/api/applyMiddleware.html
  */
 export external public function applyMiddleware(
-    ...middlewares: {function({function(ReduxAction): ReduxAction} /* dispatch */, {function(): Object} /* getState */): void}
+    ...middlewares: {function({function(Action): Action} /* dispatch */, {function(): Object} /* getState */): void}
 ): Function /* store enhancer */;
 
 /**
