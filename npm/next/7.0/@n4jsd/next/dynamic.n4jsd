@@ -3,10 +3,12 @@ import * as React from "react";
 /**
  * @see https://nextjs.org/docs/advanced-features/dynamic-import
  */
-export external public type ComponentType<P> = Promise<constructor{React.Component} | (props: P) => React.Element<?>, any>
+export external public type ComponentType<P> = Promise<constructor{React.Component} | (props: P) => React.ReactElement<?>, any>
 export external public type LoaderComponent<P> = ComponentType<P> | ~Object with {default: ComponentType<P>};
 export external public type Loader<P> = (() => LoaderComponent<P>) | LoaderComponent<P>;
 export external public type LoaderMap<P> = Map<string, () => Loader<P>>;
+
+// export external public type LoaderComponent<P> = Promise<constructor{React.Component} | (props: P) => React.ReactElement<?> | ~Object with {default: ComponentType<P>}, any>;
 
 export external public interface ~LoadableGeneratedOptions<P> {
     public get webpack?(): any;
@@ -14,14 +16,14 @@ export external public interface ~LoadableGeneratedOptions<P> {
 }
 
 export external public interface ~LoadableBaseOptions<P> extends LoadableGeneratedOptions<P> {
-    public loading?: (error: Error=, isLoading: boolean=, pastDelay: boolean=) => React.Element<?>
+    public loading?: (error: Error=, isLoading: boolean=, pastDelay: boolean=) => React.ReactElement<?>
     public loader?: Loader<P> | LoaderMap<P>;
     public loadableGenerated?: LoadableGeneratedOptions<P>;
     public ssr?: boolean;
 }
 
 export external public interface ~DynamicOptions<P> extends LoadableBaseOptions<P> {
-    public render?: (props: P, loaded: any) => React.Element<?>
+    public render?: (props: P, loaded: any) => React.ReactElement<?>
 }
 
-export default external public function <P>dynamic(dynamicOptions: Loader<P>, options: DynamicOptions<P>=): (props: P) => React.Element<?>;
+export default external public function <P>dynamic(dynamicOptions: Loader<P>, options: DynamicOptions<P>=): (props: P) => React.ReactElement<?>;

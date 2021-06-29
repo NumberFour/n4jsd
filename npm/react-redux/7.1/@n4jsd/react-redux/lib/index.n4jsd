@@ -1,8 +1,8 @@
-import {ReduxStore, ReduxAction} from "redux";
+import {Store, Action} from "redux";
 import * as React from "react";
 
-export external public interface ~ProviderProps extends React.ComponentProps {
-    public store: ReduxStore<?>;
+export external public interface ~ProviderProps extends React.ComponentProps<any> {
+    public store: Store<?>;
     public context?: React.Context<?>;
 }
 
@@ -10,7 +10,7 @@ export external public class Provider
     extends React.PureComponent<ProviderProps, Object, any> {
 
     @Override
-    public render(): React.Element<ProviderProps>;
+    public render(): React.ReactElement<ProviderProps>;
 }
 
 export external public class ~ConnectOptions {
@@ -115,22 +115,22 @@ export external public class ~ConnectAdvancedOptions {
     public get forwardRef?(): boolean;
 }
 
-export external public function <PropsT extends React.ComponentProps>
+export external public function <PropsT extends React.ComponentProps<any>>
     connect(
         mapStateToProps: Function=,
         mapDispatchToProps: (Function|Object)=,
         mergeProps: Function=,
         options: ConnectOptions=
-    ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
+    ): (constructor{?} | (PropsT) => React.ReactElement<?>) => (PropsT) => React.ReactElement<?>;
 
 /**
  * @see https://react-redux.js.org/api/connect-advanced
  */
-export external public function <PropsT extends React.ComponentProps>
+export external public function <PropsT extends React.ComponentProps<any>>
     connectAdvanced(
         selectorFactory: Function,
         connectOptions: ConnectAdvancedOptions=
-    ): (constructor{?} | (PropsT) => React.Element<?>) => (PropsT) => React.Element<?>;
+    ): (constructor{?} | (PropsT) => React.ReactElement<?>) => (PropsT) => React.ReactElement<?>;
 
 /**
  * @see https://react-redux.js.org/api/batch
@@ -166,7 +166,7 @@ export external public function <TState, TSelected> useSelector(
  * 
  * @returns redux store's dispatch function
  */
-export external public function useDispatch(): (action: Promise<ReduxAction, any> | ReduxAction) => (Promise<ReduxAction, any> | ReduxAction);
+export external public function useDispatch(): (action: Promise<Action, any> | Action) => (Promise<Action, any> | Action);
 
 /**
  * @see https://react-redux.js.org/api/hooks#usestore
@@ -175,6 +175,6 @@ export external public function useDispatch(): (action: Promise<ReduxAction, any
  *
  * @returns the redux store
  */
-export external public function useStore(): ReduxStore<?>;
+export external public function useStore(): Store<?>;
 
 /* -*- mode: typescript;-*- */

@@ -1,7 +1,7 @@
 import * as React from "react";
 
 @StringBased
-export external public enum ReactMarkdownType {
+export external public enum NodeType {
     root,
     text,
     break,
@@ -30,7 +30,7 @@ export external public enum ReactMarkdownType {
     virtualHtml
 }
 
-export external public interface ~ReactMarkdownProps extends React.ComponentProps {
+export external public interface ~ReactMarkdownProps extends React.ComponentProps<any> {
     /**
      * The Markdown source to parse (required)
      */
@@ -72,12 +72,12 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
     /**
      *  Defines which types of nodes should be allowed (rendered). (default: all types).
      */
-    public allowedTypes?: ReactMarkdownType[];
+    public allowedTypes?: NodeType[];
 
     /**
      * Defines which types of nodes should be disallowed (not rendered). (default: none).
      */
-    public dissalowedTypes?: ReactMarkdownType[];
+    public dissalowedTypes?: NodeType[];
 
     /**
      * Setting to true will try to extract/unwrap the children of disallowed nodes. For instance, 
@@ -93,7 +93,7 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
      * the type is not in allowedTypes (or specified as a disallowedType), it won't be included. The function will receive three arguments argument
      * (node, index, parent), where node contains different properties depending on the node type.
      */
-    public allowNode?: (node: MarkdownAbstractSyntaxTree, index: number, parent: ReactMarkdownType) => boolean;
+    public allowNode?: (node: MarkdownAbstractSyntaxTree, index: number, parent: NodeType) => boolean;
 
     /**
      * Sets the default target attribute for links. If a function is provided, it will be called with url, text, and title and 
@@ -107,12 +107,12 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
      * If you specify a custom function, this default filter won't be called, but you can access it as require('react-markdown').uriTransformer. 
      * If you want to disable the default transformer, pass null to this option.
      */
-    public transformLinkUri?: (uri: string, children: (string | React.Element<?> | Iterable<string | React.Element<?>> | Function)=, title: string=) => string;
+    public transformLinkUri?: (uri: string, children: (string | React.ReactElement<?> | Iterable<string | React.ReactElement<?>> | Function)=, title: string=) => string;
 
     /**
      * Function that gets called for each encountered image with a single argument - uri. The returned value is used in place of the original.
      */
-    public transformImageUri?: (uri: string, children: (string | React.Element<?> | Iterable<string | React.Element<?>> | Function)=, title: string=, alt: string=) => string;
+    public transformImageUri?: (uri: string, children: (string | React.ReactElement<?> | Iterable<string | React.ReactElement<?>> | Function)=, title: string=, alt: string=) => string;
 
     /**
      * An object where the keys represent the node type and the value is a React component. The object 
@@ -186,7 +186,7 @@ external interface MarkdownAbstractSyntaxTree {
  */
 export default external public class ReactMarkdown extends React.Component<ReactMarkdownProps, undefined, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 };
 
 /* -*- mode: typescript;-*- */

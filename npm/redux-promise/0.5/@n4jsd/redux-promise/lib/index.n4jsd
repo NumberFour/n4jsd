@@ -1,7 +1,7 @@
-import {ReduxAction} from "redux";
+import {Action} from "redux";
 
 export default external public function reduxPromiseMiddleware(
-    dispatch: {function(ReduxAction): ReduxAction},
+    dispatch: {function(Action): Action},
     getState: {function(): Object}): void;
 
 /* -*- mode: typescript;-*- */

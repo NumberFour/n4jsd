@@ -28,7 +28,7 @@ export external public interface ~TransitionActions {
     public exit?: boolean;
 }
 
-export external public interface ~TransitionProps extends TransitionActions, React.ComponentProps {
+export external public interface ~TransitionProps extends TransitionActions, React.ComponentProps<any> {
     /**
      * Show the component; triggers the enter or exit states.
      * 
@@ -123,4 +123,4 @@ export external public interface ~TransitionProps extends TransitionActions, Rea
     public nodeRef?: React.RefObject<?>;
 }
 
-export default external public function Transition(props: TransitionProps=): React.Element<?>;
+export default external public function Transition(props: TransitionProps=): React.ReactElement<?>;

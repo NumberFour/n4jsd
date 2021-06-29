@@ -3,11 +3,11 @@ import * as React from "react";
 /**
  * Passed into page props.
  */
-export external public class ~RoutingOptions {
+export external public class ~TransitionOptions {
     public shallow?: boolean;
 }
 
-export external public interface ~INextRouter {
+export external public interface ~NextRouter {
     /**
      * String of the current route.
      */
@@ -23,11 +23,11 @@ export external public interface ~INextRouter {
     /**
      * performs a pushState call associated with the current component
      */
-    public push(url, as: string=, options: RoutingOptions=): void;
+    public push(url, as: string=, options: TransitionOptions=): void;
     /**
      * performs a replaceState call associated with the current component
      */
-    public replace(url: string, as: string=, options: RoutingOptions=): void;
+    public replace(url: string, as: string=, options: TransitionOptions=): void;
 
     public async prefetch(url: string);
 
@@ -53,14 +53,14 @@ export external public interface ~INextRouter {
     public appUpdated: (nextRoute: string) => void;
 }
 
-export external public function useRouter(): INextRouter;
+export external public function useRouter(): NextRouter;
 
-export external public function <CompT extends React.Component<PropsT, ?, ?>, PropsT extends React.ComponentProps>
-withRouter(ctor: constructor{CompT} | (PropsT) => React.Element<?>): (PropsT) => React.Element<?>;
+export external public function <CompT extends React.Component<PropsT, ?, ?>, PropsT extends React.ComponentProps<any>>
+withRouter(ctor: constructor{CompT} | (PropsT) => React.ReactElement<?>): (PropsT) => React.ReactElement<?>;
 
 /**
  * https://github.com/zeit/next.js#imperatively
  */
-export default external public const Router: INextRouter;
+export default external public const Router: NextRouter;
 
 /* -*- mode: typescript;-*- */

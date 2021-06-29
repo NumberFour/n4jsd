@@ -1,28 +1,29 @@
 export external public interface ~RefObject<T> {
     public current: T;
 }
+// moved to OPR
 
-export external public interface ~ComponentProps {
+export external public interface ~ComponentProps<T> {
     public get children?(): ReactNode;
     public get ref?(): Ref<?>;
     public get key?(): Key;
 }
+//*/
 
 export external public type RefCallback<T> = (instance: T) => void;
 export external public type Ref<T> = RefCallback<T> | RefObject<T>;
 
 export external public type Key = string | number;
 
-export external public abstract class Element<out P extends ComponentProps> {
-    private constructor();
+export external public interface ReactElement<out P extends ComponentProps<any>> { // interface?, rename: ReactElement
     public get type(): string | constructor{Component} | Function;
     public get props(): P;
     public get key(): Key;
-    public get ref(): string;
+//    public get ref(): string; // delete?
 }
 
 export external public type ReactText = string | number;
-export external public type ReactChild = Element<?> | ReactText;
+export external public type ReactChild = ReactElement<?> | ReactText;
 
 export external public type ReactNodeArray = ReactNode[];
 export external public type ReactFragment = Object | ReactNodeArray;
@@ -39,19 +40,19 @@ export external public function createFactory(
 /**
  * @see https://reactjs.org/docs/react-api.html#createelement
  */
-export external public function <P extends ComponentProps> createElement(
+export external public function <P extends ComponentProps<any>> createElement(
     type: string | constructor{? extends Component/*<PropsT>*/} | Function,
     props: P+ =, ...children: ReactNode | ReactNode[]
-): Element<P>;
+): ReactElement<P>;
 
 /**
  * @see https://reactjs.org/docs/react-api.html#cloneelement
  */
 export external public function cloneElement(
-    Element: string | Element<?>,
+    Element: string | ReactElement<?>,
     props: Object=,
     ...children: ReactNode | ReactNode[]
-): Element<?>;
+): ReactElement<?>;
 
 /**
  * @see https://reactjs.org/docs/context.html#reactcreatecontext
@@ -65,20 +66,20 @@ export external public function <T>createContext(
  */
 export external public function isValidElement(object: Object): boolean;
 
-export external public interface ~ProviderProps<T> extends ComponentProps {
+export external public interface ~ProviderProps<T> extends ComponentProps<any> {
     public get value(): T;
 }
 
-export external public interface ~ConsumerProps extends ComponentProps {}
+export external public interface ~ConsumerProps extends ComponentProps<any> {}
 
-export external public interface ~SuspenseProps extends ComponentProps {
-    public fallback?: Element<?>;
+export external public interface ~SuspenseProps extends ComponentProps<any> {
+    public fallback?: ReactElement<?>;
 }
 
 export external public abstract class Provider extends Component<ProviderProps<any>, Object, any> {}
 export external public abstract class Consumer extends Component<ConsumerProps, Object, any> {}
 
-export external public abstract class ExoticComponent<P extends ComponentProps> extends Component<P, Object, any> {
+export external public abstract class ExoticComponent<P extends ComponentProps<any>> extends Component<P, Object, any> {
     public constructor(props: P);
     public get $$typeof(): symbol;
 }
@@ -99,7 +100,7 @@ export external public type ProfilerOnRenderCallback = (
     interactions: Set<~Object with {__count: number; id: number; name: string; timestamp: number;}>
 ) => void;
 
-export external public interface ~ProfilerProps extends ComponentProps {
+export external public interface ~ProfilerProps extends ComponentProps<any> {
     public id: string;
     public onRender: ProfilerOnRenderCallback;
 }
@@ -113,7 +114,7 @@ export external public class Profiler extends Component<ProfilerProps, Object, u
 }
 
 // Base component
-export external public abstract class Component<P extends ComponentProps, S extends Object, SS> {
+export external public abstract class Component<P extends ComponentProps<any>, S extends Object, SS> {
     public constructor(props: P, context: any=);
 
     /**
@@ -136,7 +137,7 @@ export external public abstract class Component<P extends ComponentProps, S exte
     /**
      * Called immediately after a component is mounted. Setting state here will trigger re-rendering.
      */
-    protected componentDidMount(): void;
+    public componentDidMount(): void;
     /**
      * Called to determine whether the change in props and state should trigger a re-render.
      *
@@ -147,17 +148,17 @@ export external public abstract class Component<P extends ComponentProps, S exte
      * If false is returned, `Component#render`, `componentWillUpdate`
      * and `componentDidUpdate` will not be called.
      */
-    protected shouldComponentUpdate(nextProps: P, nextState: S, nextContext: any): boolean;
+    public shouldComponentUpdate(nextProps: P, nextState: S, nextContext: any): boolean;
     /**
      * Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
      * cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
      */
-    protected componentWillUnmount(): void;
+    public componentWillUnmount(): void;
     /**
      * Catches exceptions generated in descendant components. Unhandled exceptions will cause
      * the entire component tree to unmount.
      */
-    protected componentDidCatch(error: Error, errorInfo: ErrorInfo): void;
+    public componentDidCatch(error: Error, errorInfo: ErrorInfo): void;
 
 
     // NewLifecycle Methods
@@ -168,13 +169,13 @@ export external public abstract class Component<P extends ComponentProps, S exte
      * 
      * @see https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
      */
-    protected getSnapshotBeforeUpdate(prevProps: P, prevState: S): SS;
+    public getSnapshotBeforeUpdate(prevProps: P, prevState: S): SS;
     /**
      * componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
      * 
      * @see https://reactjs.org/docs/react-component.html#componentdidupdate
      */
-    protected componentDidUpdate(prevProps: P, prevState: S, snapshot: SS): void;
+    public componentDidUpdate(prevProps: P, prevState: S, snapshot: SS): void;
 
     // Deprecated Lifecycle Methods
     /**
@@ -222,9 +223,9 @@ export external public abstract class Component<P extends ComponentProps, S exte
 /**
  * React.PureComponent is exactly like React.Component but implements shouldComponentUpdate() with a shallow prop and state comparison.
  */
-export external public abstract class PureComponent<P extends ComponentProps, S extends Object, SS> extends Component<P, S, SS> {}
+export external public abstract class PureComponent<P extends ComponentProps<any>, S extends Object, SS> extends Component<P, S, SS> {}
 
-export external public abstract class ReactPortal<P extends ComponentProps> extends Element<P> {
+export external public interface ReactPortal<P extends ComponentProps<any>> extends ReactElement<P> {
     @Override
     public key: Key;
     public children: ReactNode;
@@ -237,7 +238,7 @@ export external public class Children {
      * passed the container objects. If children is null or undefined, returns null or 
      * undefined rather than an array.
      */
-    public static <T, C>map(children: C | C[], fn: (child: C, index: number) => T): Element<?>[];
+    public static <T, C>map(children: C | C[], fn: (child: C, index: number) => T): ReactElement<?>[];
 
     /**
      * Like React.Children.map() but does not return an array.
@@ -253,7 +254,7 @@ export external public class Children {
     /**
      * Returns the only child in children. Throws otherwise.
      */
-    public static <C>only(children: C): Element<?>;
+    public static <C>only(children: C): ReactElement<?>;
 
     /**
      * Returns the children opaque data structure as a flat array with keys assigned to each child.
@@ -264,7 +265,7 @@ export external public class Children {
      * flattening lists of children. That is, toArray prefixes each key in the returned array so that
      * each element's key is scoped to the input array containing it.
      */    
-    public static toArray(children: ReactNode | ReactNode[]): Element<?>[];
+    public static toArray(children: ReactNode | ReactNode[]): ReactElement<?>[];
 }
 
 export external public type GetDerivedStateFromProps<P, S> = (props: P, state: S) => Object;
@@ -275,7 +276,7 @@ export external public type GetDerivedStateFromError = (error: any) => Object;
  * 
  * @see https://reactjs.org/docs/fragments.html
  */
-export external public class Fragment extends ExoticComponent<ComponentProps> {
+export external public class Fragment extends ExoticComponent<ComponentProps<any>> {
     @Override
     public render(): any;
 }
@@ -287,7 +288,7 @@ export external public class Fragment extends ExoticComponent<ComponentProps> {
  *
  * @see https://reactjs.org/docs/strict-mode.html
  */
-export external public class StrictMode extends ExoticComponent<ComponentProps> {
+export external public class StrictMode extends ExoticComponent<ComponentProps<any>> {
     @Override
     public render(): any;
 }
@@ -391,21 +392,21 @@ export external public function <T> createRef(): RefObject<T>;
 /**
  * @see https://reactjs.org/docs/react-api.html#reactforwardref
  */
-export external public function <P extends ComponentProps> forwardRef(
+export external public function <P extends ComponentProps<any>> forwardRef(
     comp: (props: P, ref: RefObject<?>) => any
-): (P) => Element<P>;
+): (P) => ReactElement<P>;
 
 /**
  * @see https://reactjs.org/docs/react-api.html#reactforwardref
  */
-export external public function <P extends ComponentProps> memo(
+export external public function <P extends ComponentProps<any>> memo(
     Component: (props: P) => any,
     propsAreEqual: ((prevProps: P, nextProps: P) => boolean)=
-): (P) => Element<P>;
+): (P) => ReactElement<P>;
 
 /**
  * @see https://reactjs.org/docs/react-api.html#reactlazy
  */
-export external public function <P extends ComponentProps> lazy(
+export external public function <P extends ComponentProps<any>> lazy(
     factory: () => Promise<constructor{Component} | Function, any>
-): (P) => Element<P>;
+): (P) => ReactElement<P>;

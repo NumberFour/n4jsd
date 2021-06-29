@@ -8,7 +8,7 @@ export external public interface Wrapper {
     public findWhere(predicate: (wrapper: Wrapper) => boolean): Wrapper;
     public filter(selector: string | Object | React.Component<?, ?, ?>): Wrapper;
     public filterWhere(predicate: (wrapper: Wrapper) => boolean): Wrapper;
-    public contains(nodeOrNodes: React.Element<?> | React.Element<?>[]): boolean;
+    public contains(nodeOrNodes: React.ReactElement<?> | React.ReactElement<?>[]): boolean;
     public containsMatchingElement(node: React.Component<?, ?, ?>): boolean;
     public containsAllMatchingElements(nodes: Array<React.Component<?, ?, ?>>): boolean;
     public containsAnyMatchingElements(nodes: Array<React.Component<?, ?, ?>>): boolean;
@@ -26,7 +26,7 @@ export external public interface Wrapper {
     public key(): string;
     public text(): string;
     public html(): string;
-    public get(index:int): React.Element<?>;
+    public get(index:int): React.ReactElement<?>;
     public at(index:int): Wrapper;
     public first(): Wrapper;
     public last(): Wrapper;
@@ -120,9 +120,9 @@ export external public interface ReactWrapper extends Wrapper {
  */
 export external public interface CheerioWrapper extends Wrapper {}
 
-export external public function render(node: React.Element<?>, options: Object=): CheerioWrapper;
-export external public function shallow(node: React.Element<?>, options: Object=): ShallowWrapper;
-export external public function mount(node: React.Element<?>, options: Object=): ReactWrapper;
+export external public function render(node: React.ReactElement<?>, options: Object=): CheerioWrapper;
+export external public function shallow(node: React.ReactElement<?>, options: Object=): ShallowWrapper;
+export external public function mount(node: React.ReactElement<?>, options: Object=): ReactWrapper;
 
 export external public interface EnzymeAdapter {};
 

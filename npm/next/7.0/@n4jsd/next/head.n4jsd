@@ -1,5 +1,5 @@
 import * as React from "react";
 
-export default external public function Head(props: React.ComponentProps=): React.Element<?>;
+export default external public function Head(props: React.ComponentProps<any>=): React.ReactElement<?>;
 
 /* -*- mode: typescript;-*- */

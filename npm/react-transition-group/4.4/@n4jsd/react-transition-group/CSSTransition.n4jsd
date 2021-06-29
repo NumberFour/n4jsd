@@ -17,4 +17,4 @@ export external public interface ~CSSTransitionProps extends TransitionProps {
     public classNames?: string | CSSTransitionClassNames;
 }
 
-export default external public function CSSTransition(props: CSSTransitionProps=): React.Element<?>;
+export default external public function CSSTransition(props: CSSTransitionProps=): React.ReactElement<?>;

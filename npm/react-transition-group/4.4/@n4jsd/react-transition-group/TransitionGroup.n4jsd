@@ -3,8 +3,8 @@ import * as React from "react";
 
 export external public interface ~TransitionGroupProps extends TransitionActions {
     public component?: any;
-    public children?: React.Element<?> | React.Element<?>[]
-    public childFactory(child: React.Element<?>=): React.Element<?>  
+    public children?: React.ReactElement<?> | React.ReactElement<?>[]
+    public childFactory(child: React.ReactElement<?>=): React.ReactElement<?>  
 }
 
-export default external public function TransitionGroup(props: TransitionGroupProps=): React.Element<?>;
+export default external public function TransitionGroup(props: TransitionGroupProps=): React.ReactElement<?>;

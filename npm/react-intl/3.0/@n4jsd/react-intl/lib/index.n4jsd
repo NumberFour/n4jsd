@@ -56,11 +56,11 @@ export external public interface ~__IntlFormat {
 /**
  * https://github.com/yahoo/react-intl/wiki/API#injectintl
  */
-export external public function <PropsT extends React.ComponentProps, CompT extends React.Component<PropsT, ?, ?>>
-injectIntl(comp: (PropsT) => React.Element<?> | constructor{CompT}, options: ~Object with {
+export external public function <PropsT extends React.ComponentProps<any>, CompT extends React.Component<PropsT, ?, ?>>
+injectIntl(comp: (PropsT) => React.ReactElement<?> | constructor{CompT}, options: ~Object with {
         intlPropName?: string,  // defaults to 'intl'
         forwardRef?: boolean    // defaults to false
-    }=): (PropsT) => React.Element<?>;
+    }=): (PropsT) => React.ReactElement<?>;
 
 /**
  * The intl metadata passed as props into the parent <IntlProvider>.
@@ -99,7 +99,7 @@ export external public interface ~IntlProviderContext {
     public intl?: IntlShape;
 }
 
-export external public interface ~IntlProviderProps extends React.ComponentProps, IntlProviderContext, IntlConfig {
+export external public interface ~IntlProviderProps extends React.ComponentProps<any>, IntlProviderContext, IntlConfig {
     public initialNow?: any;
 }
 
@@ -120,38 +120,38 @@ export external public class IntlProvider extends React.Component<IntlProviderPr
     public getChildContext(): IntlProviderContext;
 
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#formatteddate
  */
 
-export external public interface ~FormattedDateProps extends React.ComponentProps, DateTimeFormatOptions {
+export external public interface ~FormattedDateProps extends React.ComponentProps<any>, DateTimeFormatOptions {
     public value: any;
     public format?: string;
 }
 
 export external class FormattedDate extends React.Component<FormattedDateProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#formattedtime
  */
 
-export external public interface ~FormattedTimeProps extends React.ComponentProps, DateTimeFormatOptions {
+export external public interface ~FormattedTimeProps extends React.ComponentProps<any>, DateTimeFormatOptions {
     public value: any;
     public format?: string;
 }
 
 export external class FormattedTime extends React.Component<FormattedTimeProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
-export external public interface ~FormattedRelativeTimeProps extends React.ComponentProps, FormatRelativeTimeOptions {
+export external public interface ~FormattedRelativeTimeProps extends React.ComponentProps<any>, FormatRelativeTimeOptions {
     public value?: number;
     public unit?: string;
     public format?: string;
@@ -160,26 +160,26 @@ export external public interface ~FormattedRelativeTimeProps extends React.Compo
 
 export external class FormattedRelativeTime extends React.Component<FormattedRelativeTimeProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#formattednumber
  */
-export external public interface ~FormattedNumberProps extends React.ComponentProps, NumberFormatOptions {
+export external public interface ~FormattedNumberProps extends React.ComponentProps<any>, NumberFormatOptions {
     public value: any;
     public format?: string;
 }
 
 export external class FormattedNumber extends React.Component<FormattedNumberProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#formattedmessage
  */
-export external public interface ~FormattedMessageProps extends React.ComponentProps, __MessageDescriptor {
+export external public interface ~FormattedMessageProps extends React.ComponentProps<any>, __MessageDescriptor {
     /**
      * Values for the placeholders in the message.
      */
@@ -192,35 +192,35 @@ export external public interface ~FormattedMessageProps extends React.ComponentP
 
 export external public class FormattedMessage extends React.Component<FormattedMessageProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
 /**
  * https://github.com/formatjs/react-intl/wiki/Components#formattedplural
  */
-export external public interface ~FormattedPluralProps extends React.ComponentProps, __MessageDescriptor {
+export external public interface ~FormattedPluralProps extends React.ComponentProps<any>, __MessageDescriptor {
     public style?: string;
     public value?: any;
-    public other: React.Element<?>;
-    public zero?: React.Element<?>;
-    public one?: React.Element<?>;
-    public two?: React.Element<?>;
-    public few?: React.Element<?>;
-    public many?: React.Element<?>;
+    public other: React.ReactElement<?>;
+    public zero?: React.ReactElement<?>;
+    public one?: React.ReactElement<?>;
+    public two?: React.ReactElement<?>;
+    public few?: React.ReactElement<?>;
+    public many?: React.ReactElement<?>;
     @Override
-    public children?: (formattedPlural: React.Element<?>) => React.Element<?>
+    public children?: (formattedPlural: React.ReactElement<?>) => React.ReactElement<?>
 }
 
 export external public class FormattedPlural extends React.Component<FormattedPluralProps, Object, any> {
     @Override
-    public render(): React.Element<?>;
+    public render(): React.ReactElement<?>;
 }
 
-export external public interface ~RawIntlProviderProps extends React.ComponentProps {
+export external public interface ~RawIntlProviderProps extends React.ComponentProps<any> {
     public get value(): IntlShape;
 }
 
-export external public function RawIntlProvider(props: RawIntlProviderProps): React.Element<?>;
+export external public function RawIntlProvider(props: RawIntlProviderProps): React.ReactElement<?>;
 
 export external public const intlShape;
 

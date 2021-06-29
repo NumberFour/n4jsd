@@ -8,7 +8,7 @@ import * as React from "react";
  * If you call R.render() on a node that already has this server-rendered markup,
  * React will preserve it and only attach event handlers, allowing you to have a very performant first-load experience.
  */
-export external public function renderToString(element: React.Element<?>): string;
+export external public function renderToString(element: React.ReactElement<?>): string;
 
 /**
  * Similar to renderToString, except this doesn't create extra DOM attributes such as data-react-id,
@@ -16,6 +16,6 @@ export external public function renderToString(element: React.Element<?>): strin
  * This is useful if you want to use React as a simple static page generator, as stripping away the
  * extra attributes can save lots of bytes.
  */
-export external public function renderToStaticMarkup(element: React.Element<?>): string;
+export external public function renderToStaticMarkup(element: React.ReactElement<?>): string;
 
 /* -*- mode: typescript;-*- */

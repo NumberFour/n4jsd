@@ -1,26 +1,5 @@
-import { ReduxAction } from "redux";
+import { Action } from "redux";
 
-/**
- * https://redux-saga.github.io/redux-saga/docs/api/
- * 
- * The saga generator yield type is one/more instruction object(s) processed by the middleware.
- */
-
-@StringBased
-export external public enum ReduxSagaEffectType {
-    CALL,
-    PUT,
-    TAKE,
-    FORK
-    // ...
-}
-
-/**
- * Instruction yielded to the middleware (e.g. via put(), call()).
- */
-export external public interface ~ReduxSagaEffect {
-    public get type(): ReduxSagaEffectType;
-}
 
 /**
  * https://redux-saga.github.io/redux-saga/docs/api/#task
@@ -43,7 +22,7 @@ export external public interface ~ReduxSagaTask<ResultT> {
  */
 export external public interface ~ReduxSagaMiddleware {
     public run(
-        saga: Function, // {function(): Generator<union{ReduxSagaEffect, Array<ReduxSagaEffect>}, undefined, any>},
+        saga: Function, // {function(): Generator<union{Effect, Array<Effect>}, undefined, any>},
         ...args
     ): ReduxSagaTask<?>;
 }
@@ -60,7 +39,7 @@ export default external public function sagaMiddlewareFactory(options: Object=):
 /**
  * Special store action on END.
  */
-export external public const END: ReduxAction;
+export external public const END: Action;
 
 /**
  * Special function property to attach a cancelation handler on a promise.

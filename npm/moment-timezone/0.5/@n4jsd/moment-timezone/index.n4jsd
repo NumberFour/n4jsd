@@ -15,45 +15,22 @@ export @StringBased external public enum MomentDurationUnit {
 }
 
 /**
+ * Creates a new moment in the system timezone, either from a JS Date / Moment.
+ */
+ export default external public function momentSys(date: ~~Date): Moment;
+
+/**
+ * Creates a new moment in the given timezone, either from a JS Date / Moment.
+ */
+export external public function tz(
+    date: ~~Date|Moment|string|number|number[],
+    olsonId: string
+): Moment;
+
+/**
  * Class definition for Moment.js, including moment-timezone.js (https://github.com/moment).
  */
-export default external public class ~Moment {
-    /**
-     * Constructor function.
-     * Creates a new moment in the system timezone, either form a JS Date or from the object.
-     */
-    public constructor(value: union{
-        Date,
-        ~Object with {
-            year?: number;
-            month?: number;
-            day?: number;
-            hour?: number;
-            minute?: number;
-            second?: number;
-            millisecond?: number;
-        }
-    } = undefined);
-
-    /**
-     * Creates a new moment in the given timezone.
-     * @param moment the local time in the given timezone.
-     * @param olsonId the id of the timezone
-     */
-    public static tz(moment: union{
-        ~Object with {
-            year?: number;
-            month?: number;
-            day?: number;
-            hour?: number;
-            minute?: number;
-            second?: number;
-            millisecond?: number;
-        },
-        string,
-        number
-    }, olsonId: string = undefined): Moment;
-
+export external public interface ~Moment {
     /**
      * Converts this moment to the given timezone.
      * This is a destructive operation.
@@ -99,5 +76,3 @@ export default external public class ~Moment {
      */
     public zoneName(): string;
 }
-
-/* -*- mode: typescript;-*- */
