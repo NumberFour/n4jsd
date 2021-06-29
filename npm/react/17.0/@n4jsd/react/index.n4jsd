@@ -137,7 +137,7 @@ export external public abstract class Component<P extends ComponentProps<any>, S
     /**
      * Called immediately after a component is mounted. Setting state here will trigger re-rendering.
      */
-    protected componentDidMount(): void;
+    public componentDidMount(): void;
     /**
      * Called to determine whether the change in props and state should trigger a re-render.
      *
@@ -148,17 +148,17 @@ export external public abstract class Component<P extends ComponentProps<any>, S
      * If false is returned, `Component#render`, `componentWillUpdate`
      * and `componentDidUpdate` will not be called.
      */
-    protected shouldComponentUpdate(nextProps: P, nextState: S, nextContext: any): boolean;
+    public shouldComponentUpdate(nextProps: P, nextState: S, nextContext: any): boolean;
     /**
      * Called immediately before a component is destroyed. Perform any necessary cleanup in this method, such as
      * cancelled network requests, or cleaning up any DOM elements created in `componentDidMount`.
      */
-    protected componentWillUnmount(): void;
+    public componentWillUnmount(): void;
     /**
      * Catches exceptions generated in descendant components. Unhandled exceptions will cause
      * the entire component tree to unmount.
      */
-    protected componentDidCatch(error: Error, errorInfo: ErrorInfo): void;
+    public componentDidCatch(error: Error, errorInfo: ErrorInfo): void;
 
 
     // NewLifecycle Methods
@@ -169,13 +169,13 @@ export external public abstract class Component<P extends ComponentProps<any>, S
      * 
      * @see https://reactjs.org/docs/react-component.html#getsnapshotbeforeupdate
      */
-    protected getSnapshotBeforeUpdate(prevProps: P, prevState: S): SS;
+    public getSnapshotBeforeUpdate(prevProps: P, prevState: S): SS;
     /**
      * componentDidUpdate() is invoked immediately after updating occurs. This method is not called for the initial render.
      * 
      * @see https://reactjs.org/docs/react-component.html#componentdidupdate
      */
-    protected componentDidUpdate(prevProps: P, prevState: S, snapshot: SS): void;
+    public componentDidUpdate(prevProps: P, prevState: S, snapshot: SS): void;
 
     // Deprecated Lifecycle Methods
     /**
