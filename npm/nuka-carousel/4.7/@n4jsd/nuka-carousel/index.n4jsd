@@ -1,44 +1,44 @@
 import * as React from "react";
 
 @StringBased
-export external public enum NukaCarouselScrollMode {
+export external public enum CarouselScrollMode {
     page,
     remainder
 }
 
 @StringBased
-export external public enum NukaCarouselCellAlignment {
+export external public enum CarouselCellAlignment {
     left,
     center,
     right
 }
 
 @StringBased
-export external public enum NukaCarouselHeightMode {
+export external public enum CarouselHeightMode {
     first,
     current,
     max
 }
 
 @StringBased
-export external public enum NukaCarouselTransitionMode {
+export external public enum CarouselTransitionMode {
     fade,
     scroll,
     scroll3d
 }
 
 @StringBased
-export external public enum NukaCarouselSlidesToScroll {
+export external public enum CarouselSlidesToScroll {
     auto
 }
 
 @StringBased
-export external public enum NukaCarouselAnimationEffect {
+export external public enum CarouselAnimationEffect {
     zoom
 }
 
 @StringBased
-export external public enum NukaCarouselControlContainer {
+export external public enum CarouselControlContainer {
     TopLeft,
     TopCenter,
     TopRight,
@@ -50,7 +50,7 @@ export external public enum NukaCarouselControlContainer {
     BottomRight
 }
 
-export external public interface ~NukaCarouselSlideActions {
+export external public interface ~CarouselSlideActions {
     public nextSlide?: int[];
     public previousSlide?: int[];
     public firstSlide?: int[];
@@ -71,11 +71,11 @@ export external public interface ~DefaultControlsConfig {
     public pagingDotsStyle?: Object;
 }
 
-export external public interface ~NukaCarouselSlideRenderControlProps {
+export external public interface ~CarouselSlideRenderControlProps {
     /**
      * When displaying more than one slide, sets which position to anchor the current slide to.
      */
-    public cellAlign: NukaCarouselCellAlignment;
+    public cellAlign: CarouselCellAlignment;
 
     /**
      * When displaying more than one slide, sets which position to anchor the current slide to.
@@ -116,7 +116,7 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     /**
      * Slides to scroll at once
      */
-    public slidesToScroll: int | NukaCarouselSlidesToScroll;
+    public slidesToScroll: int | CarouselSlidesToScroll;
 
     /**
      * Slides to show at once
@@ -134,9 +134,9 @@ export external public interface ~NukaCarouselSlideRenderControlProps {
     public wrapAround: boolean;
 }
 
-export external public type NukaCarouselRenderControlFn = (props: NukaCarouselSlideRenderControlProps) => React.ReactElement<?> | constructor{React.Component};
+export external public type CarouselRenderControlFn = (props: CarouselSlideRenderControlProps) => React.ReactElement<?> | constructor{React.Component};
 
-export external public interface ~NukaCarouselProps extends React.ComponentProps<any> {
+export external public interface ~CarouselProps extends React.ComponentProps<any> {
     /**
      * Hook to be called after a slide is changed
      * @param index Index of the current slide
@@ -146,7 +146,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Adds a zoom effect on the currently visible slide.
      */
-    public animation?: NukaCarouselAnimationEffect;
+    public animation?: CarouselAnimationEffect;
 
     /**
      * Will generate a style tag to help ensure images are displayed properly
@@ -182,7 +182,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * When displaying more than one slide, sets which position to anchor the current slide to.
      */
-    public cellAlign?: NukaCarouselCellAlignment;
+    public cellAlign?: CarouselCellAlignment;
     
     /**
      * Space between slides, as an integer, but reflected as px
@@ -203,12 +203,12 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * When enableKeyboardControls is enabled, Configure keyCodes for corresponding slide actions as array of keyCodes
      */
-    public keyCodeConfig?: NukaCarouselSlideActions;
+    public keyCodeConfig?: CarouselSlideActions;
 
     /**
      * Optional callback to apply styles to the container of a control.
      */
-    public getControlsContainerStyles?: (key: NukaCarouselControlContainer) => Object // CSSProperties
+    public getControlsContainerStyles?: (key: CarouselControlContainer) => Object // CSSProperties
 
     /**
      * This prop lets you apply custom classes and styles to the default Next, Previous, and Paging Dots controls
@@ -275,7 +275,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Change the height of the slides based either on the first slide,
      * the current slide, or the maximum height of all slides.
      */
-    public heightMode?: NukaCarouselHeightMode;
+    public heightMode?: CarouselHeightMode;
 
     /**
      * Initial height of the slides (px)
@@ -306,47 +306,47 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Function for rendering top left control
      */
-    public renderTopLeftControls?: NukaCarouselRenderControlFn;
+    public renderTopLeftControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering top center control
      */
-    public renderTopCenterControls?: NukaCarouselRenderControlFn;
+    public renderTopCenterControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering top right control
      */
-    public renderTopRightControls?: NukaCarouselRenderControlFn;
+    public renderTopRightControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering center left control
      */
-    public renderCenterLeftControls?: NukaCarouselRenderControlFn;
+    public renderCenterLeftControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering center center control
      */
-    public renderCenterCenterControls?: NukaCarouselRenderControlFn;
+    public renderCenterCenterControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering center right control
      */
-    public renderCenterRightControls?: NukaCarouselRenderControlFn;
+    public renderCenterRightControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering bottom left control
      */
-    public renderBottomLeftControls?: NukaCarouselRenderControlFn;
+    public renderBottomLeftControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering bottom center control
      */
-    public renderBottomCenterControls?: NukaCarouselRenderControlFn;
+    public renderBottomCenterControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering bottom right control
      */
-    public renderBottomRightControls?: NukaCarouselRenderControlFn;
+    public renderBottomRightControls?: CarouselRenderControlFn;
 
     /**
      * Function for rendering aria-live announcement messages
@@ -357,7 +357,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Supports 'page' and 'remainder' scroll modes.
      * Defaults to 'remainder'.
      */
-    public scrollMode?: NukaCarouselScrollMode;
+    public scrollMode?: CarouselScrollMode;
 
     /**
      * Manually set the index of the slide to be shown
@@ -374,7 +374,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
      * Slides to scroll at once. Set to "auto"
      * to always scroll the current number of visible slides
      */
-    public slidesToScroll?: int | NukaCarouselSlidesToScroll;
+    public slidesToScroll?: int | CarouselSlidesToScroll;
 
     /**
      * Slides to show at once
@@ -406,7 +406,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     /**
      * Set the way slides transition from one to the next
      */
-    public transitionMode?: NukaCarouselTransitionMode;
+    public transitionMode?: CarouselTransitionMode;
 
     /**
      * Enable the slides to transition vertically
@@ -440,7 +440,7 @@ export external public interface ~NukaCarouselProps extends React.ComponentProps
     public zoomScale?: number;
 }
 
-export external public interface ~NukaCarouselState {
+export external public interface ~CarouselState {
     /**
      * Current slide index
      */
@@ -480,7 +480,7 @@ export external public interface ~NukaCarouselState {
     /**
      * Slides to scroll at once
      */
-    public slidesToScroll: int | NukaCarouselSlidesToScroll;
+    public slidesToScroll: int | CarouselSlidesToScroll;
 
     /**
      * Current slide width
@@ -498,27 +498,27 @@ export external public interface ~NukaCarouselState {
     public wrapToIndex: boolean;
 }
 
-export external public interface PreviousButtonProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
+export external public interface PreviousButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
-export external public interface NextButtonProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
+export external public interface NextButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
-export external public interface PagingDotsProps extends React.ComponentProps<any>, NukaCarouselSlideRenderControlProps {}
+export external public interface PagingDotsProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;
     public getDotIndexes(
         slideCount: int,
-        slidesToScroll: int | NukaCarouselSlidesToScroll,
+        slidesToScroll: int | CarouselSlidesToScroll,
         slidesToShow: int,
-        cellAlign: NukaCarouselCellAlignment
+        cellAlign: CarouselCellAlignment
     ): int[];
 
     @Override
@@ -526,10 +526,9 @@ export external public class PagingDots extends React.Component<PagingDotsProps,
 }
 
 /**
- * https://github.com/FormidableLabs/nuka-carousel
+ * https://github.com/FormidableLabs/-carousel
  */
-export default external public class NukaCarousel extends React.Component<NukaCarouselProps, NukaCarouselState, any> {
-
+export default external public class Carousel extends React.Component<CarouselProps, CarouselState, any> {
     /**
      * @internal
      */
@@ -543,5 +542,3 @@ export default external public class NukaCarousel extends React.Component<NukaCa
     @Override
     public render(): React.ReactElement<?>;
 };
-
-/* -*- mode: typescript;-*- */
