@@ -305,7 +305,7 @@ export external public function <T>useContext(
  */
 export external public function <S>useState(
     initialState: S | () => S
-): Iterable2<S, (state: S) => void>;
+): Iterable2<S, (state: S|((S) => S)) => void>;
 
 /**
  * @see https://reactjs.org/docs/hooks-reference.html#useeffect
