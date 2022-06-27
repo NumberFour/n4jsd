@@ -498,19 +498,19 @@ export external public interface ~CarouselState {
     public wrapToIndex: boolean;
 }
 
-export external public interface PreviousButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+export external public interface ~PreviousButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
-export external public interface NextButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+export external public interface ~NextButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
-export external public interface PagingDotsProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+export external public interface ~PagingDotsProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
 export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;

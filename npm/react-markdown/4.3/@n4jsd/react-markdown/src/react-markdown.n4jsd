@@ -135,19 +135,19 @@ export external public interface ~ReactMarkdownProps extends React.ComponentProp
     public parserOptions?: RemarkParseOptions;
 }
 
-external interface Point {
+external interface ~Point {
     public line: number;
     public column: number;
     public offset?: number;
 }
 
-external interface Position {
+external interface ~Position {
     public start: Point;
     public end: Point;
     public indent?: number[];
 }
 
-external interface RemarkParseOptions {
+external interface ~RemarkParseOptions {
     public gfm?: boolean;
     public commonmark?: boolean;
     public footnotes?: boolean;
@@ -155,7 +155,7 @@ external interface RemarkParseOptions {
     public pedantic?: boolean;
 }
 
-external interface MarkdownAbstractSyntaxTree {
+external interface ~MarkdownAbstractSyntaxTree {
     public align?: string; // "left" | "right" | "center"
     public alt?: string;
     public checked?: boolean;

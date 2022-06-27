@@ -92,7 +92,7 @@ export external public class ~Response extends ServerResponse {
     public attachment(filename: string = undefined): this;
     public set(field: any, value: string = undefined): this;
     public header(field: any, value: string = undefined): this;
-    public headersSent: boolean;
+    // public headersSent: boolean; // note: available through super type
     public get (field: string): string;
     public clearCookie(name: string, options: any = undefined): this;
     public cookie(name: string, val: any, options: CookieOptions = undefined): this;

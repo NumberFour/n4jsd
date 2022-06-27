@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/jsdom",
-	"version": "11.5.1",
+	"version": "11.5.2",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -21,12 +21,10 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-node",
 			"n4js-runtime-html5"
 		]
 	},
 	"dependencies": {
-		"n4js-runtime-node": "",
 		"n4js-runtime-html5": ""
 	}
 }

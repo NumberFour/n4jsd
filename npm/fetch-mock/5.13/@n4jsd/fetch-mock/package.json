@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/fetch-mock",
-	"version": "5.13.2",
+	"version": "5.13.3",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -11,7 +11,7 @@
 		"n4js"
 	],
 	"dependencies": {
-		"n4js-runtime-node": "",
+		"@types/node": "",
 		"n4js-runtime-fetch": ""
 	},
 	"n4js": {
@@ -25,7 +25,6 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-node",
 			"n4js-runtime-fetch"
 		]
 	}

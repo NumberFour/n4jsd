@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/serve-index",
-	"version": "1.9.2",
+	"version": "1.9.3",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -19,13 +19,9 @@
 			"source": [
 				"."
 			]
-		},
-		"requiredRuntimeLibraries": [
-			"n4js-runtime-node"
-		]
+		}
 	},
 	"dependencies": {
-		"@n4jsd/express": "",
-		"n4js-runtime-node": ""
+		"@n4jsd/express": ""
 	}
 }

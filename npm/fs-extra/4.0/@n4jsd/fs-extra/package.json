@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/fs-extra",
-	"version": "4.0.2",
+	"version": "4.0.3",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -10,9 +10,6 @@
 	"keywords": [
 		"n4js"
 	],
-	"dependencies": {
-		"n4js-runtime-node": ""
-	},
 	"n4js": {
 		"projectType": "definition",
 		"definesPackage": "fs-extra",
@@ -22,9 +19,6 @@
 			"source": [
 				"."
 			]
-		},
-		"requiredRuntimeLibraries": [
-			"n4js-runtime-node"
-		]
+		}
 	}
 }

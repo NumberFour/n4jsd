@@ -33,7 +33,7 @@ export external public class MongoClient {
     ): Promise<Db, MongoError>;
 }
 
-export external public interface MongoClientOptions {
+export external public interface ~MongoClientOptions {
     public uri_decode_auth?: boolean;
     public db?: DbCreateOptions;
     public server?: ServerOptions;
@@ -42,7 +42,7 @@ export external public interface MongoClientOptions {
     public promiseLibrary?: Object;
 }
 
-export external public interface DbCreateOptions {
+export external public interface ~DbCreateOptions {
     public authSource?: string;
     public w?: union {number, string};
     public wtimeout?: number;
@@ -77,7 +77,7 @@ export external public class ReadPreference {
     public static isValid(mode: string): boolean;
 }
 
-export external public interface SocketOptions {
+export external public interface ~SocketOptions {
     public autoReconnect?: boolean;
     public noDelay?: boolean;
     public keepAlive?: int;
@@ -85,7 +85,7 @@ export external public interface SocketOptions {
     public socketTimeoutMS?: int;
 }
 
-export external public interface ServerOptions {
+export external public interface ~ServerOptions {
     public poolSize?: int;
     public ssl?: boolean;
     public sslValidate?: Object;
@@ -99,7 +99,7 @@ export external public interface ServerOptions {
     public reconnectInterval?: int;
 }
 
-export external public interface ReplSetOptions {
+export external public interface ~ReplSetOptions {
     public ha?: boolean;
     public haInterval?: int;
     public replicaSet: string;
@@ -116,7 +116,7 @@ export external public interface ReplSetOptions {
     public socketOptions?: SocketOptions;
 }
 
-export external public interface MongosOptions {
+export external public interface ~MongosOptions {
     public ha?: boolean;
     public haInterval?: int;
     public poolSize?: int;
@@ -335,7 +335,7 @@ export external public class Db extends EventEmitter {
     ): Promise<any, MongoError>?;
 }
 
-export external public interface Admin {
+export external public interface ~Admin {
     public addUser(
         username: string,
         password: string,
@@ -407,7 +407,7 @@ export external public interface Admin {
     ): Promise<any, MongoError>?;
 }
 
-export external public interface Collection {
+export external public interface ~Collection {
     public collectionName: string;
     public namespace: string;
     public writeConcern: any;
@@ -769,7 +769,7 @@ export external public interface Collection {
 }
 
 
-export external public interface OrderedBulkOperation {
+export external public interface ~OrderedBulkOperation {
     public length: int;
     public execute(
         options: union {
@@ -789,7 +789,7 @@ export external public interface OrderedBulkOperation {
     public insert(doc: Object): OrderedBulkOperation;
 }
 
-export external public interface BulkWriteResult {
+export external public interface ~BulkWriteResult {
     public ok: boolean;
     public nInserted: number;
     public nUpdated: number;
@@ -809,18 +809,18 @@ export external public interface BulkWriteResult {
     public hasWriteErrors(): boolean;
 }
 
-export external public interface WriteError {
+export external public interface ~WriteError {
     code: number;
     index: number;
     errmsg: string;
 }
 
-export external public interface WriteConcernError {
+export external public interface ~WriteConcernError {
     code: number;
     errmsg: string;
 }
 
-export external public interface FindOperatorsOrdered {
+export external public interface ~FindOperatorsOrdered {
     delete(): OrderedBulkOperation;
     deleteOne(): OrderedBulkOperation;
     replaceOne(doc: Object): OrderedBulkOperation;
@@ -829,7 +829,7 @@ export external public interface FindOperatorsOrdered {
     upsert(): FindOperatorsOrdered;
 }
 
-export external public interface FindOperatorsUnordered {
+export external public interface ~FindOperatorsUnordered {
     length: int;
     remove(): UnorderedBulkOperation;
     removeOne(): UnorderedBulkOperation;
@@ -839,7 +839,7 @@ export external public interface FindOperatorsUnordered {
     upsert(): FindOperatorsUnordered;
 }
 
-export external public interface UnorderedBulkOperation {
+export external public interface ~UnorderedBulkOperation {
     public execute(
         options: union {
             ~Object with {
@@ -955,13 +955,13 @@ export external public class Code {
     public scope: any;
 }
 
-export external public interface CollectionOptions {
+export external public interface ~CollectionOptions {
     public w?: union{number, string};
     public wtimeout?: number;
     public j?: boolean;
 }
 
-export external public interface IndexOptions {
+export external public interface ~IndexOptions {
     public w?: union{number, string};
     public wtimeout?: number;
     public j?: boolean;
@@ -976,7 +976,7 @@ export external public interface IndexOptions {
     public name?: number;
 }
 
-export external public interface UpdateWriteOpResultObject {
+export external public interface ~UpdateWriteOpResultObject {
     public result: ~Object with {
         ok: number,
         n: number,
@@ -990,13 +990,13 @@ export external public interface UpdateWriteOpResultObject {
         _id: ObjectID
     };
 }
-export external public interface FindAndModifyWriteOpResultObject {
+export external public interface ~FindAndModifyWriteOpResultObject {
     public value?: Object;
     public lastErrorObject?: Object;
     public ok?: int;
 }
 
-export external public interface InsertOneWriteOpResultObject {
+export external public interface ~InsertOneWriteOpResultObject {
     public insertedCount: number;
     public ops: Array<any>;
     public insertedId: ObjectID;
@@ -1007,7 +1007,7 @@ export external public interface InsertOneWriteOpResultObject {
     };
 }
 
-export external public interface InsertWriteOpResultObject {
+export external public interface ~InsertWriteOpResultObject {
     public insertedCount: number;
     public ops: Array<any>;
     public insertedIds: Array<ObjectID>;
@@ -1018,7 +1018,7 @@ export external public interface InsertWriteOpResultObject {
     };
 }
 
-export external public interface DeleteWriteOpResultObject {
+export external public interface ~DeleteWriteOpResultObject {
     public result?: ~Object with {
         ok: number;
         n: number;
@@ -1027,7 +1027,7 @@ export external public interface DeleteWriteOpResultObject {
     public deletedCount?: int;
 }
 
-export external public interface BulkWriteOpResultObject {
+export external public interface ~BulkWriteOpResultObject {
     public insertedCount?: number;
     public matchedCount?: number;
     public modifiedCount?: number;

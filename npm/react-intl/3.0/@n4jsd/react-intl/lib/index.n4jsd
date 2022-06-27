@@ -1,5 +1,3 @@
-import {DateTimeFormatOptions} from "IntlClasses";
-import {NumberFormatOptions} from "IntlClasses";
 import * as React from "react";
 
 /**

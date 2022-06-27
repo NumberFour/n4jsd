@@ -15,7 +15,7 @@ export external public type Ref<T> = RefCallback<T> | RefObject<T>;
 
 export external public type Key = string | number;
 
-export external public interface ReactElement<out P extends ComponentProps<any>> { // interface?, rename: ReactElement
+export external public interface ~ReactElement<out P extends ComponentProps<any>> { // interface?, rename: ReactElement
     public get type(): string | constructor{Component} | Function;
     public get props(): P;
     public get key(): Key;
@@ -225,7 +225,7 @@ export external public abstract class Component<P extends ComponentProps<any>, S
  */
 export external public abstract class PureComponent<P extends ComponentProps<any>, S extends Object, SS> extends Component<P, S, SS> {}
 
-export external public interface ReactPortal<P extends ComponentProps<any>> extends ReactElement<P> {
+export external public interface ~ReactPortal<P extends ComponentProps<any>> extends ReactElement<P> {
     @Override
     public key: Key;
     public children: ReactNode;

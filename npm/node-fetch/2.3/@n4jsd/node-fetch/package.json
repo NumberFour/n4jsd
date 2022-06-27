@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/node-fetch",
-	"version": "2.3.0",
+	"version": "2.3.1",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -21,12 +21,11 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-fetch",
-			"n4js-runtime-node"
+			"n4js-runtime-fetch"
 		]
 	},
 	"dependencies": {
 		"n4js-runtime-fetch": "",
-		"n4js-runtime-node": ""
+		"@types/node" : ""
 	}
 }

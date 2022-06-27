@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/chromedriver",
-	"version": "2.33.2",
+	"version": "2.33.3",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
@@ -19,12 +19,9 @@
 			"source": [
 				"."
 			]
-		},
-		"requiredRuntimeLibraries": [
-			"n4js-runtime-node"
-		]
+		}
 	},
 	"dependencies": {
-		"n4js-runtime-node": ""
+		"@types/node": ""
 	}
 }

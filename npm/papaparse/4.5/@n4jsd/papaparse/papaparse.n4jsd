@@ -1,7 +1,6 @@
-import {IReadableStream} from "stream";
 
 /** https://www.papaparse.com/docs#csv-to-json */
-export external public function parse(input: union { string,IReadableStream }, config: PapaConfig=undefined);
+export external public function parse(input: union { string, NodeJS.ReadableStream }, config: PapaConfig=undefined);
 
 /** https://www.papaparse.com/docs#errors */
 export external public class ~PapaError {

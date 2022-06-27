@@ -3,7 +3,7 @@
  */
 export external public function script(name: string): NomnomConfig;
 
-export external public interface NomnomConfig {
+export external public interface ~NomnomConfig {
     public help(help: string): NomnomConfig;
     public options(options: Object): NomnomConfig;
     public parse(): Object;

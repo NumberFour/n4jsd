@@ -1,10 +1,8 @@
-import {IWritableStream} from "stream";
-import {IReadableStream} from "stream";
 
 /**
  * @see https://github.com/lovell/sharp
  */
-export external public abstract class Sharp implements IWritableStream, IReadableStream {
+export external public abstract class Sharp implements NodeJS.WritableStream, NodeJS.ReadableStream {
     public resize(widthOrOptions: number|Object, height: number=): this;
 
     public async toBuffer(): Buffer;
