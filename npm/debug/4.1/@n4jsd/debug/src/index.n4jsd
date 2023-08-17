@@ -11,7 +11,7 @@ export external public function disable(): void; // disables debug output
 export external public function enabled(namespace: string): boolean;
 
 @Final
-export external public class __DebugFn {
+export external public class __DebugFn extends Object {
     (string, ...any): void;
     
     public static get namespace(): string;

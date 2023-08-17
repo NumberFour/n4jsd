@@ -5,7 +5,7 @@ export external public interface ~Options {
     speedy?: boolean;
 }
 
-export external public class StyleSheet {
+export external public class StyleSheet extends Object {
     public constructor(options: Options=);
 
     public isSpeedy: boolean;

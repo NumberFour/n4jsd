@@ -3,7 +3,7 @@ import { ChildProcess } from "child_process";
 /**
  * https://github.com/mozilla/geckodriver
  */
-export default external public class ~GeckoDriver {
+export default external public class GeckoDriver extends Object {
     public const path: string;
     public const version: string;
     

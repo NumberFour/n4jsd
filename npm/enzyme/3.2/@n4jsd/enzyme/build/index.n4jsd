@@ -127,7 +127,7 @@ export external public function mount(node: React.ReactElement<?>, options: Obje
 export external public interface ~EnzymeAdapter {};
 
 @Final
-export default external public class Enzyme {
+export default external public class Enzyme extends Object {
     public static configure(options: ~Object with {
         adapter: EnzymeAdapter
     }): void;

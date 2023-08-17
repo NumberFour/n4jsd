@@ -1,7 +1,7 @@
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/capabilities_exports_Capabilities.html
  */
-export external public class Capabilities {
+export external public class Capabilities extends Object {
     public constructor(opt_other);
     
     public set(key: string, value: any): this;

@@ -3,7 +3,7 @@ import * as React from "react";
 /**
  * Passed into page props.
  */
-export external public class ~TransitionOptions {
+export external public class TransitionOptions extends Object {
     public shallow?: boolean;
 }
 

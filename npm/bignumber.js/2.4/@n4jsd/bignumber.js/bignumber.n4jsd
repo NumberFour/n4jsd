@@ -1,4 +1,5 @@
-export @Final external public class ~BigNumberConfig {
+@Final
+export external public class BigNumberConfig extends Object {
     public DECIMAL_PLACES?: number;
     public ROUNDING_MODE?: number;
     public ERRORS?: boolean;
@@ -9,7 +10,8 @@ export @Final external public class ~BigNumberConfig {
 /**
  * Class definition for BigNumber (http://mikemcl.github.io/bignumber.js).
  */
-export default @Final external public class ~BigNumber {
+@Final
+export default external public class BigNumber extends Object {
     public static another(config: BigNumberConfig): constructor{BigNumber};
     
     /**

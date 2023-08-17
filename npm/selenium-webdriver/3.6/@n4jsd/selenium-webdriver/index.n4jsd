@@ -6,7 +6,7 @@ import {WebDriver} from "lib/webdriver";
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/index_exports_Builder.html
  */
-export external public class Builder {
+export external public class Builder extends Object {
     public constructor();
 
     public forBrowser(name: string, opt_version: string=, opt_platform: string=): this;

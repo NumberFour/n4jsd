@@ -5,13 +5,13 @@ import { Readable } from "stream"
  * @see http://mongodb.github.io/node-mongodb-native/2.1/api
  */
 
-export external public class MongoError {
+export external public class MongoError extends Object {
     public constructor(message: string);
     @Override
     public static create(options: Object): MongoError;
 }
 
-export external public class MongoClient {
+export external public class MongoClient extends Object {
     public constructor();
 
     public static connect(
@@ -62,7 +62,7 @@ export external public interface ~DbCreateOptions {
     };
 }
 
-export external public class ReadPreference {
+export external public class ReadPreference extends Object {
     static PRIMARY: string;
     static PRIMARY_PREFERRED: string;
     static SECONDARY: string;
@@ -925,7 +925,7 @@ export external public class AggregationCursor extends Readable {
     public maxTimeMS(value: number): AggregationCursor;
     public next(callback: {function(error: MongoError, result: union{undefined, Object})} = undefined): Promise<union{undefined, Object}, MongoError>?;
     public out(destination: number): AggregationCursor;
-    public project(document: Object): AggregationCursor;
+    public "project"(document: Object): AggregationCursor;
     public redact(document: Object): AggregationCursor;
     public rewind(): AggregationCursor;
     public skip(value: number): AggregationCursor;
@@ -949,7 +949,7 @@ export external public class CommandCursor extends Readable {
     public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
-export external public class Code {
+export external public class Code extends Object {
     public constructor(code: union {string, Function}, scope:Object = undefined);
     public code: union {string, Function};
     public scope: any;
@@ -1038,7 +1038,7 @@ export external public interface ~BulkWriteOpResultObject {
     public result?: any;
 }
 
-export external public class ObjectID {
+export external public class ObjectID extends Object {
     public constructor(id: union {string, number});
     public generationTime: number;
     public static createFromHexString(hexString: string): ObjectID;
@@ -1050,7 +1050,7 @@ export external public class ObjectID {
     public toHexString(): string;
 }
 
-export external public class Binary {
+export external public class Binary extends Object {
     public constructor(buffer: Buffer, subType: number = undefined);
 
     static SUBTYPE_BYTE_ARRAY: number;
@@ -1068,13 +1068,13 @@ export external public class Binary {
     public write(buffer: union{Buffer, string}, offset: number): void;
 }
 
-export external public class Double {
+export external public class Double extends Object {
     public constructor(value: number);
     @Override
     public valueOf(): number;
 }
 
-export external public class Long {
+export external public class Long extends Object {
     public constructor(low: number, high: number);
 
     public static MAX_VALUE: Long;
@@ -1122,13 +1122,13 @@ export external public class Long {
     public xor(other: Long): Long;
 }
 
-export external public class MaxKey {
+export external public class MaxKey extends Object {
     public constructor();
 }
-export external public class MinKey {
+export external public class MinKey extends Object {
     public constructor();
 }
-export external public class Timestamp {
+export external public class Timestamp extends Object {
     public constructor(low: number, high: number);
 
     public static MAX_VALUE: Timestamp;

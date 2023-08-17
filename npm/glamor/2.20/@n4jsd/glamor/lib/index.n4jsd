@@ -3,7 +3,7 @@
  */
 
 @Final
-export external public class __GlamorFn {
+export external public class __GlamorFn extends Object {
     (...cssStylePropsAndCssRules: Object): Object;
 
     public static global(selector: string, cssStyleProps: Object|string): void;

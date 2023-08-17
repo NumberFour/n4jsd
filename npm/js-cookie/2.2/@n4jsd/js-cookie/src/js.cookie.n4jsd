@@ -1,7 +1,7 @@
 /**
  * @see https://github.com/js-cookie/js-cookie
  */
-export default external public class Cookies {
+export default external public class Cookies extends Object {
     public static get(name: string): string?;
     public static getJSON(name: string=): Object?;
 

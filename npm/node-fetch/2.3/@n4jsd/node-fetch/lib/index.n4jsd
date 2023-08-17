@@ -1,6 +1,6 @@
 import {Agent} from "http";
 
-export external public abstract class ~NodeFetchRequestInit extends RequestInit {
+export external public abstract class NodeFetchRequestInit extends RequestInit {
     @Override
     public get body?(): string|Buffer;
 

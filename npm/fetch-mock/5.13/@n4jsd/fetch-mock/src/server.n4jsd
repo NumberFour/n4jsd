@@ -2,7 +2,7 @@
  * see https://www.npmjs.com/package/fetch-mock for full documentation
  */
 
-export external public interface ~ResponseObject {   
+export external public interface ~ResponseObject {
     public body?: union{string, Object}
     public status?: int
     public headers?: Object
@@ -14,11 +14,11 @@ export external public interface ~MockOptions {
     public method?: string
     public headers?: Object
     public matcher?: union{string, RegExp, {function(string, Object): boolean }}
-    public response?: union{Response,number, string, ResponseObject, Object}
+    public response?: union{Response, number, string, ResponseObject, Object}
     public times?: int
 }
 
-export default external public class FetchMock {
+export default external public class FetchMock extends Object {
     /**
      * Replaces fetch() with a stub which records its calls, grouped by
        route, and optionally returns a mocked Response object or passes the
@@ -92,7 +92,7 @@ export default external public class FetchMock {
     public static postOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
     public static deleteOnce(matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
     public static headOnce( matcher:union{string, RegExp, {function(string, Object): boolean }}, response:union{Response,number, string, ResponseObject, Object, {function (union{string, Request},RequestInit)}}, options: MockOptions=): type{this};
-    public static catch(response:union{Response,number, string, ResponseObject, Object, Function}): type{this};
+    public static catch(response:union{Response, number, string, ResponseObject, Object, Function}): type{this};
     public static spy(): type{this};
    /**
     * Chainable method that restores fetch() to its unstubbed state and

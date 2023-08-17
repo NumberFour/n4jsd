@@ -2,7 +2,7 @@ import {WebDriver} from "lib/webdriver";
 import {WebElement} from "lib/webdriver";
 import { Button } from "lib/input";
 
-export external public class ~ActionLocation {
+export external public class ActionLocation extends Object {
     public x: int;
     public y: int;
 }
@@ -10,7 +10,7 @@ export external public class ~ActionLocation {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_ActionSequence.html
  */
-export external public class ActionSequence {
+export external public class ActionSequence extends Object {
     private constructor(driver: WebDriver);
 
     public mouseMove(location: union{WebElement, ActionLocation}, opt_offset: ActionLocation=): this;
@@ -25,7 +25,7 @@ export external public class ActionSequence {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_TouchSequence.html
  */
-export external public class TouchSequence {
+export external public class TouchSequence extends Object {
     private constructor(driver: WebDriver);
     
     public tap(elem: WebElement): this;

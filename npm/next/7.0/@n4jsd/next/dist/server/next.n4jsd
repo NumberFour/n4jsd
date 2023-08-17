@@ -5,7 +5,7 @@ import {Socket} from "net";
 /**
  * Passed into `getInitialProps`.
  */
-export external public class ~NextPageContext {
+export external public class NextPageContext extends Object {
     /**
      * path section of URL
      */
@@ -45,7 +45,7 @@ export external public class ~NextPageContext {
 /**
  * Passed into page props.
  */
-export external public class ~NextPageURL {
+export external public class NextPageURL extends Object {
     /**
      * String of the current path excluding the query string.
      */

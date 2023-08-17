@@ -1,7 +1,7 @@
 import  * as React  from "react";
 import { NextPageContext } from "dist/server/next";
 
-export external public class ~NextDocumentContext<PropsT extends React.ComponentProps<any>>
+export external public class NextDocumentContext<PropsT extends React.ComponentProps<any>>
     extends NextPageContext {
 
     public renderPage: () => PropsT;

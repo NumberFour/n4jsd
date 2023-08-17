@@ -1,4 +1,4 @@
-import { StyleSheet, EmotionCache, Options } from "create-emotion";
+import { StyleSheet, EmotionCache } from "create-emotion";
 
 /**
  * Accepts styles as a object, or array of objects and returns a class name.

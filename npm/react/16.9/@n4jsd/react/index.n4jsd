@@ -9,7 +9,7 @@ export external public interface ~ComponentProps {
     public get key?(): string;
 }
 
-export external public abstract class Element<out PropsT extends ComponentProps> {
+export external public abstract class Element<out PropsT extends ComponentProps> extends Object {
     private constructor();
     public get type(): string | constructor{Component} | Function;
     public get props(): PropsT;
@@ -44,7 +44,7 @@ export external public interface ~Context<ContextValueT> {
     public get Consumer(): constructor{Component};
 }
 
-export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> {
+export external public abstract class Component<PropsT extends ComponentProps, StateT extends Object> extends Object {
 
     /**
      * @see https://reactjs.org/blog/2018/06/07/you-probably-dont-need-derived-state.html
@@ -261,7 +261,7 @@ export external public function cloneElement(
 export external public function isValidElement(object: Object): boolean;
 
 
-export external public class Children {
+export external public class Children extends Object {
     /**
      * Invokes a function on every immediate child contained within children with this set to thisArg.
      * If children is a keyed fragment or array it will be traversed: the function will never be
@@ -309,7 +309,7 @@ export external public interface ~PropType extends PropConstraint {}
  * 
  * @see http://facebook.github.io/react/docs/reusable-components.html
  */
-export external public class ~PropTypes {
+export external public class PropTypes extends Object {
     // You can declare that a prop is a specific JS primitive. By default, these
     // are all optional.
     public const array: PropType;

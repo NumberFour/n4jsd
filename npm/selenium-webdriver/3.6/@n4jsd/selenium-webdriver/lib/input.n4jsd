@@ -1,7 +1,7 @@
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Key.html
  */
-export external public class Key {
+export external public class Key extends Object {
     public const ADD: string;
     public const ALT: string;
     public const ARROW_DOWN: string;
@@ -69,7 +69,7 @@ export external public class Key {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Button.html
  */
-export external public class Button {
+export external public class Button extends Object {
     public const LEFT;
     public const MIDDLE;
     public const RIGHT;

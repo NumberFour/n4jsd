@@ -13,7 +13,7 @@ import {Condition} from "lib/condition";
  * 
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElementPromise.html
  */
-export external public class WebDriver {
+export external public class WebDriver extends Object {
     private constructor(session, executor, opt_flow, opt_onQuit);
 
     public navigate(): Navigation;
@@ -46,7 +46,7 @@ export external public class WebDriver {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_TargetLocator.html
  */
-export external public class TargetLocator {
+export external public class TargetLocator extends Object {
     private constructor(driver: WebDriver);
 
     public window(nameOrHandle: string): Promise<undefined, any>;
@@ -55,7 +55,7 @@ export external public class TargetLocator {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Navigation.html
  */
-export external public class Navigation {
+export external public class Navigation extends Object {
     private constructor(driver: WebDriver);
 
     public back(): Promise<undefined, any>;
@@ -67,7 +67,7 @@ export external public class Navigation {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElement.html
  */
-export external public class WebElement {
+export external public class WebElement extends Object {
     public constructor(driver: WebDriver, id: string);
 
     public static equals(a: WebElement, b: WebElement): Promise<boolean, any>;
@@ -93,7 +93,7 @@ export external public class WebElementCondition extends Condition<WebElement> {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Options.html
  */
-export external public class Options {
+export external public class Options extends Object {
     public window(): Window;
 }
 
@@ -105,7 +105,7 @@ export public interface ~Dimensions {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Window.html
  */
-export external public class Window {
+export external public class Window extends Object {
     public setSize(width: int, height: int): Promise<undefined, any>;
     public getSize(): Promise<Dimensions, any>;
 }

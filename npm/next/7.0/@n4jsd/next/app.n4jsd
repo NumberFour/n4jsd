@@ -6,7 +6,7 @@ export external public interface ~AppInitialProps {
     public pageProps: Object;
 }
 
-export external public class ~NextAppContext extends NextPageContext {
+export external public class NextAppContext extends NextPageContext {
     public Component: (props: ~Object with { router: NextRouter }) => React.ReactElement<?>;
     public router: NextRouter;
     public ctx: NextPageContext;

@@ -6,7 +6,7 @@ export external public function installConsoleHandler(): void;
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Level.html
  */
-export external public class Level {
+export external public class Level extends Object {
     public const ALL: Level;
     public const DEBUG: Level;
     public const FINE: Level;
@@ -21,7 +21,7 @@ export external public class Level {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/logging_exports_Preferences.html
  */
-export external public class Preferences {
+export external public class Preferences extends Object {
     public constructor();
     
     public setLevel(type: Type, level: Level): void;
