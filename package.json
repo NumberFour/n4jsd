@@ -1,9 +1,9 @@
 {
 	"private": true,
 	"devDependencies": {
-		"lerna": "2.11.0",
+		"lerna": "7.1.5",
 		"n4js-cli": "",
-		"verdaccio": "3.6.0"
+		"verdaccio": "5.26.1"
 	},
 	"scripts": {
 		"publish-canary": "./npm-publish-canary.sh",
