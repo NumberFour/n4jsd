@@ -1,5 +1,6 @@
 import {Agent} from "http";
 
+@EcmaScript
 export external public abstract class NodeFetchRequestInit extends RequestInit {
     @Override
     public get body?(): string|Buffer;
@@ -11,6 +12,7 @@ export external public abstract class NodeFetchRequestInit extends RequestInit {
     public agent?: Agent // http(s).Agent instance, allows custom proxy, certificate, dns lookup etc.
 }
 
+@EcmaScript
 export external public abstract class NodeFetchBody extends Body {
     public async buffer(): Buffer;
     public async textConverted(): string;

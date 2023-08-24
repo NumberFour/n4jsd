@@ -3,6 +3,7 @@
 export external public function parse(input: union { string, NodeJS.ReadableStream }, config: PapaConfig=undefined);
 
 /** https://www.papaparse.com/docs#errors */
+@EcmaScript
 export external public class PapaError extends Object {
     /** A generalization of the error */
     type: string;
@@ -15,6 +16,7 @@ export external public class PapaError extends Object {
 }
 
 /** https://www.papaparse.com/docs#meta */
+@EcmaScript
 export external public class PapaMeta extends Object {
     /** Delimiter used */
     delimiter: string;
@@ -29,6 +31,7 @@ export external public class PapaMeta extends Object {
 }
 
 /** https://www.papaparse.com/docs#results */
+@EcmaScript
 export external public class PapaResults extends Object {
     public data: Array<any+>;
     public errors: Array<PapaError>;
@@ -36,6 +39,7 @@ export external public class PapaResults extends Object {
 }
 
 /** https://www.papaparse.com/docs#config */
+@EcmaScript
 export external public class PapaConfig extends Object {
     public delimiter?: string;
     public newline?: string;
@@ -60,6 +64,7 @@ export external public class PapaConfig extends Object {
     public transform?: undefined;
 }
 
+@EcmaScript
 export external public class PapaParser extends Object {
     public abort: { function(): void }
 }

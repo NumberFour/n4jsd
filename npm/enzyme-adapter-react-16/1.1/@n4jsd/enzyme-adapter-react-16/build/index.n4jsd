@@ -1,3 +1,4 @@
 import {EnzymeAdapter} from "enzyme";
 
+@EcmaScript
 export default external public class Adapter extends Object implements EnzymeAdapter {};

@@ -6,6 +6,7 @@ export external public interface ~AppInitialProps {
     public pageProps: Object;
 }
 
+@EcmaScript
 export external public class NextAppContext extends NextPageContext {
     public Component: (props: ~Object with { router: NextRouter }) => React.ReactElement<?>;
     public router: NextRouter;
@@ -13,6 +14,7 @@ export external public class NextAppContext extends NextPageContext {
     public AppTree: any;
 }
 
+@EcmaScript
 export default external public class NextApp <PropsT extends React.ComponentProps<any>, StateT extends Object>
   extends React.Component<PropsT, StateT, any> {
 

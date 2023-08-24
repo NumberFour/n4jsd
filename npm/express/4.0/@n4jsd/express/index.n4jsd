@@ -14,7 +14,8 @@ interface ~CookieOptions {
     public secure?: boolean;
 }
 
-export external public class Application extends Server implements IRouter {
+@EcmaScript
+export external public class Application extends Server<constructor{IncomingMessage}, constructor{ServerResponse}> implements IRouter {
     public locals: Object;
     public mountpath: string;
     public init(): void;
@@ -41,6 +42,8 @@ export external public class Application extends Server implements IRouter {
     @Override public route(path: string): Route;
     @Override public use(path: string, ...func: {function(req: Request, res: Response, next: {function()})}): this
 }
+
+@EcmaScript
 export external public class Request extends IncomingMessage {
     public get (name: string): string;
     public header(name: string): string;
@@ -72,6 +75,8 @@ export external public class Request extends IncomingMessage {
     public baseUrl: string;
     public app: Application;
 }
+
+@EcmaScript
 export external public class Response extends ServerResponse {
     public status(code: number): this;
     public sendStatus(code: number): this;
@@ -104,6 +109,7 @@ export external public class Response extends ServerResponse {
 
     public app: Application;
 }
+
 export external public interface ~IRouter {
     public all(name: union{string, RegExp}, ...handlers: {function(req: Request, res: Response, next: Function)}): this;
     public get(name: union{string, RegExp}, ...handlers: {function(req: Request, res: Response, next: Function)}): this;
@@ -118,6 +124,8 @@ export external public interface ~IRouter {
     public use(path: string, ...func: {function(req: Request, res: Response, next: {function()})}): this
 
 }
+
+@EcmaScript
 export external public class Route extends Object {
     public constructor(path: string);
     (path: string): Route;
@@ -143,6 +151,7 @@ export external public function Router(options: any = undefined): IRouter;
 
 export external public function query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
 
+@EcmaScript
 export default external public class __default extends Object {
     (): Application;
 

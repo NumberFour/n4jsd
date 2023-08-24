@@ -4,13 +4,14 @@ import { Readable } from "stream"
 /*
  * @see http://mongodb.github.io/node-mongodb-native/2.1/api
  */
-
+ @EcmaScript
 export external public class MongoError extends Object {
     public constructor(message: string);
     @Override
     public static create(options: Object): MongoError;
 }
 
+@EcmaScript
 export external public class MongoClient extends Object {
     public constructor();
 
@@ -62,6 +63,7 @@ export external public interface ~DbCreateOptions {
     };
 }
 
+@EcmaScript
 export external public class ReadPreference extends Object {
     static PRIMARY: string;
     static PRIMARY_PREFERRED: string;
@@ -130,21 +132,25 @@ export external public interface ~MongosOptions {
     public socketOptions?: SocketOptions;
 }
 
+@EcmaScript
 export external public class Server extends EventEmitter {
     public constructor(host: string, port: union {number, ServerOptions} = undefined, options: ServerOptions = undefined);
     public connections(): Array<any>;
 }
 
+@EcmaScript
 export external public class ReplSet extends EventEmitter {
     public constructor(servers: Array<Server>, options: ReplSetOptions = undefined);
     public connections(): Array<any>;
 }
 
+@EcmaScript
 export external public class Mongos extends EventEmitter {
     public constructor(servers: Array<Server>, options: MongosOptions = undefined);
     public connections(): Array<any>;
 }
 
+@EcmaScript
 export external public class Db extends EventEmitter {
     public constructor(databaseName: string, topology: union {Server, ReplSet, Mongos}, options: DbCreateOptions = undefined);
     public serverConfig: union {Server, ReplSet, Mongos};
@@ -857,6 +863,7 @@ export external public interface ~UnorderedBulkOperation {
     public insert(doc: Object): UnorderedBulkOperation;
 }
 
+@EcmaScript
 export external public class Cursor extends Readable {
     private constructor();
     public sortValue: string;
@@ -909,6 +916,7 @@ export external public class Cursor extends Readable {
     public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
+@EcmaScript
 export external public class AggregationCursor extends Readable {
     private constructor();
 
@@ -934,6 +942,7 @@ export external public class AggregationCursor extends Readable {
     public unwind(field: string): AggregationCursor;
 }
 
+@EcmaScript
 export external public class CommandCursor extends Readable {
     private constructor();
 
@@ -949,6 +958,7 @@ export external public class CommandCursor extends Readable {
     public toArray(callback: {function(error: MongoError, documents: Array<Object>)} = undefined): Promise<Array<Object>, MongoError>?;
 }
 
+@EcmaScript
 export external public class Code extends Object {
     public constructor(code: union {string, Function}, scope:Object = undefined);
     public code: union {string, Function};
@@ -1038,6 +1048,7 @@ export external public interface ~BulkWriteOpResultObject {
     public result?: any;
 }
 
+@EcmaScript
 export external public class ObjectID extends Object {
     public constructor(id: union {string, number});
     public generationTime: number;
@@ -1050,6 +1061,7 @@ export external public class ObjectID extends Object {
     public toHexString(): string;
 }
 
+@EcmaScript
 export external public class Binary extends Object {
     public constructor(buffer: Buffer, subType: number = undefined);
 
@@ -1068,12 +1080,14 @@ export external public class Binary extends Object {
     public write(buffer: union{Buffer, string}, offset: number): void;
 }
 
+@EcmaScript
 export external public class Double extends Object {
     public constructor(value: number);
     @Override
     public valueOf(): number;
 }
 
+@EcmaScript
 export external public class Long extends Object {
     public constructor(low: number, high: number);
 
@@ -1122,12 +1136,15 @@ export external public class Long extends Object {
     public xor(other: Long): Long;
 }
 
+@EcmaScript
 export external public class MaxKey extends Object {
     public constructor();
 }
+@EcmaScript
 export external public class MinKey extends Object {
     public constructor();
 }
+@EcmaScript
 export external public class Timestamp extends Object {
     public constructor(low: number, high: number);
 

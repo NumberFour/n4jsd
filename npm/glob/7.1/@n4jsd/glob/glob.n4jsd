@@ -13,6 +13,7 @@ export default external public function glob(
     matches: {function(Error, Array<string>)}): void;
 
 @Final
+@EcmaScript
 export external public class Glob extends EventEmitter {
     public constructor(
         pattern: string,

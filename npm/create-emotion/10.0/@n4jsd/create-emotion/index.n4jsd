@@ -5,6 +5,7 @@ export external public interface ~Options {
     speedy?: boolean;
 }
 
+@EcmaScript
 export external public class StyleSheet extends Object {
     public constructor(options: Options=);
 

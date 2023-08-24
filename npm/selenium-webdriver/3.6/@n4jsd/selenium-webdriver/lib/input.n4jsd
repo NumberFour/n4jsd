@@ -1,6 +1,7 @@
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Key.html
  */
+@EcmaScript
 export external public class Key extends Object {
     public const ADD: string;
     public const ALT: string;
@@ -69,6 +70,7 @@ export external public class Key extends Object {
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/input_exports_Button.html
  */
+@EcmaScript
 export external public class Button extends Object {
     public const LEFT;
     public const MIDDLE;

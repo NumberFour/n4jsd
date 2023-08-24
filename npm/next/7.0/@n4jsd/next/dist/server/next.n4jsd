@@ -5,6 +5,7 @@ import {Socket} from "net";
 /**
  * Passed into `getInitialProps`.
  */
+@EcmaScript
 export external public class NextPageContext extends Object {
     /**
      * path section of URL
@@ -45,6 +46,7 @@ export external public class NextPageContext extends Object {
 /**
  * Passed into page props.
  */
+@EcmaScript
 export external public class NextPageURL extends Object {
     /**
      * String of the current path excluding the query string.

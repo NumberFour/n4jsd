@@ -2,6 +2,7 @@
  * A JavaScript implementation of the WHATWG DOM and HTML standards, for use with node.js
  * https://github.com/tmpvar/jsdom
  */
+@EcmaScript
 export external public class JSDOM extends Object {
     public constructor(markup: string, config: Object=);
     

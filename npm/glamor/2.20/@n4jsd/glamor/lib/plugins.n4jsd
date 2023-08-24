@@ -1,6 +1,8 @@
 export external public function fallbacks(node);
 export external public function contentWrap(node);
 export external public function prefixes(node);
+
+@EcmaScript
 export external public class PluginSet extends Object {}
 
 /* -*- mode: typescript;-*- */

@@ -1,3 +1,5 @@
+
+@EcmaScript
 export external public class TestObj extends Object {
     // Chainable, see https://www.chaijs.com/api/bdd/
     public get to(): TestObj;

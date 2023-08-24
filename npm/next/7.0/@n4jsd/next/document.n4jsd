@@ -1,6 +1,7 @@
 import  * as React  from "react";
 import { NextPageContext } from "dist/server/next";
 
+@EcmaScript
 export external public class NextDocumentContext<PropsT extends React.ComponentProps<any>>
     extends NextPageContext {
 
@@ -19,6 +20,7 @@ export public interface ~N4DocumentProps extends React.ComponentProps<any> {
     public context: NextDocumentContext<N4DocumentProps>;
 }
 
+@EcmaScript
 export default external public class NextDocument<PropsT extends React.ComponentProps<any>, StateT extends Object>
     extends React.Component<PropsT, StateT, any> {
 
@@ -40,6 +42,7 @@ export external public interface ~NextScriptProps extends React.ComponentProps<a
     public nonce?: string;
 }
 
+@EcmaScript
 export external public class NextScript extends React.Component<NextScriptProps, Object, any> {
 
     public static getInlineScriptSource(documentProps: React.ComponentProps<any>): string;

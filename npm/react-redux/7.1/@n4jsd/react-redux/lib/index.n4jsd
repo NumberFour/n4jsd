@@ -6,6 +6,7 @@ export external public interface ~ProviderProps extends React.ComponentProps<any
     public context?: React.Context<?>;
 }
 
+@EcmaScript
 export external public class Provider
     extends React.PureComponent<ProviderProps, Object, any> {
 
@@ -13,6 +14,7 @@ export external public class Provider
     public render(): React.ReactElement<ProviderProps>;
 }
 
+@EcmaScript
 export external public class ConnectOptions extends Object {
     /**
      * If true, implements shouldComponentUpdate and shallowly compares the result of mergeProps,
@@ -64,6 +66,7 @@ export external public class ConnectOptions extends Object {
     public get context?(): constructor{React.Context};  
 }
 
+@EcmaScript
 export external public class ConnectAdvancedOptions extends Object {
     /**
      * Computes the connector component's displayName property relative to that of the wrapped component. Usually

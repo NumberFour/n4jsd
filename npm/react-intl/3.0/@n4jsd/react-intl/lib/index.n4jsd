@@ -109,6 +109,7 @@ export external public interface ~IntlProviderState {
 /**
  * https://github.com/yahoo/react-intl/wiki/Components#intlprovider
  */
+@EcmaScript
 export external public class IntlProvider extends React.Component<IntlProviderProps, IntlProviderState, any> {
 
     public getConfig(): IntlConfig;
@@ -144,6 +145,7 @@ export external public interface ~FormattedTimeProps extends React.ComponentProp
     public format?: string;
 }
 
+@EcmaScript
 export external class FormattedTime extends React.Component<FormattedTimeProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;
@@ -156,6 +158,7 @@ export external public interface ~FormattedRelativeTimeProps extends React.Compo
     public updateIntervalInSeconds?: number;
 }
 
+@EcmaScript
 export external class FormattedRelativeTime extends React.Component<FormattedRelativeTimeProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;
@@ -169,6 +172,7 @@ export external public interface ~FormattedNumberProps extends React.ComponentPr
     public format?: string;
 }
 
+@EcmaScript
 export external class FormattedNumber extends React.Component<FormattedNumberProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;
@@ -188,6 +192,7 @@ export external public interface ~FormattedMessageProps extends React.ComponentP
     public tagName?: string;
 }
 
+@EcmaScript
 export external public class FormattedMessage extends React.Component<FormattedMessageProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;
@@ -209,6 +214,7 @@ export external public interface ~FormattedPluralProps extends React.ComponentPr
     public children?: (formattedPlural: React.ReactElement<?>) => React.ReactElement<?>
 }
 
+@EcmaScript
 export external public class FormattedPlural extends React.Component<FormattedPluralProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;

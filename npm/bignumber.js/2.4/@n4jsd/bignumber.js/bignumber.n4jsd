@@ -1,4 +1,5 @@
 @Final
+@EcmaScript
 export external public class BigNumberConfig extends Object {
     public DECIMAL_PLACES?: number;
     public ROUNDING_MODE?: number;
@@ -11,6 +12,7 @@ export external public class BigNumberConfig extends Object {
  * Class definition for BigNumber (http://mikemcl.github.io/bignumber.js).
  */
 @Final
+@EcmaScript
 export default external public class BigNumber extends Object {
     public static another(config: BigNumberConfig): constructor{BigNumber};
     

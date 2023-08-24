@@ -18,6 +18,7 @@ export external public interface ~MockOptions {
     public times?: int
 }
 
+@EcmaScript
 export default external public class FetchMock extends Object {
     /**
      * Replaces fetch() with a stub which records its calls, grouped by

@@ -499,18 +499,24 @@ export external public interface ~CarouselState {
 }
 
 export external public interface ~PreviousButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+
+@EcmaScript
 export external public class PreviousButton extends React.Component<PreviousButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
 export external public interface ~NextButtonProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+
+@EcmaScript
 export external public class NextButton extends React.Component<NextButtonProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;
 }
 
 export external public interface ~PagingDotsProps extends React.ComponentProps<any>, CarouselSlideRenderControlProps {}
+
+@EcmaScript
 export external public class PagingDots extends React.Component<PagingDotsProps, undefined, any> {
     public getButtonStyles(active: boolean): Object;
     public getListStyles(): Object;
@@ -528,6 +534,7 @@ export external public class PagingDots extends React.Component<PagingDotsProps,
 /**
  * https://github.com/FormidableLabs/-carousel
  */
+@EcmaScript
 export default external public class Carousel extends React.Component<CarouselProps, CarouselState, any> {
     /**
      * @internal

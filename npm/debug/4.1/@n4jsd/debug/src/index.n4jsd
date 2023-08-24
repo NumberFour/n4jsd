@@ -11,6 +11,7 @@ export external public function disable(): void; // disables debug output
 export external public function enabled(namespace: string): boolean;
 
 @Final
+@EcmaScript
 export external public class __DebugFn extends Object {
     (string, ...any): void;
     

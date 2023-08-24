@@ -76,9 +76,13 @@ export external public interface ~SuspenseProps extends ComponentProps<any> {
     public fallback?: ReactElement<?>;
 }
 
+@EcmaScript
 export external public abstract class Provider extends Component<ProviderProps<any>, Object, any> {}
+
+@EcmaScript
 export external public abstract class Consumer extends Component<ConsumerProps, Object, any> {}
 
+@EcmaScript
 export external public abstract class ExoticComponent<P extends ComponentProps<any>> extends Component<P, Object, any> {
     public constructor(props: P);
     public get $$typeof(): symbol;
@@ -108,12 +112,14 @@ export external public interface ~ProfilerProps extends ComponentProps<any> {
 /**
  * @see https://reactjs.org/docs/profiler.html
  */
+@EcmaScript
 export external public class Profiler extends Component<ProfilerProps, Object, undefined> {
     @Override
     public render(): any;
 }
 
 // Base component
+@EcmaScript
 export external public abstract class Component<P extends ComponentProps<any>, S extends Object, SS> extends Object {
     public constructor(props: P, context: any=);
 
@@ -223,6 +229,7 @@ export external public abstract class Component<P extends ComponentProps<any>, S
 /**
  * React.PureComponent is exactly like React.Component but implements shouldComponentUpdate() with a shallow prop and state comparison.
  */
+@EcmaScript
 export external public abstract class PureComponent<P extends ComponentProps<any>, S extends Object, SS> extends Component<P, S, SS> {}
 
 export external public interface ~ReactPortal<P extends ComponentProps<any>> extends ReactElement<P> {
@@ -231,6 +238,7 @@ export external public interface ~ReactPortal<P extends ComponentProps<any>> ext
     public children: ReactNode;
 }
 
+@EcmaScript
 export external public class Children extends Object {
     /**
      * Invokes a function on every immediate child contained within children with this set to thisArg.
@@ -276,6 +284,7 @@ export external public type GetDerivedStateFromError = (error: any) => Object;
  * 
  * @see https://reactjs.org/docs/fragments.html
  */
+@EcmaScript
 export external public class Fragment extends ExoticComponent<ComponentProps<any>> {
     @Override
     public render(): any;
@@ -288,6 +297,7 @@ export external public class Fragment extends ExoticComponent<ComponentProps<any
  *
  * @see https://reactjs.org/docs/strict-mode.html
  */
+@EcmaScript
 export external public class StrictMode extends ExoticComponent<ComponentProps<any>> {
     @Override
     public render(): any;
@@ -379,6 +389,7 @@ export external public interface ~ErrorInfo {
     public componentStack: string;
 }
 
+@EcmaScript
 export external public class Suspense extends ExoticComponent<SuspenseProps> {
     @Override
     public render(): any;

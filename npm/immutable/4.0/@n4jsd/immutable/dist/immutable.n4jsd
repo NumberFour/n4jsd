@@ -31,6 +31,7 @@ export external public interface ~ImmutableObject {
     
 }
 //FIXME Talk to mor about whether or not we can make Iterable2 et al structural
+@EcmaScript
 export external public abstract class ImmutableIterable<out K, out V, out IterT> extends Object
     implements Iterable<IterT>, ImmutableObject {
 
@@ -700,6 +701,7 @@ export external public abstract class ImmutableIterable<out K, out V, out IterT>
  * preserve indices, using them as keys, convert to a Iterable.Keyed by
  * calling `toKeyedSeq`.
  */
+@EcmaScript
 export external public abstract class IndexedIterable<out T> extends ImmutableIterable<number, T, T> {
 
     public constructor(iter: union{IndexedIterable<T>, Iterable<T>});
@@ -831,6 +833,7 @@ export external public abstract class IndexedIterable<out T> extends ImmutableIt
 
 }
 
+@EcmaScript
 export external public class List<out T> extends IndexedIterable<T> {
     /**
      * True if the provided value is a List.
@@ -1192,6 +1195,7 @@ export external public interface ~IMap<out K, out V> {
     public asImmutable(): this;
 }
 
+@EcmaScript
 export external public class Map<out K, out V> extends ImmutableIterable<K, V, Iterable2<K, V>> implements IMap<K, V>{
     
     public constructor(iter:union{Iterable<Iterable2<K,V>>, Object}=);
@@ -1422,21 +1426,23 @@ export external public class Map<out K, out V> extends ImmutableIterable<K, V, I
     public asImmutable(): this;
 }
 
+@EcmaScript
 export external public class OrderedMap<out K, out V> extends Map<K, V> {
     public static isOrderedMap(maybeOrderedMap: any): boolean;
 }
 
- /**
-   * A Collection of unique values with `O(log32 N)` adds and has.
-   *
-   * When iterating a Set, the entries will be (value, value) pairs. Iteration
-   * order of a Set is undefined, however is stable. Multiple iterations of the
-   * same Set will iterate in the same order.
-   *
-   * Set values, like Map keys, may be of any type. Equality is determined using
-   * `Immutable.is`, enabling Sets to uniquely include other Immutable
-   * collections, custom value types, and NaN.
-   */
+/**
+ * A Collection of unique values with `O(log32 N)` adds and has.
+ *
+ * When iterating a Set, the entries will be (value, value) pairs. Iteration
+ * order of a Set is undefined, however is stable. Multiple iterations of the
+ * same Set will iterate in the same order.
+ *
+ * Set values, like Map keys, may be of any type. Equality is determined using
+ * `Immutable.is`, enabling Sets to uniquely include other Immutable
+ * collections, custom value types, and NaN.
+ */
+@EcmaScript
 export external public class Set<out T> extends ImmutableIterable<T,T, T>{
 
     public get size(): int;
@@ -1522,6 +1528,8 @@ export external public class Set<out T> extends ImmutableIterable<T,T, T>{
      */
     public asImmutable(): this;
 }
+
+@EcmaScript
 export external public class OrderedSet<out T> extends Set<T>{
     /**
      * True if the provided value is an OrderedSet.
@@ -1562,6 +1570,7 @@ export external public interface ~IRecord extends ImmutableObject {
 /**
  * @attention no Map anymore in version 4
  */
+@EcmaScript
 export external public class Record extends Object implements IRecord {
     @Override public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
     @Override public has(key: /*K*/ any): boolean;

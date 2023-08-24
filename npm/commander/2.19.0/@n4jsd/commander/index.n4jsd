@@ -1,6 +1,7 @@
 /**
  * @see https://github.com/tj/commander.js/
  */
+@EcmaScript
 export external public class Command extends Object {
     public version(v: string, customFlag: string=): Command;
     public arguments(args: string): Command

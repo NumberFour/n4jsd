@@ -3,6 +3,7 @@
  */
 
 @Final
+@EcmaScript
 export external public class __GlamorFn extends Object {
     (...cssStylePropsAndCssRules: Object): Object;
 

@@ -7,6 +7,7 @@ export public interface ~DocumentTitleProps extends React.ComponentProps<any> {
 /**
  * https://github.com/gaearon/react-document-title
  */
+@EcmaScript
 export default external public class DocumentTitle extends React.Component<DocumentTitleProps, undefined, any> {
     @Override
     public render(): React.ReactElement<?>;

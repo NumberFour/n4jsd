@@ -1,6 +1,6 @@
 {
 	"name": "@n4jsd/geckodriver",
-	"version": "1.10.2",
+	"version": "1.10.3",
 	"license": "EPL-1.0",
 	"repository": {
 		"type": "git",
