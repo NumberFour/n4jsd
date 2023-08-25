@@ -4,7 +4,7 @@ import {ReactElement, Component, ReactNode} from "react";
  * @see http://facebook.github.io/react/docs/events.html
  */
 @EcmaScript
-export external public class SyntheticEvent extends Object {
+export external public class SyntheticEvent {
     protected constructor();
 
     /**

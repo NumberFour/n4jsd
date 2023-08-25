@@ -120,7 +120,7 @@ export external public class Profiler extends Component<ProfilerProps, Object, u
 
 // Base component
 @EcmaScript
-export external public abstract class Component<P extends ComponentProps<any>, S extends Object, SS> extends Object {
+export external public abstract class Component<P extends ComponentProps<any>, S, SS> {
     public constructor(props: P, context: any=);
 
     /**
@@ -230,7 +230,7 @@ export external public abstract class Component<P extends ComponentProps<any>, S
  * React.PureComponent is exactly like React.Component but implements shouldComponentUpdate() with a shallow prop and state comparison.
  */
 @EcmaScript
-export external public abstract class PureComponent<P extends ComponentProps<any>, S extends Object, SS> extends Component<P, S, SS> {}
+export external public abstract class PureComponent<P extends ComponentProps<any>, S, SS> extends Component<P, S, SS> {}
 
 export external public interface ~ReactPortal<P extends ComponentProps<any>> extends ReactElement<P> {
     @Override
@@ -239,7 +239,7 @@ export external public interface ~ReactPortal<P extends ComponentProps<any>> ext
 }
 
 @EcmaScript
-export external public class Children extends Object {
+export external public class Children {
     /**
      * Invokes a function on every immediate child contained within children with this set to thisArg.
      * If children is a keyed fragment or array it will be traversed: the function will never be

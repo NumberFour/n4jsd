@@ -12,7 +12,7 @@ export external public function enabled(namespace: string): boolean;
 
 @Final
 @EcmaScript
-export external public class __DebugFn extends Object {
+export external public class __DebugFn {
     (string, ...any): void;
     
     public static get namespace(): string;

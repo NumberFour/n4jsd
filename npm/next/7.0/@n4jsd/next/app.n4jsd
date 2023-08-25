@@ -15,7 +15,7 @@ export external public class NextAppContext extends NextPageContext {
 }
 
 @EcmaScript
-export default external public class NextApp <PropsT extends React.ComponentProps<any>, StateT extends Object>
+export default external public class NextApp <PropsT extends React.ComponentProps<any>, StateT>
   extends React.Component<PropsT, StateT, any> {
 
     public static getInitialProps(ctx: NextAppContext): Promise<AppInitialProps, any>;

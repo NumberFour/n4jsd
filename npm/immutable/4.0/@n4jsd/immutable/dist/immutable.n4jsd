@@ -32,7 +32,7 @@ export external public interface ~ImmutableObject {
 }
 //FIXME Talk to mor about whether or not we can make Iterable2 et al structural
 @EcmaScript
-export external public abstract class ImmutableIterable<out K, out V, out IterT> extends Object
+export external public abstract class ImmutableIterable<out K, out V, out IterT>
     implements Iterable<IterT>, ImmutableObject {
 
     public static isIterable(any): boolean;
@@ -1571,7 +1571,7 @@ export external public interface ~IRecord extends ImmutableObject {
  * @attention no Map anymore in version 4
  */
 @EcmaScript
-export external public class Record extends Object implements IRecord {
+export external public class Record implements IRecord {
     @Override public get(key: /*K*/ any, notSetValue: /*V*/ any=): any;
     @Override public has(key: /*K*/ any): boolean;
     @Override public getIn(searchKeyPath: union{ Iterable<any>, ImmutableIterable<any, any, ?>}, notSetValue: any=): any;

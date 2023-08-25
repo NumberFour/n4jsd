@@ -21,7 +21,7 @@ export public interface ~N4DocumentProps extends React.ComponentProps<any> {
 }
 
 @EcmaScript
-export default external public class NextDocument<PropsT extends React.ComponentProps<any>, StateT extends Object>
+export default external public class NextDocument<PropsT extends React.ComponentProps<any>, StateT>
     extends React.Component<PropsT, StateT, any> {
 
     @Override

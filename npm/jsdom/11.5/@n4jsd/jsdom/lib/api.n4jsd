@@ -3,7 +3,7 @@
  * https://github.com/tmpvar/jsdom
  */
 @EcmaScript
-export external public class JSDOM extends Object {
+export external public class JSDOM {
     public constructor(markup: string, config: Object=);
     
     public get window(): Window+;

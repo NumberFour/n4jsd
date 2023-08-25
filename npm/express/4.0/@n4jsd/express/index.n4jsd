@@ -126,7 +126,7 @@ export external public interface ~IRouter {
 }
 
 @EcmaScript
-export external public class Route extends Object {
+export external public class Route {
     public constructor(path: string);
     (path: string): Route;
 
@@ -152,7 +152,7 @@ export external public function Router(options: any = undefined): IRouter;
 export external public function query(options: any = undefined): {function(req: Request, res: Response, next: Function)};
 
 @EcmaScript
-export default external public class __default extends Object {
+export default external public class __default {
     (): Application;
 
     public static Router(options: any = undefined): IRouter;

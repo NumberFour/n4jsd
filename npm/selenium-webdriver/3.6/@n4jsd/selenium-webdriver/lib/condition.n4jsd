@@ -4,6 +4,6 @@ import {WebDriver} from "lib/webdriver";
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Condition.html
  */
 @EcmaScript
-export external public class Condition<T> extends Object {
+export external public class Condition<T> {
     public constructor(message: string, fn: {function(WebDriver): T});
 }

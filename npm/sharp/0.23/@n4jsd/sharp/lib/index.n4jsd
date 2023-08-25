@@ -3,7 +3,7 @@
  * @see https://github.com/lovell/sharp
  */
 @EcmaScript
-export external public abstract class Sharp extends Object implements NodeJS.WritableStream, NodeJS.ReadableStream {
+export external public abstract class Sharp implements NodeJS.WritableStream, NodeJS.ReadableStream {
     public resize(widthOrOptions: number|Object, height: number=): this;
 
     public async toBuffer(): Buffer;

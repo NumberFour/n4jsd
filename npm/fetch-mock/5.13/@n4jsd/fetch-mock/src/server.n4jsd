@@ -19,7 +19,7 @@ export external public interface ~MockOptions {
 }
 
 @EcmaScript
-export default external public class FetchMock extends Object {
+export default external public class FetchMock {
     /**
      * Replaces fetch() with a stub which records its calls, grouped by
        route, and optionally returns a mocked Response object or passes the

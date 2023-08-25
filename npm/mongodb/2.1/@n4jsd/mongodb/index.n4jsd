@@ -5,14 +5,14 @@ import { Readable } from "stream"
  * @see http://mongodb.github.io/node-mongodb-native/2.1/api
  */
  @EcmaScript
-export external public class MongoError extends Object {
+export external public class MongoError {
     public constructor(message: string);
     @Override
     public static create(options: Object): MongoError;
 }
 
 @EcmaScript
-export external public class MongoClient extends Object {
+export external public class MongoClient {
     public constructor();
 
     public static connect(
@@ -64,7 +64,7 @@ export external public interface ~DbCreateOptions {
 }
 
 @EcmaScript
-export external public class ReadPreference extends Object {
+export external public class ReadPreference {
     static PRIMARY: string;
     static PRIMARY_PREFERRED: string;
     static SECONDARY: string;
@@ -959,7 +959,7 @@ export external public class CommandCursor extends Readable {
 }
 
 @EcmaScript
-export external public class Code extends Object {
+export external public class Code {
     public constructor(code: union {string, Function}, scope:Object = undefined);
     public code: union {string, Function};
     public scope: any;
@@ -1049,7 +1049,7 @@ export external public interface ~BulkWriteOpResultObject {
 }
 
 @EcmaScript
-export external public class ObjectID extends Object {
+export external public class ObjectID {
     public constructor(id: union {string, number});
     public generationTime: number;
     public static createFromHexString(hexString: string): ObjectID;
@@ -1062,7 +1062,7 @@ export external public class ObjectID extends Object {
 }
 
 @EcmaScript
-export external public class Binary extends Object {
+export external public class Binary {
     public constructor(buffer: Buffer, subType: number = undefined);
 
     static SUBTYPE_BYTE_ARRAY: number;
@@ -1081,14 +1081,14 @@ export external public class Binary extends Object {
 }
 
 @EcmaScript
-export external public class Double extends Object {
+export external public class Double {
     public constructor(value: number);
     @Override
     public valueOf(): number;
 }
 
 @EcmaScript
-export external public class Long extends Object {
+export external public class Long {
     public constructor(low: number, high: number);
 
     public static MAX_VALUE: Long;
@@ -1137,15 +1137,15 @@ export external public class Long extends Object {
 }
 
 @EcmaScript
-export external public class MaxKey extends Object {
+export external public class MaxKey {
     public constructor();
 }
 @EcmaScript
-export external public class MinKey extends Object {
+export external public class MinKey {
     public constructor();
 }
 @EcmaScript
-export external public class Timestamp extends Object {
+export external public class Timestamp {
     public constructor(low: number, high: number);
 
     public static MAX_VALUE: Timestamp;

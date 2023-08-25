@@ -3,6 +3,6 @@ export external public function contentWrap(node);
 export external public function prefixes(node);
 
 @EcmaScript
-export external public class PluginSet extends Object {}
+export external public class PluginSet {}
 
 /* -*- mode: typescript;-*- */

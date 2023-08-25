@@ -14,7 +14,7 @@ import {Condition} from "lib/condition";
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElementPromise.html
  */
 @EcmaScript
-export external public class WebDriver extends Object {
+export external public class WebDriver {
     private constructor(session, executor, opt_flow, opt_onQuit);
 
     public navigate(): Navigation;
@@ -48,7 +48,7 @@ export external public class WebDriver extends Object {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_TargetLocator.html
  */
 @EcmaScript
-export external public class TargetLocator extends Object {
+export external public class TargetLocator {
     private constructor(driver: WebDriver);
 
     public window(nameOrHandle: string): Promise<undefined, any>;
@@ -58,7 +58,7 @@ export external public class TargetLocator extends Object {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Navigation.html
  */
 @EcmaScript
-export external public class Navigation extends Object {
+export external public class Navigation {
     private constructor(driver: WebDriver);
 
     public back(): Promise<undefined, any>;
@@ -71,7 +71,7 @@ export external public class Navigation extends Object {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_WebElement.html
  */
 @EcmaScript
-export external public class WebElement extends Object {
+export external public class WebElement {
     public constructor(driver: WebDriver, id: string);
 
     public static equals(a: WebElement, b: WebElement): Promise<boolean, any>;
@@ -99,7 +99,7 @@ export external public class WebElementCondition extends Condition<WebElement> {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Options.html
  */
 @EcmaScript
-export external public class Options extends Object {
+export external public class Options {
     public window(): Window;
 }
 
@@ -112,7 +112,7 @@ export public interface ~Dimensions {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/webdriver_exports_Window.html
  */
 @EcmaScript
-export external public class Window extends Object {
+export external public class Window {
     public setSize(width: int, height: int): Promise<undefined, any>;
     public getSize(): Promise<Dimensions, any>;
 }

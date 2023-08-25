@@ -15,7 +15,7 @@ export external public class Provider
 }
 
 @EcmaScript
-export external public class ConnectOptions extends Object {
+export external public class ConnectOptions {
     /**
      * If true, implements shouldComponentUpdate and shallowly compares the result of mergeProps,
      * preventing unnecessary updates, assuming that the component is a “pure” component
@@ -67,7 +67,7 @@ export external public class ConnectOptions extends Object {
 }
 
 @EcmaScript
-export external public class ConnectAdvancedOptions extends Object {
+export external public class ConnectAdvancedOptions {
     /**
      * Computes the connector component's displayName property relative to that of the wrapped component. Usually
      * overridden by wrapper functions.

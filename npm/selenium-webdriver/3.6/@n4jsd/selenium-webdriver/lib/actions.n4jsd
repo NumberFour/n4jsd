@@ -3,7 +3,7 @@ import {WebElement} from "lib/webdriver";
 import { Button } from "lib/input";
 
 @EcmaScript
-export external public class ActionLocation extends Object {
+export external public class ActionLocation {
     public x: int;
     public y: int;
 }
@@ -12,7 +12,7 @@ export external public class ActionLocation extends Object {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_ActionSequence.html
  */
 @EcmaScript
-export external public class ActionSequence extends Object {
+export external public class ActionSequence {
     private constructor(driver: WebDriver);
 
     public mouseMove(location: union{WebElement, ActionLocation}, opt_offset: ActionLocation=): this;
@@ -28,7 +28,7 @@ export external public class ActionSequence extends Object {
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/actions_exports_TouchSequence.html
  */
 @EcmaScript
-export external public class TouchSequence extends Object {
+export external public class TouchSequence {
     private constructor(driver: WebDriver);
     
     public tap(elem: WebElement): this;

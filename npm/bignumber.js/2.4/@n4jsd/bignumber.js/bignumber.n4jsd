@@ -1,6 +1,6 @@
 @Final
 @EcmaScript
-export external public class BigNumberConfig extends Object {
+export external public class BigNumberConfig {
     public DECIMAL_PLACES?: number;
     public ROUNDING_MODE?: number;
     public ERRORS?: boolean;
@@ -13,8 +13,8 @@ export external public class BigNumberConfig extends Object {
  */
 @Final
 @EcmaScript
-export default external public class BigNumber extends Object {
-    public static another(config: BigNumberConfig): constructor{BigNumber};
+export default external public class BigNumber {
+    public static another(config: ~BigNumberConfig): constructor{BigNumber};
     
     /**
      * The library's enumerated rounding modes are stored as properties of the constructor.
@@ -123,7 +123,7 @@ export default external public class BigNumber extends Object {
      *      new BigNumber('ff.8', 16)                  // '255.5'
      *      new BigNumber('0xff.8')                    // '255.5'
      */
-    public constructor(value: union{number, string, BigNumber}, base: number = undefined);
+    public constructor(value: union{number, string, ~BigNumber}, base: number = undefined);
 
     /**
      * Configures the 'global' settings for this particular BigNumber constructor.
@@ -144,7 +144,7 @@ export default external public class BigNumber extends Object {
                 }
             });
      */
-    public static config(config: BigNumberConfig): void;
+    public static config(config: ~BigNumberConfig): void;
 
     /**
      * @return a BigNumber whose value is the absolute value, i.e. the magnitude, of the value of this BigNumber.
@@ -165,7 +165,7 @@ export default external public class BigNumber extends Object {
      *  0   If this BigNumber and number have the same value
      *  null    If the value of either this BigNumber or number is NaN
      */
-    public comparedTo(number: union{number, string, BigNumber}, base: number = undefined): number;
+    public comparedTo(number: union{number, string, ~BigNumber}, base: number = undefined): number;
 
     /**
      * @return the number of decimal places of the value of this BigNumber,
@@ -177,13 +177,13 @@ export default external public class BigNumber extends Object {
      * @return a BigNumber whose value is the value of this BigNumber times number.
      * The return value is always exact and unrounded.
      */
-    public times(number: union{number, string, BigNumber}, base: number = undefined): BigNumber;
+    public times(number: union{number, string, ~BigNumber}, base: number = undefined): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber divided by n,
      * rounded according to the current DECIMAL_PLACES and ROUNDING_MODE configuration.
      */
-    public dividedBy(number: union{number, string, BigNumber}, base: number = undefined): BigNumber;
+    public dividedBy(number: union{number, string, ~BigNumber}, base: number = undefined): BigNumber;
 
     /**
      * @return true if the value of this BigNumber equals the value of n, otherwise returns false.
@@ -191,7 +191,7 @@ export default external public class BigNumber extends Object {
      *
      * Note: This method uses the comparedTo method internally.
      */
-    public equals(number: union{number, string, BigNumber}, base: number = undefined): boolean;
+    public equals(number: union{number, string, ~BigNumber}, base: number = undefined): boolean;
 
     /**
      * @return true if the value of this BigNumber is negative, otherwise returns false.
@@ -217,13 +217,13 @@ export default external public class BigNumber extends Object {
      * @return a BigNumber whose value is the value of this BigNumber minus n.
      * The return value is always exact and unrounded.
      */
-    public minus(number: union{number, string, BigNumber}, base: number = undefined): BigNumber;
+    public minus(number: union{number, string, ~BigNumber}, base: number = undefined): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber plus n.
      * The return value is always exact and unrounded.
      */
-    public plus(number: union{number, string, BigNumber}, base: number = undefined): BigNumber;
+    public plus(number: union{number, string, ~BigNumber}, base: number = undefined): BigNumber;
 
     /**
      * @return a BigNumber whose value is the value of this BigNumber

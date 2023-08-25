@@ -4,7 +4,7 @@ import {WebElement} from "lib/webdriver";
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/lib/by_exports_By.html
  */
 @EcmaScript
-export external public class By extends Object {
+export external public class By {
     public static tagName(name: string): By;
     public static className(selector: string): By;
     public static css(selector: string): By;

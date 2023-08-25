@@ -4,7 +4,7 @@
 
 @Final
 @EcmaScript
-export external public class __GlamorFn extends Object {
+export external public class __GlamorFn {
     (...cssStylePropsAndCssRules: Object): Object;
 
     public static global(selector: string, cssStyleProps: Object|string): void;

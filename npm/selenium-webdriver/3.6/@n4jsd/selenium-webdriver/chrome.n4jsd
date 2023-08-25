@@ -4,7 +4,8 @@ import {Preferences} from "lib/logging";
 /**
  * @see https://seleniumhq.github.io/selenium/docs/api/javascript/module/selenium-webdriver/chrome_exports_Options.html
  */
-export external public class Options extends Object {
+@EcmaScript
+export external public class Options {
     public constructor();
     public static fromCapabilities(caps: Capabilities): Options;
     

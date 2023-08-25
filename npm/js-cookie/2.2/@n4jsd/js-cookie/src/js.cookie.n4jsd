@@ -2,7 +2,7 @@
  * @see https://github.com/js-cookie/js-cookie
  */
 @EcmaScript
-export default external public class Cookies extends Object {
+export default external public class Cookies {
     public static get(name: string): string?;
     public static getJSON(name: string=): Object?;
 
