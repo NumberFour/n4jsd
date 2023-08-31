@@ -131,6 +131,7 @@ export external public interface ~FormattedDateProps extends React.ComponentProp
     public format?: string;
 }
 
+@EcmaScript
 export external class FormattedDate extends React.Component<FormattedDateProps, Object, any> {
     @Override
     public render(): React.ReactElement<?>;

@@ -3,6 +3,7 @@ import * as React from "react";
 /**
  * Passed into page props.
  */
+@EcmaScript
 export external public class TransitionOptions {
     public shallow?: boolean;
 }
