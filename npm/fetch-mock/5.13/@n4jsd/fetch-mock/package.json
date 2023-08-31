@@ -12,7 +12,7 @@
 	],
 	"dependencies": {
 		"@types/node": "",
-		"n4js-runtime-fetch": ""
+		"n4js-runtime-html5": ""
 	},
 	"n4js": {
 		"projectType": "definition",
@@ -25,7 +25,7 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-fetch"
+			"n4js-runtime-html5"
 		]
 	}
 }

@@ -1,10 +1,6 @@
 import {Agent} from "http";
 
-@EcmaScript
-export external public abstract class NodeFetchRequestInit extends RequestInit {
-    @Override
-    public get body?(): string|Buffer;
-
+export external public interface ~NodeFetchRequestInit extends RequestInit {
     public follow?: int; // maximum redirect count. 0 to not follow redirect
     public timeout?: int; // req/res timeout in ms, it resets on redirect. 0 to disable (OS limit applies). Signal is recommended instead.
     public compress?: boolean // support gzip/deflate content encoding. false to disable
@@ -12,8 +8,7 @@ export external public abstract class NodeFetchRequestInit extends RequestInit {
     public agent?: Agent // http(s).Agent instance, allows custom proxy, certificate, dns lookup etc.
 }
 
-@EcmaScript
-export external public abstract class NodeFetchBody extends Body {
+export external public interface ~NodeFetchBody extends Body {
     public async buffer(): Buffer;
     public async textConverted(): string;
 }

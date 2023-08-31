@@ -21,11 +21,11 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-fetch"
+			"n4js-runtime-html5"
 		]
 	},
 	"dependencies": {
-		"n4js-runtime-fetch": "",
+		"n4js-runtime-html5": "",
 		"@types/node" : ""
 	}
 }

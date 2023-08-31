@@ -13,7 +13,7 @@
 	"dependencies": {
 		"@n4jsd/react": "",
 		"@types/node": "",
-		"n4js-runtime-fetch": "",
+		"n4js-runtime-html5": "",
 		"n4js-runtime-es2015": ""
 	},
 	"n4js": {
@@ -27,7 +27,7 @@
 			]
 		},
 		"requiredRuntimeLibraries": [
-			"n4js-runtime-fetch",
+			"n4js-runtime-html5",
 			"n4js-runtime-es2015"
 		]
 	}

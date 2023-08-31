@@ -23,11 +23,11 @@ export external public interface ~NextRouter {
     /**
      * performs a pushState call associated with the current component
      */
-    public push(url, as: string=, options: TransitionOptions=): void;
+    public push(url, as: string=, options: ~TransitionOptions=): void;
     /**
      * performs a replaceState call associated with the current component
      */
-    public replace(url: string, as: string=, options: TransitionOptions=): void;
+    public replace(url: string, as: string=, options: ~TransitionOptions=): void;
 
     public async prefetch(url: string);
 

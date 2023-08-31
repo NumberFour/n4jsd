@@ -14,8 +14,8 @@ REGISTRY=$1
 NAME=$(node -p -e "require('./package.json').name")
 VERSION=$(node -p -e "require('./package.json').version")
 
-echo "NAME@Version = ${NAME}@{VERSION}"
-echo "VERSION = ${VERSION}"
+echo "NAME@Version = ${NAME}@${VERSION}"
+
 RESULT=" $(npm view --registry="$REGISTRY" "${NAME}@${VERSION}" || echo "" )"
 
 if [[ -z "${RESULT// }" ]]; then

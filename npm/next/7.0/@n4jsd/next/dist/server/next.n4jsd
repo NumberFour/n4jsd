@@ -89,6 +89,6 @@ export external public interface ~NextApp {
     public async renderToHTML(req: IncomingMessage, res: ServerResponse, pathname: string=, query: Object=): string;
 }
 
-export default external public function next(pathOrOpts: string|~NextAppOptions, opts: ~NextAppOptions=): NextApp;
+export default external public function next(pathOrOpts: string|NextAppOptions, opts: NextAppOptions=): NextApp;
  
 /* -*- mode: typescript;-*- */

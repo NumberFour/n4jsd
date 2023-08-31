@@ -8,6 +8,6 @@ export external public interface ~LinkProps extends React.ComponentProps<any> {
     public href?: string
 }
 
-export default external public function Link(props: ~LinkProps+ =): React.ReactElement<LinkProps+>;
+export default external public function Link(props: LinkProps+ =): React.ReactElement<LinkProps+>;
 
 /* -*- mode: typescript;-*- */

@@ -123,7 +123,7 @@ export external public function <PropsT extends React.ComponentProps<any>>
         mapStateToProps: Function=,
         mapDispatchToProps: (Function|Object)=,
         mergeProps: Function=,
-        options: ConnectOptions=
+        options: ~ConnectOptions=
     ): (constructor{?} | (PropsT) => React.ReactElement<?>) => (PropsT) => React.ReactElement<?>;
 
 /**
@@ -132,7 +132,7 @@ export external public function <PropsT extends React.ComponentProps<any>>
 export external public function <PropsT extends React.ComponentProps<any>>
     connectAdvanced(
         selectorFactory: Function,
-        connectOptions: ConnectAdvancedOptions=
+        connectOptions: ~ConnectAdvancedOptions=
     ): (constructor{?} | (PropsT) => React.ReactElement<?>) => (PropsT) => React.ReactElement<?>;
 
 /**
